@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM4S EFC1</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="EFC1">SAM4S EFC1</h1>
+        <h2 id="EFC1__User_Interface">Embedded Flash Controller (EFC1) User Interface</h2>
+<!--As per 6450M programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0C00">0x400E0C00</td>
+              <td class="description">EEFC Flash Mode Register</td>
+              <td class="name">
+                <a href="#EFC1_FMR" title="EEFC Flash Mode Register" class="one_click_away">EFC1_FMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x04000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0C04">0x400E0C04</td>
+              <td class="description">EEFC Flash Command Register</td>
+              <td class="name">
+                <a href="#EFC1_FCR" title="EEFC Flash Command Register" class="one_click_away">EFC1_FCR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0C08">0x400E0C08</td>
+              <td class="description">EEFC Flash Status Register</td>
+              <td class="name">
+                <a href="#EFC1_FSR" title="EEFC Flash Status Register" class="one_click_away">EFC1_FSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000001</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0C0C">0x400E0C0C</td>
+              <td class="description">EEFC Flash Result Register</td>
+              <td class="name">
+                <a href="#EFC1_FRR" title="EEFC Flash Result Register" class="one_click_away">EFC1_FRR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="EFC1_FMR">EFC1 EEFC Flash Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">EFC1_FMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0C00</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#EFC1_FMR__CLOE" title="Code Loop Optimization Enable">CLOE</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#EFC1_FMR__FAM" title="Flash Access Mode">FAM</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#EFC1_FMR__SCOD" title="Sequential Code Optimization Disable">SCOD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#EFC1_FMR__FWS" title="Flash Wait State">FWS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#EFC1_FMR__FRDY" title="Ready Interrupt Enable">FRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="EFC1_FMR__FRDY"><span class="field_name">FRDY</span>: <span class="field_description">Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="EFC1_FMR__FWS"><span class="field_name">FWS</span>: <span class="field_description">Flash Wait State</span></li>
+          <p>-</p>
+          <li id="EFC1_FMR__SCOD"><span class="field_name">SCOD</span>: <span class="field_description">Sequential Code Optimization Disable</span></li>
+          <p>-</p>
+          <li id="EFC1_FMR__FAM"><span class="field_name">FAM</span>: <span class="field_description">Flash Access Mode</span></li>
+          <p>-</p>
+          <li id="EFC1_FMR__CLOE"><span class="field_name">CLOE</span>: <span class="field_description">Code Loop Optimization Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="EFC1_FCR">EFC1 EEFC Flash Command Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">EFC1_FCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0C04</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FCR__FKEY" title="Flash Writing Protection Key">FKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FCR__FARG" title="Flash Command Argument">FARG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FCR__FARG" title="Flash Command Argument">FARG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FCR__FCMD" title="Flash Command">FCMD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="EFC1_FCR__FCMD"><span class="field_name">FCMD</span>: <span class="field_description">Flash Command</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x00</td><td class="name">GETD</td><td class="description">Get Flash descriptor</td></tr><tr class="even"><td class="value">0x01</td><td class="name">WP</td><td class="description">Write page</td></tr><tr class="odd"><td class="value">0x02</td><td class="name">WPL</td><td class="description">Write page and lock</td></tr><tr class="even"><td class="value">0x03</td><td class="name">EWP</td><td class="description">Erase page and write page</td></tr><tr class="odd"><td class="value">0x04</td><td class="name">EWPL</td><td class="description">Erase page and write page then lock</td></tr><tr class="even"><td class="value">0x05</td><td class="name">EA</td><td class="description">Erase all</td></tr><tr class="odd"><td class="value">0x07</td><td class="name">EPA</td><td class="description">Erase pages</td></tr><tr class="even"><td class="value">0x08</td><td class="name">SLB</td><td class="description">Set lock bit</td></tr><tr class="odd"><td class="value">0x09</td><td class="name">CLB</td><td class="description">Clear lock bit</td></tr><tr class="even"><td class="value">0x0A</td><td class="name">GLB</td><td class="description">Get lock bit</td></tr><tr class="odd"><td class="value">0x0B</td><td class="name">SGPB</td><td class="description">Set GPNVM bit</td></tr><tr class="even"><td class="value">0x0C</td><td class="name">CGPB</td><td class="description">Clear GPNVM bit</td></tr><tr class="odd"><td class="value">0x0D</td><td class="name">GGPB</td><td class="description">Get GPNVM bit</td></tr><tr class="even"><td class="value">0x0E</td><td class="name">STUI</td><td class="description">Start read unique identifier</td></tr><tr class="odd"><td class="value">0x0F</td><td class="name">SPUI</td><td class="description">Stop read unique identifier</td></tr><tr class="even"><td class="value">0x10</td><td class="name">GCALB</td><td class="description">Get CALIB bit</td></tr><tr class="odd"><td class="value">0x11</td><td class="name">ES</td><td class="description">Erase sector</td></tr><tr class="even"><td class="value">0x12</td><td class="name">WUS</td><td class="description">Write user signature</td></tr><tr class="odd"><td class="value">0x13</td><td class="name">EUS</td><td class="description">Erase user signature</td></tr><tr class="even"><td class="value">0x14</td><td class="name">STUS</td><td class="description">Start read user signature</td></tr><tr class="odd"><td class="value">0x15</td><td class="name">SPUS</td><td class="description">Stop read user signature</td></tr></tbody></table></li>
+          <li id="EFC1_FCR__FARG"><span class="field_name">FARG</span>: <span class="field_description">Flash Command Argument</span></li>
+          <p>-</p>
+          <li id="EFC1_FCR__FKEY"><span class="field_name">FKEY</span>: <span class="field_description">Flash Writing Protection Key</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x5A</td><td class="name">PASSWD</td><td class="description">The 0x5A value enables the command defined by the bits of the register. If the field is written with a different value, the write is not performed and no action is started.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="EFC1_FSR">EFC1 EEFC Flash Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">EFC1_FSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0C08</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#EFC1_FSR__FLERR" title="Flash Error Status">FLERR</a>
+              </td>
+              <td colspan="1">
+                <a href="#EFC1_FSR__FLOCKE" title="Flash Lock Error Status">FLOCKE</a>
+              </td>
+              <td colspan="1">
+                <a href="#EFC1_FSR__FCMDE" title="Flash Command Error Status">FCMDE</a>
+              </td>
+              <td colspan="1">
+                <a href="#EFC1_FSR__FRDY" title="Flash Ready Status">FRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="EFC1_FSR__FRDY"><span class="field_name">FRDY</span>: <span class="field_description">Flash Ready Status</span></li>
+          <p>-</p>
+          <li id="EFC1_FSR__FCMDE"><span class="field_name">FCMDE</span>: <span class="field_description">Flash Command Error Status</span></li>
+          <p>-</p>
+          <li id="EFC1_FSR__FLOCKE"><span class="field_name">FLOCKE</span>: <span class="field_description">Flash Lock Error Status</span></li>
+          <p>-</p>
+          <li id="EFC1_FSR__FLERR"><span class="field_name">FLERR</span>: <span class="field_description">Flash Error Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="EFC1_FRR">EFC1 EEFC Flash Result Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">EFC1_FRR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0C0C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FRR__FVALUE" title="Flash Result Value">FVALUE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FRR__FVALUE" title="Flash Result Value">FVALUE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FRR__FVALUE" title="Flash Result Value">FVALUE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#EFC1_FRR__FVALUE" title="Flash Result Value">FVALUE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="EFC1_FRR__FVALUE"><span class="field_name">FVALUE</span>: <span class="field_description">Flash Result Value</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="EFC1__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>EFC1 Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E0C00</td>
+              <td rowspan="4" class="register">
+                <a href="#EFC1_FMR">EFC1_FMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CLOE</td>
+              <td class="field reserved">-</td>
+              <td class="field">FAM</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SCOD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">FWS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">FRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0C04</td>
+              <td rowspan="4" class="register">
+                <a href="#EFC1_FCR">EFC1_FCR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">FKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">FARG</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">FARG</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">FCMD</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0C08</td>
+              <td rowspan="4" class="register">
+                <a href="#EFC1_FSR">EFC1_FSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">FLERR</td>
+              <td class="field">FLOCKE</td>
+              <td class="field">FCMDE</td>
+              <td class="field">FRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E0C0C</td>
+              <td rowspan="1" class="register">
+                <a href="#EFC1_FRR">EFC1_FRR</a>
+              </td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">FVALUE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

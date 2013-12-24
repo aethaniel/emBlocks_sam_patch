@@ -1,0 +1,1961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3N UART1</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="UART1">SAM3N UART1</h1>
+        <h2 id="UART1__User_Interface">Universal Asynchronous Receiver Transmitter (UART1) User Interface</h2>
+<!--As per 6418E programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0800">0x400E0800</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#UART1_CR" title="Control Register" class="one_click_away">UART1_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0804">0x400E0804</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#UART1_MR" title="Mode Register" class="one_click_away">UART1_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0808">0x400E0808</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#UART1_IER" title="Interrupt Enable Register" class="one_click_away">UART1_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E080C">0x400E080C</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#UART1_IDR" title="Interrupt Disable Register" class="one_click_away">UART1_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0810">0x400E0810</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#UART1_IMR" title="Interrupt Mask Register" class="one_click_away">UART1_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0814">0x400E0814</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#UART1_SR" title="Status Register" class="one_click_away">UART1_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0818">0x400E0818</td>
+              <td class="description">Receive Holding Register</td>
+              <td class="name">
+                <a href="#UART1_RHR" title="Receive Holding Register" class="one_click_away">UART1_RHR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E081C">0x400E081C</td>
+              <td class="description">Transmit Holding Register</td>
+              <td class="name">
+                <a href="#UART1_THR" title="Transmit Holding Register" class="one_click_away">UART1_THR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0820">0x400E0820</td>
+              <td class="description">Baud Rate Generator Register</td>
+              <td class="name">
+                <a href="#UART1_BRGR" title="Baud Rate Generator Register" class="one_click_away">UART1_BRGR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="UART1_CR">UART1 Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0800</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_CR__RSTSTA" title="Reset Status Bits">RSTSTA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#UART1_CR__TXDIS" title="Transmitter Disable">TXDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_CR__TXEN" title="Transmitter Enable">TXEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_CR__RXDIS" title="Receiver Disable">RXDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_CR__RXEN" title="Receiver Enable">RXEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_CR__RSTTX" title="Reset Transmitter">RSTTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_CR__RSTRX" title="Reset Receiver">RSTRX</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_CR__RSTRX"><span class="field_name">RSTRX</span>: <span class="field_description">Reset Receiver</span></li>
+          <p>-</p>
+          <li id="UART1_CR__RSTTX"><span class="field_name">RSTTX</span>: <span class="field_description">Reset Transmitter</span></li>
+          <p>-</p>
+          <li id="UART1_CR__RXEN"><span class="field_name">RXEN</span>: <span class="field_description">Receiver Enable</span></li>
+          <p>-</p>
+          <li id="UART1_CR__RXDIS"><span class="field_name">RXDIS</span>: <span class="field_description">Receiver Disable</span></li>
+          <p>-</p>
+          <li id="UART1_CR__TXEN"><span class="field_name">TXEN</span>: <span class="field_description">Transmitter Enable</span></li>
+          <p>-</p>
+          <li id="UART1_CR__TXDIS"><span class="field_name">TXDIS</span>: <span class="field_description">Transmitter Disable</span></li>
+          <p>-</p>
+          <li id="UART1_CR__RSTSTA"><span class="field_name">RSTSTA</span>: <span class="field_description">Reset Status Bits</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_MR">UART1 Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0804</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="2">
+                <a href="#UART1_MR__CHMODE" title="Channel Mode">CHMODE</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#UART1_MR__PAR" title="Parity Type">PAR</a>
+              </td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_MR__PAR"><span class="field_name">PAR</span>: <span class="field_description">Parity Type</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">EVEN</td><td class="description">Even parity</td></tr><tr class="even"><td class="value">0x1</td><td class="name">ODD</td><td class="description">Odd parity</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">SPACE</td><td class="description">Space: parity forced to 0</td></tr><tr class="even"><td class="value">0x3</td><td class="name">MARK</td><td class="description">Mark: parity forced to 1</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">NO</td><td class="description">No parity</td></tr></tbody></table></li>
+          <li id="UART1_MR__CHMODE"><span class="field_name">CHMODE</span>: <span class="field_description">Channel Mode</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NORMAL</td><td class="description">Normal Mode</td></tr><tr class="even"><td class="value">0x1</td><td class="name">AUTOMATIC</td><td class="description">Automatic Echo</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">LOCAL_LOOPBACK</td><td class="description">Local Loopback</td></tr><tr class="even"><td class="value">0x3</td><td class="name">REMOTE_LOOPBACK</td><td class="description">Remote Loopback</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="UART1_IER">UART1 Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0808</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IER__RXBUFF" title="Enable Buffer Full Interrupt">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IER__TXBUFE" title="Enable Buffer Empty Interrupt">TXBUFE</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IER__TXEMPTY" title="Enable TXEMPTY Interrupt">TXEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#UART1_IER__PARE" title="Enable Parity Error Interrupt">PARE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IER__FRAME" title="Enable Framing Error Interrupt">FRAME</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IER__OVRE" title="Enable Overrun Error Interrupt">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IER__ENDTX" title="Enable End of Transmit Interrupt">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IER__ENDRX" title="Enable End of Receive Transfer Interrupt">ENDRX</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IER__TXRDY" title="Enable TXRDY Interrupt">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IER__RXRDY" title="Enable RXRDY Interrupt">RXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_IER__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Enable RXRDY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Enable TXRDY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">Enable End of Receive Transfer Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">Enable End of Transmit Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Enable Overrun Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__FRAME"><span class="field_name">FRAME</span>: <span class="field_description">Enable Framing Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__PARE"><span class="field_name">PARE</span>: <span class="field_description">Enable Parity Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Enable TXEMPTY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Enable Buffer Empty Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IER__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Enable Buffer Full Interrupt</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_IDR">UART1 Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E080C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IDR__RXBUFF" title="Disable Buffer Full Interrupt">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IDR__TXBUFE" title="Disable Buffer Empty Interrupt">TXBUFE</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IDR__TXEMPTY" title="Disable TXEMPTY Interrupt">TXEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#UART1_IDR__PARE" title="Disable Parity Error Interrupt">PARE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IDR__FRAME" title="Disable Framing Error Interrupt">FRAME</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IDR__OVRE" title="Disable Overrun Error Interrupt">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IDR__ENDTX" title="Disable End of Transmit Interrupt">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IDR__ENDRX" title="Disable End of Receive Transfer Interrupt">ENDRX</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IDR__TXRDY" title="Disable TXRDY Interrupt">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IDR__RXRDY" title="Disable RXRDY Interrupt">RXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_IDR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Disable RXRDY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Disable TXRDY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">Disable End of Receive Transfer Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">Disable End of Transmit Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Disable Overrun Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__FRAME"><span class="field_name">FRAME</span>: <span class="field_description">Disable Framing Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__PARE"><span class="field_name">PARE</span>: <span class="field_description">Disable Parity Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Disable TXEMPTY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Disable Buffer Empty Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IDR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Disable Buffer Full Interrupt</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_IMR">UART1 Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0810</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IMR__RXBUFF" title="Mask RXBUFF Interrupt">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IMR__TXBUFE" title="Mask TXBUFE Interrupt">TXBUFE</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IMR__TXEMPTY" title="Mask TXEMPTY Interrupt">TXEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#UART1_IMR__PARE" title="Mask Parity Error Interrupt">PARE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IMR__FRAME" title="Mask Framing Error Interrupt">FRAME</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IMR__OVRE" title="Mask Overrun Error Interrupt">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IMR__ENDTX" title="Mask End of Transmit Interrupt">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IMR__ENDRX" title="Mask End of Receive Transfer Interrupt">ENDRX</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_IMR__TXRDY" title="Disable TXRDY Interrupt">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_IMR__RXRDY" title="Mask RXRDY Interrupt">RXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_IMR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Mask RXRDY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Disable TXRDY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">Mask End of Receive Transfer Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">Mask End of Transmit Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Mask Overrun Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__FRAME"><span class="field_name">FRAME</span>: <span class="field_description">Mask Framing Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__PARE"><span class="field_name">PARE</span>: <span class="field_description">Mask Parity Error Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Mask TXEMPTY Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Mask TXBUFE Interrupt</span></li>
+          <p>-</p>
+          <li id="UART1_IMR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Mask RXBUFF Interrupt</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_SR">UART1 Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0814</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_SR__RXBUFF" title="Receive Buffer Full">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_SR__TXBUFE" title="Transmission Buffer Empty">TXBUFE</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_SR__TXEMPTY" title="Transmitter Empty">TXEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#UART1_SR__PARE" title="Parity Error">PARE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_SR__FRAME" title="Framing Error">FRAME</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_SR__OVRE" title="Overrun Error">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_SR__ENDTX" title="End of Transmitter Transfer">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_SR__ENDRX" title="End of Receiver Transfer">ENDRX</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#UART1_SR__TXRDY" title="Transmitter Ready">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#UART1_SR__RXRDY" title="Receiver Ready">RXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_SR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receiver Ready</span></li>
+          <p>-</p>
+          <li id="UART1_SR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmitter Ready</span></li>
+          <p>-</p>
+          <li id="UART1_SR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receiver Transfer</span></li>
+          <p>-</p>
+          <li id="UART1_SR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmitter Transfer</span></li>
+          <p>-</p>
+          <li id="UART1_SR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Error</span></li>
+          <p>-</p>
+          <li id="UART1_SR__FRAME"><span class="field_name">FRAME</span>: <span class="field_description">Framing Error</span></li>
+          <p>-</p>
+          <li id="UART1_SR__PARE"><span class="field_name">PARE</span>: <span class="field_description">Parity Error</span></li>
+          <p>-</p>
+          <li id="UART1_SR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmitter Empty</span></li>
+          <p>-</p>
+          <li id="UART1_SR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmission Buffer Empty</span></li>
+          <p>-</p>
+          <li id="UART1_SR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_RHR">UART1 Receive Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_RHR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0818</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#UART1_RHR__RXCHR" title="Received Character">RXCHR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_RHR__RXCHR"><span class="field_name">RXCHR</span>: <span class="field_description">Received Character</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_THR">UART1 Transmit Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_THR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E081C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#UART1_THR__TXCHR" title="Character to be Transmitted">TXCHR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_THR__TXCHR"><span class="field_name">TXCHR</span>: <span class="field_description">Character to be Transmitted</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="UART1_BRGR">UART1 Baud Rate Generator Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">UART1_BRGR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0820</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#UART1_BRGR__CD" title="Clock Divisor">CD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#UART1_BRGR__CD" title="Clock Divisor">CD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="UART1_BRGR__CD"><span class="field_name">CD</span>: <span class="field_description">Clock Divisor</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="UART1__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>UART1 Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E0800</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_CR">UART1_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RSTSTA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">TXDIS</td>
+              <td class="field">TXEN</td>
+              <td class="field">RXDIS</td>
+              <td class="field">RXEN</td>
+              <td class="field">RSTTX</td>
+              <td class="field">RSTRX</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0804</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_MR">UART1_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="2">CHMODE</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">PAR</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0808</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_IER">UART1_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">TXBUFE</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">PARE</td>
+              <td class="field">FRAME</td>
+              <td class="field">OVRE</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E080C</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_IDR">UART1_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">TXBUFE</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">PARE</td>
+              <td class="field">FRAME</td>
+              <td class="field">OVRE</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0810</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_IMR">UART1_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">TXBUFE</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">PARE</td>
+              <td class="field">FRAME</td>
+              <td class="field">OVRE</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0814</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_SR">UART1_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">TXBUFE</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">PARE</td>
+              <td class="field">FRAME</td>
+              <td class="field">OVRE</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0818</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_RHR">UART1_RHR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXCHR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E081C</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_THR">UART1_THR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXCHR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0820</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_BRGR">UART1_BRGR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">CD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">CD</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0824 .. 0x400E08FC</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E0900</td>
+              <td rowspan="1" class="register">
+                <a href="#UART1_RPR">UART1_RPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0904</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_RCR">UART1_RCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E0908</td>
+              <td rowspan="1" class="register">
+                <a href="#UART1_TPR">UART1_TPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E090C</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_TCR">UART1_TCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E0910</td>
+              <td rowspan="1" class="register">
+                <a href="#UART1_RNPR">UART1_RNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0914</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_RNCR">UART1_RNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E0918</td>
+              <td rowspan="1" class="register">
+                <a href="#UART1_TNPR">UART1_TNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E091C</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_TNCR">UART1_TNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXNCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0920</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_PTCR">UART1_PTCR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTDIS</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTDIS</td>
+              <td class="field">RXTEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0924</td>
+              <td rowspan="4" class="register">
+                <a href="#UART1_PTSR">UART1_PTSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTEN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource>
+    <object class="wxPanel" name="deviceChoice">
+        <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="sizeritem">
+                <object class="wxStaticText" name="textDeviceChoice">
+                    <label>Please choose a device for this project...</label>
+                </object>
+                <flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+                <border>3</border>
+            </object>
+            <object class="sizeritem">
+                <object class="wxComboBox" name="comboboxDevice">
+                    <content>
+                        <item>SAM3 (Cortex-M3)</item>
+                        <item> SAM3A</item>
+                        <item>  ATSAM3A4C</item>
+                        <item>  ATSAM3A8C</item>
+                        <item> SAM3N</item>
+                        <item>  ATSAM3N00A</item>
+                        <item>  ATSAM3N00B</item>
+                        <item>  ATSAM3N0A</item>
+                        <item>  ATSAM3N0B</item>
+                        <item>  ATSAM3N0C</item>
+                        <item>  ATSAM3N1A</item>
+                        <item>  ATSAM3N1B</item>
+                        <item>  ATSAM3N1C</item>
+                        <item>  ATSAM3N2A</item>
+                        <item>  ATSAM3N2B</item>
+                        <item>  ATSAM3N2C</item>
+                        <item>  ATSAM3N4A</item>
+                        <item>  ATSAM3N4B</item>
+                        <item>  ATSAM3N4C</item>
+                        <item> SAM3S</item>
+                        <item>  ATSAM3S1A</item>
+                        <item>  ATSAM3S1B</item>
+                        <item>  ATSAM3S1C</item>
+                        <item>  ATSAM3S2A</item>
+                        <item>  ATSAM3S2B</item>
+                        <item>  ATSAM3S2C</item>
+                        <item>  ATSAM3S4A</item>
+                        <item>  ATSAM3S4B</item>
+                        <item>  ATSAM3S4C</item>
+                        <item>  ATSAM3S8B</item>
+                        <item>  ATSAM3S8C</item>
+                        <item>  ATSAM3SD8B</item>
+                        <item>  ATSAM3SD8C</item>
+                        <item> SAM3U</item>
+                        <item>  ATSAM3U1C</item>
+                        <item>  ATSAM3U1E</item>
+                        <item>  ATSAM3U2C</item>
+                        <item>  ATSAM3U2E</item>
+                        <item>  ATSAM3U4C</item>
+                        <item>  ATSAM3U4E</item>
+                        <item> SAM3X</item>
+                        <item>  ATSAM3X4C</item>
+                        <item>  ATSAM3X4E</item>
+                        <item>  ATSAM3X8C</item>
+                        <item>  ATSAM3X8E</item>
+                        <item>SAM4 (Cortex-M4)</item>
+                        <item> SAM4E</item>
+                        <item>  ATSAM4E16C</item>
+                        <item>  ATSAM4E16E</item>
+                        <item>  ATSAM4E8C</item>
+                        <item>  ATSAM4E8E</item>
+                        <item> SAM4LC</item>
+                        <item>  ATSAM4LC2A</item>
+                        <item>  ATSAM4LC2B</item>
+                        <item>  ATSAM4LC2C</item>
+                        <item>  ATSAM4LC4A</item>
+                        <item>  ATSAM4LC4B</item>
+                        <item>  ATSAM4LC4C</item>
+                        <item> SAM4LS</item>
+                        <item>  ATSAM4LS2A</item>
+                        <item>  ATSAM4LS2B</item>
+                        <item>  ATSAM4LS2C</item>
+                        <item>  ATSAM4LS4A</item>
+                        <item>  ATSAM4LS4B</item>
+                        <item>  ATSAM4LS4C</item>
+                        <item> SAM4N</item>
+                        <item>  ATSAM4N16B</item>
+                        <item>  ATSAM4N16C</item>
+                        <item>  ATSAM4N8A</item>
+                        <item>  ATSAM4N8B</item>
+                        <item>  ATSAM4N8C</item>
+                        <item> SAM4S</item>
+                        <item>  ATSAM4S8B</item>
+                        <item>  ATSAM4S8C</item>
+                        <item>  ATSAM4S16B</item>
+                        <item>  ATSAM4S16C</item>
+                        <item>  ATSAM4SA16B</item>
+                        <item>  ATSAM4SA16C</item>
+                        <item>  ATSAM4SD16B</item>
+                        <item>  ATSAM4SD16C</item>
+                        <item>  ATSAM4SD32B</item>
+                        <item>  ATSAM4SD32C</item>
+                        <item>SAM D20 (Cortex-M0+)</item>
+                        <item>  ATSAMD20E14</item>
+                        <item>  ATSAMD20E15</item>
+                        <item>  ATSAMD20E16</item>
+                        <item>  ATSAMD20E17</item>
+                        <item>  ATSAMD20G14</item>
+                        <item>  ATSAMD20G15</item>
+                        <item>  ATSAMD20G16</item>
+                        <item>  ATSAMD20G17</item>
+                        <item>  ATSAMD20G18</item>
+                        <item>  ATSAMD20J14</item>
+                        <item>  ATSAMD20J15</item>
+                        <item>  ATSAMD20J16</item>
+                        <item>  ATSAMD20J17</item>
+                        <item>  ATSAMD20J18</item>
+                        <item>SAM7 (ARM7TDMI)</item>
+                        <item> SAM7L</item>
+                        <item>  AT91SAM7L128</item>
+                        <item>  AT91SAM7L64</item>
+                        <item> SAM7S</item>
+                        <item>  AT91SAM7S16</item>
+                        <item>  AT91SAM7S161</item>
+                        <item>  AT91SAM7S32</item>
+                        <item>  AT91SAM7S321</item>
+                        <item>  AT91SAM7S64</item>
+                        <item>  AT91SAM7S128</item>
+                        <item>  AT91SAM7S256</item>
+                        <item>  AT91SAM7S512</item>
+                        <item> SAM7SE</item>
+                        <item>  AT91SAM7SE32</item>
+                        <item>  AT91SAM7SE256</item>
+                        <item>  AT91SAM7SE512</item>
+                        <item> SAM7X</item>
+                        <item>  AT91SAM7X128</item>
+                        <item>  AT91SAM7X256</item>
+                        <item>  AT91SAM7X512</item>
+                        <item> SAM7XC</item>
+                        <item>  AT91SAM7XC128</item>
+                        <item>  AT91SAM7XC256</item>
+                        <item>  AT91SAM7XC512</item>
+<!--
+                        <item>old AT91 (ARM7TDMI)</item>
+                        <item>  AT91M40800</item>
+                        <item>  AT91M42800A</item>
+                        <item>  AT91M55800A</item>
+                        <item>  AT91R40008</item>
+-->
+                    </content>
+                    <selection>-1</selection>
+                </object>
+                <flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+                <border>3</border>
+            </object>
+<!--
+            <object class="sizeritem">
+                <object class="wxStaticText" name="textCStandardChoice">
+                    <label>Compiler standard</label>
+                </object>
+                <flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+                <border>3</border>
+            </object>
+            <object class="sizeritem">
+                <object class="wxComboBox" name="comboboxCompiler">
+                    <content>
+                        <item>-std=c90</item>
+                        <item>-std=c99</item>
+                        <item>-std=c11</item>
+                        <item>-std=gnu90</item>
+                        <item>-std=gnu99</item>
+                        <item>-std=gnu11</item>
+                    </content>
+                    <selection>-1</selection>
+                </object>
+                <flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
+                <border>3</border>
+            </object>
+-->
+<!--
+            <object class="sizeritem">
+                <object class="wxCheckBox" name="checkboxRAM">
+                    <label>This is a RAM project</label>
+                    <tooltip>The project will run only in RAM</tooltip>
+                </object>
+                <flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+                <border>5</border>
+                <option>1</option>
+            </object>
+-->
+            <object class="sizeritem">
+                <object class="wxCheckBox" name="checkboxLibrary">
+                    <label>This is a library project</label>
+                    <tooltip>The project will generate a library (.a) file as output which can be used in other projects.&#x0A;&#x0A;It is possible to include a library  project in a workspace with multiple projects and to set dependencies&#x0A;to a library project. This insures that everything will keep in sync when a depending project is build </tooltip>
+                </object>
+                <flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+                <border>5</border>
+                <option>1</option>
+            </object>
+            <object class="sizeritem">
+                <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                        <object class="wxStaticText" name="ID_STATICTEXT2">
+                            <label>Stack size</label>
+                        </object>
+                        <flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+                        <border>5</border>
+                        <option>1</option>
+                    </object>
+                    <object class="sizeritem">
+                        <object class="wxTextCtrl" name="textctrlStack">
+                            <value>0x400</value>
+                            <tooltip>This value will be passed as STACK_SIZE to linker</tooltip>
+                        </object>
+                        <flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+                        <border>3</border>
+                        <option>1</option>
+                    </object>
+                </object>
+                <flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+                <border>5</border>
+                <option>1</option>
+            </object>
+            <object class="sizeritem">
+                <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                        <object class="wxStaticText" name="ID_STATICTEXT1">
+                            <label>Heap size</label>
+                        </object>
+                        <flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+                        <border>5</border>
+                        <option>1</option>
+                    </object>
+                    <object class="sizeritem">
+                        <object class="wxTextCtrl" name="textctrlHeap">
+                            <value>0x200</value>
+                            <tooltip>This value will be passed as HEAP_SIZE to linker</tooltip>
+                        </object>
+                        <flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+                        <border>3</border>
+                        <option>1</option>
+                    </object>
+                </object>
+                <flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+                <border>5</border>
+                <option>1</option>
+            </object>
+            <object class="sizeritem">
+                <object class="wxCheckBox" name="checkboxHex">
+                    <label>Create hex file (.hex)</label>
+                    <checked>0</checked>
+                    <tooltip>Create Intel hex files from the .elf output file</tooltip>
+                </object>
+                <flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+                <border>5</border>
+                <option>1</option>
+            </object>
+            <object class="sizeritem">
+                <object class="wxCheckBox" name="checkboxTargetLvl">
+                    <label>Set device settings at target level </label>
+                    <tooltip>Default al the device settings are set at project level and the targets device policy is set at &apos;Use project settings&apos;.&#x0A;&#x0A;With this option checked the device settings are set at target level with the policy &apos;Use target settings&apos;&#x0A;If you have multiple target with different device settings, please use this option.</tooltip>
+                </object>
+                <flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+                <border>5</border>
+                <option>1</option>
+            </object>
+        </object>
+    </object>
+</resource>

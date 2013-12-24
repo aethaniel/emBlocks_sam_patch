@@ -1,0 +1,3018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3U ADC</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="ADC">SAM3U ADC</h1>
+        <h2 id="ADC__User_Interface">Analog-to-Digital Converter (ADC) User Interface</h2>
+<!--As per 6051K programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC000">0x400AC000</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#ADC_CR" title="Control Register" class="one_click_away">ADC_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC004">0x400AC004</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#ADC_MR" title="Mode Register" class="one_click_away">ADC_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC010">0x400AC010</td>
+              <td class="description">Channel Enable Register</td>
+              <td class="name">
+                <a href="#ADC_CHER" title="Channel Enable Register" class="one_click_away">ADC_CHER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC014">0x400AC014</td>
+              <td class="description">Channel Disable Register</td>
+              <td class="name">
+                <a href="#ADC_CHDR" title="Channel Disable Register" class="one_click_away">ADC_CHDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC018">0x400AC018</td>
+              <td class="description">Channel Status Register</td>
+              <td class="name">
+                <a href="#ADC_CHSR" title="Channel Status Register" class="one_click_away">ADC_CHSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC01C">0x400AC01C</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#ADC_SR" title="Status Register" class="one_click_away">ADC_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x000C0000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC020">0x400AC020</td>
+              <td class="description">Last Converted Data Register</td>
+              <td class="name">
+                <a href="#ADC_LCDR" title="Last Converted Data Register" class="one_click_away">ADC_LCDR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC024">0x400AC024</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#ADC_IER" title="Interrupt Enable Register" class="one_click_away">ADC_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC028">0x400AC028</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#ADC_IDR" title="Interrupt Disable Register" class="one_click_away">ADC_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC02C">0x400AC02C</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#ADC_IMR" title="Interrupt Mask Register" class="one_click_away">ADC_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC030">0x400AC030</td>
+              <td class="description">Channel Data Register</td>
+              <td class="name">
+                <a href="#ADC_CDR" title="Channel Data Register" class="one_click_away">ADC_CDR[8]</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC100">0x400AC100</td>
+              <td class="description">Receive Pointer Register</td>
+              <td class="name">
+                <a href="#ADC_RPR" title="Receive Pointer Register" class="one_click_away">ADC_RPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC104">0x400AC104</td>
+              <td class="description">Receive Counter Register</td>
+              <td class="name">
+                <a href="#ADC_RCR" title="Receive Counter Register" class="one_click_away">ADC_RCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC110">0x400AC110</td>
+              <td class="description">Receive Next Pointer Register</td>
+              <td class="name">
+                <a href="#ADC_RNPR" title="Receive Next Pointer Register" class="one_click_away">ADC_RNPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC114">0x400AC114</td>
+              <td class="description">Receive Next Counter Register</td>
+              <td class="name">
+                <a href="#ADC_RNCR" title="Receive Next Counter Register" class="one_click_away">ADC_RNCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400AC120">0x400AC120</td>
+              <td class="description">Transfer Control Register</td>
+              <td class="name">
+                <a href="#ADC_PTCR" title="Transfer Control Register" class="one_click_away">ADC_PTCR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400AC124">0x400AC124</td>
+              <td class="description">Transfer Status Register</td>
+              <td class="name">
+                <a href="#ADC_PTSR" title="Transfer Status Register" class="one_click_away">ADC_PTSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="ADC_CR">ADC Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_CR__START" title="Start Conversion">START</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CR__SWRST" title="Software Reset">SWRST</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_CR__SWRST"><span class="field_name">SWRST</span>: <span class="field_description">Software Reset</span></li>
+          <p>-</p>
+          <li id="ADC_CR__START"><span class="field_name">START</span>: <span class="field_description">Start Conversion</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_MR">ADC Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#ADC_MR__SHTIM" title="Sample &amp; Hold Time">SHTIM</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="7">
+                <a href="#ADC_MR__STARTUP" title="Start Up Time">STARTUP</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_MR__PRESCAL" title="Prescaler Rate Selection">PRESCAL</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_MR__SLEEP" title="Sleep Mode">SLEEP</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_MR__LOWRES" title="Resolution">LOWRES</a>
+              </td>
+              <td colspan="3">
+                <a href="#ADC_MR__TRGSEL" title="Trigger Selection">TRGSEL</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_MR__TRGEN" title="Trigger Enable">TRGEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_MR__TRGEN"><span class="field_name">TRGEN</span>: <span class="field_description">Trigger Enable</span></li>
+          <p>-</p>
+          <li id="ADC_MR__TRGSEL"><span class="field_name">TRGSEL</span>: <span class="field_description">Trigger Selection</span></li>
+          <p>-</p>
+          <li id="ADC_MR__LOWRES"><span class="field_name">LOWRES</span>: <span class="field_description">Resolution</span></li>
+          <p>-</p>
+          <li id="ADC_MR__SLEEP"><span class="field_name">SLEEP</span>: <span class="field_description">Sleep Mode</span></li>
+          <p>-</p>
+          <li id="ADC_MR__PRESCAL"><span class="field_name">PRESCAL</span>: <span class="field_description">Prescaler Rate Selection</span></li>
+          <p>-</p>
+          <li id="ADC_MR__STARTUP"><span class="field_name">STARTUP</span>: <span class="field_description">Start Up Time</span></li>
+          <p>-</p>
+          <li id="ADC_MR__SHTIM"><span class="field_name">SHTIM</span>: <span class="field_description">Sample &amp; Hold Time</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_CHER">ADC Channel Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_CHER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_CHER__CH7" title="Channel 7 Enable">CH7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH6" title="Channel 6 Enable">CH6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH5" title="Channel 5 Enable">CH5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH4" title="Channel 4 Enable">CH4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH3" title="Channel 3 Enable">CH3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH2" title="Channel 2 Enable">CH2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH1" title="Channel 1 Enable">CH1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHER__CH0" title="Channel 0 Enable">CH0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_CHER__CH0"><span class="field_name">CH0</span>: <span class="field_description">Channel 0 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH1"><span class="field_name">CH1</span>: <span class="field_description">Channel 1 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH2"><span class="field_name">CH2</span>: <span class="field_description">Channel 2 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH3"><span class="field_name">CH3</span>: <span class="field_description">Channel 3 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH4"><span class="field_name">CH4</span>: <span class="field_description">Channel 4 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH5"><span class="field_name">CH5</span>: <span class="field_description">Channel 5 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH6"><span class="field_name">CH6</span>: <span class="field_description">Channel 6 Enable</span></li>
+          <p>-</p>
+          <li id="ADC_CHER__CH7"><span class="field_name">CH7</span>: <span class="field_description">Channel 7 Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_CHDR">ADC Channel Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_CHDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC014</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH7" title="Channel 7 Disable">CH7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH6" title="Channel 6 Disable">CH6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH5" title="Channel 5 Disable">CH5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH4" title="Channel 4 Disable">CH4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH3" title="Channel 3 Disable">CH3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH2" title="Channel 2 Disable">CH2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH1" title="Channel 1 Disable">CH1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHDR__CH0" title="Channel 0 Disable">CH0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_CHDR__CH0"><span class="field_name">CH0</span>: <span class="field_description">Channel 0 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH1"><span class="field_name">CH1</span>: <span class="field_description">Channel 1 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH2"><span class="field_name">CH2</span>: <span class="field_description">Channel 2 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH3"><span class="field_name">CH3</span>: <span class="field_description">Channel 3 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH4"><span class="field_name">CH4</span>: <span class="field_description">Channel 4 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH5"><span class="field_name">CH5</span>: <span class="field_description">Channel 5 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH6"><span class="field_name">CH6</span>: <span class="field_description">Channel 6 Disable</span></li>
+          <p>-</p>
+          <li id="ADC_CHDR__CH7"><span class="field_name">CH7</span>: <span class="field_description">Channel 7 Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_CHSR">ADC Channel Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_CHSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC018</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH7" title="Channel 7 Status">CH7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH6" title="Channel 6 Status">CH6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH5" title="Channel 5 Status">CH5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH4" title="Channel 4 Status">CH4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH3" title="Channel 3 Status">CH3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH2" title="Channel 2 Status">CH2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH1" title="Channel 1 Status">CH1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_CHSR__CH0" title="Channel 0 Status">CH0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_CHSR__CH0"><span class="field_name">CH0</span>: <span class="field_description">Channel 0 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH1"><span class="field_name">CH1</span>: <span class="field_description">Channel 1 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH2"><span class="field_name">CH2</span>: <span class="field_description">Channel 2 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH3"><span class="field_name">CH3</span>: <span class="field_description">Channel 3 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH4"><span class="field_name">CH4</span>: <span class="field_description">Channel 4 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH5"><span class="field_name">CH5</span>: <span class="field_description">Channel 5 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH6"><span class="field_name">CH6</span>: <span class="field_description">Channel 6 Status</span></li>
+          <p>-</p>
+          <li id="ADC_CHSR__CH7"><span class="field_name">CH7</span>: <span class="field_description">Channel 7 Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_SR">ADC Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC01C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_SR__RXBUFF" title="RX Buffer Full">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__ENDRX" title="End of RX Buffer">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__GOVRE" title="General Overrun Error">GOVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__DRDY" title="Data Ready">DRDY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE7" title="Overrun Error 7">OVRE7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE6" title="Overrun Error 6">OVRE6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE5" title="Overrun Error 5">OVRE5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE4" title="Overrun Error 4">OVRE4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE3" title="Overrun Error 3">OVRE3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE2" title="Overrun Error 2">OVRE2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE1" title="Overrun Error 1">OVRE1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__OVRE0" title="Overrun Error 0">OVRE0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_SR__EOC7" title="End of Conversion 7">EOC7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC6" title="End of Conversion 6">EOC6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC5" title="End of Conversion 5">EOC5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC4" title="End of Conversion 4">EOC4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC3" title="End of Conversion 3">EOC3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC2" title="End of Conversion 2">EOC2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC1" title="End of Conversion 1">EOC1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_SR__EOC0" title="End of Conversion 0">EOC0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_SR__EOC0"><span class="field_name">EOC0</span>: <span class="field_description">End of Conversion 0</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC1"><span class="field_name">EOC1</span>: <span class="field_description">End of Conversion 1</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC2"><span class="field_name">EOC2</span>: <span class="field_description">End of Conversion 2</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC3"><span class="field_name">EOC3</span>: <span class="field_description">End of Conversion 3</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC4"><span class="field_name">EOC4</span>: <span class="field_description">End of Conversion 4</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC5"><span class="field_name">EOC5</span>: <span class="field_description">End of Conversion 5</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC6"><span class="field_name">EOC6</span>: <span class="field_description">End of Conversion 6</span></li>
+          <p>-</p>
+          <li id="ADC_SR__EOC7"><span class="field_name">EOC7</span>: <span class="field_description">End of Conversion 7</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE0"><span class="field_name">OVRE0</span>: <span class="field_description">Overrun Error 0</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE1"><span class="field_name">OVRE1</span>: <span class="field_description">Overrun Error 1</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE2"><span class="field_name">OVRE2</span>: <span class="field_description">Overrun Error 2</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE3"><span class="field_name">OVRE3</span>: <span class="field_description">Overrun Error 3</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE4"><span class="field_name">OVRE4</span>: <span class="field_description">Overrun Error 4</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE5"><span class="field_name">OVRE5</span>: <span class="field_description">Overrun Error 5</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE6"><span class="field_name">OVRE6</span>: <span class="field_description">Overrun Error 6</span></li>
+          <p>-</p>
+          <li id="ADC_SR__OVRE7"><span class="field_name">OVRE7</span>: <span class="field_description">Overrun Error 7</span></li>
+          <p>-</p>
+          <li id="ADC_SR__DRDY"><span class="field_name">DRDY</span>: <span class="field_description">Data Ready</span></li>
+          <p>-</p>
+          <li id="ADC_SR__GOVRE"><span class="field_name">GOVRE</span>: <span class="field_description">General Overrun Error</span></li>
+          <p>-</p>
+          <li id="ADC_SR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of RX Buffer</span></li>
+          <p>-</p>
+          <li id="ADC_SR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">RX Buffer Full</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_LCDR">ADC Last Converted Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_LCDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC020</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#ADC_LCDR__LDATA" title="Last Data Converted">LDATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_LCDR__LDATA" title="Last Data Converted">LDATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_LCDR__LDATA"><span class="field_name">LDATA</span>: <span class="field_description">Last Data Converted</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_IER">ADC Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC024</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_IER__RXBUFF" title="Receive Buffer Full Interrupt Enable">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__ENDRX" title="End of Receive Buffer Interrupt Enable">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__GOVRE" title="General Overrun Error Interrupt Enable">GOVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__DRDY" title="Data Ready Interrupt Enable">DRDY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE7" title="Overrun Error Interrupt Enable 7">OVRE7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE6" title="Overrun Error Interrupt Enable 6">OVRE6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE5" title="Overrun Error Interrupt Enable 5">OVRE5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE4" title="Overrun Error Interrupt Enable 4">OVRE4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE3" title="Overrun Error Interrupt Enable 3">OVRE3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE2" title="Overrun Error Interrupt Enable 2">OVRE2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE1" title="Overrun Error Interrupt Enable 1">OVRE1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__OVRE0" title="Overrun Error Interrupt Enable 0">OVRE0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_IER__EOC7" title="End of Conversion Interrupt Enable 7">EOC7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC6" title="End of Conversion Interrupt Enable 6">EOC6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC5" title="End of Conversion Interrupt Enable 5">EOC5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC4" title="End of Conversion Interrupt Enable 4">EOC4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC3" title="End of Conversion Interrupt Enable 3">EOC3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC2" title="End of Conversion Interrupt Enable 2">EOC2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC1" title="End of Conversion Interrupt Enable 1">EOC1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IER__EOC0" title="End of Conversion Interrupt Enable 0">EOC0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_IER__EOC0"><span class="field_name">EOC0</span>: <span class="field_description">End of Conversion Interrupt Enable 0</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC1"><span class="field_name">EOC1</span>: <span class="field_description">End of Conversion Interrupt Enable 1</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC2"><span class="field_name">EOC2</span>: <span class="field_description">End of Conversion Interrupt Enable 2</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC3"><span class="field_name">EOC3</span>: <span class="field_description">End of Conversion Interrupt Enable 3</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC4"><span class="field_name">EOC4</span>: <span class="field_description">End of Conversion Interrupt Enable 4</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC5"><span class="field_name">EOC5</span>: <span class="field_description">End of Conversion Interrupt Enable 5</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC6"><span class="field_name">EOC6</span>: <span class="field_description">End of Conversion Interrupt Enable 6</span></li>
+          <p>-</p>
+          <li id="ADC_IER__EOC7"><span class="field_name">EOC7</span>: <span class="field_description">End of Conversion Interrupt Enable 7</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE0"><span class="field_name">OVRE0</span>: <span class="field_description">Overrun Error Interrupt Enable 0</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE1"><span class="field_name">OVRE1</span>: <span class="field_description">Overrun Error Interrupt Enable 1</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE2"><span class="field_name">OVRE2</span>: <span class="field_description">Overrun Error Interrupt Enable 2</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE3"><span class="field_name">OVRE3</span>: <span class="field_description">Overrun Error Interrupt Enable 3</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE4"><span class="field_name">OVRE4</span>: <span class="field_description">Overrun Error Interrupt Enable 4</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE5"><span class="field_name">OVRE5</span>: <span class="field_description">Overrun Error Interrupt Enable 5</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE6"><span class="field_name">OVRE6</span>: <span class="field_description">Overrun Error Interrupt Enable 6</span></li>
+          <p>-</p>
+          <li id="ADC_IER__OVRE7"><span class="field_name">OVRE7</span>: <span class="field_description">Overrun Error Interrupt Enable 7</span></li>
+          <p>-</p>
+          <li id="ADC_IER__DRDY"><span class="field_name">DRDY</span>: <span class="field_description">Data Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="ADC_IER__GOVRE"><span class="field_name">GOVRE</span>: <span class="field_description">General Overrun Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="ADC_IER__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="ADC_IER__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_IDR">ADC Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC028</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_IDR__RXBUFF" title="Receive Buffer Full Interrupt Disable">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__ENDRX" title="End of Receive Buffer Interrupt Disable">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__GOVRE" title="General Overrun Error Interrupt Disable">GOVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__DRDY" title="Data Ready Interrupt Disable">DRDY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE7" title="Overrun Error Interrupt Disable 7">OVRE7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE6" title="Overrun Error Interrupt Disable 6">OVRE6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE5" title="Overrun Error Interrupt Disable 5">OVRE5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE4" title="Overrun Error Interrupt Disable 4">OVRE4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE3" title="Overrun Error Interrupt Disable 3">OVRE3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE2" title="Overrun Error Interrupt Disable 2">OVRE2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE1" title="Overrun Error Interrupt Disable 1">OVRE1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__OVRE0" title="Overrun Error Interrupt Disable 0">OVRE0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC7" title="End of Conversion Interrupt Disable 7">EOC7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC6" title="End of Conversion Interrupt Disable 6">EOC6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC5" title="End of Conversion Interrupt Disable 5">EOC5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC4" title="End of Conversion Interrupt Disable 4">EOC4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC3" title="End of Conversion Interrupt Disable 3">EOC3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC2" title="End of Conversion Interrupt Disable 2">EOC2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC1" title="End of Conversion Interrupt Disable 1">EOC1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IDR__EOC0" title="End of Conversion Interrupt Disable 0">EOC0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_IDR__EOC0"><span class="field_name">EOC0</span>: <span class="field_description">End of Conversion Interrupt Disable 0</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC1"><span class="field_name">EOC1</span>: <span class="field_description">End of Conversion Interrupt Disable 1</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC2"><span class="field_name">EOC2</span>: <span class="field_description">End of Conversion Interrupt Disable 2</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC3"><span class="field_name">EOC3</span>: <span class="field_description">End of Conversion Interrupt Disable 3</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC4"><span class="field_name">EOC4</span>: <span class="field_description">End of Conversion Interrupt Disable 4</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC5"><span class="field_name">EOC5</span>: <span class="field_description">End of Conversion Interrupt Disable 5</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC6"><span class="field_name">EOC6</span>: <span class="field_description">End of Conversion Interrupt Disable 6</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__EOC7"><span class="field_name">EOC7</span>: <span class="field_description">End of Conversion Interrupt Disable 7</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE0"><span class="field_name">OVRE0</span>: <span class="field_description">Overrun Error Interrupt Disable 0</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE1"><span class="field_name">OVRE1</span>: <span class="field_description">Overrun Error Interrupt Disable 1</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE2"><span class="field_name">OVRE2</span>: <span class="field_description">Overrun Error Interrupt Disable 2</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE3"><span class="field_name">OVRE3</span>: <span class="field_description">Overrun Error Interrupt Disable 3</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE4"><span class="field_name">OVRE4</span>: <span class="field_description">Overrun Error Interrupt Disable 4</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE5"><span class="field_name">OVRE5</span>: <span class="field_description">Overrun Error Interrupt Disable 5</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE6"><span class="field_name">OVRE6</span>: <span class="field_description">Overrun Error Interrupt Disable 6</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__OVRE7"><span class="field_name">OVRE7</span>: <span class="field_description">Overrun Error Interrupt Disable 7</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__DRDY"><span class="field_name">DRDY</span>: <span class="field_description">Data Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__GOVRE"><span class="field_name">GOVRE</span>: <span class="field_description">General Overrun Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="ADC_IDR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_IMR">ADC Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC02C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_IMR__RXBUFF" title="Receive Buffer Full Interrupt Mask">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__ENDRX" title="End of Receive Buffer Interrupt Mask">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__GOVRE" title="General Overrun Error Interrupt Mask">GOVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__DRDY" title="Data Ready Interrupt Mask">DRDY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE7" title="Overrun Error Interrupt Mask 7">OVRE7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE6" title="Overrun Error Interrupt Mask 6">OVRE6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE5" title="Overrun Error Interrupt Mask 5">OVRE5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE4" title="Overrun Error Interrupt Mask 4">OVRE4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE3" title="Overrun Error Interrupt Mask 3">OVRE3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE2" title="Overrun Error Interrupt Mask 2">OVRE2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE1" title="Overrun Error Interrupt Mask 1">OVRE1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__OVRE0" title="Overrun Error Interrupt Mask 0">OVRE0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC7" title="End of Conversion Interrupt Mask 7">EOC7</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC6" title="End of Conversion Interrupt Mask 6">EOC6</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC5" title="End of Conversion Interrupt Mask 5">EOC5</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC4" title="End of Conversion Interrupt Mask 4">EOC4</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC3" title="End of Conversion Interrupt Mask 3">EOC3</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC2" title="End of Conversion Interrupt Mask 2">EOC2</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC1" title="End of Conversion Interrupt Mask 1">EOC1</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_IMR__EOC0" title="End of Conversion Interrupt Mask 0">EOC0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_IMR__EOC0"><span class="field_name">EOC0</span>: <span class="field_description">End of Conversion Interrupt Mask 0</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC1"><span class="field_name">EOC1</span>: <span class="field_description">End of Conversion Interrupt Mask 1</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC2"><span class="field_name">EOC2</span>: <span class="field_description">End of Conversion Interrupt Mask 2</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC3"><span class="field_name">EOC3</span>: <span class="field_description">End of Conversion Interrupt Mask 3</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC4"><span class="field_name">EOC4</span>: <span class="field_description">End of Conversion Interrupt Mask 4</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC5"><span class="field_name">EOC5</span>: <span class="field_description">End of Conversion Interrupt Mask 5</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC6"><span class="field_name">EOC6</span>: <span class="field_description">End of Conversion Interrupt Mask 6</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__EOC7"><span class="field_name">EOC7</span>: <span class="field_description">End of Conversion Interrupt Mask 7</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE0"><span class="field_name">OVRE0</span>: <span class="field_description">Overrun Error Interrupt Mask 0</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE1"><span class="field_name">OVRE1</span>: <span class="field_description">Overrun Error Interrupt Mask 1</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE2"><span class="field_name">OVRE2</span>: <span class="field_description">Overrun Error Interrupt Mask 2</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE3"><span class="field_name">OVRE3</span>: <span class="field_description">Overrun Error Interrupt Mask 3</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE4"><span class="field_name">OVRE4</span>: <span class="field_description">Overrun Error Interrupt Mask 4</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE5"><span class="field_name">OVRE5</span>: <span class="field_description">Overrun Error Interrupt Mask 5</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE6"><span class="field_name">OVRE6</span>: <span class="field_description">Overrun Error Interrupt Mask 6</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__OVRE7"><span class="field_name">OVRE7</span>: <span class="field_description">Overrun Error Interrupt Mask 7</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__DRDY"><span class="field_name">DRDY</span>: <span class="field_description">Data Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__GOVRE"><span class="field_name">GOVRE</span>: <span class="field_description">General Overrun Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="ADC_IMR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_CDR">ADC Channel Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_CDR[0:7]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC030</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#ADC_CDR__DATA" title="Converted Data">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_CDR__DATA" title="Converted Data">DATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_CDR__DATA"><span class="field_name">DATA</span>: <span class="field_description">Converted Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_RPR">ADC Receive Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_RPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC100</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_RPR__RXPTR"><span class="field_name">RXPTR</span>: <span class="field_description">Receive Pointer Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_RCR">ADC Receive Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_RCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC104</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RCR__RXCTR" title="Receive Counter Register">RXCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RCR__RXCTR" title="Receive Counter Register">RXCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_RCR__RXCTR"><span class="field_name">RXCTR</span>: <span class="field_description">Receive Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_RNPR">ADC Receive Next Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_RNPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC110</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_RNPR__RXNPTR"><span class="field_name">RXNPTR</span>: <span class="field_description">Receive Next Pointer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_RNCR">ADC Receive Next Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_RNCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC114</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RNCR__RXNCTR" title="Receive Next Counter">RXNCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#ADC_RNCR__RXNCTR" title="Receive Next Counter">RXNCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_RNCR__RXNCTR"><span class="field_name">RXNCTR</span>: <span class="field_description">Receive Next Counter</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_PTCR">ADC Transfer Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_PTCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC120</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_PTCR__TXTDIS" title="Transmitter Transfer Disable">TXTDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_PTCR__TXTEN" title="Transmitter Transfer Enable">TXTEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_PTCR__RXTDIS" title="Receiver Transfer Disable">RXTDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#ADC_PTCR__RXTEN" title="Receiver Transfer Enable">RXTEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_PTCR__RXTEN"><span class="field_name">RXTEN</span>: <span class="field_description">Receiver Transfer Enable</span></li>
+          <p>-</p>
+          <li id="ADC_PTCR__RXTDIS"><span class="field_name">RXTDIS</span>: <span class="field_description">Receiver Transfer Disable</span></li>
+          <p>-</p>
+          <li id="ADC_PTCR__TXTEN"><span class="field_name">TXTEN</span>: <span class="field_description">Transmitter Transfer Enable</span></li>
+          <p>-</p>
+          <li id="ADC_PTCR__TXTDIS"><span class="field_name">TXTDIS</span>: <span class="field_description">Transmitter Transfer Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="ADC_PTSR">ADC Transfer Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">ADC_PTSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400AC124</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_PTSR__TXTEN" title="Transmitter Transfer Enable">TXTEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#ADC_PTSR__RXTEN" title="Receiver Transfer Enable">RXTEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="ADC_PTSR__RXTEN"><span class="field_name">RXTEN</span>: <span class="field_description">Receiver Transfer Enable</span></li>
+          <p>-</p>
+          <li id="ADC_PTSR__TXTEN"><span class="field_name">TXTEN</span>: <span class="field_description">Transmitter Transfer Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="ADC__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>ADC Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400AC000</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_CR">ADC_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">START</td>
+              <td class="field">SWRST</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC004</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_MR">ADC_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">SHTIM</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="7">STARTUP</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">PRESCAL</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SLEEP</td>
+              <td class="field">LOWRES</td>
+              <td class="field" colspan="3">TRGSEL</td>
+              <td class="field">TRGEN</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400AC008 .. 0x400AC00C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC010</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_CHER">ADC_CHER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">CH7</td>
+              <td class="field">CH6</td>
+              <td class="field">CH5</td>
+              <td class="field">CH4</td>
+              <td class="field">CH3</td>
+              <td class="field">CH2</td>
+              <td class="field">CH1</td>
+              <td class="field">CH0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC014</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_CHDR">ADC_CHDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">CH7</td>
+              <td class="field">CH6</td>
+              <td class="field">CH5</td>
+              <td class="field">CH4</td>
+              <td class="field">CH3</td>
+              <td class="field">CH2</td>
+              <td class="field">CH1</td>
+              <td class="field">CH0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC018</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_CHSR">ADC_CHSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">CH7</td>
+              <td class="field">CH6</td>
+              <td class="field">CH5</td>
+              <td class="field">CH4</td>
+              <td class="field">CH3</td>
+              <td class="field">CH2</td>
+              <td class="field">CH1</td>
+              <td class="field">CH0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC01C</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_SR">ADC_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDRX</td>
+              <td class="field">GOVRE</td>
+              <td class="field">DRDY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">OVRE7</td>
+              <td class="field">OVRE6</td>
+              <td class="field">OVRE5</td>
+              <td class="field">OVRE4</td>
+              <td class="field">OVRE3</td>
+              <td class="field">OVRE2</td>
+              <td class="field">OVRE1</td>
+              <td class="field">OVRE0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">EOC7</td>
+              <td class="field">EOC6</td>
+              <td class="field">EOC5</td>
+              <td class="field">EOC4</td>
+              <td class="field">EOC3</td>
+              <td class="field">EOC2</td>
+              <td class="field">EOC1</td>
+              <td class="field">EOC0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC020</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_LCDR">ADC_LCDR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">LDATA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">LDATA</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC024</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_IER">ADC_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDRX</td>
+              <td class="field">GOVRE</td>
+              <td class="field">DRDY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">OVRE7</td>
+              <td class="field">OVRE6</td>
+              <td class="field">OVRE5</td>
+              <td class="field">OVRE4</td>
+              <td class="field">OVRE3</td>
+              <td class="field">OVRE2</td>
+              <td class="field">OVRE1</td>
+              <td class="field">OVRE0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">EOC7</td>
+              <td class="field">EOC6</td>
+              <td class="field">EOC5</td>
+              <td class="field">EOC4</td>
+              <td class="field">EOC3</td>
+              <td class="field">EOC2</td>
+              <td class="field">EOC1</td>
+              <td class="field">EOC0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC028</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_IDR">ADC_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDRX</td>
+              <td class="field">GOVRE</td>
+              <td class="field">DRDY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">OVRE7</td>
+              <td class="field">OVRE6</td>
+              <td class="field">OVRE5</td>
+              <td class="field">OVRE4</td>
+              <td class="field">OVRE3</td>
+              <td class="field">OVRE2</td>
+              <td class="field">OVRE1</td>
+              <td class="field">OVRE0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">EOC7</td>
+              <td class="field">EOC6</td>
+              <td class="field">EOC5</td>
+              <td class="field">EOC4</td>
+              <td class="field">EOC3</td>
+              <td class="field">EOC2</td>
+              <td class="field">EOC1</td>
+              <td class="field">EOC0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC02C</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_IMR">ADC_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDRX</td>
+              <td class="field">GOVRE</td>
+              <td class="field">DRDY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">OVRE7</td>
+              <td class="field">OVRE6</td>
+              <td class="field">OVRE5</td>
+              <td class="field">OVRE4</td>
+              <td class="field">OVRE3</td>
+              <td class="field">OVRE2</td>
+              <td class="field">OVRE1</td>
+              <td class="field">OVRE0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">EOC7</td>
+              <td class="field">EOC6</td>
+              <td class="field">EOC5</td>
+              <td class="field">EOC4</td>
+              <td class="field">EOC3</td>
+              <td class="field">EOC2</td>
+              <td class="field">EOC1</td>
+              <td class="field">EOC0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC030</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_CDR">ADC_CDR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">DATA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">DATA</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400AC050 .. 0x400AC0FC</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400AC100</td>
+              <td rowspan="1" class="register">
+                <a href="#ADC_RPR">ADC_RPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC104</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_RCR">ADC_RCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400AC108 .. 0x400AC10C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400AC110</td>
+              <td rowspan="1" class="register">
+                <a href="#ADC_RNPR">ADC_RNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC114</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_RNCR">ADC_RNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400AC118 .. 0x400AC11C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC120</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_PTCR">ADC_PTCR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTDIS</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTDIS</td>
+              <td class="field">RXTEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400AC124</td>
+              <td rowspan="4" class="register">
+                <a href="#ADC_PTSR">ADC_PTSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTEN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

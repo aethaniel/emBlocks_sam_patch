@@ -1,0 +1,3458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM4N PWM</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="PWM">SAM4N PWM</h1>
+        <h2 id="PWM__User_Interface">Pulse Width Modulation Controller (PWM) User Interface</h2>
+<!--As per 6044J programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x40020000">0x40020000</td>
+              <td class="description">PWM Mode Register</td>
+              <td class="name">
+                <a href="#PWM_MR" title="PWM Mode Register" class="one_click_away">PWM_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020004">0x40020004</td>
+              <td class="description">PWM Enable Register</td>
+              <td class="name">
+                <a href="#PWM_ENA" title="PWM Enable Register" class="one_click_away">PWM_ENA</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020008">0x40020008</td>
+              <td class="description">PWM Disable Register</td>
+              <td class="name">
+                <a href="#PWM_DIS" title="PWM Disable Register" class="one_click_away">PWM_DIS</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4002000C">0x4002000C</td>
+              <td class="description">PWM Status Register</td>
+              <td class="name">
+                <a href="#PWM_SR" title="PWM Status Register" class="one_click_away">PWM_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020010">0x40020010</td>
+              <td class="description">PWM Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#PWM_IER" title="PWM Interrupt Enable Register" class="one_click_away">PWM_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020014">0x40020014</td>
+              <td class="description">PWM Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#PWM_IDR" title="PWM Interrupt Disable Register" class="one_click_away">PWM_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020018">0x40020018</td>
+              <td class="description">PWM Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#PWM_IMR" title="PWM Interrupt Mask Register" class="one_click_away">PWM_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4002001C">0x4002001C</td>
+              <td class="description">PWM Interrupt Status Register</td>
+              <td class="name">
+                <a href="#PWM_ISR" title="PWM Interrupt Status Register" class="one_click_away">PWM_ISR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020200">0x40020200</td>
+              <td class="description">PWM Channel Mode Register (ch_num = 0)</td>
+              <td class="name">
+                <a href="#PWM_CMR0" title="PWM Channel Mode Register (ch_num = 0)" class="one_click_away">PWM_CMR0</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020204">0x40020204</td>
+              <td class="description">PWM Channel Duty Cycle Register (ch_num = 0)</td>
+              <td class="name">
+                <a href="#PWM_CDTY0" title="PWM Channel Duty Cycle Register (ch_num = 0)" class="one_click_away">PWM_CDTY0</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020208">0x40020208</td>
+              <td class="description">PWM Channel Period Register (ch_num = 0)</td>
+              <td class="name">
+                <a href="#PWM_CPRD0" title="PWM Channel Period Register (ch_num = 0)" class="one_click_away">PWM_CPRD0</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4002020C">0x4002020C</td>
+              <td class="description">PWM Channel Counter Register (ch_num = 0)</td>
+              <td class="name">
+                <a href="#PWM_CCNT0" title="PWM Channel Counter Register (ch_num = 0)" class="one_click_away">PWM_CCNT0</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020210">0x40020210</td>
+              <td class="description">PWM Channel Update Register (ch_num = 0)</td>
+              <td class="name">
+                <a href="#PWM_CUPD0" title="PWM Channel Update Register (ch_num = 0)" class="one_click_away">PWM_CUPD0</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020220">0x40020220</td>
+              <td class="description">PWM Channel Mode Register (ch_num = 1)</td>
+              <td class="name">
+                <a href="#PWM_CMR1" title="PWM Channel Mode Register (ch_num = 1)" class="one_click_away">PWM_CMR1</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020224">0x40020224</td>
+              <td class="description">PWM Channel Duty Cycle Register (ch_num = 1)</td>
+              <td class="name">
+                <a href="#PWM_CDTY1" title="PWM Channel Duty Cycle Register (ch_num = 1)" class="one_click_away">PWM_CDTY1</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020228">0x40020228</td>
+              <td class="description">PWM Channel Period Register (ch_num = 1)</td>
+              <td class="name">
+                <a href="#PWM_CPRD1" title="PWM Channel Period Register (ch_num = 1)" class="one_click_away">PWM_CPRD1</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4002022C">0x4002022C</td>
+              <td class="description">PWM Channel Counter Register (ch_num = 1)</td>
+              <td class="name">
+                <a href="#PWM_CCNT1" title="PWM Channel Counter Register (ch_num = 1)" class="one_click_away">PWM_CCNT1</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020230">0x40020230</td>
+              <td class="description">PWM Channel Update Register (ch_num = 1)</td>
+              <td class="name">
+                <a href="#PWM_CUPD1" title="PWM Channel Update Register (ch_num = 1)" class="one_click_away">PWM_CUPD1</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020240">0x40020240</td>
+              <td class="description">PWM Channel Mode Register (ch_num = 2)</td>
+              <td class="name">
+                <a href="#PWM_CMR2" title="PWM Channel Mode Register (ch_num = 2)" class="one_click_away">PWM_CMR2</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020244">0x40020244</td>
+              <td class="description">PWM Channel Duty Cycle Register (ch_num = 2)</td>
+              <td class="name">
+                <a href="#PWM_CDTY2" title="PWM Channel Duty Cycle Register (ch_num = 2)" class="one_click_away">PWM_CDTY2</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020248">0x40020248</td>
+              <td class="description">PWM Channel Period Register (ch_num = 2)</td>
+              <td class="name">
+                <a href="#PWM_CPRD2" title="PWM Channel Period Register (ch_num = 2)" class="one_click_away">PWM_CPRD2</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4002024C">0x4002024C</td>
+              <td class="description">PWM Channel Counter Register (ch_num = 2)</td>
+              <td class="name">
+                <a href="#PWM_CCNT2" title="PWM Channel Counter Register (ch_num = 2)" class="one_click_away">PWM_CCNT2</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020250">0x40020250</td>
+              <td class="description">PWM Channel Update Register (ch_num = 2)</td>
+              <td class="name">
+                <a href="#PWM_CUPD2" title="PWM Channel Update Register (ch_num = 2)" class="one_click_away">PWM_CUPD2</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020260">0x40020260</td>
+              <td class="description">PWM Channel Mode Register (ch_num = 3)</td>
+              <td class="name">
+                <a href="#PWM_CMR3" title="PWM Channel Mode Register (ch_num = 3)" class="one_click_away">PWM_CMR3</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40020264">0x40020264</td>
+              <td class="description">PWM Channel Duty Cycle Register (ch_num = 3)</td>
+              <td class="name">
+                <a href="#PWM_CDTY3" title="PWM Channel Duty Cycle Register (ch_num = 3)" class="one_click_away">PWM_CDTY3</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020268">0x40020268</td>
+              <td class="description">PWM Channel Period Register (ch_num = 3)</td>
+              <td class="name">
+                <a href="#PWM_CPRD3" title="PWM Channel Period Register (ch_num = 3)" class="one_click_away">PWM_CPRD3</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4002026C">0x4002026C</td>
+              <td class="description">PWM Channel Counter Register (ch_num = 3)</td>
+              <td class="name">
+                <a href="#PWM_CCNT3" title="PWM Channel Counter Register (ch_num = 3)" class="one_click_away">PWM_CCNT3</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40020270">0x40020270</td>
+              <td class="description">PWM Channel Update Register (ch_num = 3)</td>
+              <td class="name">
+                <a href="#PWM_CUPD3" title="PWM Channel Update Register (ch_num = 3)" class="one_click_away">PWM_CUPD3</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="PWM_MR">PWM PWM Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#PWM_MR__PREB" title="">PREB</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_MR__DIVB" title="CLKA, CLKB Divide Factor">DIVB</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#PWM_MR__PREA" title="">PREA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_MR__DIVA" title="CLKA, CLKB Divide Factor">DIVA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_MR__DIVA"><span class="field_name">DIVA</span>: <span class="field_description">CLKA, CLKB Divide Factor</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">CLK_OFF</td><td class="description">CLKA, CLKB clock is turned off</td></tr><tr class="even"><td class="value">1</td><td class="name">CLK_DIV1</td><td class="description">CLKA, CLKB clock is clock selected by PREA, PREB</td></tr></tbody></table></li>
+          <li id="PWM_MR__PREA">
+            <span class="field_name">PREA</span>
+            <table class="values">
+              <thead>
+                <tr>
+                  <th>Value</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd">
+                  <td class="value">0x0</td>
+                  <td class="name">MCK</td>
+                  <td class="description">Master Clock</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x1</td>
+                  <td class="name">MCKDIV2</td>
+                  <td class="description">Master Clock divided by 2</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x2</td>
+                  <td class="name">MCKDIV4</td>
+                  <td class="description">Master Clock divided by 4</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x3</td>
+                  <td class="name">MCKDIV8</td>
+                  <td class="description">Master Clock divided by 8</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x4</td>
+                  <td class="name">MCKDIV16</td>
+                  <td class="description">Master Clock divided by 16</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x5</td>
+                  <td class="name">MCKDIV32</td>
+                  <td class="description">Master Clock divided by 32</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x6</td>
+                  <td class="name">MCKDIV64</td>
+                  <td class="description">Master Clock divided by 64</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x7</td>
+                  <td class="name">MCKDIV128</td>
+                  <td class="description">Master Clock divided by 128</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x8</td>
+                  <td class="name">MCKDIV256</td>
+                  <td class="description">Master Clock divided by 256</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x9</td>
+                  <td class="name">MCKDIV512</td>
+                  <td class="description">Master Clock divided by 512</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0xA</td>
+                  <td class="name">MCKDIV1024</td>
+                  <td class="description">Master Clock divided by 1024</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li id="PWM_MR__DIVB"><span class="field_name">DIVB</span>: <span class="field_description">CLKA, CLKB Divide Factor</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">CLK_OFF</td><td class="description">CLKA, CLKB clock is turned off</td></tr><tr class="even"><td class="value">1</td><td class="name">CLK_DIV1</td><td class="description">CLKA, CLKB clock is clock selected by PREA, PREB</td></tr></tbody></table></li>
+          <li id="PWM_MR__PREB">
+            <span class="field_name">PREB</span>
+            <table class="values">
+              <thead>
+                <tr>
+                  <th>Value</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd">
+                  <td class="value">0x0</td>
+                  <td class="name">MCK</td>
+                  <td class="description">Master Clock</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x1</td>
+                  <td class="name">MCKDIV2</td>
+                  <td class="description">Master Clock divided by 2</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x2</td>
+                  <td class="name">MCKDIV4</td>
+                  <td class="description">Master Clock divided by 4</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x3</td>
+                  <td class="name">MCKDIV8</td>
+                  <td class="description">Master Clock divided by 8</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x4</td>
+                  <td class="name">MCKDIV16</td>
+                  <td class="description">Master Clock divided by 16</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x5</td>
+                  <td class="name">MCKDIV32</td>
+                  <td class="description">Master Clock divided by 32</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x6</td>
+                  <td class="name">MCKDIV64</td>
+                  <td class="description">Master Clock divided by 64</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x7</td>
+                  <td class="name">MCKDIV128</td>
+                  <td class="description">Master Clock divided by 128</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0x8</td>
+                  <td class="name">MCKDIV256</td>
+                  <td class="description">Master Clock divided by 256</td>
+                </tr>
+                <tr class="even">
+                  <td class="value">0x9</td>
+                  <td class="name">MCKDIV512</td>
+                  <td class="description">Master Clock divided by 512</td>
+                </tr>
+                <tr class="odd">
+                  <td class="value">0xA</td>
+                  <td class="name">MCKDIV1024</td>
+                  <td class="description">Master Clock divided by 1024</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+        <h4 id="PWM_ENA">PWM PWM Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_ENA</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_ENA__CHID3" title="Channel ID">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_ENA__CHID2" title="Channel ID">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_ENA__CHID1" title="Channel ID">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_ENA__CHID0" title="Channel ID">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_ENA__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_ENA__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_ENA__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_ENA__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_DIS">PWM PWM Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_DIS</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020008</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_DIS__CHID3" title="Channel ID">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_DIS__CHID2" title="Channel ID">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_DIS__CHID1" title="Channel ID">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_DIS__CHID0" title="Channel ID">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_DIS__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_DIS__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_DIS__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_DIS__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_SR">PWM PWM Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4002000C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_SR__CHID3" title="Channel ID">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_SR__CHID2" title="Channel ID">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_SR__CHID1" title="Channel ID">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_SR__CHID0" title="Channel ID">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_SR__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_SR__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_SR__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_SR__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_IER">PWM PWM Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_IER__CHID3" title="Channel ID.">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IER__CHID2" title="Channel ID.">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IER__CHID1" title="Channel ID.">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IER__CHID0" title="Channel ID.">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_IER__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IER__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IER__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IER__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_IDR">PWM PWM Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020014</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_IDR__CHID3" title="Channel ID.">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IDR__CHID2" title="Channel ID.">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IDR__CHID1" title="Channel ID.">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IDR__CHID0" title="Channel ID.">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_IDR__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IDR__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IDR__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IDR__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_IMR">PWM PWM Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020018</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_IMR__CHID3" title="Channel ID.">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IMR__CHID2" title="Channel ID.">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IMR__CHID1" title="Channel ID.">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_IMR__CHID0" title="Channel ID.">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_IMR__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IMR__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IMR__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+          <li id="PWM_IMR__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID.</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_ISR">PWM PWM Interrupt Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_ISR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4002001C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_ISR__CHID3" title="Channel ID">CHID3</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_ISR__CHID2" title="Channel ID">CHID2</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_ISR__CHID1" title="Channel ID">CHID1</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_ISR__CHID0" title="Channel ID">CHID0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_ISR__CHID0"><span class="field_name">CHID0</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_ISR__CHID1"><span class="field_name">CHID1</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_ISR__CHID2"><span class="field_name">CHID2</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+          <li id="PWM_ISR__CHID3"><span class="field_name">CHID3</span>: <span class="field_description">Channel ID</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CMR0">PWM PWM Channel Mode Register (ch_num = 0)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CMR0</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020200</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_CMR0__CPD" title="Channel Update Period">CPD</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR0__CPOL" title="Channel Polarity">CPOL</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR0__CALG" title="Channel Alignment">CALG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#PWM_CMR0__CPRE" title="Channel Pre-scaler">CPRE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CMR0__CPRE"><span class="field_name">CPRE</span>: <span class="field_description">Channel Pre-scaler</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MCK</td><td class="description">Master Clock</td></tr><tr class="even"><td class="value">0x1</td><td class="name">MCKDIV2</td><td class="description">Master Clock divided by 2</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">MCKDIV4</td><td class="description">Master Clock divided by 4</td></tr><tr class="even"><td class="value">0x3</td><td class="name">MCKDIV8</td><td class="description">Master Clock divided by 8</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">MCKDIV16</td><td class="description">Master Clock divided by 16</td></tr><tr class="even"><td class="value">0x5</td><td class="name">MCKDIV32</td><td class="description">Master Clock divided by 32</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">MCKDIV64</td><td class="description">Master Clock divided by 64</td></tr><tr class="even"><td class="value">0x7</td><td class="name">MCKDIV128</td><td class="description">Master Clock divided by 128</td></tr><tr class="odd"><td class="value">0x8</td><td class="name">MCKDIV256</td><td class="description">Master Clock divided by 256</td></tr><tr class="even"><td class="value">0x9</td><td class="name">MCKDIV512</td><td class="description">Master Clock divided by 512</td></tr><tr class="odd"><td class="value">0xA</td><td class="name">MCKDIV1024</td><td class="description">Master Clock divided by 1024</td></tr><tr class="even"><td class="value">0xB</td><td class="name">CLKA</td><td class="description">Clock A</td></tr><tr class="odd"><td class="value">0xC</td><td class="name">CLKB</td><td class="description">Clock B</td></tr></tbody></table></li>
+          <li id="PWM_CMR0__CALG"><span class="field_name">CALG</span>: <span class="field_description">Channel Alignment</span></li>
+          <p>-</p>
+          <li id="PWM_CMR0__CPOL"><span class="field_name">CPOL</span>: <span class="field_description">Channel Polarity</span></li>
+          <p>-</p>
+          <li id="PWM_CMR0__CPD"><span class="field_name">CPD</span>: <span class="field_description">Channel Update Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CDTY0">PWM PWM Channel Duty Cycle Register (ch_num = 0)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CDTY0</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020204</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY0__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY0__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY0__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY0__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CDTY0__CDTY"><span class="field_name">CDTY</span>: <span class="field_description">Channel Duty Cycle</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CPRD0">PWM PWM Channel Period Register (ch_num = 0)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CPRD0</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020208</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD0__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD0__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD0__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD0__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CPRD0__CPRD"><span class="field_name">CPRD</span>: <span class="field_description">Channel Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CCNT0">PWM PWM Channel Counter Register (ch_num = 0)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CCNT0</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4002020C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT0__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT0__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT0__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT0__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CCNT0__CNT"><span class="field_name">CNT</span>: <span class="field_description">Channel Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CUPD0">PWM PWM Channel Update Register (ch_num = 0)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CUPD0</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020210</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD0__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD0__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD0__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD0__CUPD">CUPD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CUPD0__CUPD">
+            <span class="field_name">CUPD</span>
+          </li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CMR1">PWM PWM Channel Mode Register (ch_num = 1)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CMR1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020220</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_CMR1__CPD" title="Channel Update Period">CPD</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR1__CPOL" title="Channel Polarity">CPOL</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR1__CALG" title="Channel Alignment">CALG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#PWM_CMR1__CPRE" title="Channel Pre-scaler">CPRE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CMR1__CPRE"><span class="field_name">CPRE</span>: <span class="field_description">Channel Pre-scaler</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MCK</td><td class="description">Master Clock</td></tr><tr class="even"><td class="value">0x1</td><td class="name">MCKDIV2</td><td class="description">Master Clock divided by 2</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">MCKDIV4</td><td class="description">Master Clock divided by 4</td></tr><tr class="even"><td class="value">0x3</td><td class="name">MCKDIV8</td><td class="description">Master Clock divided by 8</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">MCKDIV16</td><td class="description">Master Clock divided by 16</td></tr><tr class="even"><td class="value">0x5</td><td class="name">MCKDIV32</td><td class="description">Master Clock divided by 32</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">MCKDIV64</td><td class="description">Master Clock divided by 64</td></tr><tr class="even"><td class="value">0x7</td><td class="name">MCKDIV128</td><td class="description">Master Clock divided by 128</td></tr><tr class="odd"><td class="value">0x8</td><td class="name">MCKDIV256</td><td class="description">Master Clock divided by 256</td></tr><tr class="even"><td class="value">0x9</td><td class="name">MCKDIV512</td><td class="description">Master Clock divided by 512</td></tr><tr class="odd"><td class="value">0xA</td><td class="name">MCKDIV1024</td><td class="description">Master Clock divided by 1024</td></tr><tr class="even"><td class="value">0xB</td><td class="name">CLKA</td><td class="description">Clock A</td></tr><tr class="odd"><td class="value">0xC</td><td class="name">CLKB</td><td class="description">Clock B</td></tr></tbody></table></li>
+          <li id="PWM_CMR1__CALG"><span class="field_name">CALG</span>: <span class="field_description">Channel Alignment</span></li>
+          <p>-</p>
+          <li id="PWM_CMR1__CPOL"><span class="field_name">CPOL</span>: <span class="field_description">Channel Polarity</span></li>
+          <p>-</p>
+          <li id="PWM_CMR1__CPD"><span class="field_name">CPD</span>: <span class="field_description">Channel Update Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CDTY1">PWM PWM Channel Duty Cycle Register (ch_num = 1)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CDTY1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020224</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY1__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY1__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY1__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY1__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CDTY1__CDTY"><span class="field_name">CDTY</span>: <span class="field_description">Channel Duty Cycle</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CPRD1">PWM PWM Channel Period Register (ch_num = 1)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CPRD1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020228</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD1__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD1__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD1__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD1__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CPRD1__CPRD"><span class="field_name">CPRD</span>: <span class="field_description">Channel Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CCNT1">PWM PWM Channel Counter Register (ch_num = 1)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CCNT1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4002022C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT1__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT1__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT1__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT1__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CCNT1__CNT"><span class="field_name">CNT</span>: <span class="field_description">Channel Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CUPD1">PWM PWM Channel Update Register (ch_num = 1)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CUPD1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020230</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD1__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD1__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD1__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD1__CUPD">CUPD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CUPD1__CUPD">
+            <span class="field_name">CUPD</span>
+          </li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CMR2">PWM PWM Channel Mode Register (ch_num = 2)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CMR2</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020240</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_CMR2__CPD" title="Channel Update Period">CPD</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR2__CPOL" title="Channel Polarity">CPOL</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR2__CALG" title="Channel Alignment">CALG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#PWM_CMR2__CPRE" title="Channel Pre-scaler">CPRE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CMR2__CPRE"><span class="field_name">CPRE</span>: <span class="field_description">Channel Pre-scaler</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MCK</td><td class="description">Master Clock</td></tr><tr class="even"><td class="value">0x1</td><td class="name">MCKDIV2</td><td class="description">Master Clock divided by 2</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">MCKDIV4</td><td class="description">Master Clock divided by 4</td></tr><tr class="even"><td class="value">0x3</td><td class="name">MCKDIV8</td><td class="description">Master Clock divided by 8</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">MCKDIV16</td><td class="description">Master Clock divided by 16</td></tr><tr class="even"><td class="value">0x5</td><td class="name">MCKDIV32</td><td class="description">Master Clock divided by 32</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">MCKDIV64</td><td class="description">Master Clock divided by 64</td></tr><tr class="even"><td class="value">0x7</td><td class="name">MCKDIV128</td><td class="description">Master Clock divided by 128</td></tr><tr class="odd"><td class="value">0x8</td><td class="name">MCKDIV256</td><td class="description">Master Clock divided by 256</td></tr><tr class="even"><td class="value">0x9</td><td class="name">MCKDIV512</td><td class="description">Master Clock divided by 512</td></tr><tr class="odd"><td class="value">0xA</td><td class="name">MCKDIV1024</td><td class="description">Master Clock divided by 1024</td></tr><tr class="even"><td class="value">0xB</td><td class="name">CLKA</td><td class="description">Clock A</td></tr><tr class="odd"><td class="value">0xC</td><td class="name">CLKB</td><td class="description">Clock B</td></tr></tbody></table></li>
+          <li id="PWM_CMR2__CALG"><span class="field_name">CALG</span>: <span class="field_description">Channel Alignment</span></li>
+          <p>-</p>
+          <li id="PWM_CMR2__CPOL"><span class="field_name">CPOL</span>: <span class="field_description">Channel Polarity</span></li>
+          <p>-</p>
+          <li id="PWM_CMR2__CPD"><span class="field_name">CPD</span>: <span class="field_description">Channel Update Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CDTY2">PWM PWM Channel Duty Cycle Register (ch_num = 2)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CDTY2</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020244</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY2__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY2__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY2__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY2__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CDTY2__CDTY"><span class="field_name">CDTY</span>: <span class="field_description">Channel Duty Cycle</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CPRD2">PWM PWM Channel Period Register (ch_num = 2)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CPRD2</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020248</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD2__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD2__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD2__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD2__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CPRD2__CPRD"><span class="field_name">CPRD</span>: <span class="field_description">Channel Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CCNT2">PWM PWM Channel Counter Register (ch_num = 2)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CCNT2</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4002024C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT2__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT2__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT2__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT2__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CCNT2__CNT"><span class="field_name">CNT</span>: <span class="field_description">Channel Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CUPD2">PWM PWM Channel Update Register (ch_num = 2)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CUPD2</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020250</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD2__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD2__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD2__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD2__CUPD">CUPD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CUPD2__CUPD">
+            <span class="field_name">CUPD</span>
+          </li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CMR3">PWM PWM Channel Mode Register (ch_num = 3)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CMR3</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020260</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#PWM_CMR3__CPD" title="Channel Update Period">CPD</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR3__CPOL" title="Channel Polarity">CPOL</a>
+              </td>
+              <td colspan="1">
+                <a href="#PWM_CMR3__CALG" title="Channel Alignment">CALG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#PWM_CMR3__CPRE" title="Channel Pre-scaler">CPRE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CMR3__CPRE"><span class="field_name">CPRE</span>: <span class="field_description">Channel Pre-scaler</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MCK</td><td class="description">Master Clock</td></tr><tr class="even"><td class="value">0x1</td><td class="name">MCKDIV2</td><td class="description">Master Clock divided by 2</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">MCKDIV4</td><td class="description">Master Clock divided by 4</td></tr><tr class="even"><td class="value">0x3</td><td class="name">MCKDIV8</td><td class="description">Master Clock divided by 8</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">MCKDIV16</td><td class="description">Master Clock divided by 16</td></tr><tr class="even"><td class="value">0x5</td><td class="name">MCKDIV32</td><td class="description">Master Clock divided by 32</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">MCKDIV64</td><td class="description">Master Clock divided by 64</td></tr><tr class="even"><td class="value">0x7</td><td class="name">MCKDIV128</td><td class="description">Master Clock divided by 128</td></tr><tr class="odd"><td class="value">0x8</td><td class="name">MCKDIV256</td><td class="description">Master Clock divided by 256</td></tr><tr class="even"><td class="value">0x9</td><td class="name">MCKDIV512</td><td class="description">Master Clock divided by 512</td></tr><tr class="odd"><td class="value">0xA</td><td class="name">MCKDIV1024</td><td class="description">Master Clock divided by 1024</td></tr><tr class="even"><td class="value">0xB</td><td class="name">CLKA</td><td class="description">Clock A</td></tr><tr class="odd"><td class="value">0xC</td><td class="name">CLKB</td><td class="description">Clock B</td></tr></tbody></table></li>
+          <li id="PWM_CMR3__CALG"><span class="field_name">CALG</span>: <span class="field_description">Channel Alignment</span></li>
+          <p>-</p>
+          <li id="PWM_CMR3__CPOL"><span class="field_name">CPOL</span>: <span class="field_description">Channel Polarity</span></li>
+          <p>-</p>
+          <li id="PWM_CMR3__CPD"><span class="field_name">CPD</span>: <span class="field_description">Channel Update Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CDTY3">PWM PWM Channel Duty Cycle Register (ch_num = 3)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CDTY3</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020264</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY3__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY3__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY3__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CDTY3__CDTY" title="Channel Duty Cycle">CDTY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CDTY3__CDTY"><span class="field_name">CDTY</span>: <span class="field_description">Channel Duty Cycle</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CPRD3">PWM PWM Channel Period Register (ch_num = 3)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CPRD3</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020268</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD3__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD3__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD3__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CPRD3__CPRD" title="Channel Period">CPRD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CPRD3__CPRD"><span class="field_name">CPRD</span>: <span class="field_description">Channel Period</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CCNT3">PWM PWM Channel Counter Register (ch_num = 3)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CCNT3</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4002026C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT3__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT3__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT3__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CCNT3__CNT" title="Channel Counter Register">CNT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CCNT3__CNT"><span class="field_name">CNT</span>: <span class="field_description">Channel Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="PWM_CUPD3">PWM PWM Channel Update Register (ch_num = 3)</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">PWM_CUPD3</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40020270</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD3__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD3__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD3__CUPD">CUPD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#PWM_CUPD3__CUPD">CUPD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="PWM_CUPD3__CUPD">
+            <span class="field_name">CUPD</span>
+          </li>
+          <p>-</p>
+        </ul>
+        <h3 id="PWM__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>PWM Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x40020000</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_MR">PWM_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">PREB</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">DIVB</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">PREA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">DIVA</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40020004</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_ENA">PWM_ENA</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40020008</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_DIS">PWM_DIS</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4002000C</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_SR">PWM_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40020010</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_IER">PWM_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40020014</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_IDR">PWM_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40020018</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_IMR">PWM_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4002001C</td>
+              <td rowspan="4" class="register">
+                <a href="#PWM_ISR">PWM_ISR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CHID3</td>
+              <td class="field">CHID2</td>
+              <td class="field">CHID1</td>
+              <td class="field">CHID0</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40020020 .. 0x400201FC</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr class="map">
+              <td class="map address">0x40020200</td>
+              <td class="map register">CH_NUM[4]</td>
+              <td class="map access">-</td>
+              <td class="map range">-</td>
+              <td class="map field" colspan="8">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="summary centered">
+          <caption>PWM (CH_NUM) Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="offset">Offset</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="offset">0x0</td>
+              <td rowspan="4" class="register">PWM_CMR</td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CPD</td>
+              <td class="field">CPOL</td>
+              <td class="field">CALG</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">CPRE</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="offset">0x4</td>
+              <td rowspan="1" class="register">PWM_CDTY</td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">CDTY</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="offset">0x8</td>
+              <td rowspan="1" class="register">PWM_CPRD</td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">CPRD</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="offset">0xC</td>
+              <td rowspan="1" class="register">PWM_CCNT</td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">CNT</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="offset">0x10</td>
+              <td rowspan="1" class="register">PWM_CUPD</td>
+              <td rowspan="1" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">CUPD</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved offset">0x14 .. 0x1C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

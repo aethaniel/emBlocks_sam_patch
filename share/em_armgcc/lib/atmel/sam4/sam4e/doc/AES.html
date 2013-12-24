@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM4E AES</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="AES">SAM4E AES</h1>
+        <h2 id="AES__User_Interface">Advanced Encryption Standard (AES) User Interface</h2>
+<!--As per 6149K programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x40004000">0x40004000</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#AES_CR" title="Control Register" class="one_click_away">AES_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004004">0x40004004</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#AES_MR" title="Mode Register" class="one_click_away">AES_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004010">0x40004010</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#AES_IER" title="Interrupt Enable Register" class="one_click_away">AES_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004014">0x40004014</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#AES_IDR" title="Interrupt Disable Register" class="one_click_away">AES_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004018">0x40004018</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#AES_IMR" title="Interrupt Mask Register" class="one_click_away">AES_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000401C">0x4000401C</td>
+              <td class="description">Interrupt Status Register</td>
+              <td class="name">
+                <a href="#AES_ISR" title="Interrupt Status Register" class="one_click_away">AES_ISR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004020">0x40004020</td>
+              <td class="description">Key Word Register</td>
+              <td class="name">
+                <a href="#AES_KEYWR" title="Key Word Register" class="one_click_away">AES_KEYWR[8]</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004040">0x40004040</td>
+              <td class="description">Input Data Register</td>
+              <td class="name">
+                <a href="#AES_IDATAR" title="Input Data Register" class="one_click_away">AES_IDATAR[4]</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004050">0x40004050</td>
+              <td class="description">Output Data Register</td>
+              <td class="name">
+                <a href="#AES_ODATAR" title="Output Data Register" class="one_click_away">AES_ODATAR[4]</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004060">0x40004060</td>
+              <td class="description">Initialization Vector Register</td>
+              <td class="name">
+                <a href="#AES_IVR" title="Initialization Vector Register" class="one_click_away">AES_IVR[4]</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="AES_CR">AES Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_CR__SWRST" title="Software Reset">SWRST</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_CR__START" title="Start Processing">START</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_CR__START"><span class="field_name">START</span>: <span class="field_description">Start Processing</span></li>
+          <p>-</p>
+          <li id="AES_CR__SWRST"><span class="field_name">SWRST</span>: <span class="field_description">Software Reset</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_MR">AES Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#AES_MR__CKEY" title="Key">CKEY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#AES_MR__CFBS" title="Cipher Feedback Data Size">CFBS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#AES_MR__LOD" title="Last Output Data Mode">LOD</a>
+              </td>
+              <td colspan="3">
+                <a href="#AES_MR__OPMOD" title="Operation Mode">OPMOD</a>
+              </td>
+              <td colspan="2">
+                <a href="#AES_MR__KEYSIZE" title="Key Size">KEYSIZE</a>
+              </td>
+              <td colspan="2">
+                <a href="#AES_MR__SMOD" title="Start Mode">SMOD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#AES_MR__PROCDLY" title="Processing Delay">PROCDLY</a>
+              </td>
+              <td colspan="1">
+                <a href="#AES_MR__DUALBUFF" title="Dual Input BUFFer">DUALBUFF</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_MR__CIPHER" title="Processing Mode">CIPHER</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_MR__CIPHER"><span class="field_name">CIPHER</span>: <span class="field_description">Processing Mode</span></li>
+          <p>-</p>
+          <li id="AES_MR__DUALBUFF"><span class="field_name">DUALBUFF</span>: <span class="field_description">Dual Input BUFFer</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">INACTIVE</td><td class="description">AES_IDATARx cannot be written during processing of previous block.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">ACTIVE</td><td class="description">AES_IDATARx can be written during processing of previous block when SMOD = 0x2. It speeds up the overall runtime of large files.</td></tr></tbody></table></li>
+          <li id="AES_MR__PROCDLY"><span class="field_name">PROCDLY</span>: <span class="field_description">Processing Delay</span></li>
+          <p>-</p>
+          <li id="AES_MR__SMOD"><span class="field_name">SMOD</span>: <span class="field_description">Start Mode</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MANUAL_START</td><td class="description">Manual Mode</td></tr><tr class="even"><td class="value">0x1</td><td class="name">AUTO_START</td><td class="description">Auto Mode</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">IDATAR0_START</td><td class="description">AES_IDATAR0 access only Auto Mode</td></tr></tbody></table></li>
+          <li id="AES_MR__KEYSIZE"><span class="field_name">KEYSIZE</span>: <span class="field_description">Key Size</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">AES128</td><td class="description">AES Key Size is 128 bits</td></tr><tr class="even"><td class="value">0x1</td><td class="name">AES192</td><td class="description">AES Key Size is 192 bits</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">AES256</td><td class="description">AES Key Size is 256 bits</td></tr></tbody></table></li>
+          <li id="AES_MR__OPMOD"><span class="field_name">OPMOD</span>: <span class="field_description">Operation Mode</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">ECB</td><td class="description">ECB: Electronic Code Book mode</td></tr><tr class="even"><td class="value">0x1</td><td class="name">CBC</td><td class="description">CBC: Cipher Block Chaining mode</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">OFB</td><td class="description">OFB: Output Feedback mode</td></tr><tr class="even"><td class="value">0x3</td><td class="name">CFB</td><td class="description">CFB: Cipher Feedback mode</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">CTR</td><td class="description">CTR: Counter mode (16-bit internal counter)</td></tr></tbody></table></li>
+          <li id="AES_MR__LOD"><span class="field_name">LOD</span>: <span class="field_description">Last Output Data Mode</span></li>
+          <p>-</p>
+          <li id="AES_MR__CFBS"><span class="field_name">CFBS</span>: <span class="field_description">Cipher Feedback Data Size</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">SIZE_128BIT</td><td class="description">128-bit</td></tr><tr class="even"><td class="value">0x1</td><td class="name">SIZE_64BIT</td><td class="description">64-bit</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">SIZE_32BIT</td><td class="description">32-bit</td></tr><tr class="even"><td class="value">0x3</td><td class="name">SIZE_16BIT</td><td class="description">16-bit</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">SIZE_8BIT</td><td class="description">8-bit</td></tr></tbody></table></li>
+          <li id="AES_MR__CKEY"><span class="field_name">CKEY</span>: <span class="field_description">Key</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0xE</td><td class="name">PASSWD</td><td class="description">This field must be written with 0xE the first time that AES_MR is programmed. For subsequent programming of the AES_MR register, any value can be written, including that of 0xE.Always reads as 0.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="AES_IER">AES Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_IER__URAD" title="Unspecified Register Access Detection Interrupt Enable">URAD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_IER__DATRDY" title="Data Ready Interrupt Enable">DATRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_IER__DATRDY"><span class="field_name">DATRDY</span>: <span class="field_description">Data Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="AES_IER__URAD"><span class="field_name">URAD</span>: <span class="field_description">Unspecified Register Access Detection Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_IDR">AES Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004014</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_IDR__URAD" title="Unspecified Register Access Detection Interrupt Disable">URAD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_IDR__DATRDY" title="Data Ready Interrupt Disable">DATRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_IDR__DATRDY"><span class="field_name">DATRDY</span>: <span class="field_description">Data Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="AES_IDR__URAD"><span class="field_name">URAD</span>: <span class="field_description">Unspecified Register Access Detection Interrupt Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_IMR">AES Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004018</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_IMR__URAD" title="Unspecified Register Access Detection Interrupt Mask">URAD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_IMR__DATRDY" title="Data Ready Interrupt Mask">DATRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_IMR__DATRDY"><span class="field_name">DATRDY</span>: <span class="field_description">Data Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="AES_IMR__URAD"><span class="field_name">URAD</span>: <span class="field_description">Unspecified Register Access Detection Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_ISR">AES Interrupt Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_ISR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000401C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#AES_ISR__URAT" title="Unspecified Register Access:">URAT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_ISR__URAD" title="Unspecified Register Access Detection Status">URAD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#AES_ISR__DATRDY" title="Data Ready">DATRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_ISR__DATRDY"><span class="field_name">DATRDY</span>: <span class="field_description">Data Ready</span></li>
+          <p>-</p>
+          <li id="AES_ISR__URAD"><span class="field_name">URAD</span>: <span class="field_description">Unspecified Register Access Detection Status</span></li>
+          <p>-</p>
+          <li id="AES_ISR__URAT"><span class="field_name">URAT</span>: <span class="field_description">Unspecified Register Access:</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">IDR_WR_PROCESSING</td><td class="description">Input Data Register written during the data processing when SMOD=0x2 mode.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">ODR_RD_PROCESSING</td><td class="description">Output Data Register read during the data processing.</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">MR_WR_PROCESSING</td><td class="description">Mode Register written during the data processing.</td></tr><tr class="even"><td class="value">0x3</td><td class="name">ODR_RD_SUBKGEN</td><td class="description">Output Data Register read during the sub-keys generation.</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">MR_WR_SUBKGEN</td><td class="description">Mode Register written during the sub-keys generation.</td></tr><tr class="even"><td class="value">0x5</td><td class="name">WOR_RD_ACCESS</td><td class="description">Write-only register read access.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="AES_KEYWR">AES Key Word Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_KEYWR[0:7]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004020</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_KEYWR__KEYW" title="Key Word">KEYW</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_KEYWR__KEYW" title="Key Word">KEYW</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_KEYWR__KEYW" title="Key Word">KEYW</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_KEYWR__KEYW" title="Key Word">KEYW</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_KEYWR__KEYW"><span class="field_name">KEYW</span>: <span class="field_description">Key Word</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_IDATAR">AES Input Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_IDATAR[0:3]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004040</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IDATAR__IDATA" title="Input Data Word">IDATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IDATAR__IDATA" title="Input Data Word">IDATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IDATAR__IDATA" title="Input Data Word">IDATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IDATAR__IDATA" title="Input Data Word">IDATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_IDATAR__IDATA"><span class="field_name">IDATA</span>: <span class="field_description">Input Data Word</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_ODATAR">AES Output Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_ODATAR[0:3]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004050</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_ODATAR__ODATA" title="Output Data">ODATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_ODATAR__ODATA" title="Output Data">ODATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_ODATAR__ODATA" title="Output Data">ODATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_ODATAR__ODATA" title="Output Data">ODATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_ODATAR__ODATA"><span class="field_name">ODATA</span>: <span class="field_description">Output Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="AES_IVR">AES Initialization Vector Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">AES_IVR[0:3]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004060</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IVR__IV" title="Initialization Vector">IV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IVR__IV" title="Initialization Vector">IV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IVR__IV" title="Initialization Vector">IV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#AES_IVR__IV" title="Initialization Vector">IV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="AES_IVR__IV"><span class="field_name">IV</span>: <span class="field_description">Initialization Vector</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="AES__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>AES Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x40004000</td>
+              <td rowspan="4" class="register">
+                <a href="#AES_CR">AES_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SWRST</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">START</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004004</td>
+              <td rowspan="4" class="register">
+                <a href="#AES_MR">AES_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="4">CKEY</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">CFBS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">LOD</td>
+              <td class="field" colspan="3">OPMOD</td>
+              <td class="field" colspan="2">KEYSIZE</td>
+              <td class="field" colspan="2">SMOD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="4">PROCDLY</td>
+              <td class="field">DUALBUFF</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CIPHER</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40004008 .. 0x4000400C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004010</td>
+              <td rowspan="4" class="register">
+                <a href="#AES_IER">AES_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">URAD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">DATRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004014</td>
+              <td rowspan="4" class="register">
+                <a href="#AES_IDR">AES_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">URAD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">DATRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004018</td>
+              <td rowspan="4" class="register">
+                <a href="#AES_IMR">AES_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">URAD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">DATRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000401C</td>
+              <td rowspan="4" class="register">
+                <a href="#AES_ISR">AES_ISR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="4">URAT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">URAD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">DATRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40004020</td>
+              <td rowspan="1" class="register">
+                <a href="#AES_KEYWR">AES_KEYWR</a>
+              </td>
+              <td rowspan="1" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">KEYW</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40004040</td>
+              <td rowspan="1" class="register">
+                <a href="#AES_IDATAR">AES_IDATAR</a>
+              </td>
+              <td rowspan="1" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">IDATA</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40004050</td>
+              <td rowspan="1" class="register">
+                <a href="#AES_ODATAR">AES_ODATAR</a>
+              </td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">ODATA</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40004060</td>
+              <td rowspan="1" class="register">
+                <a href="#AES_IVR">AES_IVR</a>
+              </td>
+              <td rowspan="1" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">IV</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

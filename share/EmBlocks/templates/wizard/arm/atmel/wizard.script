@@ -1,0 +1,411 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// Em::Blocks new Atmel ARM project wizard script
+//
+// Project: Atmel project
+// Author:  Gerard Zagema
+// Updated: Thibaut VIARD for http://labaixbidouille.com/fablab/
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// Global Vars
+Processor <- _T("");   // The chosen processor
+IsLib <- false;        // Library output
+IsHex <- false;        // produce Hex file from ELF output ?
+IsTargetLevelSettings<- false;   // Set device settings at project level
+nHeap <- _T("");       // The heap value
+nStack <- _T("");      // The stack value
+UseSemihosting <- false; // Use semihosting for the debug target
+
+
+function BeginWizard()
+{
+    local wiz_type = Wizard.GetWizardType();
+
+    if (wiz_type == wizProject)
+    {
+        // this is the text that will appear in the start (intro) page
+        local intro_msg = _T(	"Welcome to the new Atmel ARM application wizard!\n" +
+                                "This wizard will guide you to create a new Atmel application.\n\n" +
+                                "Please click \"Next\" to proceed.");;
+
+        Wizard.AddInfoPage(_T("Atmel - ARM"), intro_msg);
+        Wizard.AddProjectPathPage();
+        Wizard.AddCompilerPage(_T(""), _T("armgcc_eb"), true, true);
+/* Commented as unusable without evolution of scripted wizard plugin (need AddElement and some filesystem folder content parsing)
+        Wizard.AddGenericSingleChoiceListPage(_T("familyChoice"), _T("Device Family"), _T("Legacy;SAM7;SAM3;SAM4;SAMD"), -1 );
+        Wizard.AddGenericSingleChoiceListPage(_T("seriesChoice"), _T("Device Series"), _T(""), -1 );
+        Wizard.AddGenericSingleChoiceListPage(_T("deviceChoice"), _T("Device"), _T(""), -1 );
+*/
+        Wizard.AddPage(_T("deviceChoice"));
+    }
+    else
+        print(wiz_type);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// Device Family choice page
+////////////////////////////////////////////////////////////////////////////////
+function OnLeave_familyChoice(fwd)
+{
+    if (fwd)
+    {
+
+    }
+    return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Device Series choice page
+////////////////////////////////////////////////////////////////////////////////
+function OnLeave_seriesChoice(fwd)
+{
+    if (fwd)
+    {
+
+    }
+    return true;
+}
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Device choice page
+////////////////////////////////////////////////////////////////////////////////
+function OnLeave_deviceChoice(fwd)
+{
+    Processor = Wizard.GetComboboxStringSelection(_T("comboboxDevice"));
+    // Forbids the selection of a family or a series
+    if( Processor.Matches(_T("  AT*")) )
+    {
+      if (fwd)
+      {
+          IsHex = Wizard.IsCheckboxChecked(_T("checkboxHex"));
+          IsLib = Wizard.IsCheckboxChecked(_T("checkboxLibrary"));
+          IsTargetLevelSettings = Wizard.IsCheckboxChecked(_T("checkboxTargetLvl"));
+          nHeap = Wizard.GetTextControlValue(_T("textctrlHeap"));
+          nStack = Wizard.GetTextControlValue(_T("textctrlStack"));
+          UseSemihosting = Wizard.IsCheckboxChecked(_T("checkboxSemihosting"));
+      }
+
+      // We leave to project creation
+      return true;
+    }
+  else
+  {
+    // User selected a family or a series and not a device, so we stay on the page
+    return false;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+//
+//  The project generation
+//
+function SetupProject(project)
+{
+    local cpu_core  = ::wxString();
+    local extension = ::wxString();
+    local dbgIntfStr = ::wxString();
+    local dbgIntfStrTarget = ::wxString();
+    local targetType;
+    local deviceFamily = ::wxString();
+    local deviceSeries = ::wxString();
+    local deviceName = ::wxString();
+    local jlinkDeviceName = ::wxString();
+/*
+    local templatePath = ::wxString();
+    local deviceFamilyLower = ::wxString();
+    local deviceSeriesLower = ::wxString();
+    local deviceNameLower = ::wxString();
+*/
+
+    // Obtain the device name by removing the two leading spaces from wizard.rc
+    deviceName=Processor.Mid(2,Processor.Length());
+    jlinkDeviceName=_T("AT91") + deviceName.Mid(2,deviceName.Length()); // We need to fit JLink names
+
+    // Obtain the device core type
+    if(      deviceName.Matches(_T("ATSAMD20*")) )
+    {
+        cpu_core = _T("cortex-m0");
+        deviceFamily = _T("SAMD20") ;
+        deviceSeries = _T("SAMD20") ;
+    }
+    else if( deviceName.Matches(_T("ATSAM3*")) )
+    {
+        cpu_core = _T("cortex-m3");
+        deviceFamily = _T("SAM3") ;
+        // Obtain the device name by removing the 'AT' and keeping 5 characters
+        deviceSeries = deviceName.Mid(2, 5) ;
+    }
+    else if( deviceName.Matches(_T("ATSAM4E*")) )
+    {
+        cpu_core = _T("cortex-m4f");
+        deviceFamily = _T("SAM4") ;
+        deviceSeries = deviceName.Mid(2, 5) ;
+    }
+    else if( deviceName.Matches(_T("ATSAM4*")) )
+    {
+        cpu_core = _T("cortex-m4");
+        deviceFamily = _T("SAM4") ;
+        // Obtain the device name by removing the 'AT' and keeping 5 characters
+        deviceSeries = deviceName.Mid(2, 5) ;
+    }
+    else
+    {
+        cpu_core = _T("arm7tdmi");
+        deviceFamily = _T("SAM7") ;
+        // Obtain the device name by removing the 'AT' and keeping 5 characters
+        deviceSeries = deviceName.Mid(2, 5) ;
+    }
+
+/* Not working
+    // Copy the template files to the project directories
+    deviceFamilyLower = deviceFamily.MakeLower();
+    deviceSeriesLower = deviceSeries.MakeLower();
+    deviceNameLower = deviceName.MakeLower();
+
+    templatePath = _T("arm/atmel/atmel.zip#zip:")+deviceFamilyLower+_T("/")+deviceSeriesLower+_T("/source/");
+    //   CMSIS files
+    Wizard.CopyFile( templatePath+_T("startup_")+deviceSeriesLower+_T(".c"), _T("./"), false );
+    Wizard.CopyFile( templatePath+_T("system_")+deviceSeriesLower+_T(".c"), _T("./"), false );
+    //   Linker script files
+    Wizard.CopyFile( templatePath+deviceSeriesLower+_T("_flash.ld"), _T("./"), false );
+    Wizard.CopyFile( templatePath+deviceNameLower+_T("_flash.ld"), _T("./"), false );
+*/
+    Wizard.CopyTemplate( _T("arm/atmel/atmel.zip#zip:")+deviceFamily.MakeLower()+_T("/")+deviceSeries.MakeLower()+_T("/"), _T("./") );
+    //   Common files
+    Wizard.CopyTemplate( _T("arm/atmel/atmel.zip#zip:Common/"),  _T("./") );
+
+    if( IsLib )
+    {
+        targetType = ttLibrary;
+        extension  = _T(".a");
+    }
+    else
+    {
+        targetType = ttExecutable;
+        extension  = _T(".elf");
+    }
+
+    // Create the debug interface settings
+    dbgIntfStr  = _T("ID_INTF=J-link;");
+    dbgIntfStr += _T("ID_JTAG_SWD=swd;");
+    dbgIntfStr += _T("ID_FAM=Atmel;");
+    dbgIntfStr += _T("ID_DEVICE=") + jlinkDeviceName + _T(";");
+    dbgIntfStr += _T("ID_SVD=$(TARGET_COMPILER_DIR)/../lib/atmel/svd") + deviceName.MakeUpper() + _T(".svd");
+
+    //-----  The device project properties --------------
+/* script debug purpose only!!! */
+/*
+    project.AddIncludeDir( _T("arm/atmel/atmel.zip#zip:")+deviceFamily.MakeLower()+_T("/")+deviceSeries.MakeLower()+_T("/source/"));
+    project.AddIncludeDir( deviceFamily.MakeLower() );
+    project.AddIncludeDir( deviceSeries.MakeLower() );
+    project.AddIncludeDir( deviceName.MakeLower() );
+*/
+
+    project.AddIncludeDir( _T("$(TARGET_COMPILER_DIR)/../lib/atmel"));
+
+    if( !IsTargetLevelSettings )
+    {
+        // Add compiler options according to the device core type
+        if(cpu_core.Matches(_T("cortex-m4f")) )
+        {
+            project.AddDeviceOption(_T("$device=cortex-m4"));
+            project.AddDeviceOption( _T("$fpu=fpv4-sp-d16"));
+            project.AddCompilerOption(_T("-mfloat-abi=hard"));
+        }
+        else
+        {
+            project.AddDeviceOption(_T("$device=") + cpu_core);
+            project.AddCompilerOption(_T("-mfloat-abi=soft"));
+        }
+
+        // Add stack size value to project if filled
+        if( !nStack.IsEmpty() )
+        {
+            project.AddDeviceOption(_T("$stack=") + nStack);
+        }
+
+        // Add heap size value to project if filled
+        if( !nHeap.IsEmpty() )
+        {
+            project.AddDeviceOption(_T("$heap=") + nHeap);
+        }
+
+        // Add project device options
+        project.AddDeviceOption(_T("$lscript=./linker/")+deviceName.MakeLower()+_T("_flash.ld"));
+
+        // Add project compiler options
+        project.AddCompilerOption(_T("-D__")+deviceName.MakeUpper()+_T("__"));
+        project.AddCompilerOption(_T("-fno-strict-aliasing"));
+
+        // Add project linker options
+        project.AddLinkerOption(_T("-eb_start_files"));
+        project.AddLinkerOption(_T("-Wl,--entry=Reset_Handler"));
+        project.AddLinkerOption(_T("-Wl,--defsym,STACK_SIZE=") + nStack);
+        project.AddLinkerOption(_T("-Wl,--defsym,HEAP_SIZE=") + nHeap);
+//        project.AddLinkerOption(_T("-Wl,-Map=") + Wizard.GetProjectName() + _T(".map,--cref"));
+    }
+
+    //------------ Debug build target ----------------
+    local target = project.GetBuildTarget(Wizard.GetDebugName());
+    if( !IsNull( target ) )
+    {
+        target.SetTargetType(targetType);
+
+        // Set our special debug target options as service
+        target.AddCompilerOption(_T("-g3"));
+        target.AddCompilerOption(_T("-O0"));
+        target.AddCompilerOption(_T("-Wall"));
+//        target.AddCompilerOption(_T("-Wextra"));
+        target.AddAssemblerOption(_T("-Wa,--gdwarf-2"));
+
+        if( targetType==ttExecutable )
+        {
+            target.AddCompilerOption(_T("-fdata-sections"));
+            target.AddCompilerOption(_T("-ffunction-sections"));
+            target.AddLinkerOption(_T("-Wl,--gc-sections"));
+        }
+
+        if( IsTargetLevelSettings )
+        {
+            if( cpu_core.Matches(_T("cortex-m4f")) )
+            {
+                target.AddDeviceOption(_T("$device=cortex-m4"));
+                target.AddDeviceOption( _T("$fpu=fpv4-sp-d16"));
+                target.AddCompilerOption(_T("-mfloat-abi=hard"));
+            }
+            else
+            {
+                target.AddDeviceOption(_T("$device=") + cpu_core);
+            }
+
+            if( !nStack.IsEmpty() )
+            {
+                target.AddDeviceOption(_T("$stack=") + nStack);
+            }
+
+            if( !nHeap.IsEmpty() )
+            {
+                target.AddDeviceOption(_T("$heap=") + nHeap);
+            }
+
+            // Add target device options
+            target.AddDeviceOption(_T("$lscript=./linker/") + deviceName.MakeLower() + _T("_flash.ld"));
+
+            // Add target compiler options
+            target.AddCompilerOption(_T("-D__") + deviceName.MakeUpper() + _T("__"));
+            target.AddCompilerOption(_T("-fno-strict-aliasing"));
+
+            // Add target linker options
+            target.AddLinkerOption(_T("-eb_start_files"));
+            target.AddLinkerOption(_T("-Wl,--entry=Reset_Handler"));
+            target.AddLinkerOption(_T("-Wl,--defsym,STACK_SIZE=") + nStack);
+            target.AddLinkerOption(_T("-Wl,--defsym,HEAP_SIZE=") + nHeap);
+//            target.AddLinkerOption(_T("-Wl,-Map=") + target.GetTargetName() + _T(".map,--cref"));
+
+            target.SetOptionRelation(ortDeviceOptions, orUseTargetOptionsOnly);
+        }
+        else
+        {
+            target.SetOptionRelation(ortDeviceOptions, orUseParentOptionsOnly);
+        }
+
+        target.SetOutputFilename(Wizard.GetDebugOutputDir() + Wizard.GetProjectName() + extension);
+
+        dbgIntfStrTarget=dbgIntfStr;
+
+        // The pseudo switch for the senihosting
+        if( UseSemihosting )
+        {
+            target.AddLinkerOption(_T("-eb_use_semi"));
+            dbgIntfStrTarget += _T("ID_SEMIHOST_CHECK=1");
+        }
+
+        // Launch the debug settings dialog
+        if( !IsLib )
+        {
+            Wizard.LaunchDebugConfig( Wizard.GetDebugName(), dbgIntfStrTarget);
+        }
+    }
+
+    //----------------- Release build target ----------------
+    target = project.GetBuildTarget(Wizard.GetReleaseName());
+    if ( !IsNull(target) )
+    {
+        target.SetTargetType(targetType);
+
+        // Set our special release target options as service
+        target.AddCompilerOption(_T("-O2"));
+        target.AddAssemblerOption(_T("-Wa,--no-warn"));
+
+        if(targetType==ttExecutable)
+        {
+            target.AddCompilerOption(_T("-g2"));
+            target.AddCompilerOption(_T("-fdata-sections"));
+            target.AddCompilerOption(_T("-ffunction-sections"));
+            target.AddLinkerOption(_T("-Wl,--gc-sections"));
+        }
+
+        if(IsTargetLevelSettings)
+        {
+            if(cpu_core.Matches( _T("cortex-m4f")) )
+            {
+                target.AddDeviceOption(_T("$device=cortex-m4"));
+                target.AddDeviceOption( _T("$fpu=fpv4-sp-d16"));
+                target.AddCompilerOption(_T("-mfloat-abi=hard"));
+            }
+            else
+            {
+                target.AddDeviceOption(_T("$device=") + cpu_core);
+            }
+
+            if( !nStack.IsEmpty() )
+            {
+                target.AddDeviceOption(_T("$stack=") + nStack);
+            }
+
+            if( !nHeap.IsEmpty() )
+            {
+                target.AddDeviceOption(_T("$heap=") + nHeap);
+            }
+
+            // Add target device options
+            target.AddDeviceOption(_T("$lscript=./linker/") + deviceName.MakeLower() + _T("_flash.ld"));
+
+            // Add target compiler options
+            target.AddCompilerOption(_T("-D__") + deviceName.MakeUpper() + _T("__"));
+            target.AddCompilerOption(_T("-fno-strict-aliasing"));
+
+            // Add target linker options
+            target.AddLinkerOption(_T("-eb_start_files"));
+            target.AddLinkerOption(_T("-Wl,--entry=Reset_Handler"));
+            target.AddLinkerOption(_T("-Wl,--defsym,STACK_SIZE=") + nStack);
+            target.AddLinkerOption(_T("-Wl,--defsym,HEAP_SIZE=") + nHeap);
+//            target.AddLinkerOption(_T("-Wl,-Map=") + target.GetTargetName() + _T(".map,--cref"));
+
+            target.SetOptionRelation(ortDeviceOptions, orUseTargetOptionsOnly);
+        }
+        else
+        {
+            target.SetOptionRelation(ortDeviceOptions, orUseParentOptionsOnly);
+        }
+
+        if( targetType == ttExecutable )
+        {
+            target.SetCreateHex( IsHex );
+        }
+
+        target.SetOutputFilename(Wizard.GetReleaseOutputDir() + Wizard.GetProjectName() + extension);
+        dbgIntfStrTarget=dbgIntfStr;
+
+        //Launch the debug settings dialog
+        if( !IsLib )
+        {
+            Wizard.LaunchDebugConfig( Wizard.GetReleaseName(), dbgIntfStrTarget);
+        }
+    }
+
+    return true;
+}

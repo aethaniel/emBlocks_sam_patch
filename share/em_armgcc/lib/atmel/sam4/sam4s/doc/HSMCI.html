@@ -1,0 +1,4488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM4S HSMCI</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="HSMCI">SAM4S HSMCI</h1>
+        <h2 id="HSMCI__User_Interface">High Speed MultiMedia Card Interface (HSMCI) User Interface</h2>
+<!--As per 6449N programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x40000000">0x40000000</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#HSMCI_CR" title="Control Register" class="one_click_away">HSMCI_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000004">0x40000004</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#HSMCI_MR" title="Mode Register" class="one_click_away">HSMCI_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000008">0x40000008</td>
+              <td class="description">Data Timeout Register</td>
+              <td class="name">
+                <a href="#HSMCI_DTOR" title="Data Timeout Register" class="one_click_away">HSMCI_DTOR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000000C">0x4000000C</td>
+              <td class="description">SD/SDIO Card Register</td>
+              <td class="name">
+                <a href="#HSMCI_SDCR" title="SD/SDIO Card Register" class="one_click_away">HSMCI_SDCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000010">0x40000010</td>
+              <td class="description">Argument Register</td>
+              <td class="name">
+                <a href="#HSMCI_ARGR" title="Argument Register" class="one_click_away">HSMCI_ARGR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000014">0x40000014</td>
+              <td class="description">Command Register</td>
+              <td class="name">
+                <a href="#HSMCI_CMDR" title="Command Register" class="one_click_away">HSMCI_CMDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000018">0x40000018</td>
+              <td class="description">Block Register</td>
+              <td class="name">
+                <a href="#HSMCI_BLKR" title="Block Register" class="one_click_away">HSMCI_BLKR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000001C">0x4000001C</td>
+              <td class="description">Completion Signal Timeout Register</td>
+              <td class="name">
+                <a href="#HSMCI_CSTOR" title="Completion Signal Timeout Register" class="one_click_away">HSMCI_CSTOR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000020">0x40000020</td>
+              <td class="description">Response Register</td>
+              <td class="name">
+                <a href="#HSMCI_RSPR" title="Response Register" class="one_click_away">HSMCI_RSPR[4]</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000030">0x40000030</td>
+              <td class="description">Receive Data Register</td>
+              <td class="name">
+                <a href="#HSMCI_RDR" title="Receive Data Register" class="one_click_away">HSMCI_RDR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000034">0x40000034</td>
+              <td class="description">Transmit Data Register</td>
+              <td class="name">
+                <a href="#HSMCI_TDR" title="Transmit Data Register" class="one_click_away">HSMCI_TDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000040">0x40000040</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#HSMCI_SR" title="Status Register" class="one_click_away">HSMCI_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x0000C0E5</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000044">0x40000044</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#HSMCI_IER" title="Interrupt Enable Register" class="one_click_away">HSMCI_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000048">0x40000048</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#HSMCI_IDR" title="Interrupt Disable Register" class="one_click_away">HSMCI_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4000004C">0x4000004C</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#HSMCI_IMR" title="Interrupt Mask Register" class="one_click_away">HSMCI_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000054">0x40000054</td>
+              <td class="description">Configuration Register</td>
+              <td class="name">
+                <a href="#HSMCI_CFG" title="Configuration Register" class="one_click_away">HSMCI_CFG</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400000E4">0x400000E4</td>
+              <td class="description">Write Protection Mode Register</td>
+              <td class="name">
+                <a href="#HSMCI_WPMR" title="Write Protection Mode Register" class="one_click_away">HSMCI_WPMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400000E8">0x400000E8</td>
+              <td class="description">Write Protection Status Register</td>
+              <td class="name">
+                <a href="#HSMCI_WPSR" title="Write Protection Status Register" class="one_click_away">HSMCI_WPSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000200">0x40000200</td>
+              <td class="description">FIFO Memory Aperture0</td>
+              <td class="name">
+                <a href="#HSMCI_FIFO" title="FIFO Memory Aperture0" class="one_click_away">HSMCI_FIFO[256]</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000100">0x40000100</td>
+              <td class="description">Receive Pointer Register</td>
+              <td class="name">
+                <a href="#HSMCI_RPR" title="Receive Pointer Register" class="one_click_away">HSMCI_RPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000104">0x40000104</td>
+              <td class="description">Receive Counter Register</td>
+              <td class="name">
+                <a href="#HSMCI_RCR" title="Receive Counter Register" class="one_click_away">HSMCI_RCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000108">0x40000108</td>
+              <td class="description">Transmit Pointer Register</td>
+              <td class="name">
+                <a href="#HSMCI_TPR" title="Transmit Pointer Register" class="one_click_away">HSMCI_TPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4000010C">0x4000010C</td>
+              <td class="description">Transmit Counter Register</td>
+              <td class="name">
+                <a href="#HSMCI_TCR" title="Transmit Counter Register" class="one_click_away">HSMCI_TCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000110">0x40000110</td>
+              <td class="description">Receive Next Pointer Register</td>
+              <td class="name">
+                <a href="#HSMCI_RNPR" title="Receive Next Pointer Register" class="one_click_away">HSMCI_RNPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000114">0x40000114</td>
+              <td class="description">Receive Next Counter Register</td>
+              <td class="name">
+                <a href="#HSMCI_RNCR" title="Receive Next Counter Register" class="one_click_away">HSMCI_RNCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000118">0x40000118</td>
+              <td class="description">Transmit Next Pointer Register</td>
+              <td class="name">
+                <a href="#HSMCI_TNPR" title="Transmit Next Pointer Register" class="one_click_away">HSMCI_TNPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4000011C">0x4000011C</td>
+              <td class="description">Transmit Next Counter Register</td>
+              <td class="name">
+                <a href="#HSMCI_TNCR" title="Transmit Next Counter Register" class="one_click_away">HSMCI_TNCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40000120">0x40000120</td>
+              <td class="description">Transfer Control Register</td>
+              <td class="name">
+                <a href="#HSMCI_PTCR" title="Transfer Control Register" class="one_click_away">HSMCI_PTCR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40000124">0x40000124</td>
+              <td class="description">Transfer Status Register</td>
+              <td class="name">
+                <a href="#HSMCI_PTSR" title="Transfer Status Register" class="one_click_away">HSMCI_PTSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="HSMCI_CR">HSMCI Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_CR__SWRST" title="Software Reset">SWRST</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CR__PWSDIS" title="Power Save Mode Disable">PWSDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_CR__PWSEN" title="Power Save Mode Enable">PWSEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_CR__MCIDIS" title="Multi-Media Interface Disable">MCIDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_CR__MCIEN" title="Multi-Media Interface Enable">MCIEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_CR__MCIEN"><span class="field_name">MCIEN</span>: <span class="field_description">Multi-Media Interface Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_CR__MCIDIS"><span class="field_name">MCIDIS</span>: <span class="field_description">Multi-Media Interface Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_CR__PWSEN"><span class="field_name">PWSEN</span>: <span class="field_description">Power Save Mode Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_CR__PWSDIS"><span class="field_name">PWSDIS</span>: <span class="field_description">Power Save Mode Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_CR__SWRST"><span class="field_name">SWRST</span>: <span class="field_description">Software Reset</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_MR">HSMCI Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_MR__PDCMODE" title="PDC-oriented Mode">PDCMODE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_MR__PADV" title="Padding Value">PADV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_MR__FBYTE" title="Force Byte Transfer">FBYTE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_MR__WRPROOF" title="Write Proof Enable">WRPROOF</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_MR__RDPROOF" title="Read Proof Enable">RDPROOF</a>
+              </td>
+              <td colspan="3">
+                <a href="#HSMCI_MR__PWSDIV" title="Power Saving Divider">PWSDIV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_MR__CLKDIV" title="Clock Divider">CLKDIV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_MR__CLKDIV"><span class="field_name">CLKDIV</span>: <span class="field_description">Clock Divider</span></li>
+          <p>-</p>
+          <li id="HSMCI_MR__PWSDIV"><span class="field_name">PWSDIV</span>: <span class="field_description">Power Saving Divider</span></li>
+          <p>-</p>
+          <li id="HSMCI_MR__RDPROOF"><span class="field_name">RDPROOF</span>: <span class="field_description">Read Proof Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_MR__WRPROOF"><span class="field_name">WRPROOF</span>: <span class="field_description">Write Proof Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_MR__FBYTE"><span class="field_name">FBYTE</span>: <span class="field_description">Force Byte Transfer</span></li>
+          <p>-</p>
+          <li id="HSMCI_MR__PADV"><span class="field_name">PADV</span>: <span class="field_description">Padding Value</span></li>
+          <p>-</p>
+          <li id="HSMCI_MR__PDCMODE"><span class="field_name">PDCMODE</span>: <span class="field_description">PDC-oriented Mode</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_DTOR">HSMCI Data Timeout Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_DTOR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000008</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#HSMCI_DTOR__DTOMUL" title="Data Timeout Multiplier">DTOMUL</a>
+              </td>
+              <td colspan="4">
+                <a href="#HSMCI_DTOR__DTOCYC" title="Data Timeout Cycle Number">DTOCYC</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_DTOR__DTOCYC"><span class="field_name">DTOCYC</span>: <span class="field_description">Data Timeout Cycle Number</span></li>
+          <p>-</p>
+          <li id="HSMCI_DTOR__DTOMUL"><span class="field_name">DTOMUL</span>: <span class="field_description">Data Timeout Multiplier</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">1</td><td class="description">DTOCYC</td></tr><tr class="even"><td class="value">0x1</td><td class="name">16</td><td class="description">DTOCYC x 16</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">128</td><td class="description">DTOCYC x 128</td></tr><tr class="even"><td class="value">0x3</td><td class="name">256</td><td class="description">DTOCYC x 256</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">1024</td><td class="description">DTOCYC x 1024</td></tr><tr class="even"><td class="value">0x5</td><td class="name">4096</td><td class="description">DTOCYC x 4096</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">65536</td><td class="description">DTOCYC x 65536</td></tr><tr class="even"><td class="value">0x7</td><td class="name">1048576</td><td class="description">DTOCYC x 1048576</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="HSMCI_SDCR">HSMCI SD/SDIO Card Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_SDCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000000C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="2">
+                <a href="#HSMCI_SDCR__SDCBUS" title="SDCard/SDIO Bus Width">SDCBUS</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#HSMCI_SDCR__SDCSEL" title="SDCard/SDIO Slot">SDCSEL</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_SDCR__SDCSEL"><span class="field_name">SDCSEL</span>: <span class="field_description">SDCard/SDIO Slot</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">SLOTA</td><td class="description">Slot A is selected.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">SLOTB</td><td class="description">-</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">SLOTC</td><td class="description">-</td></tr><tr class="even"><td class="value">0x3</td><td class="name">SLOTD</td><td class="description">-</td></tr></tbody></table></li>
+          <li id="HSMCI_SDCR__SDCBUS"><span class="field_name">SDCBUS</span>: <span class="field_description">SDCard/SDIO Bus Width</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">1</td><td class="description">1 bit</td></tr><tr class="even"><td class="value">0x2</td><td class="name">4</td><td class="description">4 bits</td></tr><tr class="odd"><td class="value">0x3</td><td class="name">8</td><td class="description">8 bits</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="HSMCI_ARGR">HSMCI Argument Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_ARGR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_ARGR__ARG" title="Command Argument">ARG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_ARGR__ARG" title="Command Argument">ARG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_ARGR__ARG" title="Command Argument">ARG</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_ARGR__ARG" title="Command Argument">ARG</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_ARGR__ARG"><span class="field_name">ARG</span>: <span class="field_description">Command Argument</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_CMDR">HSMCI Command Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_CMDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000014</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CMDR__BOOT_ACK" title="Boot Operation Acknowledge">BOOT_ACK</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_CMDR__ATACS" title="ATA with Command Completion Signal">ATACS</a>
+              </td>
+              <td colspan="2">
+                <a href="#HSMCI_CMDR__IOSPCMD" title="SDIO Special Command">IOSPCMD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#HSMCI_CMDR__TRTYP" title="Transfer Type">TRTYP</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_CMDR__TRDIR" title="Transfer Direction">TRDIR</a>
+              </td>
+              <td colspan="2">
+                <a href="#HSMCI_CMDR__TRCMD" title="Transfer Command">TRCMD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CMDR__MAXLAT" title="Max Latency for Command to Response">MAXLAT</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_CMDR__OPDCMD" title="Open Drain Command">OPDCMD</a>
+              </td>
+              <td colspan="3">
+                <a href="#HSMCI_CMDR__SPCMD" title="Special Command">SPCMD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="2">
+                <a href="#HSMCI_CMDR__RSPTYP" title="Response Type">RSPTYP</a>
+              </td>
+              <td colspan="6">
+                <a href="#HSMCI_CMDR__CMDNB" title="Command Number">CMDNB</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_CMDR__CMDNB"><span class="field_name">CMDNB</span>: <span class="field_description">Command Number</span></li>
+          <p>-</p>
+          <li id="HSMCI_CMDR__RSPTYP"><span class="field_name">RSPTYP</span>: <span class="field_description">Response Type</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NORESP</td><td class="description">No response</td></tr><tr class="even"><td class="value">0x1</td><td class="name">48_BIT</td><td class="description">48-bit response</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">136_BIT</td><td class="description">136-bit response</td></tr><tr class="even"><td class="value">0x3</td><td class="name">R1B</td><td class="description">R1b response type</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__SPCMD"><span class="field_name">SPCMD</span>: <span class="field_description">Special Command</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">STD</td><td class="description">Not a special CMD.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">INIT</td><td class="description">Initialization CMD: 74 clock cycles for initialization sequence.</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">SYNC</td><td class="description">Synchronized CMD: Wait for the end of the current data block transfer before sending the pending command.</td></tr><tr class="even"><td class="value">0x3</td><td class="name">CE_ATA</td><td class="description">CE-ATA Completion Signal disable Command. The host cancels the ability for the device to return a command completion signal on the command line.</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">IT_CMD</td><td class="description">Interrupt command: Corresponds to the Interrupt Mode (CMD40).</td></tr><tr class="even"><td class="value">0x5</td><td class="name">IT_RESP</td><td class="description">Interrupt response: Corresponds to the Interrupt Mode (CMD40).</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">BOR</td><td class="description">Boot Operation Request. Start a boot operation mode, the host processor can read boot data from the MMC device directly.</td></tr><tr class="even"><td class="value">0x7</td><td class="name">EBO</td><td class="description">End Boot Operation. This command allows the host processor to terminate the boot operation mode.</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__OPDCMD"><span class="field_name">OPDCMD</span>: <span class="field_description">Open Drain Command</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">PUSHPULL</td><td class="description">Push pull command.</td></tr><tr class="even"><td class="value">1</td><td class="name">OPENDRAIN</td><td class="description">Open drain command.</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__MAXLAT"><span class="field_name">MAXLAT</span>: <span class="field_description">Max Latency for Command to Response</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">5</td><td class="description">5-cycle max latency.</td></tr><tr class="even"><td class="value">1</td><td class="name">64</td><td class="description">64-cycle max latency.</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__TRCMD"><span class="field_name">TRCMD</span>: <span class="field_description">Transfer Command</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NO_DATA</td><td class="description">No data transfer</td></tr><tr class="even"><td class="value">0x1</td><td class="name">START_DATA</td><td class="description">Start data transfer</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">STOP_DATA</td><td class="description">Stop data transfer</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__TRDIR"><span class="field_name">TRDIR</span>: <span class="field_description">Transfer Direction</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">WRITE</td><td class="description">Write.</td></tr><tr class="even"><td class="value">1</td><td class="name">READ</td><td class="description">Read.</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__TRTYP"><span class="field_name">TRTYP</span>: <span class="field_description">Transfer Type</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">SINGLE</td><td class="description">MMC/SD Card Single Block</td></tr><tr class="even"><td class="value">0x1</td><td class="name">MULTIPLE</td><td class="description">MMC/SD Card Multiple Block</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">STREAM</td><td class="description">MMC Stream</td></tr><tr class="even"><td class="value">0x4</td><td class="name">BYTE</td><td class="description">SDIO Byte</td></tr><tr class="odd"><td class="value">0x5</td><td class="name">BLOCK</td><td class="description">SDIO Block</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__IOSPCMD"><span class="field_name">IOSPCMD</span>: <span class="field_description">SDIO Special Command</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">STD</td><td class="description">Not an SDIO Special Command</td></tr><tr class="even"><td class="value">0x1</td><td class="name">SUSPEND</td><td class="description">SDIO Suspend Command</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">RESUME</td><td class="description">SDIO Resume Command</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__ATACS"><span class="field_name">ATACS</span>: <span class="field_description">ATA with Command Completion Signal</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">NORMAL</td><td class="description">Normal operation mode.</td></tr><tr class="even"><td class="value">1</td><td class="name">COMPLETION</td><td class="description">This bit indicates that a completion signal is expected within a programmed amount of time (HSMCI_CSTOR).</td></tr></tbody></table></li>
+          <li id="HSMCI_CMDR__BOOT_ACK"><span class="field_name">BOOT_ACK</span>: <span class="field_description">Boot Operation Acknowledge</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_BLKR">HSMCI Block Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_BLKR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000018</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_BLKR__BLKLEN" title="Data Block Length">BLKLEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_BLKR__BLKLEN" title="Data Block Length">BLKLEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_BLKR__BCNT" title="MMC/SDIO Block Count - SDIO Byte Count">BCNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_BLKR__BCNT" title="MMC/SDIO Block Count - SDIO Byte Count">BCNT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_BLKR__BCNT"><span class="field_name">BCNT</span>: <span class="field_description">MMC/SDIO Block Count - SDIO Byte Count</span></li>
+          <p>-</p>
+          <li id="HSMCI_BLKR__BLKLEN"><span class="field_name">BLKLEN</span>: <span class="field_description">Data Block Length</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_CSTOR">HSMCI Completion Signal Timeout Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_CSTOR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000001C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#HSMCI_CSTOR__CSTOMUL" title="Completion Signal Timeout Multiplier">CSTOMUL</a>
+              </td>
+              <td colspan="4">
+                <a href="#HSMCI_CSTOR__CSTOCYC" title="Completion Signal Timeout Cycle Number">CSTOCYC</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_CSTOR__CSTOCYC"><span class="field_name">CSTOCYC</span>: <span class="field_description">Completion Signal Timeout Cycle Number</span></li>
+          <p>-</p>
+          <li id="HSMCI_CSTOR__CSTOMUL"><span class="field_name">CSTOMUL</span>: <span class="field_description">Completion Signal Timeout Multiplier</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">1</td><td class="description">CSTOCYC x 1</td></tr><tr class="even"><td class="value">0x1</td><td class="name">16</td><td class="description">CSTOCYC x 16</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">128</td><td class="description">CSTOCYC x 128</td></tr><tr class="even"><td class="value">0x3</td><td class="name">256</td><td class="description">CSTOCYC x 256</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">1024</td><td class="description">CSTOCYC x 1024</td></tr><tr class="even"><td class="value">0x5</td><td class="name">4096</td><td class="description">CSTOCYC x 4096</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">65536</td><td class="description">CSTOCYC x 65536</td></tr><tr class="even"><td class="value">0x7</td><td class="name">1048576</td><td class="description">CSTOCYC x 1048576</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="HSMCI_RSPR">HSMCI Response Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_RSPR[0:3]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000020</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RSPR__RSP" title="Response">RSP</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RSPR__RSP" title="Response">RSP</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RSPR__RSP" title="Response">RSP</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RSPR__RSP" title="Response">RSP</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_RSPR__RSP"><span class="field_name">RSP</span>: <span class="field_description">Response</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_RDR">HSMCI Receive Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_RDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000030</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RDR__DATA" title="Data to Read">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RDR__DATA" title="Data to Read">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RDR__DATA" title="Data to Read">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RDR__DATA" title="Data to Read">DATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_RDR__DATA"><span class="field_name">DATA</span>: <span class="field_description">Data to Read</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_TDR">HSMCI Transmit Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_TDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000034</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TDR__DATA" title="Data to Write">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TDR__DATA" title="Data to Write">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TDR__DATA" title="Data to Write">DATA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TDR__DATA" title="Data to Write">DATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_TDR__DATA"><span class="field_name">DATA</span>: <span class="field_description">Data to Write</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_SR">HSMCI Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000040</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_SR__UNRE" title="Underrun">UNRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__OVRE" title="Overrun">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__ACKRCVE" title="Boot Operation Acknowledge Error">ACKRCVE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__ACKRCV" title="Boot Operation Acknowledge Received">ACKRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__XFRDONE" title="Transfer Done flag">XFRDONE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__FIFOEMPTY" title="FIFO empty flag">FIFOEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_SR__CSTOE" title="Completion Signal Time-out Error">CSTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__DTOE" title="Data Time-out Error">DTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__DCRCE" title="Data CRC Error">DCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RTOE" title="Response Time-out Error">RTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RENDE" title="Response End Bit Error">RENDE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RCRCE" title="Response CRC Error">RCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RDIRE" title="Response Direction Error">RDIRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RINDE" title="Response Index Error">RINDE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_SR__TXBUFE" title="TX Buffer Empty">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RXBUFF" title="RX Buffer Full">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__CSRCV" title="CE-ATA Completion Signal Received">CSRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__SDIOWAIT" title="SDIO Read Wait Operation Status">SDIOWAIT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__SDIOIRQA" title="SDIO Interrupt for Slot A">SDIOIRQA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_SR__ENDTX" title="End of TX Buffer">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__ENDRX" title="End of RX Buffer">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__NOTBUSY" title="HSMCI Not Busy">NOTBUSY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__DTIP" title="Data Transfer in Progress">DTIP</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__BLKE" title="Data Block Ended">BLKE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__TXRDY" title="Transmit Ready">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__RXRDY" title="Receiver Ready">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_SR__CMDRDY" title="Command Ready">CMDRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_SR__CMDRDY"><span class="field_name">CMDRDY</span>: <span class="field_description">Command Ready</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receiver Ready</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__BLKE"><span class="field_name">BLKE</span>: <span class="field_description">Data Block Ended</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__DTIP"><span class="field_name">DTIP</span>: <span class="field_description">Data Transfer in Progress</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__NOTBUSY"><span class="field_name">NOTBUSY</span>: <span class="field_description">HSMCI Not Busy</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of RX Buffer</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of TX Buffer</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__SDIOIRQA"><span class="field_name">SDIOIRQA</span>: <span class="field_description">SDIO Interrupt for Slot A</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__SDIOWAIT"><span class="field_name">SDIOWAIT</span>: <span class="field_description">SDIO Read Wait Operation Status</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__CSRCV"><span class="field_name">CSRCV</span>: <span class="field_description">CE-ATA Completion Signal Received</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">RX Buffer Full</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">TX Buffer Empty</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RINDE"><span class="field_name">RINDE</span>: <span class="field_description">Response Index Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RDIRE"><span class="field_name">RDIRE</span>: <span class="field_description">Response Direction Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RCRCE"><span class="field_name">RCRCE</span>: <span class="field_description">Response CRC Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RENDE"><span class="field_name">RENDE</span>: <span class="field_description">Response End Bit Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__RTOE"><span class="field_name">RTOE</span>: <span class="field_description">Response Time-out Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__DCRCE"><span class="field_name">DCRCE</span>: <span class="field_description">Data CRC Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__DTOE"><span class="field_name">DTOE</span>: <span class="field_description">Data Time-out Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__CSTOE"><span class="field_name">CSTOE</span>: <span class="field_description">Completion Signal Time-out Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__FIFOEMPTY"><span class="field_name">FIFOEMPTY</span>: <span class="field_description">FIFO empty flag</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__XFRDONE"><span class="field_name">XFRDONE</span>: <span class="field_description">Transfer Done flag</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__ACKRCV"><span class="field_name">ACKRCV</span>: <span class="field_description">Boot Operation Acknowledge Received</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__ACKRCVE"><span class="field_name">ACKRCVE</span>: <span class="field_description">Boot Operation Acknowledge Error</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun</span></li>
+          <p>-</p>
+          <li id="HSMCI_SR__UNRE"><span class="field_name">UNRE</span>: <span class="field_description">Underrun</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_IER">HSMCI Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000044</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IER__UNRE" title="Underrun Interrupt Enable">UNRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__OVRE" title="Overrun Interrupt Enable">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__ACKRCVE" title="Boot Acknowledge Error Interrupt Enable">ACKRCVE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__ACKRCV" title="Boot Acknowledge Interrupt Enable">ACKRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__XFRDONE" title="Transfer Done Interrupt enable">XFRDONE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__FIFOEMPTY" title="FIFO empty Interrupt enable">FIFOEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IER__CSTOE" title="Completion Signal Timeout Error Interrupt Enable">CSTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__DTOE" title="Data Time-out Error Interrupt Enable">DTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__DCRCE" title="Data CRC Error Interrupt Enable">DCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RTOE" title="Response Time-out Error Interrupt Enable">RTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RENDE" title="Response End Bit Error Interrupt Enable">RENDE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RCRCE" title="Response CRC Error Interrupt Enable">RCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RDIRE" title="Response Direction Error Interrupt Enable">RDIRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RINDE" title="Response Index Error Interrupt Enable">RINDE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IER__TXBUFE" title="Transmit Buffer Empty Interrupt Enable">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RXBUFF" title="Receive Buffer Full Interrupt Enable">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__CSRCV" title="Completion Signal Received Interrupt Enable">CSRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__SDIOWAIT" title="SDIO Read Wait Operation Status Interrupt Enable">SDIOWAIT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__SDIOIRQA" title="SDIO Interrupt for Slot A Interrupt Enable">SDIOIRQA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IER__ENDTX" title="End of Transmit Buffer Interrupt Enable">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__ENDRX" title="End of Receive Buffer Interrupt Enable">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__NOTBUSY" title="Data Not Busy Interrupt Enable">NOTBUSY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__DTIP" title="Data Transfer in Progress Interrupt Enable">DTIP</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__BLKE" title="Data Block Ended Interrupt Enable">BLKE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__TXRDY" title="Transmit Ready Interrupt Enable">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__RXRDY" title="Receiver Ready Interrupt Enable">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IER__CMDRDY" title="Command Ready Interrupt Enable">CMDRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_IER__CMDRDY"><span class="field_name">CMDRDY</span>: <span class="field_description">Command Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receiver Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__BLKE"><span class="field_name">BLKE</span>: <span class="field_description">Data Block Ended Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__DTIP"><span class="field_name">DTIP</span>: <span class="field_description">Data Transfer in Progress Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__NOTBUSY"><span class="field_name">NOTBUSY</span>: <span class="field_description">Data Not Busy Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmit Buffer Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__SDIOIRQA"><span class="field_name">SDIOIRQA</span>: <span class="field_description">SDIO Interrupt for Slot A Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__SDIOWAIT"><span class="field_name">SDIOWAIT</span>: <span class="field_description">SDIO Read Wait Operation Status Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__CSRCV"><span class="field_name">CSRCV</span>: <span class="field_description">Completion Signal Received Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmit Buffer Empty Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RINDE"><span class="field_name">RINDE</span>: <span class="field_description">Response Index Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RDIRE"><span class="field_name">RDIRE</span>: <span class="field_description">Response Direction Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RCRCE"><span class="field_name">RCRCE</span>: <span class="field_description">Response CRC Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RENDE"><span class="field_name">RENDE</span>: <span class="field_description">Response End Bit Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__RTOE"><span class="field_name">RTOE</span>: <span class="field_description">Response Time-out Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__DCRCE"><span class="field_name">DCRCE</span>: <span class="field_description">Data CRC Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__DTOE"><span class="field_name">DTOE</span>: <span class="field_description">Data Time-out Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__CSTOE"><span class="field_name">CSTOE</span>: <span class="field_description">Completion Signal Timeout Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__FIFOEMPTY"><span class="field_name">FIFOEMPTY</span>: <span class="field_description">FIFO empty Interrupt enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__XFRDONE"><span class="field_name">XFRDONE</span>: <span class="field_description">Transfer Done Interrupt enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__ACKRCV"><span class="field_name">ACKRCV</span>: <span class="field_description">Boot Acknowledge Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__ACKRCVE"><span class="field_name">ACKRCVE</span>: <span class="field_description">Boot Acknowledge Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IER__UNRE"><span class="field_name">UNRE</span>: <span class="field_description">Underrun Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_IDR">HSMCI Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000048</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IDR__UNRE" title="Underrun Interrupt Disable">UNRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__OVRE" title="Overrun Interrupt Disable">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__ACKRCVE" title="Boot Acknowledge Error Interrupt Disable">ACKRCVE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__ACKRCV" title="Boot Acknowledge Interrupt Disable">ACKRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__XFRDONE" title="Transfer Done Interrupt Disable">XFRDONE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__FIFOEMPTY" title="FIFO empty Interrupt Disable">FIFOEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IDR__CSTOE" title="Completion Signal Time out Error Interrupt Disable">CSTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__DTOE" title="Data Time-out Error Interrupt Disable">DTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__DCRCE" title="Data CRC Error Interrupt Disable">DCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RTOE" title="Response Time-out Error Interrupt Disable">RTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RENDE" title="Response End Bit Error Interrupt Disable">RENDE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RCRCE" title="Response CRC Error Interrupt Disable">RCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RDIRE" title="Response Direction Error Interrupt Disable">RDIRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RINDE" title="Response Index Error Interrupt Disable">RINDE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IDR__TXBUFE" title="Transmit Buffer Empty Interrupt Disable">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RXBUFF" title="Receive Buffer Full Interrupt Disable">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__CSRCV" title="Completion Signal received interrupt Disable">CSRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__SDIOWAIT" title="SDIO Read Wait Operation Status Interrupt Disable">SDIOWAIT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__SDIOIRQA" title="SDIO Interrupt for Slot A Interrupt Disable">SDIOIRQA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IDR__ENDTX" title="End of Transmit Buffer Interrupt Disable">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__ENDRX" title="End of Receive Buffer Interrupt Disable">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__NOTBUSY" title="Data Not Busy Interrupt Disable">NOTBUSY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__DTIP" title="Data Transfer in Progress Interrupt Disable">DTIP</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__BLKE" title="Data Block Ended Interrupt Disable">BLKE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__TXRDY" title="Transmit Ready Interrupt Disable">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__RXRDY" title="Receiver Ready Interrupt Disable">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IDR__CMDRDY" title="Command Ready Interrupt Disable">CMDRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_IDR__CMDRDY"><span class="field_name">CMDRDY</span>: <span class="field_description">Command Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receiver Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__BLKE"><span class="field_name">BLKE</span>: <span class="field_description">Data Block Ended Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__DTIP"><span class="field_name">DTIP</span>: <span class="field_description">Data Transfer in Progress Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__NOTBUSY"><span class="field_name">NOTBUSY</span>: <span class="field_description">Data Not Busy Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmit Buffer Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__SDIOIRQA"><span class="field_name">SDIOIRQA</span>: <span class="field_description">SDIO Interrupt for Slot A Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__SDIOWAIT"><span class="field_name">SDIOWAIT</span>: <span class="field_description">SDIO Read Wait Operation Status Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__CSRCV"><span class="field_name">CSRCV</span>: <span class="field_description">Completion Signal received interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmit Buffer Empty Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RINDE"><span class="field_name">RINDE</span>: <span class="field_description">Response Index Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RDIRE"><span class="field_name">RDIRE</span>: <span class="field_description">Response Direction Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RCRCE"><span class="field_name">RCRCE</span>: <span class="field_description">Response CRC Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RENDE"><span class="field_name">RENDE</span>: <span class="field_description">Response End Bit Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__RTOE"><span class="field_name">RTOE</span>: <span class="field_description">Response Time-out Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__DCRCE"><span class="field_name">DCRCE</span>: <span class="field_description">Data CRC Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__DTOE"><span class="field_name">DTOE</span>: <span class="field_description">Data Time-out Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__CSTOE"><span class="field_name">CSTOE</span>: <span class="field_description">Completion Signal Time out Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__FIFOEMPTY"><span class="field_name">FIFOEMPTY</span>: <span class="field_description">FIFO empty Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__XFRDONE"><span class="field_name">XFRDONE</span>: <span class="field_description">Transfer Done Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__ACKRCV"><span class="field_name">ACKRCV</span>: <span class="field_description">Boot Acknowledge Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__ACKRCVE"><span class="field_name">ACKRCVE</span>: <span class="field_description">Boot Acknowledge Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_IDR__UNRE"><span class="field_name">UNRE</span>: <span class="field_description">Underrun Interrupt Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_IMR">HSMCI Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000004C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IMR__UNRE" title="Underrun Interrupt Mask">UNRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__OVRE" title="Overrun Interrupt Mask">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__ACKRCVE" title="Boot Operation Acknowledge Error Interrupt Mask">ACKRCVE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__ACKRCV" title="Boot Operation Acknowledge Received Interrupt Mask">ACKRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__XFRDONE" title="Transfer Done Interrupt Mask">XFRDONE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__FIFOEMPTY" title="FIFO Empty Interrupt Mask">FIFOEMPTY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IMR__CSTOE" title="Completion Signal Time-out Error Interrupt Mask">CSTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__DTOE" title="Data Time-out Error Interrupt Mask">DTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__DCRCE" title="Data CRC Error Interrupt Mask">DCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RTOE" title="Response Time-out Error Interrupt Mask">RTOE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RENDE" title="Response End Bit Error Interrupt Mask">RENDE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RCRCE" title="Response CRC Error Interrupt Mask">RCRCE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RDIRE" title="Response Direction Error Interrupt Mask">RDIRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RINDE" title="Response Index Error Interrupt Mask">RINDE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IMR__TXBUFE" title="Transmit Buffer Empty Interrupt Mask">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RXBUFF" title="Receive Buffer Full Interrupt Mask">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__CSRCV" title="Completion Signal Received Interrupt Mask">CSRCV</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__SDIOWAIT" title="SDIO Read Wait Operation Status Interrupt Mask">SDIOWAIT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__SDIOIRQA" title="SDIO Interrupt for Slot A Interrupt Mask">SDIOIRQA</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#HSMCI_IMR__ENDTX" title="End of Transmit Buffer Interrupt Mask">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__ENDRX" title="End of Receive Buffer Interrupt Mask">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__NOTBUSY" title="Data Not Busy Interrupt Mask">NOTBUSY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__DTIP" title="Data Transfer in Progress Interrupt Mask">DTIP</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__BLKE" title="Data Block Ended Interrupt Mask">BLKE</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__TXRDY" title="Transmit Ready Interrupt Mask">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__RXRDY" title="Receiver Ready Interrupt Mask">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_IMR__CMDRDY" title="Command Ready Interrupt Mask">CMDRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_IMR__CMDRDY"><span class="field_name">CMDRDY</span>: <span class="field_description">Command Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receiver Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__BLKE"><span class="field_name">BLKE</span>: <span class="field_description">Data Block Ended Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__DTIP"><span class="field_name">DTIP</span>: <span class="field_description">Data Transfer in Progress Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__NOTBUSY"><span class="field_name">NOTBUSY</span>: <span class="field_description">Data Not Busy Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmit Buffer Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__SDIOIRQA"><span class="field_name">SDIOIRQA</span>: <span class="field_description">SDIO Interrupt for Slot A Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__SDIOWAIT"><span class="field_name">SDIOWAIT</span>: <span class="field_description">SDIO Read Wait Operation Status Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__CSRCV"><span class="field_name">CSRCV</span>: <span class="field_description">Completion Signal Received Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmit Buffer Empty Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RINDE"><span class="field_name">RINDE</span>: <span class="field_description">Response Index Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RDIRE"><span class="field_name">RDIRE</span>: <span class="field_description">Response Direction Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RCRCE"><span class="field_name">RCRCE</span>: <span class="field_description">Response CRC Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RENDE"><span class="field_name">RENDE</span>: <span class="field_description">Response End Bit Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__RTOE"><span class="field_name">RTOE</span>: <span class="field_description">Response Time-out Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__DCRCE"><span class="field_name">DCRCE</span>: <span class="field_description">Data CRC Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__DTOE"><span class="field_name">DTOE</span>: <span class="field_description">Data Time-out Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__CSTOE"><span class="field_name">CSTOE</span>: <span class="field_description">Completion Signal Time-out Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__FIFOEMPTY"><span class="field_name">FIFOEMPTY</span>: <span class="field_description">FIFO Empty Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__XFRDONE"><span class="field_name">XFRDONE</span>: <span class="field_description">Transfer Done Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__ACKRCV"><span class="field_name">ACKRCV</span>: <span class="field_description">Boot Operation Acknowledge Received Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__ACKRCVE"><span class="field_name">ACKRCVE</span>: <span class="field_description">Boot Operation Acknowledge Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="HSMCI_IMR__UNRE"><span class="field_name">UNRE</span>: <span class="field_description">Underrun Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_CFG">HSMCI Configuration Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_CFG</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000054</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CFG__LSYNC" title="Synchronize on the last block">LSYNC</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CFG__HSMODE" title="High Speed Mode">HSMODE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CFG__FERRCTRL" title="Flow Error flag reset control mode">FERRCTRL</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_CFG__FIFOMODE" title="HSMCI Internal FIFO control mode">FIFOMODE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_CFG__FIFOMODE"><span class="field_name">FIFOMODE</span>: <span class="field_description">HSMCI Internal FIFO control mode</span></li>
+          <p>-</p>
+          <li id="HSMCI_CFG__FERRCTRL"><span class="field_name">FERRCTRL</span>: <span class="field_description">Flow Error flag reset control mode</span></li>
+          <p>-</p>
+          <li id="HSMCI_CFG__HSMODE"><span class="field_name">HSMODE</span>: <span class="field_description">High Speed Mode</span></li>
+          <p>-</p>
+          <li id="HSMCI_CFG__LSYNC"><span class="field_name">LSYNC</span>: <span class="field_description">Synchronize on the last block</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_WPMR">HSMCI Write Protection Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_WPMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400000E4</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_WPMR__WPKEY" title="Write Protect Key">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_WPMR__WPKEY" title="Write Protect Key">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_WPMR__WPKEY" title="Write Protect Key">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_WPMR__WPEN" title="Write Protect Enable">WPEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_WPMR__WPEN"><span class="field_name">WPEN</span>: <span class="field_description">Write Protect Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_WPMR__WPKEY"><span class="field_name">WPKEY</span>: <span class="field_description">Write Protect Key</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x4D4349</td><td class="name">PASSWD</td><td class="description">Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="HSMCI_WPSR">HSMCI Write Protection Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_WPSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400000E8</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_WPSR__WPVSRC" title="Write Protection Violation Source">WPVSRC</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_WPSR__WPVSRC" title="Write Protection Violation Source">WPVSRC</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_WPSR__WPVS" title="Write Protection Violation Status">WPVS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_WPSR__WPVS"><span class="field_name">WPVS</span>: <span class="field_description">Write Protection Violation Status</span></li>
+          <p>-</p>
+          <li id="HSMCI_WPSR__WPVSRC"><span class="field_name">WPVSRC</span>: <span class="field_description">Write Protection Violation Source</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_FIFO">HSMCI FIFO Memory Aperture0</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_FIFO[0:255]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000200</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values"></ul>
+        <h4 id="HSMCI_RPR">HSMCI Receive Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_RPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000100</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_RPR__RXPTR"><span class="field_name">RXPTR</span>: <span class="field_description">Receive Pointer Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_RCR">HSMCI Receive Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_RCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000104</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RCR__RXCTR" title="Receive Counter Register">RXCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RCR__RXCTR" title="Receive Counter Register">RXCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_RCR__RXCTR"><span class="field_name">RXCTR</span>: <span class="field_description">Receive Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_TPR">HSMCI Transmit Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_TPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000108</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_TPR__TXPTR"><span class="field_name">TXPTR</span>: <span class="field_description">Transmit Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_TCR">HSMCI Transmit Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_TCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000010C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TCR__TXCTR" title="Transmit Counter Register">TXCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TCR__TXCTR" title="Transmit Counter Register">TXCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_TCR__TXCTR"><span class="field_name">TXCTR</span>: <span class="field_description">Transmit Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_RNPR">HSMCI Receive Next Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_RNPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000110</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_RNPR__RXNPTR"><span class="field_name">RXNPTR</span>: <span class="field_description">Receive Next Pointer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_RNCR">HSMCI Receive Next Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_RNCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000114</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RNCR__RXNCTR" title="Receive Next Counter">RXNCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_RNCR__RXNCTR" title="Receive Next Counter">RXNCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_RNCR__RXNCTR"><span class="field_name">RXNCTR</span>: <span class="field_description">Receive Next Counter</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_TNPR">HSMCI Transmit Next Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_TNPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000118</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_TNPR__TXNPTR"><span class="field_name">TXNPTR</span>: <span class="field_description">Transmit Next Pointer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_TNCR">HSMCI Transmit Next Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_TNCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000011C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TNCR__TXNCTR" title="Transmit Counter Next">TXNCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#HSMCI_TNCR__TXNCTR" title="Transmit Counter Next">TXNCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_TNCR__TXNCTR"><span class="field_name">TXNCTR</span>: <span class="field_description">Transmit Counter Next</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_PTCR">HSMCI Transfer Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_PTCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000120</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_PTCR__TXTDIS" title="Transmitter Transfer Disable">TXTDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_PTCR__TXTEN" title="Transmitter Transfer Enable">TXTEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_PTCR__RXTDIS" title="Receiver Transfer Disable">RXTDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#HSMCI_PTCR__RXTEN" title="Receiver Transfer Enable">RXTEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_PTCR__RXTEN"><span class="field_name">RXTEN</span>: <span class="field_description">Receiver Transfer Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_PTCR__RXTDIS"><span class="field_name">RXTDIS</span>: <span class="field_description">Receiver Transfer Disable</span></li>
+          <p>-</p>
+          <li id="HSMCI_PTCR__TXTEN"><span class="field_name">TXTEN</span>: <span class="field_description">Transmitter Transfer Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_PTCR__TXTDIS"><span class="field_name">TXTDIS</span>: <span class="field_description">Transmitter Transfer Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="HSMCI_PTSR">HSMCI Transfer Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">HSMCI_PTSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40000124</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_PTSR__TXTEN" title="Transmitter Transfer Enable">TXTEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#HSMCI_PTSR__RXTEN" title="Receiver Transfer Enable">RXTEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="HSMCI_PTSR__RXTEN"><span class="field_name">RXTEN</span>: <span class="field_description">Receiver Transfer Enable</span></li>
+          <p>-</p>
+          <li id="HSMCI_PTSR__TXTEN"><span class="field_name">TXTEN</span>: <span class="field_description">Transmitter Transfer Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="HSMCI__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>HSMCI Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x40000000</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_CR">HSMCI_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">SWRST</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">PWSDIS</td>
+              <td class="field">PWSEN</td>
+              <td class="field">MCIDIS</td>
+              <td class="field">MCIEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000004</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_MR">HSMCI_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">PDCMODE</td>
+              <td class="field">PADV</td>
+              <td class="field">FBYTE</td>
+              <td class="field">WRPROOF</td>
+              <td class="field">RDPROOF</td>
+              <td class="field" colspan="3">PWSDIV</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">CLKDIV</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000008</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_DTOR">HSMCI_DTOR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">DTOMUL</td>
+              <td class="field" colspan="4">DTOCYC</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000000C</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_SDCR">HSMCI_SDCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="2">SDCBUS</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">SDCSEL</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000010</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_ARGR">HSMCI_ARGR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">ARG</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000014</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_CMDR">HSMCI_CMDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">BOOT_ACK</td>
+              <td class="field">ATACS</td>
+              <td class="field" colspan="2">IOSPCMD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">TRTYP</td>
+              <td class="field">TRDIR</td>
+              <td class="field" colspan="2">TRCMD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">MAXLAT</td>
+              <td class="field">OPDCMD</td>
+              <td class="field" colspan="3">SPCMD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="2">RSPTYP</td>
+              <td class="field" colspan="6">CMDNB</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000018</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_BLKR">HSMCI_BLKR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">BLKLEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">BLKLEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">BCNT</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">BCNT</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000001C</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_CSTOR">HSMCI_CSTOR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">CSTOMUL</td>
+              <td class="field" colspan="4">CSTOCYC</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000020</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_RSPR">HSMCI_RSPR</a>
+              </td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RSP</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000030</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_RDR">HSMCI_RDR</a>
+              </td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">DATA</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000034</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_TDR">HSMCI_TDR</a>
+              </td>
+              <td rowspan="1" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">DATA</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40000038 .. 0x4000003C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000040</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_SR">HSMCI_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field">UNRE</td>
+              <td class="field">OVRE</td>
+              <td class="field">ACKRCVE</td>
+              <td class="field">ACKRCV</td>
+              <td class="field">XFRDONE</td>
+              <td class="field">FIFOEMPTY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">CSTOE</td>
+              <td class="field">DTOE</td>
+              <td class="field">DCRCE</td>
+              <td class="field">RTOE</td>
+              <td class="field">RENDE</td>
+              <td class="field">RCRCE</td>
+              <td class="field">RDIRE</td>
+              <td class="field">RINDE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">CSRCV</td>
+              <td class="field">SDIOWAIT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SDIOIRQA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">NOTBUSY</td>
+              <td class="field">DTIP</td>
+              <td class="field">BLKE</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">CMDRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000044</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_IER">HSMCI_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field">UNRE</td>
+              <td class="field">OVRE</td>
+              <td class="field">ACKRCVE</td>
+              <td class="field">ACKRCV</td>
+              <td class="field">XFRDONE</td>
+              <td class="field">FIFOEMPTY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">CSTOE</td>
+              <td class="field">DTOE</td>
+              <td class="field">DCRCE</td>
+              <td class="field">RTOE</td>
+              <td class="field">RENDE</td>
+              <td class="field">RCRCE</td>
+              <td class="field">RDIRE</td>
+              <td class="field">RINDE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">CSRCV</td>
+              <td class="field">SDIOWAIT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SDIOIRQA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">NOTBUSY</td>
+              <td class="field">DTIP</td>
+              <td class="field">BLKE</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">CMDRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000048</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_IDR">HSMCI_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field">UNRE</td>
+              <td class="field">OVRE</td>
+              <td class="field">ACKRCVE</td>
+              <td class="field">ACKRCV</td>
+              <td class="field">XFRDONE</td>
+              <td class="field">FIFOEMPTY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">CSTOE</td>
+              <td class="field">DTOE</td>
+              <td class="field">DCRCE</td>
+              <td class="field">RTOE</td>
+              <td class="field">RENDE</td>
+              <td class="field">RCRCE</td>
+              <td class="field">RDIRE</td>
+              <td class="field">RINDE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">CSRCV</td>
+              <td class="field">SDIOWAIT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SDIOIRQA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">NOTBUSY</td>
+              <td class="field">DTIP</td>
+              <td class="field">BLKE</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">CMDRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000004C</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_IMR">HSMCI_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field">UNRE</td>
+              <td class="field">OVRE</td>
+              <td class="field">ACKRCVE</td>
+              <td class="field">ACKRCV</td>
+              <td class="field">XFRDONE</td>
+              <td class="field">FIFOEMPTY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">CSTOE</td>
+              <td class="field">DTOE</td>
+              <td class="field">DCRCE</td>
+              <td class="field">RTOE</td>
+              <td class="field">RENDE</td>
+              <td class="field">RCRCE</td>
+              <td class="field">RDIRE</td>
+              <td class="field">RINDE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">CSRCV</td>
+              <td class="field">SDIOWAIT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SDIOIRQA</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">NOTBUSY</td>
+              <td class="field">DTIP</td>
+              <td class="field">BLKE</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">CMDRDY</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40000050</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000054</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_CFG">HSMCI_CFG</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">LSYNC</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">HSMODE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">FERRCTRL</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">FIFOMODE</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40000058 .. 0x400000E0</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400000E4</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_WPMR">HSMCI_WPMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400000E8</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_WPSR">HSMCI_WPSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WPVSRC</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPVSRC</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPVS</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400000EC .. 0x400000FC</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000100</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_RPR">HSMCI_RPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000104</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_RCR">HSMCI_RCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000108</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_TPR">HSMCI_TPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000010C</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_TCR">HSMCI_TCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000110</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_RNPR">HSMCI_RNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000114</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_RNCR">HSMCI_RNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40000118</td>
+              <td rowspan="1" class="register">
+                <a href="#HSMCI_TNPR">HSMCI_TNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000011C</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_TNCR">HSMCI_TNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXNCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000120</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_PTCR">HSMCI_PTCR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTDIS</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTDIS</td>
+              <td class="field">RXTEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000124</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_PTSR">HSMCI_PTSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTEN</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40000128 .. 0x400001FC</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40000200</td>
+              <td rowspan="4" class="register">
+                <a href="#HSMCI_FIFO">HSMCI_FIFO</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

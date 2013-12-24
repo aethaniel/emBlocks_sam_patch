@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM4N WDT</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="WDT">SAM4N WDT</h1>
+        <h2 id="WDT__User_Interface">Watchdog Timer (WDT) User Interface</h2>
+<!--As per 6080F programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1450">0x400E1450</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#WDT_CR" title="Control Register" class="one_click_away">WDT_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E1454">0x400E1454</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#WDT_MR" title="Mode Register" class="one_click_away">WDT_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x3FFF2FFF</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1458">0x400E1458</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#WDT_SR" title="Status Register" class="one_click_away">WDT_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="WDT_CR">WDT Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">WDT_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1450</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#WDT_CR__KEY" title="Password.">KEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#WDT_CR__WDRSTT" title="Watchdog Restart">WDRSTT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="WDT_CR__WDRSTT"><span class="field_name">WDRSTT</span>: <span class="field_description">Watchdog Restart</span></li>
+          <p>-</p>
+          <li id="WDT_CR__KEY"><span class="field_name">KEY</span>: <span class="field_description">Password.</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0xA5</td><td class="name">PASSWD</td><td class="description">Writing any other value in this field aborts the write operation.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="WDT_MR">WDT Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">WDT_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1454</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#WDT_MR__WDIDLEHLT" title="Watchdog Idle Halt">WDIDLEHLT</a>
+              </td>
+              <td colspan="1">
+                <a href="#WDT_MR__WDDBGHLT" title="Watchdog Debug Halt">WDDBGHLT</a>
+              </td>
+              <td colspan="4">
+                <a href="#WDT_MR__WDD" title="Watchdog Delta Value">WDD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#WDT_MR__WDD" title="Watchdog Delta Value">WDD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#WDT_MR__WDDIS" title="Watchdog Disable">WDDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#WDT_MR__WDRPROC" title="Watchdog Reset Processor">WDRPROC</a>
+              </td>
+              <td colspan="1">
+                <a href="#WDT_MR__WDRSTEN" title="Watchdog Reset Enable">WDRSTEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#WDT_MR__WDFIEN" title="Watchdog Fault Interrupt Enable">WDFIEN</a>
+              </td>
+              <td colspan="4">
+                <a href="#WDT_MR__WDV" title="Watchdog Counter Value">WDV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#WDT_MR__WDV" title="Watchdog Counter Value">WDV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="WDT_MR__WDV"><span class="field_name">WDV</span>: <span class="field_description">Watchdog Counter Value</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDFIEN"><span class="field_name">WDFIEN</span>: <span class="field_description">Watchdog Fault Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDRSTEN"><span class="field_name">WDRSTEN</span>: <span class="field_description">Watchdog Reset Enable</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDRPROC"><span class="field_name">WDRPROC</span>: <span class="field_description">Watchdog Reset Processor</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDDIS"><span class="field_name">WDDIS</span>: <span class="field_description">Watchdog Disable</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDD"><span class="field_name">WDD</span>: <span class="field_description">Watchdog Delta Value</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDDBGHLT"><span class="field_name">WDDBGHLT</span>: <span class="field_description">Watchdog Debug Halt</span></li>
+          <p>-</p>
+          <li id="WDT_MR__WDIDLEHLT"><span class="field_name">WDIDLEHLT</span>: <span class="field_description">Watchdog Idle Halt</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="WDT_SR">WDT Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">WDT_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1458</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#WDT_SR__WDERR" title="Watchdog Error">WDERR</a>
+              </td>
+              <td colspan="1">
+                <a href="#WDT_SR__WDUNF" title="Watchdog Underflow">WDUNF</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="WDT_SR__WDUNF"><span class="field_name">WDUNF</span>: <span class="field_description">Watchdog Underflow</span></li>
+          <p>-</p>
+          <li id="WDT_SR__WDERR"><span class="field_name">WDERR</span>: <span class="field_description">Watchdog Error</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="WDT__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>WDT Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E1450</td>
+              <td rowspan="4" class="register">
+                <a href="#WDT_CR">WDT_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">KEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WDRSTT</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1454</td>
+              <td rowspan="4" class="register">
+                <a href="#WDT_MR">WDT_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WDIDLEHLT</td>
+              <td class="field">WDDBGHLT</td>
+              <td class="field" colspan="4">WDD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WDD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">WDDIS</td>
+              <td class="field">WDRPROC</td>
+              <td class="field">WDRSTEN</td>
+              <td class="field">WDFIEN</td>
+              <td class="field" colspan="4">WDV</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">WDV</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1458</td>
+              <td rowspan="4" class="register">
+                <a href="#WDT_SR">WDT_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WDERR</td>
+              <td class="field">WDUNF</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

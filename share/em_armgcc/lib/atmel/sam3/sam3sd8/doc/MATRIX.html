@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3S8 MATRIX</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="MATRIX">SAM3S8 MATRIX</h1>
+        <h2 id="MATRIX__User_Interface">AHB Bus Matrix (MATRIX) User Interface</h2>
+<!--As per 6499A programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0200">0x400E0200</td>
+              <td class="description">Master Configuration Register</td>
+              <td class="name">
+                <a href="#MATRIX_MCFG" title="Master Configuration Register" class="one_click_away">MATRIX_MCFG[4]</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0240">0x400E0240</td>
+              <td class="description">Slave Configuration Register</td>
+              <td class="name">
+                <a href="#MATRIX_SCFG" title="Slave Configuration Register" class="one_click_away">MATRIX_SCFG[5]</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x0001001000050010000000100000001000000010</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0280">0x400E0280</td>
+              <td class="description">Priority Register A for Slave 0</td>
+              <td class="name">
+                <a href="#MATRIX_PRAS0" title="Priority Register A for Slave 0" class="one_click_away">MATRIX_PRAS0</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0288">0x400E0288</td>
+              <td class="description">Priority Register A for Slave 1</td>
+              <td class="name">
+                <a href="#MATRIX_PRAS1" title="Priority Register A for Slave 1" class="one_click_away">MATRIX_PRAS1</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0290">0x400E0290</td>
+              <td class="description">Priority Register A for Slave 2</td>
+              <td class="name">
+                <a href="#MATRIX_PRAS2" title="Priority Register A for Slave 2" class="one_click_away">MATRIX_PRAS2</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0298">0x400E0298</td>
+              <td class="description">Priority Register A for Slave 3</td>
+              <td class="name">
+                <a href="#MATRIX_PRAS3" title="Priority Register A for Slave 3" class="one_click_away">MATRIX_PRAS3</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E02A0">0x400E02A0</td>
+              <td class="description">Priority Register A for Slave 4</td>
+              <td class="name">
+                <a href="#MATRIX_PRAS4" title="Priority Register A for Slave 4" class="one_click_away">MATRIX_PRAS4</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0314">0x400E0314</td>
+              <td class="description">System I/O Configuration register</td>
+              <td class="name">
+                <a href="#MATRIX_SYSIO" title="System I/O Configuration register" class="one_click_away">MATRIX_SYSIO</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E031C">0x400E031C</td>
+              <td class="description">SMC Chip Select NAND Flash Assignment Register</td>
+              <td class="name">
+                <a href="#MATRIX_SMCNFCS" title="SMC Chip Select NAND Flash Assignment Register" class="one_click_away">MATRIX_SMCNFCS</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E03E4">0x400E03E4</td>
+              <td class="description">Write Protect Mode Register</td>
+              <td class="name">
+                <a href="#MATRIX_WPMR" title="Write Protect Mode Register" class="one_click_away">MATRIX_WPMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E03E8">0x400E03E8</td>
+              <td class="description">Write Protect Status Register</td>
+              <td class="name">
+                <a href="#MATRIX_WPSR" title="Write Protect Status Register" class="one_click_away">MATRIX_WPSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="MATRIX_MCFG">MATRIX Master Configuration Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_MCFG[0:3]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0200</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#MATRIX_MCFG__ULBT" title="Undefined Length Burst Type">ULBT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_MCFG__ULBT"><span class="field_name">ULBT</span>: <span class="field_description">Undefined Length Burst Type</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_SCFG">MATRIX Slave Configuration Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_SCFG[0:4]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0240</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_SCFG__ARBT" title="Arbitration Type">ARBT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#MATRIX_SCFG__FIXED_DEFMSTR" title="Fixed Default Master">FIXED_DEFMSTR</a>
+              </td>
+              <td colspan="2">
+                <a href="#MATRIX_SCFG__DEFMSTR_TYPE" title="Default Master Type">DEFMSTR_TYPE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#MATRIX_SCFG__SLOT_CYCLE" title="Maximum Number of Allowed Cycles for a Burst">SLOT_CYCLE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_SCFG__SLOT_CYCLE"><span class="field_name">SLOT_CYCLE</span>: <span class="field_description">Maximum Number of Allowed Cycles for a Burst</span></li>
+          <p>-</p>
+          <li id="MATRIX_SCFG__DEFMSTR_TYPE"><span class="field_name">DEFMSTR_TYPE</span>: <span class="field_description">Default Master Type</span></li>
+          <p>-</p>
+          <li id="MATRIX_SCFG__FIXED_DEFMSTR"><span class="field_name">FIXED_DEFMSTR</span>: <span class="field_description">Fixed Default Master</span></li>
+          <p>-</p>
+          <li id="MATRIX_SCFG__ARBT"><span class="field_name">ARBT</span>: <span class="field_description">Arbitration Type</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_PRAS0">MATRIX Priority Register A for Slave 0</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_PRAS0</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0280</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS0__M4PR" title="Master 4 Priority">M4PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS0__M3PR" title="Master 3 Priority">M3PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS0__M2PR" title="Master 2 Priority">M2PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS0__M1PR" title="Master 1 Priority">M1PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS0__M0PR" title="Master 0 Priority">M0PR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_PRAS0__M0PR"><span class="field_name">M0PR</span>: <span class="field_description">Master 0 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS0__M1PR"><span class="field_name">M1PR</span>: <span class="field_description">Master 1 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS0__M2PR"><span class="field_name">M2PR</span>: <span class="field_description">Master 2 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS0__M3PR"><span class="field_name">M3PR</span>: <span class="field_description">Master 3 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS0__M4PR"><span class="field_name">M4PR</span>: <span class="field_description">Master 4 Priority</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_PRAS1">MATRIX Priority Register A for Slave 1</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_PRAS1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0288</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS1__M4PR" title="Master 4 Priority">M4PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS1__M3PR" title="Master 3 Priority">M3PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS1__M2PR" title="Master 2 Priority">M2PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS1__M1PR" title="Master 1 Priority">M1PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS1__M0PR" title="Master 0 Priority">M0PR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_PRAS1__M0PR"><span class="field_name">M0PR</span>: <span class="field_description">Master 0 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS1__M1PR"><span class="field_name">M1PR</span>: <span class="field_description">Master 1 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS1__M2PR"><span class="field_name">M2PR</span>: <span class="field_description">Master 2 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS1__M3PR"><span class="field_name">M3PR</span>: <span class="field_description">Master 3 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS1__M4PR"><span class="field_name">M4PR</span>: <span class="field_description">Master 4 Priority</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_PRAS2">MATRIX Priority Register A for Slave 2</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_PRAS2</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0290</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS2__M4PR" title="Master 4 Priority">M4PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS2__M3PR" title="Master 3 Priority">M3PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS2__M2PR" title="Master 2 Priority">M2PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS2__M1PR" title="Master 1 Priority">M1PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS2__M0PR" title="Master 0 Priority">M0PR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_PRAS2__M0PR"><span class="field_name">M0PR</span>: <span class="field_description">Master 0 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS2__M1PR"><span class="field_name">M1PR</span>: <span class="field_description">Master 1 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS2__M2PR"><span class="field_name">M2PR</span>: <span class="field_description">Master 2 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS2__M3PR"><span class="field_name">M3PR</span>: <span class="field_description">Master 3 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS2__M4PR"><span class="field_name">M4PR</span>: <span class="field_description">Master 4 Priority</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_PRAS3">MATRIX Priority Register A for Slave 3</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_PRAS3</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0298</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS3__M4PR" title="Master 4 Priority">M4PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS3__M3PR" title="Master 3 Priority">M3PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS3__M2PR" title="Master 2 Priority">M2PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS3__M1PR" title="Master 1 Priority">M1PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS3__M0PR" title="Master 0 Priority">M0PR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_PRAS3__M0PR"><span class="field_name">M0PR</span>: <span class="field_description">Master 0 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS3__M1PR"><span class="field_name">M1PR</span>: <span class="field_description">Master 1 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS3__M2PR"><span class="field_name">M2PR</span>: <span class="field_description">Master 2 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS3__M3PR"><span class="field_name">M3PR</span>: <span class="field_description">Master 3 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS3__M4PR"><span class="field_name">M4PR</span>: <span class="field_description">Master 4 Priority</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_PRAS4">MATRIX Priority Register A for Slave 4</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_PRAS4</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E02A0</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS4__M4PR" title="Master 4 Priority">M4PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS4__M3PR" title="Master 3 Priority">M3PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS4__M2PR" title="Master 2 Priority">M2PR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS4__M1PR" title="Master 1 Priority">M1PR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#MATRIX_PRAS4__M0PR" title="Master 0 Priority">M0PR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_PRAS4__M0PR"><span class="field_name">M0PR</span>: <span class="field_description">Master 0 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS4__M1PR"><span class="field_name">M1PR</span>: <span class="field_description">Master 1 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS4__M2PR"><span class="field_name">M2PR</span>: <span class="field_description">Master 2 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS4__M3PR"><span class="field_name">M3PR</span>: <span class="field_description">Master 3 Priority</span></li>
+          <p>-</p>
+          <li id="MATRIX_PRAS4__M4PR"><span class="field_name">M4PR</span>: <span class="field_description">Master 4 Priority</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_SYSIO">MATRIX System I/O Configuration register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_SYSIO</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0314</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO12" title="PB12 or ERASE Assignment">SYSIO12</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO11" title="PB11 or DDP Assignment">SYSIO11</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO10" title="PB10 or DDM Assignment">SYSIO10</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO7" title="PB7 or TCK/SWCLK Assignment">SYSIO7</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO6" title="PB6 or TMS/SWDIO Assignment">SYSIO6</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO5" title="PB5 or TDO/TRACESWO Assignment">SYSIO5</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SYSIO__SYSIO4" title="PB4 or TDI Assignment">SYSIO4</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_SYSIO__SYSIO4"><span class="field_name">SYSIO4</span>: <span class="field_description">PB4 or TDI Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SYSIO__SYSIO5"><span class="field_name">SYSIO5</span>: <span class="field_description">PB5 or TDO/TRACESWO Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SYSIO__SYSIO6"><span class="field_name">SYSIO6</span>: <span class="field_description">PB6 or TMS/SWDIO Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SYSIO__SYSIO7"><span class="field_name">SYSIO7</span>: <span class="field_description">PB7 or TCK/SWCLK Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SYSIO__SYSIO10"><span class="field_name">SYSIO10</span>: <span class="field_description">PB10 or DDM Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SYSIO__SYSIO11"><span class="field_name">SYSIO11</span>: <span class="field_description">PB11 or DDP Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SYSIO__SYSIO12"><span class="field_name">SYSIO12</span>: <span class="field_description">PB12 or ERASE Assignment</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_SMCNFCS">MATRIX SMC Chip Select NAND Flash Assignment Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_SMCNFCS</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E031C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#MATRIX_SMCNFCS__SMC_NFCS3" title="SMC NAND Flash Chip Select 3 Assignment">SMC_NFCS3</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SMCNFCS__SMC_NFCS2" title="SMC NAND Flash Chip Select 2 Assignment">SMC_NFCS2</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SMCNFCS__SMC_NFCS1" title="SMC NAND Flash Chip Select 1 Assignment">SMC_NFCS1</a>
+              </td>
+              <td colspan="1">
+                <a href="#MATRIX_SMCNFCS__SMC_NFCS0" title="SMC NAND Flash Chip Select 0 Assignment">SMC_NFCS0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_SMCNFCS__SMC_NFCS0"><span class="field_name">SMC_NFCS0</span>: <span class="field_description">SMC NAND Flash Chip Select 0 Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SMCNFCS__SMC_NFCS1"><span class="field_name">SMC_NFCS1</span>: <span class="field_description">SMC NAND Flash Chip Select 1 Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SMCNFCS__SMC_NFCS2"><span class="field_name">SMC_NFCS2</span>: <span class="field_description">SMC NAND Flash Chip Select 2 Assignment</span></li>
+          <p>-</p>
+          <li id="MATRIX_SMCNFCS__SMC_NFCS3"><span class="field_name">SMC_NFCS3</span>: <span class="field_description">SMC NAND Flash Chip Select 3 Assignment</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_WPMR">MATRIX Write Protect Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_WPMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E03E4</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#MATRIX_WPMR__WPKEY" title="Write Protect KEY (Write-only)">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#MATRIX_WPMR__WPKEY" title="Write Protect KEY (Write-only)">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#MATRIX_WPMR__WPKEY" title="Write Protect KEY (Write-only)">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#MATRIX_WPMR__WPEN" title="Write Protect ENable">WPEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_WPMR__WPEN"><span class="field_name">WPEN</span>: <span class="field_description">Write Protect ENable</span></li>
+          <p>-</p>
+          <li id="MATRIX_WPMR__WPKEY"><span class="field_name">WPKEY</span>: <span class="field_description">Write Protect KEY (Write-only)</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="MATRIX_WPSR">MATRIX Write Protect Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">MATRIX_WPSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E03E8</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#MATRIX_WPSR__WPVSRC" title="Write Protect Violation Source">WPVSRC</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#MATRIX_WPSR__WPVSRC" title="Write Protect Violation Source">WPVSRC</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#MATRIX_WPSR__WPVS" title="Write Protect Violation Status">WPVS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="MATRIX_WPSR__WPVS"><span class="field_name">WPVS</span>: <span class="field_description">Write Protect Violation Status</span></li>
+          <p>-</p>
+          <li id="MATRIX_WPSR__WPVSRC"><span class="field_name">WPVSRC</span>: <span class="field_description">Write Protect Violation Source</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="MATRIX__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>MATRIX Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E0200</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_MCFG">MATRIX_MCFG</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">ULBT</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0210 .. 0x400E023C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0240</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_SCFG">MATRIX_SCFG</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">ARBT</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">FIXED_DEFMSTR</td>
+              <td class="field" colspan="2">DEFMSTR_TYPE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">SLOT_CYCLE</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0254 .. 0x400E027C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0280</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_PRAS0">MATRIX_PRAS0</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M4PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M3PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M2PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M1PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M0PR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0284</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0288</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_PRAS1">MATRIX_PRAS1</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M4PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M3PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M2PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M1PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M0PR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E028C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0290</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_PRAS2">MATRIX_PRAS2</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M4PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M3PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M2PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M1PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M0PR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0294</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0298</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_PRAS3">MATRIX_PRAS3</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M4PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M3PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M2PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M1PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M0PR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E029C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E02A0</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_PRAS4">MATRIX_PRAS4</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M4PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M3PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M2PR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M1PR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">M0PR</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E02A4</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E02A8 .. 0x400E0310</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0314</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_SYSIO">MATRIX_SYSIO</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SYSIO12</td>
+              <td class="field">SYSIO11</td>
+              <td class="field">SYSIO10</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">SYSIO7</td>
+              <td class="field">SYSIO6</td>
+              <td class="field">SYSIO5</td>
+              <td class="field">SYSIO4</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0318</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E031C</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_SMCNFCS">MATRIX_SMCNFCS</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SMC_NFCS3</td>
+              <td class="field">SMC_NFCS2</td>
+              <td class="field">SMC_NFCS1</td>
+              <td class="field">SMC_NFCS0</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E0320 .. 0x400E03E0</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E03E4</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_WPMR">MATRIX_WPMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E03E8</td>
+              <td rowspan="4" class="register">
+                <a href="#MATRIX_WPSR">MATRIX_WPSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WPVSRC</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPVSRC</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPVS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

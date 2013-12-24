@@ -1,0 +1,2040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM4S RTC</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="RTC">SAM4S RTC</h1>
+        <h2 id="RTC__User_Interface">Real-time Clock (RTC) User Interface</h2>
+<!--As per 6056P programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1460">0x400E1460</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#RTC_CR" title="Control Register" class="one_click_away">RTC_CR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E1464">0x400E1464</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#RTC_MR" title="Mode Register" class="one_click_away">RTC_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1468">0x400E1468</td>
+              <td class="description">Time Register</td>
+              <td class="name">
+                <a href="#RTC_TIMR" title="Time Register" class="one_click_away">RTC_TIMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E146C">0x400E146C</td>
+              <td class="description">Calendar Register</td>
+              <td class="name">
+                <a href="#RTC_CALR" title="Calendar Register" class="one_click_away">RTC_CALR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x01A11020</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1470">0x400E1470</td>
+              <td class="description">Time Alarm Register</td>
+              <td class="name">
+                <a href="#RTC_TIMALR" title="Time Alarm Register" class="one_click_away">RTC_TIMALR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E1474">0x400E1474</td>
+              <td class="description">Calendar Alarm Register</td>
+              <td class="name">
+                <a href="#RTC_CALALR" title="Calendar Alarm Register" class="one_click_away">RTC_CALALR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x01010000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1478">0x400E1478</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#RTC_SR" title="Status Register" class="one_click_away">RTC_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E147C">0x400E147C</td>
+              <td class="description">Status Clear Command Register</td>
+              <td class="name">
+                <a href="#RTC_SCCR" title="Status Clear Command Register" class="one_click_away">RTC_SCCR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1480">0x400E1480</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#RTC_IER" title="Interrupt Enable Register" class="one_click_away">RTC_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E1484">0x400E1484</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#RTC_IDR" title="Interrupt Disable Register" class="one_click_away">RTC_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1488">0x400E1488</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#RTC_IMR" title="Interrupt Mask Register" class="one_click_away">RTC_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E148C">0x400E148C</td>
+              <td class="description">Valid Entry Register</td>
+              <td class="name">
+                <a href="#RTC_VER" title="Valid Entry Register" class="one_click_away">RTC_VER</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="RTC_CR">RTC Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1460</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#RTC_CR__CALEVSEL" title="Calendar Event Selection">CALEVSEL</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#RTC_CR__TIMEVSEL" title="Time Event Selection">TIMEVSEL</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_CR__UPDCAL" title="Update Request Calendar Register">UPDCAL</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_CR__UPDTIM" title="Update Request Time Register">UPDTIM</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_CR__UPDTIM"><span class="field_name">UPDTIM</span>: <span class="field_description">Update Request Time Register</span></li>
+          <p>-</p>
+          <li id="RTC_CR__UPDCAL"><span class="field_name">UPDCAL</span>: <span class="field_description">Update Request Calendar Register</span></li>
+          <p>-</p>
+          <li id="RTC_CR__TIMEVSEL"><span class="field_name">TIMEVSEL</span>: <span class="field_description">Time Event Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MINUTE</td><td class="description">Minute change</td></tr><tr class="even"><td class="value">0x1</td><td class="name">HOUR</td><td class="description">Hour change</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">MIDNIGHT</td><td class="description">Every day at midnight</td></tr><tr class="even"><td class="value">0x3</td><td class="name">NOON</td><td class="description">Every day at noon</td></tr></tbody></table></li>
+          <li id="RTC_CR__CALEVSEL"><span class="field_name">CALEVSEL</span>: <span class="field_description">Calendar Event Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">WEEK</td><td class="description">Week change (every Monday at time 00:00:00)</td></tr><tr class="even"><td class="value">0x1</td><td class="name">MONTH</td><td class="description">Month change (every 01 of each month at time 00:00:00)</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">YEAR</td><td class="description">Year change (every January 1 at time 00:00:00)</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="RTC_MR">RTC Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1464</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#RTC_MR__TPERIOD" title="Period of the Output Pulse">TPERIOD</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#RTC_MR__THIGH" title="High Duration of the Output Pulse">THIGH</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#RTC_MR__OUT1" title="RTCOUT1 Output Source Selection">OUT1</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#RTC_MR__OUT0" title="RTCOUT0 OutputSource Selection">OUT0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#RTC_MR__HIGHPPM" title="HIGH PPM Correction">HIGHPPM</a>
+              </td>
+              <td colspan="7">
+                <a href="#RTC_MR__CORRECTION" title="Slow Clock Correction">CORRECTION</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_MR__NEGPPM" title="NEGative PPM Correction">NEGPPM</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_MR__PERSIAN" title="PERSIAN Calendar">PERSIAN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_MR__HRMOD" title="12-/24-hour Mode">HRMOD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_MR__HRMOD"><span class="field_name">HRMOD</span>: <span class="field_description">12-/24-hour Mode</span></li>
+          <p>-</p>
+          <li id="RTC_MR__PERSIAN"><span class="field_name">PERSIAN</span>: <span class="field_description">PERSIAN Calendar</span></li>
+          <p>-</p>
+          <li id="RTC_MR__NEGPPM"><span class="field_name">NEGPPM</span>: <span class="field_description">NEGative PPM Correction</span></li>
+          <p>-</p>
+          <li id="RTC_MR__CORRECTION"><span class="field_name">CORRECTION</span>: <span class="field_description">Slow Clock Correction</span></li>
+          <p>-</p>
+          <li id="RTC_MR__HIGHPPM"><span class="field_name">HIGHPPM</span>: <span class="field_description">HIGH PPM Correction</span></li>
+          <p>-</p>
+          <li id="RTC_MR__OUT0"><span class="field_name">OUT0</span>: <span class="field_description">RTCOUT0 OutputSource Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NO_WAVE</td><td class="description">no waveform, stuck at '0'</td></tr><tr class="even"><td class="value">0x1</td><td class="name">FREQ1HZ</td><td class="description">1 Hz square wave</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">FREQ32HZ</td><td class="description">32 Hz square wave</td></tr><tr class="even"><td class="value">0x3</td><td class="name">FREQ64HZ</td><td class="description">64 Hz square wave</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">FREQ512HZ</td><td class="description">512 Hz square wave</td></tr><tr class="even"><td class="value">0x5</td><td class="name">ALARM_TOGGLE</td><td class="description">output toggles when alarm flag rises</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">ALARM_FLAG</td><td class="description">output is a copy of the alarm flag</td></tr><tr class="even"><td class="value">0x7</td><td class="name">PROG_PULSE</td><td class="description">duty cycle programmable pulse</td></tr></tbody></table></li>
+          <li id="RTC_MR__OUT1"><span class="field_name">OUT1</span>: <span class="field_description">RTCOUT1 Output Source Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NO_WAVE</td><td class="description">no waveform, stuck at '0'</td></tr><tr class="even"><td class="value">0x1</td><td class="name">FREQ1HZ</td><td class="description">1 Hz square wave</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">FREQ32HZ</td><td class="description">32 Hz square wave</td></tr><tr class="even"><td class="value">0x3</td><td class="name">FREQ64HZ</td><td class="description">64 Hz square wave</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">FREQ512HZ</td><td class="description">512 Hz square wave</td></tr><tr class="even"><td class="value">0x5</td><td class="name">ALARM_TOGGLE</td><td class="description">output toggles when alarm flag rises</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">ALARM_FLAG</td><td class="description">output is a copy of the alarm flag</td></tr><tr class="even"><td class="value">0x7</td><td class="name">PROG_PULSE</td><td class="description">duty cycle programmable pulse</td></tr></tbody></table></li>
+          <li id="RTC_MR__THIGH"><span class="field_name">THIGH</span>: <span class="field_description">High Duration of the Output Pulse</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">H_31MS</td><td class="description">31.2 ms</td></tr><tr class="even"><td class="value">0x1</td><td class="name">H_16MS</td><td class="description">15.6 ms</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">H_4MS</td><td class="description">3.91 ms</td></tr><tr class="even"><td class="value">0x3</td><td class="name">H_976US</td><td class="description">976 us</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">H_488US</td><td class="description">488 us</td></tr><tr class="even"><td class="value">0x5</td><td class="name">H_122US</td><td class="description">122 us</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">H_30US</td><td class="description">30.5 us</td></tr><tr class="even"><td class="value">0x7</td><td class="name">H_15US</td><td class="description">15.2 us</td></tr></tbody></table></li>
+          <li id="RTC_MR__TPERIOD"><span class="field_name">TPERIOD</span>: <span class="field_description">Period of the Output Pulse</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">P_1S</td><td class="description">1 second</td></tr><tr class="even"><td class="value">0x1</td><td class="name">P_500MS</td><td class="description">500 ms</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">P_250MS</td><td class="description">250 ms</td></tr><tr class="even"><td class="value">0x3</td><td class="name">P_125MS</td><td class="description">125 ms</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="RTC_TIMR">RTC Time Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_TIMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1468</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_TIMR__AMPM" title="Ante Meridiem Post Meridiem Indicator">AMPM</a>
+              </td>
+              <td colspan="6">
+                <a href="#RTC_TIMR__HOUR" title="Current Hour">HOUR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="7">
+                <a href="#RTC_TIMR__MIN" title="Current Minute">MIN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="7">
+                <a href="#RTC_TIMR__SEC" title="Current Second">SEC</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_TIMR__SEC"><span class="field_name">SEC</span>: <span class="field_description">Current Second</span></li>
+          <p>-</p>
+          <li id="RTC_TIMR__MIN"><span class="field_name">MIN</span>: <span class="field_description">Current Minute</span></li>
+          <p>-</p>
+          <li id="RTC_TIMR__HOUR"><span class="field_name">HOUR</span>: <span class="field_description">Current Hour</span></li>
+          <p>-</p>
+          <li id="RTC_TIMR__AMPM"><span class="field_name">AMPM</span>: <span class="field_description">Ante Meridiem Post Meridiem Indicator</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_CALR">RTC Calendar Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_CALR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E146C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="6">
+                <a href="#RTC_CALR__DATE" title="Current Day in Current Month">DATE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="3">
+                <a href="#RTC_CALR__DAY" title="Current Day in Current Week">DAY</a>
+              </td>
+              <td colspan="5">
+                <a href="#RTC_CALR__MONTH" title="Current Month">MONTH</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTC_CALR__YEAR" title="Current Year">YEAR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="7">
+                <a href="#RTC_CALR__CENT" title="Current Century">CENT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_CALR__CENT"><span class="field_name">CENT</span>: <span class="field_description">Current Century</span></li>
+          <p>-</p>
+          <li id="RTC_CALR__YEAR"><span class="field_name">YEAR</span>: <span class="field_description">Current Year</span></li>
+          <p>-</p>
+          <li id="RTC_CALR__MONTH"><span class="field_name">MONTH</span>: <span class="field_description">Current Month</span></li>
+          <p>-</p>
+          <li id="RTC_CALR__DAY"><span class="field_name">DAY</span>: <span class="field_description">Current Day in Current Week</span></li>
+          <p>-</p>
+          <li id="RTC_CALR__DATE"><span class="field_name">DATE</span>: <span class="field_description">Current Day in Current Month</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_TIMALR">RTC Time Alarm Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_TIMALR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1470</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#RTC_TIMALR__HOUREN" title="Hour Alarm Enable">HOUREN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_TIMALR__AMPM" title="AM/PM Indicator">AMPM</a>
+              </td>
+              <td colspan="6">
+                <a href="#RTC_TIMALR__HOUR" title="Hour Alarm">HOUR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#RTC_TIMALR__MINEN" title="Minute Alarm Enable">MINEN</a>
+              </td>
+              <td colspan="7">
+                <a href="#RTC_TIMALR__MIN" title="Minute Alarm">MIN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#RTC_TIMALR__SECEN" title="Second Alarm Enable">SECEN</a>
+              </td>
+              <td colspan="7">
+                <a href="#RTC_TIMALR__SEC" title="Second Alarm">SEC</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_TIMALR__SEC"><span class="field_name">SEC</span>: <span class="field_description">Second Alarm</span></li>
+          <p>-</p>
+          <li id="RTC_TIMALR__SECEN"><span class="field_name">SECEN</span>: <span class="field_description">Second Alarm Enable</span></li>
+          <p>-</p>
+          <li id="RTC_TIMALR__MIN"><span class="field_name">MIN</span>: <span class="field_description">Minute Alarm</span></li>
+          <p>-</p>
+          <li id="RTC_TIMALR__MINEN"><span class="field_name">MINEN</span>: <span class="field_description">Minute Alarm Enable</span></li>
+          <p>-</p>
+          <li id="RTC_TIMALR__HOUR"><span class="field_name">HOUR</span>: <span class="field_description">Hour Alarm</span></li>
+          <p>-</p>
+          <li id="RTC_TIMALR__AMPM"><span class="field_name">AMPM</span>: <span class="field_description">AM/PM Indicator</span></li>
+          <p>-</p>
+          <li id="RTC_TIMALR__HOUREN"><span class="field_name">HOUREN</span>: <span class="field_description">Hour Alarm Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_CALALR">RTC Calendar Alarm Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_CALALR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1474</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#RTC_CALALR__DATEEN" title="Date Alarm Enable">DATEEN</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="6">
+                <a href="#RTC_CALALR__DATE" title="Date Alarm">DATE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#RTC_CALALR__MTHEN" title="Month Alarm Enable">MTHEN</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="5">
+                <a href="#RTC_CALALR__MONTH" title="Month Alarm">MONTH</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_CALALR__MONTH"><span class="field_name">MONTH</span>: <span class="field_description">Month Alarm</span></li>
+          <p>-</p>
+          <li id="RTC_CALALR__MTHEN"><span class="field_name">MTHEN</span>: <span class="field_description">Month Alarm Enable</span></li>
+          <p>-</p>
+          <li id="RTC_CALALR__DATE"><span class="field_name">DATE</span>: <span class="field_description">Date Alarm</span></li>
+          <p>-</p>
+          <li id="RTC_CALALR__DATEEN"><span class="field_name">DATEEN</span>: <span class="field_description">Date Alarm Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_SR">RTC Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1478</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_SR__TDERR" title="Time and/or Date Free Running Error">TDERR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SR__CALEV" title="Calendar Event">CALEV</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SR__TIMEV" title="Time Event">TIMEV</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SR__SEC" title="Second Event">SEC</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SR__ALARM" title="Alarm Flag">ALARM</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SR__ACKUPD" title="Acknowledge for Update">ACKUPD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_SR__ACKUPD"><span class="field_name">ACKUPD</span>: <span class="field_description">Acknowledge for Update</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">FREERUN</td><td class="description">Time and calendar registers cannot be updated.</td></tr><tr class="even"><td class="value">1</td><td class="name">UPDATE</td><td class="description">Time and calendar registers can be updated.</td></tr></tbody></table></li>
+          <li id="RTC_SR__ALARM"><span class="field_name">ALARM</span>: <span class="field_description">Alarm Flag</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">NO_ALARMEVENT</td><td class="description">No alarm matching condition occurred.</td></tr><tr class="even"><td class="value">1</td><td class="name">ALARMEVENT</td><td class="description">An alarm matching condition has occurred.</td></tr></tbody></table></li>
+          <li id="RTC_SR__SEC"><span class="field_name">SEC</span>: <span class="field_description">Second Event</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">NO_SECEVENT</td><td class="description">No second event has occurred since the last clear.</td></tr><tr class="even"><td class="value">1</td><td class="name">SECEVENT</td><td class="description">At least one second event has occurred since the last clear.</td></tr></tbody></table></li>
+          <li id="RTC_SR__TIMEV"><span class="field_name">TIMEV</span>: <span class="field_description">Time Event</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">NO_TIMEVENT</td><td class="description">No time event has occurred since the last clear.</td></tr><tr class="even"><td class="value">1</td><td class="name">TIMEVENT</td><td class="description">At least one time event has occurred since the last clear.</td></tr></tbody></table></li>
+          <li id="RTC_SR__CALEV"><span class="field_name">CALEV</span>: <span class="field_description">Calendar Event</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">NO_CALEVENT</td><td class="description">No calendar event has occurred since the last clear.</td></tr><tr class="even"><td class="value">1</td><td class="name">CALEVENT</td><td class="description">At least one calendar event has occurred since the last clear.</td></tr></tbody></table></li>
+          <li id="RTC_SR__TDERR"><span class="field_name">TDERR</span>: <span class="field_description">Time and/or Date Free Running Error</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">CORRECT</td><td class="description">The internal free running counters are carrying valid values since the last read of the Status Register (RTC_SR).</td></tr><tr class="even"><td class="value">1</td><td class="name">ERR_TIMEDATE</td><td class="description">The internal free running counters have been corrupted (invalid date or time, non-BCD values) since the last read and/or they are still invalid.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="RTC_SCCR">RTC Status Clear Command Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_SCCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E147C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_SCCR__TDERRCLR" title="Time and/or Date Free Running Error Clear">TDERRCLR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SCCR__CALCLR" title="Calendar Clear">CALCLR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SCCR__TIMCLR" title="Time Clear">TIMCLR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SCCR__SECCLR" title="Second Clear">SECCLR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SCCR__ALRCLR" title="Alarm Clear">ALRCLR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_SCCR__ACKCLR" title="Acknowledge Clear">ACKCLR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_SCCR__ACKCLR"><span class="field_name">ACKCLR</span>: <span class="field_description">Acknowledge Clear</span></li>
+          <p>-</p>
+          <li id="RTC_SCCR__ALRCLR"><span class="field_name">ALRCLR</span>: <span class="field_description">Alarm Clear</span></li>
+          <p>-</p>
+          <li id="RTC_SCCR__SECCLR"><span class="field_name">SECCLR</span>: <span class="field_description">Second Clear</span></li>
+          <p>-</p>
+          <li id="RTC_SCCR__TIMCLR"><span class="field_name">TIMCLR</span>: <span class="field_description">Time Clear</span></li>
+          <p>-</p>
+          <li id="RTC_SCCR__CALCLR"><span class="field_name">CALCLR</span>: <span class="field_description">Calendar Clear</span></li>
+          <p>-</p>
+          <li id="RTC_SCCR__TDERRCLR"><span class="field_name">TDERRCLR</span>: <span class="field_description">Time and/or Date Free Running Error Clear</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_IER">RTC Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1480</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_IER__TDERREN" title="Time and/or Date Error Interrupt Enable">TDERREN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IER__CALEN" title="Calendar Event Interrupt Enable">CALEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IER__TIMEN" title="Time Event Interrupt Enable">TIMEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IER__SECEN" title="Second Event Interrupt Enable">SECEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IER__ALREN" title="Alarm Interrupt Enable">ALREN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IER__ACKEN" title="Acknowledge Update Interrupt Enable">ACKEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_IER__ACKEN"><span class="field_name">ACKEN</span>: <span class="field_description">Acknowledge Update Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTC_IER__ALREN"><span class="field_name">ALREN</span>: <span class="field_description">Alarm Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTC_IER__SECEN"><span class="field_name">SECEN</span>: <span class="field_description">Second Event Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTC_IER__TIMEN"><span class="field_name">TIMEN</span>: <span class="field_description">Time Event Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTC_IER__CALEN"><span class="field_name">CALEN</span>: <span class="field_description">Calendar Event Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTC_IER__TDERREN"><span class="field_name">TDERREN</span>: <span class="field_description">Time and/or Date Error Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_IDR">RTC Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1484</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_IDR__TDERRDIS" title="Time and/or Date Error Interrupt Disable">TDERRDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IDR__CALDIS" title="Calendar Event Interrupt Disable">CALDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IDR__TIMDIS" title="Time Event Interrupt Disable">TIMDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IDR__SECDIS" title="Second Event Interrupt Disable">SECDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IDR__ALRDIS" title="Alarm Interrupt Disable">ALRDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IDR__ACKDIS" title="Acknowledge Update Interrupt Disable">ACKDIS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_IDR__ACKDIS"><span class="field_name">ACKDIS</span>: <span class="field_description">Acknowledge Update Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="RTC_IDR__ALRDIS"><span class="field_name">ALRDIS</span>: <span class="field_description">Alarm Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="RTC_IDR__SECDIS"><span class="field_name">SECDIS</span>: <span class="field_description">Second Event Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="RTC_IDR__TIMDIS"><span class="field_name">TIMDIS</span>: <span class="field_description">Time Event Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="RTC_IDR__CALDIS"><span class="field_name">CALDIS</span>: <span class="field_description">Calendar Event Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="RTC_IDR__TDERRDIS"><span class="field_name">TDERRDIS</span>: <span class="field_description">Time and/or Date Error Interrupt Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_IMR">RTC Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1488</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_IMR__CAL" title="Calendar Event Interrupt Mask">CAL</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IMR__TIM" title="Time Event Interrupt Mask">TIM</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IMR__SEC" title="Second Event Interrupt Mask">SEC</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IMR__ALR" title="Alarm Interrupt Mask">ALR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_IMR__ACK" title="Acknowledge Update Interrupt Mask">ACK</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_IMR__ACK"><span class="field_name">ACK</span>: <span class="field_description">Acknowledge Update Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="RTC_IMR__ALR"><span class="field_name">ALR</span>: <span class="field_description">Alarm Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="RTC_IMR__SEC"><span class="field_name">SEC</span>: <span class="field_description">Second Event Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="RTC_IMR__TIM"><span class="field_name">TIM</span>: <span class="field_description">Time Event Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="RTC_IMR__CAL"><span class="field_name">CAL</span>: <span class="field_description">Calendar Event Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTC_VER">RTC Valid Entry Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTC_VER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E148C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTC_VER__NVCALALR" title="Non-valid Calendar Alarm">NVCALALR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_VER__NVTIMALR" title="Non-valid Time Alarm">NVTIMALR</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_VER__NVCAL" title="Non-valid Calendar">NVCAL</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTC_VER__NVTIM" title="Non-valid Time">NVTIM</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTC_VER__NVTIM"><span class="field_name">NVTIM</span>: <span class="field_description">Non-valid Time</span></li>
+          <p>-</p>
+          <li id="RTC_VER__NVCAL"><span class="field_name">NVCAL</span>: <span class="field_description">Non-valid Calendar</span></li>
+          <p>-</p>
+          <li id="RTC_VER__NVTIMALR"><span class="field_name">NVTIMALR</span>: <span class="field_description">Non-valid Time Alarm</span></li>
+          <p>-</p>
+          <li id="RTC_VER__NVCALALR"><span class="field_name">NVCALALR</span>: <span class="field_description">Non-valid Calendar Alarm</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="RTC__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>RTC Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E1460</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_CR">RTC_CR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">CALEVSEL</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">TIMEVSEL</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">UPDCAL</td>
+              <td class="field">UPDTIM</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1464</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_MR">RTC_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">TPERIOD</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">THIGH</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">OUT1</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">OUT0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">HIGHPPM</td>
+              <td class="field" colspan="7">CORRECTION</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">NEGPPM</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">PERSIAN</td>
+              <td class="field">HRMOD</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1468</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_TIMR">RTC_TIMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field">AMPM</td>
+              <td class="field" colspan="6">HOUR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="7">MIN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="7">SEC</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E146C</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_CALR">RTC_CALR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="6">DATE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="3">DAY</td>
+              <td class="field" colspan="5">MONTH</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">YEAR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="7">CENT</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1470</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_TIMALR">RTC_TIMALR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">HOUREN</td>
+              <td class="field">AMPM</td>
+              <td class="field" colspan="6">HOUR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">MINEN</td>
+              <td class="field" colspan="7">MIN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">SECEN</td>
+              <td class="field" colspan="7">SEC</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1474</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_CALALR">RTC_CALALR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field">DATEEN</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="6">DATE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">MTHEN</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="5">MONTH</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1478</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_SR">RTC_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TDERR</td>
+              <td class="field">CALEV</td>
+              <td class="field">TIMEV</td>
+              <td class="field">SEC</td>
+              <td class="field">ALARM</td>
+              <td class="field">ACKUPD</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E147C</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_SCCR">RTC_SCCR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TDERRCLR</td>
+              <td class="field">CALCLR</td>
+              <td class="field">TIMCLR</td>
+              <td class="field">SECCLR</td>
+              <td class="field">ALRCLR</td>
+              <td class="field">ACKCLR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1480</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_IER">RTC_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TDERREN</td>
+              <td class="field">CALEN</td>
+              <td class="field">TIMEN</td>
+              <td class="field">SECEN</td>
+              <td class="field">ALREN</td>
+              <td class="field">ACKEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1484</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_IDR">RTC_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TDERRDIS</td>
+              <td class="field">CALDIS</td>
+              <td class="field">TIMDIS</td>
+              <td class="field">SECDIS</td>
+              <td class="field">ALRDIS</td>
+              <td class="field">ACKDIS</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E1488</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_IMR">RTC_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">CAL</td>
+              <td class="field">TIM</td>
+              <td class="field">SEC</td>
+              <td class="field">ALR</td>
+              <td class="field">ACK</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E148C</td>
+              <td rowspan="4" class="register">
+                <a href="#RTC_VER">RTC_VER</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">NVCALALR</td>
+              <td class="field">NVTIMALR</td>
+              <td class="field">NVCAL</td>
+              <td class="field">NVTIM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

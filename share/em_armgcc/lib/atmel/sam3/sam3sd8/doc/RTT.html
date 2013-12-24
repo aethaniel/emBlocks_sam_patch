@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3S8 RTT</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="RTT">SAM3S8 RTT</h1>
+        <h2 id="RTT__User_Interface">Real-time Timer (RTT) User Interface</h2>
+<!--As per 6081F programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1430">0x400E1430</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#RTT_MR" title="Mode Register" class="one_click_away">RTT_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00008000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E1434">0x400E1434</td>
+              <td class="description">Alarm Register</td>
+              <td class="name">
+                <a href="#RTT_AR" title="Alarm Register" class="one_click_away">RTT_AR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0xFFFFFFFF</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E1438">0x400E1438</td>
+              <td class="description">Value Register</td>
+              <td class="name">
+                <a href="#RTT_VR" title="Value Register" class="one_click_away">RTT_VR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E143C">0x400E143C</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#RTT_SR" title="Status Register" class="one_click_away">RTT_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="RTT_MR">RTT Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTT_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1430</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTT_MR__RTC1HZ" title="Real-Time Clock 1Hz Clock Selection">RTC1HZ</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTT_MR__RTTDIS" title="Real-time Timer Disable">RTTDIS</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTT_MR__RTTRST" title="Real-time Timer Restart">RTTRST</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTT_MR__RTTINCIEN" title="Real-time Timer Increment Interrupt Enable">RTTINCIEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTT_MR__ALMIEN" title="Alarm Interrupt Enable">ALMIEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_MR__RTPRES" title="Real-time Timer Prescaler Value">RTPRES</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_MR__RTPRES" title="Real-time Timer Prescaler Value">RTPRES</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTT_MR__RTPRES"><span class="field_name">RTPRES</span>: <span class="field_description">Real-time Timer Prescaler Value</span></li>
+          <p>-</p>
+          <li id="RTT_MR__ALMIEN"><span class="field_name">ALMIEN</span>: <span class="field_description">Alarm Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTT_MR__RTTINCIEN"><span class="field_name">RTTINCIEN</span>: <span class="field_description">Real-time Timer Increment Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="RTT_MR__RTTRST"><span class="field_name">RTTRST</span>: <span class="field_description">Real-time Timer Restart</span></li>
+          <p>-</p>
+          <li id="RTT_MR__RTTDIS"><span class="field_name">RTTDIS</span>: <span class="field_description">Real-time Timer Disable</span></li>
+          <p>-</p>
+          <li id="RTT_MR__RTC1HZ"><span class="field_name">RTC1HZ</span>: <span class="field_description">Real-Time Clock 1Hz Clock Selection</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTT_AR">RTT Alarm Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTT_AR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1434</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_AR__ALMV" title="Alarm Value">ALMV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_AR__ALMV" title="Alarm Value">ALMV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_AR__ALMV" title="Alarm Value">ALMV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_AR__ALMV" title="Alarm Value">ALMV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTT_AR__ALMV"><span class="field_name">ALMV</span>: <span class="field_description">Alarm Value</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTT_VR">RTT Value Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTT_VR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E1438</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_VR__CRTV" title="Current Real-time Value">CRTV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_VR__CRTV" title="Current Real-time Value">CRTV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_VR__CRTV" title="Current Real-time Value">CRTV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#RTT_VR__CRTV" title="Current Real-time Value">CRTV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTT_VR__CRTV"><span class="field_name">CRTV</span>: <span class="field_description">Current Real-time Value</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="RTT_SR">RTT Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">RTT_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E143C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#RTT_SR__RTTINC" title="Real-time Timer Increment">RTTINC</a>
+              </td>
+              <td colspan="1">
+                <a href="#RTT_SR__ALMS" title="Real-time Alarm Status">ALMS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="RTT_SR__ALMS"><span class="field_name">ALMS</span>: <span class="field_description">Real-time Alarm Status</span></li>
+          <p>-</p>
+          <li id="RTT_SR__RTTINC"><span class="field_name">RTTINC</span>: <span class="field_description">Real-time Timer Increment</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="RTT__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>RTT Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E1430</td>
+              <td rowspan="4" class="register">
+                <a href="#RTT_MR">RTT_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RTC1HZ</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RTTDIS</td>
+              <td class="field reserved">-</td>
+              <td class="field">RTTRST</td>
+              <td class="field">RTTINCIEN</td>
+              <td class="field">ALMIEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RTPRES</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RTPRES</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E1434</td>
+              <td rowspan="1" class="register">
+                <a href="#RTT_AR">RTT_AR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">ALMV</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x400E1438</td>
+              <td rowspan="1" class="register">
+                <a href="#RTT_VR">RTT_VR</a>
+              </td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">CRTV</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E143C</td>
+              <td rowspan="4" class="register">
+                <a href="#RTT_SR">RTT_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RTTINC</td>
+              <td class="field">ALMS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
