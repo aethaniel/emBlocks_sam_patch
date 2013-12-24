@@ -193,7 +193,7 @@ function SetupProject(project)
     dbgIntfStr += _T("ID_JTAG_SWD=swd;");
     dbgIntfStr += _T("ID_FAM=Atmel;");
     dbgIntfStr += _T("ID_DEVICE=") + jlinkDeviceName + _T(";");
-    dbgIntfStr += _T("ID_SVD=$(TARGET_COMPILER_DIR)/../lib/atmel/svd") + deviceName.MakeUpper() + _T(".svd");
+    dbgIntfStr += _T("ID_SVD=$(TARGET_COMPILER_DIR)/../lib/atmel/svd/") + deviceName.MakeUpper() + _T(".svd");
 
     //-----  The device project properties --------------
 /* script debug purpose only!!! */
