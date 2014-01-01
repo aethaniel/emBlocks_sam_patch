@@ -3,11 +3,9 @@
 
 #if ATSAM4N_SERIES 
 #  include "./atsam4/atsam4n/include/atsam4n.h"
-#else /* ATSAM4N_SERIES */
-#if ATSAM4S_SERIES 
+#elif ATSAM4S_SERIES 
 #  include "./atsam4/atsam4s/include/atsam4s.h"
-#else /* ATSAM4S_SERIES */
-#if ATSAM4E_SERIES 
+#elif ATSAM4E_SERIES 
 #  include "./atsam4/atsam4e/include/atsam4e.h"
 #else /* ATSAM4E_SERIES */
 #  error "no device selected"
