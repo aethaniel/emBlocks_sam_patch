@@ -1,0 +1,2875 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA SUPC</title>
+  <chapter id="SUPC">
+    <title id="SUPC__User_Interface">Supply Controller (SUPC) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="6">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E1A10</entry>
+              <entry align="center" valign="middle">Supply Controller Control Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SUPC_CR">SUPC_CR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E1A14</entry>
+              <entry align="center" valign="middle">Supply Controller Supply Monitor Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SUPC_SMMR">SUPC_SMMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E1A18</entry>
+              <entry align="center" valign="middle">Supply Controller Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SUPC_MR">SUPC_MR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00005A00</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E1A1C</entry>
+              <entry align="center" valign="middle">Supply Controller Wake-up Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SUPC_WUMR">SUPC_WUMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E1A20</entry>
+              <entry align="center" valign="middle">Supply Controller Wake-up Inputs Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SUPC_WUIR">SUPC_WUIR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E1A24</entry>
+              <entry align="center" valign="middle">Supply Controller Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SUPC_SR">SUPC_SR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="SUPC_CR">
+        <title>SUPC Supply Controller Control Register</title>
+        <para>Name: SUPC_CR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x400E1A10</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SUPC_CR__KEY">KEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_CR__XTALSEL">XTALSEL</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_CR__VROFF">VROFF</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SUPC_CR__VROFF">
+            <para>VROFF: Voltage Regulator Off</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO_EFFECT</entry>
+                    <entry align="center" valign="middle">no effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">STOP_VREG</entry>
+                    <entry align="center" valign="middle">if KEY is correct, asserts the vddcore_nreset and stops the voltage regulator.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_CR__XTALSEL">
+            <para>XTALSEL: Crystal Oscillator Select</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO_EFFECT</entry>
+                    <entry align="center" valign="middle">no effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">CRYSTAL_SEL</entry>
+                    <entry align="center" valign="middle">if KEY is correct, switches the slow clock on the crystal oscillator output.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_CR__KEY">
+            <para>KEY: Password</para>
+            <table>
+              <title/>
+              <tgroup cols="1">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xA5</entry>
+                    <entry align="center" valign="middle">PASSWD</entry>
+                    <entry align="center" valign="middle">Writing any other value in this field aborts the write operation.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SUPC_SMMR">
+        <title>SUPC Supply Controller Supply Monitor Mode Register</title>
+        <para>Name: SUPC_SMMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E1A14</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SMMR__SMIEN">SMIEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SMMR__SMRSTEN">SMRSTEN</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c6" nameend="c8">
+                  <link linkend="SUPC_SMMR__SMSMPL">SMSMPL</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SUPC_SMMR__SMTH">SMTH</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SUPC_SMMR__SMTH">
+            <para>SMTH: Supply Monitor Threshold</para>
+          </listitem>
+          <listitem id="SUPC_SMMR__SMSMPL">
+            <para>SMSMPL: Supply Monitor Sampling Period</para>
+            <table>
+              <title/>
+              <tgroup cols="5">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">SMD</entry>
+                    <entry align="center" valign="middle">Supply Monitor disabled</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">CSM</entry>
+                    <entry align="center" valign="middle">Continuous Supply Monitor</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">32SLCK</entry>
+                    <entry align="center" valign="middle">Supply Monitor enabled one SLCK period every 32 SLCK periods</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">256SLCK</entry>
+                    <entry align="center" valign="middle">Supply Monitor enabled one SLCK period every 256 SLCK periods</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">2048SLCK</entry>
+                    <entry align="center" valign="middle">Supply Monitor enabled one SLCK period every 2,048 SLCK periods</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SMMR__SMRSTEN">
+            <para>SMRSTEN: Supply Monitor Reset Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the core reset signal "vddcore_nreset" is not affected when a supply monitor detection occurs.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the core reset signal, vddcore_nreset is asserted when a supply monitor detection occurs.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SMMR__SMIEN">
+            <para>SMIEN: Supply Monitor Interrupt Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the SUPC interrupt signal is not affected when a supply monitor detection occurs.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the SUPC interrupt signal is asserted when a supply monitor detection occurs.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SUPC_MR">
+        <title>SUPC Supply Controller Mode Register</title>
+        <para>Name: SUPC_MR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E1A18</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SUPC_MR__KEY">KEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_MR__OSCBYPASS">OSCBYPASS</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_MR__VDDIORDY">VDDIORDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_MR__BODDIS">BODDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_MR__BODRSTEN">BODRSTEN</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SUPC_MR__BODRSTEN">
+            <para>BODRSTEN: Brownout Detector Reset Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the core reset signal "vddcore_nreset" is not affected when a brownout detection occurs.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the core reset signal, vddcore_nreset is asserted when a brownout detection occurs.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_MR__BODDIS">
+            <para>BODDIS: Brownout Detector Disable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the core brownout detector is enabled.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the core brownout detector is disabled.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_MR__VDDIORDY">
+            <para>VDDIORDY: VDDIO Ready</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">VDDIO_REMOVED</entry>
+                    <entry align="center" valign="middle">VDDIO is removed (used before going to backup mode when backup batteries are used)</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">VDDIO_PRESENT</entry>
+                    <entry align="center" valign="middle">VDDIO is present (used before going to backup mode when backup batteries are used)</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_MR__OSCBYPASS">
+            <para>OSCBYPASS: Oscillator Bypass</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO_EFFECT</entry>
+                    <entry align="center" valign="middle">no effect. Clock selection depends on XTALSEL value.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">BYPASS</entry>
+                    <entry align="center" valign="middle">the 32-KHz XTAL oscillator is selected and is put in bypass mode.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_MR__KEY">
+            <para>KEY: Password Key</para>
+            <table>
+              <title/>
+              <tgroup cols="1">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xA5</entry>
+                    <entry align="center" valign="middle">PASSWD</entry>
+                    <entry align="center" valign="middle">Writing any other value in this field aborts the write operation.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SUPC_WUMR">
+        <title>SUPC Supply Controller Wake-up Mode Register</title>
+        <para>Name: SUPC_WUMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E1A1C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c4">
+                  <link linkend="SUPC_WUMR__WKUPDBC">WKUPDBC</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c6" nameend="c8">
+                  <link linkend="SUPC_WUMR__FWUPDBC">FWUPDBC</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUMR__RTCEN">RTCEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUMR__RTTEN">RTTEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUMR__SMEN">SMEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUMR__FWUPEN">FWUPEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SUPC_WUMR__FWUPEN">
+            <para>FWUPEN: Force Wake-up Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the Force Wake-up pin has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the Force Wake-up pin low forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUMR__SMEN">
+            <para>SMEN: Supply Monitor Wake-up Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the supply monitor detection has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the supply monitor detection forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUMR__RTTEN">
+            <para>RTTEN: Real Time Timer Wake-up Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the RTT alarm signal has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the RTT alarm signal forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUMR__RTCEN">
+            <para>RTCEN: Real Time Clock Wake-up Enable</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NOT_ENABLE</entry>
+                    <entry align="center" valign="middle">the RTC alarm signal has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the RTC alarm signal forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUMR__FWUPDBC">
+            <para>FWUPDBC: Force Wake-up Debouncer Period</para>
+            <table>
+              <title/>
+              <tgroup cols="6">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">IMMEDIATE</entry>
+                    <entry align="center" valign="middle">Immediate, no debouncing, detected active at least on one Slow Clock edge.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">3_SCLK</entry>
+                    <entry align="center" valign="middle">FWUP shall be low for at least 3 SLCK periods</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">32_SCLK</entry>
+                    <entry align="center" valign="middle">FWUP shall be low for at least 32 SLCK periods</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">512_SCLK</entry>
+                    <entry align="center" valign="middle">FWUP shall be low for at least 512 SLCK periods</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">4096_SCLK</entry>
+                    <entry align="center" valign="middle">FWUP shall be low for at least 4,096 SLCK periods</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">32768_SCLK</entry>
+                    <entry align="center" valign="middle">FWUP shall be low for at least 32,768 SLCK periods</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUMR__WKUPDBC">
+            <para>WKUPDBC: Wake-up Inputs Debouncer Period</para>
+            <table>
+              <title/>
+              <tgroup cols="6">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">IMMEDIATE</entry>
+                    <entry align="center" valign="middle">Immediate, no debouncing, detected active at least on one Slow Clock edge.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">3_SCLK</entry>
+                    <entry align="center" valign="middle">WKUPx shall be in its active state for at least 3 SLCK periods</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">32_SCLK</entry>
+                    <entry align="center" valign="middle">WKUPx shall be in its active state for at least 32 SLCK periods</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">512_SCLK</entry>
+                    <entry align="center" valign="middle">WKUPx shall be in its active state for at least 512 SLCK periods</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">4096_SCLK</entry>
+                    <entry align="center" valign="middle">WKUPx shall be in its active state for at least 4,096 SLCK periods</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">32768_SCLK</entry>
+                    <entry align="center" valign="middle">WKUPx shall be in its active state for at least 32,768 SLCK periods</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SUPC_WUIR">
+        <title>SUPC Supply Controller Wake-up Inputs Register</title>
+        <para>Name: SUPC_WUIR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E1A20</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT15">WKUPT15</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT14">WKUPT14</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT13">WKUPT13</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT12">WKUPT12</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT11">WKUPT11</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT10">WKUPT10</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT9">WKUPT9</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT8">WKUPT8</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT7">WKUPT7</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT6">WKUPT6</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT5">WKUPT5</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT4">WKUPT4</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT3">WKUPT3</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT2">WKUPT2</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT1">WKUPT1</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPT0">WKUPT0</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN15">WKUPEN15</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN14">WKUPEN14</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN13">WKUPEN13</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN12">WKUPEN12</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN11">WKUPEN11</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN10">WKUPEN10</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN9">WKUPEN9</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN8">WKUPEN8</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN7">WKUPEN7</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN6">WKUPEN6</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN5">WKUPEN5</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN4">WKUPEN4</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN3">WKUPEN3</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN2">WKUPEN2</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN1">WKUPEN1</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_WUIR__WKUPEN0">WKUPEN0</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SUPC_WUIR__WKUPEN0">
+            <para>WKUPEN0: Wake-up Input Enable 0</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN1">
+            <para>WKUPEN1: Wake-up Input Enable 1</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN2">
+            <para>WKUPEN2: Wake-up Input Enable 2</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN3">
+            <para>WKUPEN3: Wake-up Input Enable 3</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN4">
+            <para>WKUPEN4: Wake-up Input Enable 4</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN5">
+            <para>WKUPEN5: Wake-up Input Enable 5</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN6">
+            <para>WKUPEN6: Wake-up Input Enable 6</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN7">
+            <para>WKUPEN7: Wake-up Input Enable 7</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN8">
+            <para>WKUPEN8: Wake-up Input Enable 8</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN9">
+            <para>WKUPEN9: Wake-up Input Enable 9</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN10">
+            <para>WKUPEN10: Wake-up Input Enable 10</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN11">
+            <para>WKUPEN11: Wake-up Input Enable 11</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN12">
+            <para>WKUPEN12: Wake-up Input Enable 12</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN13">
+            <para>WKUPEN13: Wake-up Input Enable 13</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN14">
+            <para>WKUPEN14: Wake-up Input Enable 14</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPEN15">
+            <para>WKUPEN15: Wake-up Input Enable 15</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DISABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input has no wake-up effect.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">ENABLE</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT0">
+            <para>WKUPT0: Wake-up Input Type 0</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT1">
+            <para>WKUPT1: Wake-up Input Type 1</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT2">
+            <para>WKUPT2: Wake-up Input Type 2</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT3">
+            <para>WKUPT3: Wake-up Input Type 3</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT4">
+            <para>WKUPT4: Wake-up Input Type 4</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT5">
+            <para>WKUPT5: Wake-up Input Type 5</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT6">
+            <para>WKUPT6: Wake-up Input Type 6</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT7">
+            <para>WKUPT7: Wake-up Input Type 7</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT8">
+            <para>WKUPT8: Wake-up Input Type 8</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT9">
+            <para>WKUPT9: Wake-up Input Type 9</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT10">
+            <para>WKUPT10: Wake-up Input Type 10</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT11">
+            <para>WKUPT11: Wake-up Input Type 11</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT12">
+            <para>WKUPT12: Wake-up Input Type 12</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT13">
+            <para>WKUPT13: Wake-up Input Type 13</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT14">
+            <para>WKUPT14: Wake-up Input Type 14</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_WUIR__WKUPT15">
+            <para>WKUPT15: Wake-up Input Type 15</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH_TO_LOW</entry>
+                    <entry align="center" valign="middle">a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW_TO_HIGH</entry>
+                    <entry align="center" valign="middle">a low to high level transition for a period defined by WKUPDBC on the correspond-ing wake-up input forces the wake-up of the core power supply.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SUPC_SR">
+        <title>SUPC Supply Controller Status Register</title>
+        <para>Name: SUPC_SR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E1A24</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS15">WKUPIS15</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS14">WKUPIS14</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS13">WKUPIS13</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS12">WKUPIS12</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS11">WKUPIS11</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS10">WKUPIS10</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS9">WKUPIS9</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS8">WKUPIS8</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS7">WKUPIS7</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS6">WKUPIS6</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS5">WKUPIS5</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS4">WKUPIS4</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS3">WKUPIS3</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS2">WKUPIS2</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS1">WKUPIS1</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPIS0">WKUPIS0</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__FWUPIS">FWUPIS</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__OSCSEL">OSCSEL</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__SMOS">SMOS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__SMS">SMS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__SMRSTS">SMRSTS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__BODRSTS">BODRSTS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__SMWS">SMWS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__WKUPS">WKUPS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SUPC_SR__FWUPS">FWUPS</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SUPC_SR__FWUPS">
+            <para>FWUPS: FWUP Wake-up Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO</entry>
+                    <entry align="center" valign="middle">no wake-up due to the assertion of the FWUP pin has occurred since the last read of SUPC_SR.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">PRESENT</entry>
+                    <entry align="center" valign="middle">at least one wake-up due to the assertion of the FWUP pin has occurred since the last read of SUPC_SR.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPS">
+            <para>WKUPS: WKUP Wake-up Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO</entry>
+                    <entry align="center" valign="middle">no wake-up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">PRESENT</entry>
+                    <entry align="center" valign="middle">at least one wake-up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__SMWS">
+            <para>SMWS: Supply Monitor Detection Wake-up Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO</entry>
+                    <entry align="center" valign="middle">no wake-up due to a supply monitor detection has occurred since the last read of SUPC_SR.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">PRESENT</entry>
+                    <entry align="center" valign="middle">at least one wake-up due to a supply monitor detection has occurred since the last read of SUPC_SR.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__BODRSTS">
+            <para>BODRSTS: Brownout Detector Reset Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO</entry>
+                    <entry align="center" valign="middle">no core brownout rising edge event has been detected since the last read of the SUPC_SR.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">PRESENT</entry>
+                    <entry align="center" valign="middle">at least one brownout output rising edge event has been detected since the last read of the SUPC_SR.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__SMRSTS">
+            <para>SMRSTS: Supply Monitor Reset Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO</entry>
+                    <entry align="center" valign="middle">no supply monitor detection has generated a core reset since the last read of the SUPC_SR.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">PRESENT</entry>
+                    <entry align="center" valign="middle">at least one supply monitor detection has generated a core reset since the last read of the SUPC_SR.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__SMS">
+            <para>SMS: Supply Monitor Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NO</entry>
+                    <entry align="center" valign="middle">no supply monitor detection since the last read of SUPC_SR.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">PRESENT</entry>
+                    <entry align="center" valign="middle">at least one supply monitor detection since the last read of SUPC_SR.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__SMOS">
+            <para>SMOS: Supply Monitor Output Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">HIGH</entry>
+                    <entry align="center" valign="middle">the supply monitor detected VDDUTMI higher than its threshold at its last measurement.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">LOW</entry>
+                    <entry align="center" valign="middle">the supply monitor detected VDDUTMI lower than its threshold at its last measurement.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__OSCSEL">
+            <para>OSCSEL: 32-kHz Oscillator Selection Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">RC</entry>
+                    <entry align="center" valign="middle">the slow clock, SLCK is generated by the embedded 32-kHz RC oscillator.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">CRYST</entry>
+                    <entry align="center" valign="middle">the slow clock, SLCK is generated by the 32-kHz crystal oscillator.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__FWUPIS">
+            <para>FWUPIS: FWUP Input Status</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">LOW</entry>
+                    <entry align="center" valign="middle">FWUP input is tied low.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">HIGH</entry>
+                    <entry align="center" valign="middle">FWUP input is tied high.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS0">
+            <para>WKUPIS0: WKUP Input Status 0</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS1">
+            <para>WKUPIS1: WKUP Input Status 1</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS2">
+            <para>WKUPIS2: WKUP Input Status 2</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS3">
+            <para>WKUPIS3: WKUP Input Status 3</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS4">
+            <para>WKUPIS4: WKUP Input Status 4</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS5">
+            <para>WKUPIS5: WKUP Input Status 5</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS6">
+            <para>WKUPIS6: WKUP Input Status 6</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS7">
+            <para>WKUPIS7: WKUP Input Status 7</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS8">
+            <para>WKUPIS8: WKUP Input Status 8</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS9">
+            <para>WKUPIS9: WKUP Input Status 9</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS10">
+            <para>WKUPIS10: WKUP Input Status 10</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS11">
+            <para>WKUPIS11: WKUP Input Status 11</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS12">
+            <para>WKUPIS12: WKUP Input Status 12</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS13">
+            <para>WKUPIS13: WKUP Input Status 13</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS14">
+            <para>WKUPIS14: WKUP Input Status 14</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SUPC_SR__WKUPIS15">
+            <para>WKUPIS15: WKUP Input Status 15</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">DIS</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">EN</entry>
+                    <entry align="center" valign="middle">the corresponding wake-up input was active at the time the debouncer triggered a wake-up event.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

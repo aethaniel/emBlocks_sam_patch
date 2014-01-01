@@ -1,0 +1,1746 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA SDRAMC</title>
+  <chapter id="SDRAMC">
+    <title id="SDRAMC__User_Interface">SDRAM Controller (SDRAMC) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="11">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0200</entry>
+              <entry align="center" valign="middle">SDRAMC Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_MR">SDRAMC_MR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0204</entry>
+              <entry align="center" valign="middle">SDRAMC Refresh Timer Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_TR">SDRAMC_TR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0208</entry>
+              <entry align="center" valign="middle">SDRAMC Configuration Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_CR">SDRAMC_CR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x852372C0</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0210</entry>
+              <entry align="center" valign="middle">SDRAMC Low Power Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_LPR">SDRAMC_LPR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0214</entry>
+              <entry align="center" valign="middle">SDRAMC Interrupt Enable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_IER">SDRAMC_IER</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0218</entry>
+              <entry align="center" valign="middle">SDRAMC Interrupt Disable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_IDR">SDRAMC_IDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E021C</entry>
+              <entry align="center" valign="middle">SDRAMC Interrupt Mask Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_IMR">SDRAMC_IMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0220</entry>
+              <entry align="center" valign="middle">SDRAMC Interrupt Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_ISR">SDRAMC_ISR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0224</entry>
+              <entry align="center" valign="middle">SDRAMC Memory Device Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_MDR">SDRAMC_MDR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0228</entry>
+              <entry align="center" valign="middle">SDRAMC Configuration Register 1</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_CR1">SDRAMC_CR1</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000002</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E022C</entry>
+              <entry align="center" valign="middle">SDRAMC OCMS Register 1</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SDRAMC_OCMS">SDRAMC_OCMS</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="SDRAMC_MR">
+        <title>SDRAMC SDRAMC Mode Register</title>
+        <para>Name: SDRAMC_MR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0200</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c6" nameend="c8">
+                  <link linkend="SDRAMC_MR__MODE">MODE</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_MR__MODE">
+            <para>MODE: SDRAMC Command Mode</para>
+            <table>
+              <title/>
+              <tgroup cols="7">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">NORMAL</entry>
+                    <entry align="center" valign="middle">Normal mode. Any access to the SDRAM is decoded normally. To activate this mode, command must be followed by a write to the SDRAM.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">NOP</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues a NOP command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">ALLBANKS_PRECHARGE</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues an "All Banks Precharge" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">LOAD_MODEREG</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues a "Load Mode Register" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">AUTO_REFRESH</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues an "Auto-Refresh" Command when the SDRAM device is accessed regardless of the cycle. Previously, an "All Banks Precharge" command must be issued. To activate this mode, command must be followed by a write to the SDRAM.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">EXT_LOAD_MODEREG</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues an "Extended Load Mode Register" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, the "Extended Load Mode Register" command must be followed by a write to the SDRAM. The write in the SDRAM must be done in the appropriate bank; most low-power SDRAM devices use the bank 1.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">DEEP_POWERDOWN</entry>
+                    <entry align="center" valign="middle">Deep power-down mode. Enters deep power-down mode.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_TR">
+        <title>SDRAMC SDRAMC Refresh Timer Register</title>
+        <para>Name: SDRAMC_TR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0204</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_TR__COUNT">COUNT</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SDRAMC_TR__COUNT">COUNT</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_TR__COUNT">
+            <para>COUNT: SDRAMC Refresh Timer Count</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_CR">
+        <title>SDRAMC SDRAMC Configuration Register</title>
+        <para>Name: SDRAMC_CR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0208</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SDRAMC_CR__TXSR">TXSR</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_CR__TRAS">TRAS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SDRAMC_CR__TRCD">TRCD</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_CR__TRP">TRP</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SDRAMC_CR__TRC_TRFC">TRC_TRFC</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_CR__TWR">TWR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_CR__DBW">DBW</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c3">
+                  <link linkend="SDRAMC_CR__CAS">CAS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_CR__NB">NB</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c6">
+                  <link linkend="SDRAMC_CR__NR">NR</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="SDRAMC_CR__NC">NC</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_CR__NC">
+            <para>NC: Number of Column Bits</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">COL8</entry>
+                    <entry align="center" valign="middle">8 column bits</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">COL9</entry>
+                    <entry align="center" valign="middle">9 column bits</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">COL10</entry>
+                    <entry align="center" valign="middle">10 column bits</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">COL11</entry>
+                    <entry align="center" valign="middle">11 column bits</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR__NR">
+            <para>NR: Number of Row Bits</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">ROW11</entry>
+                    <entry align="center" valign="middle">11 row bits</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">ROW12</entry>
+                    <entry align="center" valign="middle">12 row bits</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">ROW13</entry>
+                    <entry align="center" valign="middle">13 row bits</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR__NB">
+            <para>NB: Number of Banks</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">BANK2</entry>
+                    <entry align="center" valign="middle">2 banks</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">BANK4</entry>
+                    <entry align="center" valign="middle">4 banks</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR__CAS">
+            <para>CAS: CAS Latency</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">LATENCY1</entry>
+                    <entry align="center" valign="middle">1 cycle CAS latency</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">LATENCY2</entry>
+                    <entry align="center" valign="middle">2 cycle CAS latency</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">LATENCY3</entry>
+                    <entry align="center" valign="middle">3 cycle CAS latency</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR__DBW">
+            <para>DBW: Data Bus Width</para>
+          </listitem>
+          <listitem id="SDRAMC_CR__TWR">
+            <para>TWR: Write Recovery Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR__TRC_TRFC">
+            <para>TRC_TRFC: Row Cycle Delay and Row Refresh Cycle</para>
+          </listitem>
+          <listitem id="SDRAMC_CR__TRP">
+            <para>TRP: Row Precharge Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR__TRCD">
+            <para>TRCD: Row to Column Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR__TRAS">
+            <para>TRAS: Active to Precharge Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR__TXSR">
+            <para>TXSR: Exit Self Refresh to Active Delay</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_LPR">
+        <title>SDRAMC SDRAMC Low Power Register</title>
+        <para>Name: SDRAMC_LPR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0210</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c3" nameend="c4">
+                  <link linkend="SDRAMC_LPR__TIMEOUT">TIMEOUT</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c6">
+                  <link linkend="SDRAMC_LPR__DS">DS</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="SDRAMC_LPR__TCSR">TCSR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c4">
+                  <link linkend="SDRAMC_LPR__PASR">PASR</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="SDRAMC_LPR__LPCB">LPCB</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_LPR__LPCB">
+            <para>LPCB: Low-power Configuration Bits</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">DISABLED</entry>
+                    <entry align="center" valign="middle">Low Power Feature is inhibited: no Power-down, Self-refresh or Deep Power-down command is issued to the SDRAM device.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">SELF_REFRESH</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues a Self-refresh command to the SDRAM device, the SDCK clock is deactivated and the SDCKE signal is set low. The SDRAM device leaves the Self Refresh Mode when accessed and enters it after the access.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">POWER_DOWN</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues a Power-down Command to the SDRAM device after each access, the SDCKE signal is set to low. The SDRAM device leaves the Power-down Mode when accessed and enters it after the access.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">DEEP_POWER_DOWN</entry>
+                    <entry align="center" valign="middle">The SDRAM Controller issues a Deep Power-down command to the SDRAM device. This mode is unique to low-power SDRAM.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_LPR__PASR">
+            <para>PASR: Partial Array Self-refresh (only for low-power SDRAM)</para>
+          </listitem>
+          <listitem id="SDRAMC_LPR__TCSR">
+            <para>TCSR: Temperature Compensated Self-Refresh (only for low-power SDRAM)</para>
+          </listitem>
+          <listitem id="SDRAMC_LPR__DS">
+            <para>DS: Drive Strength (only for low-power SDRAM)</para>
+          </listitem>
+          <listitem id="SDRAMC_LPR__TIMEOUT">
+            <para>TIMEOUT: Time to define when low-power mode is enable</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">LP_LAST_XFER</entry>
+                    <entry align="center" valign="middle">The SDRAM controller activates the SDRAM low-power mode immediately after the end of the last transfer.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">LP_LAST_XFER_64</entry>
+                    <entry align="center" valign="middle">The SDRAM controller activates the SDRAM low-power mode 64 clock cycles after the end of the last transfer.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">LP_LAST_XFER_128</entry>
+                    <entry align="center" valign="middle">The SDRAM controller activates the SDRAM low-power mode 128 clock cycles after the end of the last transfer.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_IER">
+        <title>SDRAMC SDRAMC Interrupt Enable Register</title>
+        <para>Name: SDRAMC_IER</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x400E0214</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_IER__RES">RES</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_IER__RES">
+            <para>RES: Refresh Error Status</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_IDR">
+        <title>SDRAMC SDRAMC Interrupt Disable Register</title>
+        <para>Name: SDRAMC_IDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x400E0218</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_IDR__RES">RES</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_IDR__RES">
+            <para>RES: Refresh Error Status</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_IMR">
+        <title>SDRAMC SDRAMC Interrupt Mask Register</title>
+        <para>Name: SDRAMC_IMR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E021C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_IMR__RES">RES</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_IMR__RES">
+            <para>RES: Refresh Error Status</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_ISR">
+        <title>SDRAMC SDRAMC Interrupt Status Register</title>
+        <para>Name: SDRAMC_ISR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E0220</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_ISR__RES">RES</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_ISR__RES">
+            <para>RES: Refresh Error Status</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_MDR">
+        <title>SDRAMC SDRAMC Memory Device Register</title>
+        <para>Name: SDRAMC_MDR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0224</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="SDRAMC_MDR__MD">MD</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_MDR__MD">
+            <para>MD: Memory Device Type</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">SDRAM</entry>
+                    <entry align="center" valign="middle">SDRAM</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">LPSDRAM</entry>
+                    <entry align="center" valign="middle">Low-power SDRAM</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_CR1">
+        <title>SDRAMC SDRAMC Configuration Register 1</title>
+        <para>Name: SDRAMC_CR1</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0228</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SDRAMC_CR1__TXSR">TXSR</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_CR1__TRAS">TRAS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SDRAMC_CR1__TRCD">TRCD</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_CR1__TRP">TRP</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SDRAMC_CR1__TRC_TRFC">TRC_TRFC</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SDRAMC_CR1__TWR">TWR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_CR1__DBW">DBW</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c3">
+                  <link linkend="SDRAMC_CR1__CAS">CAS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_CR1__NB">NB</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c6">
+                  <link linkend="SDRAMC_CR1__NR">NR</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="SDRAMC_CR1__NC">NC</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_CR1__NC">
+            <para>NC: Number of Column Bits</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">COL8</entry>
+                    <entry align="center" valign="middle">8 column bits</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">COL9</entry>
+                    <entry align="center" valign="middle">9 column bits</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">COL10</entry>
+                    <entry align="center" valign="middle">10 column bits</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">COL11</entry>
+                    <entry align="center" valign="middle">11 column bits</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR1__NR">
+            <para>NR: Number of Row Bits</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">ROW11</entry>
+                    <entry align="center" valign="middle">11 row bits</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">ROW12</entry>
+                    <entry align="center" valign="middle">12 row bits</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">ROW13</entry>
+                    <entry align="center" valign="middle">13 row bits</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR1__NB">
+            <para>NB: Number of Banks</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">BANK2</entry>
+                    <entry align="center" valign="middle">2 banks</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">BANK4</entry>
+                    <entry align="center" valign="middle">4 banks</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR1__CAS">
+            <para>CAS: CAS Latency</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">LATENCY1</entry>
+                    <entry align="center" valign="middle">1 cycle CAS latency</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">LATENCY2</entry>
+                    <entry align="center" valign="middle">2 cycle CAS latency</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">LATENCY3</entry>
+                    <entry align="center" valign="middle">3 cycle CAS latency</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SDRAMC_CR1__DBW">
+            <para>DBW: Data Bus Width</para>
+          </listitem>
+          <listitem id="SDRAMC_CR1__TWR">
+            <para>TWR: Write Recovery Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR1__TRC_TRFC">
+            <para>TRC_TRFC: Row Cycle Delay and Row Refresh Cycle</para>
+          </listitem>
+          <listitem id="SDRAMC_CR1__TRP">
+            <para>TRP: Row Precharge Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR1__TRCD">
+            <para>TRCD: Row to Column Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR1__TRAS">
+            <para>TRAS: Active to Precharge Delay</para>
+          </listitem>
+          <listitem id="SDRAMC_CR1__TXSR">
+            <para>TXSR: Exit Self Refresh to Active Delay</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SDRAMC_OCMS">
+        <title>SDRAMC SDRAMC OCMS Register 1</title>
+        <para>Name: SDRAMC_OCMS</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E022C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SDRAMC_OCMS__SDR_SE">SDR_SE</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SDRAMC_OCMS__SDR_SE">
+            <para>SDR_SE: SDRAM Memory Controller Scrambling Enable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

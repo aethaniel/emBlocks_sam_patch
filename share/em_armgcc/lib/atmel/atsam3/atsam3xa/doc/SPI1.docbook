@@ -1,0 +1,1542 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA SPI1</title>
+  <chapter id="SPI1">
+    <title id="SPI1__User_Interface">Serial Peripheral Interface (SPI1) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="11">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000C000</entry>
+              <entry align="center" valign="middle">Control Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_CR">SPI1_CR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000C004</entry>
+              <entry align="center" valign="middle">Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_MR">SPI1_MR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000C008</entry>
+              <entry align="center" valign="middle">Receive Data Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_RDR">SPI1_RDR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000C00C</entry>
+              <entry align="center" valign="middle">Transmit Data Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_TDR">SPI1_TDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000C010</entry>
+              <entry align="center" valign="middle">Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_SR">SPI1_SR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x000000F0</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000C014</entry>
+              <entry align="center" valign="middle">Interrupt Enable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_IER">SPI1_IER</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000C018</entry>
+              <entry align="center" valign="middle">Interrupt Disable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_IDR">SPI1_IDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000C01C</entry>
+              <entry align="center" valign="middle">Interrupt Mask Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_IMR">SPI1_IMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000C030</entry>
+              <entry align="center" valign="middle">Chip Select Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_CSR">SPI1_CSR[4]</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x0</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000C0E4</entry>
+              <entry align="center" valign="middle">Write Protection Control Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_WPMR">SPI1_WPMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000C0E8</entry>
+              <entry align="center" valign="middle">Write Protection Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="SPI1_WPSR">SPI1_WPSR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="SPI1_CR">
+        <title>SPI1 Control Register</title>
+        <para>Name: SPI1_CR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4000C000</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CR__LASTXFER">LASTXFER</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CR__SWRST">SWRST</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CR__SPIDIS">SPIDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CR__SPIEN">SPIEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_CR__SPIEN">
+            <para>SPIEN: SPI Enable</para>
+          </listitem>
+          <listitem id="SPI1_CR__SPIDIS">
+            <para>SPIDIS: SPI Disable</para>
+          </listitem>
+          <listitem id="SPI1_CR__SWRST">
+            <para>SWRST: SPI Software Reset</para>
+          </listitem>
+          <listitem id="SPI1_CR__LASTXFER">
+            <para>LASTXFER: Last Transfer</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_MR">
+        <title>SPI1 Mode Register</title>
+        <para>Name: SPI1_MR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4000C004</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_MR__DLYBCS">DLYBCS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SPI1_MR__PCS">PCS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_MR__LLB">LLB</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_MR__WDRBT">WDRBT</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_MR__MODFDIS">MODFDIS</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_MR__PCSDEC">PCSDEC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_MR__PS">PS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_MR__MSTR">MSTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_MR__MSTR">
+            <para>MSTR: Master/Slave Mode</para>
+          </listitem>
+          <listitem id="SPI1_MR__PS">
+            <para>PS: Peripheral Select</para>
+          </listitem>
+          <listitem id="SPI1_MR__PCSDEC">
+            <para>PCSDEC: Chip Select Decode</para>
+          </listitem>
+          <listitem id="SPI1_MR__MODFDIS">
+            <para>MODFDIS: Mode Fault Detection</para>
+          </listitem>
+          <listitem id="SPI1_MR__WDRBT">
+            <para>WDRBT: Wait Data Read Before Transfer</para>
+          </listitem>
+          <listitem id="SPI1_MR__LLB">
+            <para>LLB: Local Loopback Enable</para>
+          </listitem>
+          <listitem id="SPI1_MR__PCS">
+            <para>PCS: Peripheral Chip Select</para>
+          </listitem>
+          <listitem id="SPI1_MR__DLYBCS">
+            <para>DLYBCS: Delay Between Chip Selects</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_RDR">
+        <title>SPI1 Receive Data Register</title>
+        <para>Name: SPI1_RDR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4000C008</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SPI1_RDR__PCS">PCS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_RDR__RD">RD</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_RDR__RD">RD</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_RDR__RD">
+            <para>RD: Receive Data</para>
+          </listitem>
+          <listitem id="SPI1_RDR__PCS">
+            <para>PCS: Peripheral Chip Select</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_TDR">
+        <title>SPI1 Transmit Data Register</title>
+        <para>Name: SPI1_TDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4000C00C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_TDR__LASTXFER">LASTXFER</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="SPI1_TDR__PCS">PCS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_TDR__TD">TD</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_TDR__TD">TD</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_TDR__TD">
+            <para>TD: Transmit Data</para>
+          </listitem>
+          <listitem id="SPI1_TDR__PCS">
+            <para>PCS: Peripheral Chip Select</para>
+          </listitem>
+          <listitem id="SPI1_TDR__LASTXFER">
+            <para>LASTXFER: Last Transfer</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_SR">
+        <title>SPI1 Status Register</title>
+        <para>Name: SPI1_SR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4000C010</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__SPIENS">SPIENS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__UNDES">UNDES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__TXEMPTY">TXEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__NSSR">NSSR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__OVRES">OVRES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__MODF">MODF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__TDRE">TDRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_SR__RDRF">RDRF</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_SR__RDRF">
+            <para>RDRF: Receive Data Register Full</para>
+          </listitem>
+          <listitem id="SPI1_SR__TDRE">
+            <para>TDRE: Transmit Data Register Empty</para>
+          </listitem>
+          <listitem id="SPI1_SR__MODF">
+            <para>MODF: Mode Fault Error</para>
+          </listitem>
+          <listitem id="SPI1_SR__OVRES">
+            <para>OVRES: Overrun Error Status</para>
+          </listitem>
+          <listitem id="SPI1_SR__NSSR">
+            <para>NSSR: NSS Rising</para>
+          </listitem>
+          <listitem id="SPI1_SR__TXEMPTY">
+            <para>TXEMPTY: Transmission Registers Empty</para>
+          </listitem>
+          <listitem id="SPI1_SR__UNDES">
+            <para>UNDES: Underrun Error Status (Slave Mode Only)</para>
+          </listitem>
+          <listitem id="SPI1_SR__SPIENS">
+            <para>SPIENS: SPI Enable Status</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_IER">
+        <title>SPI1 Interrupt Enable Register</title>
+        <para>Name: SPI1_IER</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4000C014</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__UNDES">UNDES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__TXEMPTY">TXEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__NSSR">NSSR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__OVRES">OVRES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__MODF">MODF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__TDRE">TDRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IER__RDRF">RDRF</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_IER__RDRF">
+            <para>RDRF: Receive Data Register Full Interrupt Enable</para>
+          </listitem>
+          <listitem id="SPI1_IER__TDRE">
+            <para>TDRE: SPI Transmit Data Register Empty Interrupt Enable</para>
+          </listitem>
+          <listitem id="SPI1_IER__MODF">
+            <para>MODF: Mode Fault Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="SPI1_IER__OVRES">
+            <para>OVRES: Overrun Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="SPI1_IER__NSSR">
+            <para>NSSR: NSS Rising Interrupt Enable</para>
+          </listitem>
+          <listitem id="SPI1_IER__TXEMPTY">
+            <para>TXEMPTY: Transmission Registers Empty Enable</para>
+          </listitem>
+          <listitem id="SPI1_IER__UNDES">
+            <para>UNDES: Underrun Error Interrupt Enable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_IDR">
+        <title>SPI1 Interrupt Disable Register</title>
+        <para>Name: SPI1_IDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4000C018</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__UNDES">UNDES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__TXEMPTY">TXEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__NSSR">NSSR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__OVRES">OVRES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__MODF">MODF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__TDRE">TDRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IDR__RDRF">RDRF</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_IDR__RDRF">
+            <para>RDRF: Receive Data Register Full Interrupt Disable</para>
+          </listitem>
+          <listitem id="SPI1_IDR__TDRE">
+            <para>TDRE: SPI Transmit Data Register Empty Interrupt Disable</para>
+          </listitem>
+          <listitem id="SPI1_IDR__MODF">
+            <para>MODF: Mode Fault Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="SPI1_IDR__OVRES">
+            <para>OVRES: Overrun Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="SPI1_IDR__NSSR">
+            <para>NSSR: NSS Rising Interrupt Disable</para>
+          </listitem>
+          <listitem id="SPI1_IDR__TXEMPTY">
+            <para>TXEMPTY: Transmission Registers Empty Disable</para>
+          </listitem>
+          <listitem id="SPI1_IDR__UNDES">
+            <para>UNDES: Underrun Error Interrupt Disable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_IMR">
+        <title>SPI1 Interrupt Mask Register</title>
+        <para>Name: SPI1_IMR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4000C01C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__UNDES">UNDES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__TXEMPTY">TXEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__NSSR">NSSR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__OVRES">OVRES</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__MODF">MODF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__TDRE">TDRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_IMR__RDRF">RDRF</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_IMR__RDRF">
+            <para>RDRF: Receive Data Register Full Interrupt Mask</para>
+          </listitem>
+          <listitem id="SPI1_IMR__TDRE">
+            <para>TDRE: SPI Transmit Data Register Empty Interrupt Mask</para>
+          </listitem>
+          <listitem id="SPI1_IMR__MODF">
+            <para>MODF: Mode Fault Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="SPI1_IMR__OVRES">
+            <para>OVRES: Overrun Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="SPI1_IMR__NSSR">
+            <para>NSSR: NSS Rising Interrupt Mask</para>
+          </listitem>
+          <listitem id="SPI1_IMR__TXEMPTY">
+            <para>TXEMPTY: Transmission Registers Empty Mask</para>
+          </listitem>
+          <listitem id="SPI1_IMR__UNDES">
+            <para>UNDES: Underrun Error Interrupt Mask</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_CSR">
+        <title>SPI1 Chip Select Register</title>
+        <para>Name: SPI1_CSR[0:3]</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4000C030</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_CSR__DLYBCT">DLYBCT</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_CSR__DLYBS">DLYBS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_CSR__SCBR">SCBR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="SPI1_CSR__BITS">BITS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CSR__CSAAT">CSAAT</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CSR__CSNAAT">CSNAAT</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CSR__NCPHA">NCPHA</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_CSR__CPOL">CPOL</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_CSR__CPOL">
+            <para>CPOL: Clock Polarity</para>
+          </listitem>
+          <listitem id="SPI1_CSR__NCPHA">
+            <para>NCPHA: Clock Phase</para>
+          </listitem>
+          <listitem id="SPI1_CSR__CSNAAT">
+            <para>CSNAAT: Chip Select Not Active After Transfer (Ignored if CSAAT = 1)</para>
+          </listitem>
+          <listitem id="SPI1_CSR__CSAAT">
+            <para>CSAAT: Chip Select Active After Transfer</para>
+          </listitem>
+          <listitem id="SPI1_CSR__BITS">
+            <para>BITS: Bits Per Transfer</para>
+            <table>
+              <title/>
+              <tgroup cols="9">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">8_BIT</entry>
+                    <entry align="center" valign="middle">8 bits for transfer</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">9_BIT</entry>
+                    <entry align="center" valign="middle">9 bits for transfer</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">10_BIT</entry>
+                    <entry align="center" valign="middle">10 bits for transfer</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">11_BIT</entry>
+                    <entry align="center" valign="middle">11 bits for transfer</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">12_BIT</entry>
+                    <entry align="center" valign="middle">12 bits for transfer</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">13_BIT</entry>
+                    <entry align="center" valign="middle">13 bits for transfer</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">14_BIT</entry>
+                    <entry align="center" valign="middle">14 bits for transfer</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">15_BIT</entry>
+                    <entry align="center" valign="middle">15 bits for transfer</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x8</entry>
+                    <entry align="center" valign="middle">16_BIT</entry>
+                    <entry align="center" valign="middle">16 bits for transfer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="SPI1_CSR__SCBR">
+            <para>SCBR: Serial Clock Baud Rate</para>
+          </listitem>
+          <listitem id="SPI1_CSR__DLYBS">
+            <para>DLYBS: Delay Before SPCK</para>
+          </listitem>
+          <listitem id="SPI1_CSR__DLYBCT">
+            <para>DLYBCT: Delay Between Consecutive Transfers</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_WPMR">
+        <title>SPI1 Write Protection Control Register</title>
+        <para>Name: SPI1_WPMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4000C0E4</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_WPMR__WPKEY">WPKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_WPMR__WPKEY">WPKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_WPMR__WPKEY">WPKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_WPMR__WPEN">WPEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_WPMR__WPEN">
+            <para>WPEN: Write Protect Enable</para>
+          </listitem>
+          <listitem id="SPI1_WPMR__WPKEY">
+            <para>WPKEY: Write Protect Key</para>
+            <table>
+              <title/>
+              <tgroup cols="1">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x535049</entry>
+                    <entry align="center" valign="middle">PASSWD</entry>
+                    <entry align="center" valign="middle">Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="SPI1_WPSR">
+        <title>SPI1 Write Protection Status Register</title>
+        <para>Name: SPI1_WPSR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4000C0E8</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="SPI1_WPSR__WPVSRC">WPVSRC</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="SPI1_WPSR__WPVS">WPVS</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="SPI1_WPSR__WPVS">
+            <para>WPVS: Write Protection Violation Status</para>
+          </listitem>
+          <listitem id="SPI1_WPSR__WPVSRC">
+            <para>WPVSRC: Write Protection Violation Source</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

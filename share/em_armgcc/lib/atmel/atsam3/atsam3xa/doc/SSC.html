@@ -1,0 +1,2787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3XA SSC</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="SSC">SAM3XA SSC</h1>
+        <h2 id="SSC__User_Interface">Synchronous Serial Controller (SSC) User Interface</h2>
+<!--As per 6078M programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x40004000">0x40004000</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#SSC_CR" title="Control Register" class="one_click_away">SSC_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004004">0x40004004</td>
+              <td class="description">Clock Mode Register</td>
+              <td class="name">
+                <a href="#SSC_CMR" title="Clock Mode Register" class="one_click_away">SSC_CMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004010">0x40004010</td>
+              <td class="description">Receive Clock Mode Register</td>
+              <td class="name">
+                <a href="#SSC_RCMR" title="Receive Clock Mode Register" class="one_click_away">SSC_RCMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004014">0x40004014</td>
+              <td class="description">Receive Frame Mode Register</td>
+              <td class="name">
+                <a href="#SSC_RFMR" title="Receive Frame Mode Register" class="one_click_away">SSC_RFMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004018">0x40004018</td>
+              <td class="description">Transmit Clock Mode Register</td>
+              <td class="name">
+                <a href="#SSC_TCMR" title="Transmit Clock Mode Register" class="one_click_away">SSC_TCMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000401C">0x4000401C</td>
+              <td class="description">Transmit Frame Mode Register</td>
+              <td class="name">
+                <a href="#SSC_TFMR" title="Transmit Frame Mode Register" class="one_click_away">SSC_TFMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004020">0x40004020</td>
+              <td class="description">Receive Holding Register</td>
+              <td class="name">
+                <a href="#SSC_RHR" title="Receive Holding Register" class="one_click_away">SSC_RHR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004024">0x40004024</td>
+              <td class="description">Transmit Holding Register</td>
+              <td class="name">
+                <a href="#SSC_THR" title="Transmit Holding Register" class="one_click_away">SSC_THR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004030">0x40004030</td>
+              <td class="description">Receive Sync. Holding Register</td>
+              <td class="name">
+                <a href="#SSC_RSHR" title="Receive Sync. Holding Register" class="one_click_away">SSC_RSHR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004034">0x40004034</td>
+              <td class="description">Transmit Sync. Holding Register</td>
+              <td class="name">
+                <a href="#SSC_TSHR" title="Transmit Sync. Holding Register" class="one_click_away">SSC_TSHR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004038">0x40004038</td>
+              <td class="description">Receive Compare 0 Register</td>
+              <td class="name">
+                <a href="#SSC_RC0R" title="Receive Compare 0 Register" class="one_click_away">SSC_RC0R</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000403C">0x4000403C</td>
+              <td class="description">Receive Compare 1 Register</td>
+              <td class="name">
+                <a href="#SSC_RC1R" title="Receive Compare 1 Register" class="one_click_away">SSC_RC1R</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004040">0x40004040</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#SSC_SR" title="Status Register" class="one_click_away">SSC_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x000000CC</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40004044">0x40004044</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#SSC_IER" title="Interrupt Enable Register" class="one_click_away">SSC_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40004048">0x40004048</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#SSC_IDR" title="Interrupt Disable Register" class="one_click_away">SSC_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000404C">0x4000404C</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#SSC_IMR" title="Interrupt Mask Register" class="one_click_away">SSC_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400040E4">0x400040E4</td>
+              <td class="description">Write Protect Mode Register</td>
+              <td class="name">
+                <a href="#SSC_WPMR" title="Write Protect Mode Register" class="one_click_away">SSC_WPMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400040E8">0x400040E8</td>
+              <td class="description">Write Protect Status Register</td>
+              <td class="name">
+                <a href="#SSC_WPSR" title="Write Protect Status Register" class="one_click_away">SSC_WPSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="SSC_CR">SSC Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SSC_CR__SWRST" title="Software Reset">SWRST</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_CR__TXDIS" title="Transmit Disable">TXDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_CR__TXEN" title="Transmit Enable">TXEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_CR__RXDIS" title="Receive Disable">RXDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_CR__RXEN" title="Receive Enable">RXEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_CR__RXEN"><span class="field_name">RXEN</span>: <span class="field_description">Receive Enable</span></li>
+          <p>-</p>
+          <li id="SSC_CR__RXDIS"><span class="field_name">RXDIS</span>: <span class="field_description">Receive Disable</span></li>
+          <p>-</p>
+          <li id="SSC_CR__TXEN"><span class="field_name">TXEN</span>: <span class="field_description">Transmit Enable</span></li>
+          <p>-</p>
+          <li id="SSC_CR__TXDIS"><span class="field_name">TXDIS</span>: <span class="field_description">Transmit Disable</span></li>
+          <p>-</p>
+          <li id="SSC_CR__SWRST"><span class="field_name">SWRST</span>: <span class="field_description">Software Reset</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_CMR">SSC Clock Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_CMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SSC_CMR__DIV" title="Clock Divider">DIV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_CMR__DIV" title="Clock Divider">DIV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_CMR__DIV"><span class="field_name">DIV</span>: <span class="field_description">Clock Divider</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_RCMR">SSC Receive Clock Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_RCMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RCMR__PERIOD" title="Receive Period Divider Selection">PERIOD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RCMR__STTDLY" title="Receive Start Delay">STTDLY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_RCMR__STOP" title="Receive Stop Selection">STOP</a>
+              </td>
+              <td colspan="4">
+                <a href="#SSC_RCMR__START" title="Receive Start Selection">START</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="2">
+                <a href="#SSC_RCMR__CKG" title="Receive Clock Gating Selection">CKG</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_RCMR__CKI" title="Receive Clock Inversion">CKI</a>
+              </td>
+              <td colspan="3">
+                <a href="#SSC_RCMR__CKO" title="Receive Clock Output Mode Selection">CKO</a>
+              </td>
+              <td colspan="2">
+                <a href="#SSC_RCMR__CKS" title="Receive Clock Selection">CKS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_RCMR__CKS"><span class="field_name">CKS</span>: <span class="field_description">Receive Clock Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MCK</td><td class="description">Divided Clock</td></tr><tr class="even"><td class="value">0x1</td><td class="name">TK</td><td class="description">TK Clock signal</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">RK</td><td class="description">RK pin</td></tr></tbody></table></li>
+          <li id="SSC_RCMR__CKO"><span class="field_name">CKO</span>: <span class="field_description">Receive Clock Output Mode Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NONE</td><td class="description">None, RK pin is an input</td></tr><tr class="even"><td class="value">0x1</td><td class="name">CONTINUOUS</td><td class="description">Continuous Receive Clock, RK pin is an output</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">TRANSFER</td><td class="description">Receive Clock only during data transfers, RK pin is an output</td></tr></tbody></table></li>
+          <li id="SSC_RCMR__CKI"><span class="field_name">CKI</span>: <span class="field_description">Receive Clock Inversion</span></li>
+          <p>-</p>
+          <li id="SSC_RCMR__CKG"><span class="field_name">CKG</span>: <span class="field_description">Receive Clock Gating Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">CONTINUOUS</td><td class="description">None</td></tr><tr class="even"><td class="value">0x1</td><td class="name">EN_RF_LOW</td><td class="description">Receive Clock enabled only if RF Low</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">EN_RF_HIGH</td><td class="description">Receive Clock enabled only if RF High</td></tr></tbody></table></li>
+          <li id="SSC_RCMR__START"><span class="field_name">START</span>: <span class="field_description">Receive Start Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">CONTINUOUS</td><td class="description">Continuous, as soon as the receiver is enabled, and immediately after the end of transfer of the previous data.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">TRANSMIT</td><td class="description">Transmit start</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">RF_LOW</td><td class="description">Detection of a low level on RF signal</td></tr><tr class="even"><td class="value">0x3</td><td class="name">RF_HIGH</td><td class="description">Detection of a high level on RF signal</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">RF_FALLING</td><td class="description">Detection of a falling edge on RF signal</td></tr><tr class="even"><td class="value">0x5</td><td class="name">RF_RISING</td><td class="description">Detection of a rising edge on RF signal</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">RF_LEVEL</td><td class="description">Detection of any level change on RF signal</td></tr><tr class="even"><td class="value">0x7</td><td class="name">RF_EDGE</td><td class="description">Detection of any edge on RF signal</td></tr><tr class="odd"><td class="value">0x8</td><td class="name">CMP_0</td><td class="description">Compare 0</td></tr></tbody></table></li>
+          <li id="SSC_RCMR__STOP"><span class="field_name">STOP</span>: <span class="field_description">Receive Stop Selection</span></li>
+          <p>-</p>
+          <li id="SSC_RCMR__STTDLY"><span class="field_name">STTDLY</span>: <span class="field_description">Receive Start Delay</span></li>
+          <p>-</p>
+          <li id="SSC_RCMR__PERIOD"><span class="field_name">PERIOD</span>: <span class="field_description">Receive Period Divider Selection</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_RFMR">SSC Receive Frame Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_RFMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004014</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SSC_RFMR__FSLEN_EXT" title="FSLEN Field Extension">FSLEN_EXT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_RFMR__FSEDGE" title="Frame Sync Edge Detection">FSEDGE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#SSC_RFMR__FSOS" title="Receive Frame Sync Output Selection">FSOS</a>
+              </td>
+              <td colspan="4">
+                <a href="#SSC_RFMR__FSLEN" title="Receive Frame Sync Length">FSLEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SSC_RFMR__DATNB" title="Data Number per Frame">DATNB</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SSC_RFMR__MSBF" title="Most Significant Bit First">MSBF</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_RFMR__LOOP" title="Loop Mode">LOOP</a>
+              </td>
+              <td colspan="5">
+                <a href="#SSC_RFMR__DATLEN" title="Data Length">DATLEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_RFMR__DATLEN"><span class="field_name">DATLEN</span>: <span class="field_description">Data Length</span></li>
+          <p>-</p>
+          <li id="SSC_RFMR__LOOP"><span class="field_name">LOOP</span>: <span class="field_description">Loop Mode</span></li>
+          <p>-</p>
+          <li id="SSC_RFMR__MSBF"><span class="field_name">MSBF</span>: <span class="field_description">Most Significant Bit First</span></li>
+          <p>-</p>
+          <li id="SSC_RFMR__DATNB"><span class="field_name">DATNB</span>: <span class="field_description">Data Number per Frame</span></li>
+          <p>-</p>
+          <li id="SSC_RFMR__FSLEN"><span class="field_name">FSLEN</span>: <span class="field_description">Receive Frame Sync Length</span></li>
+          <p>-</p>
+          <li id="SSC_RFMR__FSOS"><span class="field_name">FSOS</span>: <span class="field_description">Receive Frame Sync Output Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NONE</td><td class="description">None, RF pin is an input</td></tr><tr class="even"><td class="value">0x1</td><td class="name">NEGATIVE</td><td class="description">Negative Pulse, RF pin is an output</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">POSITIVE</td><td class="description">Positive Pulse, RF pin is an output</td></tr><tr class="even"><td class="value">0x3</td><td class="name">LOW</td><td class="description">Driven Low during data transfer, RF pin is an output</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">HIGH</td><td class="description">Driven High during data transfer, RF pin is an output</td></tr><tr class="even"><td class="value">0x5</td><td class="name">TOGGLING</td><td class="description">Toggling at each start of data transfer, RF pin is an output</td></tr></tbody></table></li>
+          <li id="SSC_RFMR__FSEDGE"><span class="field_name">FSEDGE</span>: <span class="field_description">Frame Sync Edge Detection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">POSITIVE</td><td class="description">Positive Edge Detection</td></tr><tr class="even"><td class="value">1</td><td class="name">NEGATIVE</td><td class="description">Negative Edge Detection</td></tr></tbody></table></li>
+          <li id="SSC_RFMR__FSLEN_EXT"><span class="field_name">FSLEN_EXT</span>: <span class="field_description">FSLEN Field Extension</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_TCMR">SSC Transmit Clock Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_TCMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004018</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_TCMR__PERIOD" title="Transmit Period Divider Selection">PERIOD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_TCMR__STTDLY" title="Transmit Start Delay">STTDLY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SSC_TCMR__START" title="Transmit Start Selection">START</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="2">
+                <a href="#SSC_TCMR__CKG" title="Transmit Clock Gating Selection">CKG</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_TCMR__CKI" title="Transmit Clock Inversion">CKI</a>
+              </td>
+              <td colspan="3">
+                <a href="#SSC_TCMR__CKO" title="Transmit Clock Output Mode Selection">CKO</a>
+              </td>
+              <td colspan="2">
+                <a href="#SSC_TCMR__CKS" title="Transmit Clock Selection">CKS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_TCMR__CKS"><span class="field_name">CKS</span>: <span class="field_description">Transmit Clock Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">MCK</td><td class="description">Divided Clock</td></tr><tr class="even"><td class="value">0x1</td><td class="name">RK</td><td class="description">RK Clock signal</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">TK</td><td class="description">TK pin</td></tr></tbody></table></li>
+          <li id="SSC_TCMR__CKO"><span class="field_name">CKO</span>: <span class="field_description">Transmit Clock Output Mode Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NONE</td><td class="description">None, TK pin is an input</td></tr><tr class="even"><td class="value">0x1</td><td class="name">CONTINUOUS</td><td class="description">Continuous Transmit Clock, TK pin is an output</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">TRANSFER</td><td class="description">Transmit Clock only during data transfers, TK pin is an output</td></tr></tbody></table></li>
+          <li id="SSC_TCMR__CKI"><span class="field_name">CKI</span>: <span class="field_description">Transmit Clock Inversion</span></li>
+          <p>-</p>
+          <li id="SSC_TCMR__CKG"><span class="field_name">CKG</span>: <span class="field_description">Transmit Clock Gating Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">CONTINUOUS</td><td class="description">None</td></tr><tr class="even"><td class="value">0x1</td><td class="name">EN_TF_LOW</td><td class="description">Transmit Clock enabled only if TF Low</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">EN_TF_HIGH</td><td class="description">Transmit Clock enabled only if TF High</td></tr></tbody></table></li>
+          <li id="SSC_TCMR__START"><span class="field_name">START</span>: <span class="field_description">Transmit Start Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">CONTINUOUS</td><td class="description">Continuous, as soon as a word is written in the SSC_THR Register (if Transmit is enabled), and immediately after the end of transfer of the previous data</td></tr><tr class="even"><td class="value">0x1</td><td class="name">RECEIVE</td><td class="description">Receive start</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">TF_LOW</td><td class="description">Detection of a low level on TF signal</td></tr><tr class="even"><td class="value">0x3</td><td class="name">TF_HIGH</td><td class="description">Detection of a high level on TF signal</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">TF_FALLING</td><td class="description">Detection of a falling edge on TF signal</td></tr><tr class="even"><td class="value">0x5</td><td class="name">TF_RISING</td><td class="description">Detection of a rising edge on TF signal</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">TF_LEVEL</td><td class="description">Detection of any level change on TF signal</td></tr><tr class="even"><td class="value">0x7</td><td class="name">TF_EDGE</td><td class="description">Detection of any edge on TF signal</td></tr></tbody></table></li>
+          <li id="SSC_TCMR__STTDLY"><span class="field_name">STTDLY</span>: <span class="field_description">Transmit Start Delay</span></li>
+          <p>-</p>
+          <li id="SSC_TCMR__PERIOD"><span class="field_name">PERIOD</span>: <span class="field_description">Transmit Period Divider Selection</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_TFMR">SSC Transmit Frame Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_TFMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000401C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SSC_TFMR__FSLEN_EXT" title="FSLEN Field Extension">FSLEN_EXT</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_TFMR__FSEDGE" title="Frame Sync Edge Detection">FSEDGE</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SSC_TFMR__FSDEN" title="Frame Sync Data Enable">FSDEN</a>
+              </td>
+              <td colspan="3">
+                <a href="#SSC_TFMR__FSOS" title="Transmit Frame Sync Output Selection">FSOS</a>
+              </td>
+              <td colspan="4">
+                <a href="#SSC_TFMR__FSLEN" title="Transmit Frame Sync Length">FSLEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SSC_TFMR__DATNB" title="Data Number per frame">DATNB</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SSC_TFMR__MSBF" title="Most Significant Bit First">MSBF</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_TFMR__DATDEF" title="Data Default Value">DATDEF</a>
+              </td>
+              <td colspan="5">
+                <a href="#SSC_TFMR__DATLEN" title="Data Length">DATLEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_TFMR__DATLEN"><span class="field_name">DATLEN</span>: <span class="field_description">Data Length</span></li>
+          <p>-</p>
+          <li id="SSC_TFMR__DATDEF"><span class="field_name">DATDEF</span>: <span class="field_description">Data Default Value</span></li>
+          <p>-</p>
+          <li id="SSC_TFMR__MSBF"><span class="field_name">MSBF</span>: <span class="field_description">Most Significant Bit First</span></li>
+          <p>-</p>
+          <li id="SSC_TFMR__DATNB"><span class="field_name">DATNB</span>: <span class="field_description">Data Number per frame</span></li>
+          <p>-</p>
+          <li id="SSC_TFMR__FSLEN"><span class="field_name">FSLEN</span>: <span class="field_description">Transmit Frame Sync Length</span></li>
+          <p>-</p>
+          <li id="SSC_TFMR__FSOS"><span class="field_name">FSOS</span>: <span class="field_description">Transmit Frame Sync Output Selection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NONE</td><td class="description">None, RF pin is an input</td></tr><tr class="even"><td class="value">0x1</td><td class="name">NEGATIVE</td><td class="description">Negative Pulse, RF pin is an output</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">POSITIVE</td><td class="description">Positive Pulse, RF pin is an output</td></tr><tr class="even"><td class="value">0x3</td><td class="name">LOW</td><td class="description">Driven Low during data transfer</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">HIGH</td><td class="description">Driven High during data transfer</td></tr><tr class="even"><td class="value">0x5</td><td class="name">TOGGLING</td><td class="description">Toggling at each start of data transfer</td></tr></tbody></table></li>
+          <li id="SSC_TFMR__FSDEN"><span class="field_name">FSDEN</span>: <span class="field_description">Frame Sync Data Enable</span></li>
+          <p>-</p>
+          <li id="SSC_TFMR__FSEDGE"><span class="field_name">FSEDGE</span>: <span class="field_description">Frame Sync Edge Detection</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">POSITIVE</td><td class="description">Positive Edge Detection</td></tr><tr class="even"><td class="value">1</td><td class="name">NEGATIVE</td><td class="description">Negative Edge Detection</td></tr></tbody></table></li>
+          <li id="SSC_TFMR__FSLEN_EXT"><span class="field_name">FSLEN_EXT</span>: <span class="field_description">FSLEN Field Extension</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_RHR">SSC Receive Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_RHR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004020</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RHR__RDAT" title="Receive Data">RDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RHR__RDAT" title="Receive Data">RDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RHR__RDAT" title="Receive Data">RDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RHR__RDAT" title="Receive Data">RDAT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_RHR__RDAT"><span class="field_name">RDAT</span>: <span class="field_description">Receive Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_THR">SSC Transmit Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_THR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004024</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_THR__TDAT" title="Transmit Data">TDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_THR__TDAT" title="Transmit Data">TDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_THR__TDAT" title="Transmit Data">TDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_THR__TDAT" title="Transmit Data">TDAT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_THR__TDAT"><span class="field_name">TDAT</span>: <span class="field_description">Transmit Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_RSHR">SSC Receive Sync. Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_RSHR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004030</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RSHR__RSDAT" title="Receive Synchronization Data">RSDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RSHR__RSDAT" title="Receive Synchronization Data">RSDAT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_RSHR__RSDAT"><span class="field_name">RSDAT</span>: <span class="field_description">Receive Synchronization Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_TSHR">SSC Transmit Sync. Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_TSHR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004034</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_TSHR__TSDAT" title="Transmit Synchronization Data">TSDAT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_TSHR__TSDAT" title="Transmit Synchronization Data">TSDAT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_TSHR__TSDAT"><span class="field_name">TSDAT</span>: <span class="field_description">Transmit Synchronization Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_RC0R">SSC Receive Compare 0 Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_RC0R</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004038</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RC0R__CP0" title="Receive Compare Data 0">CP0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RC0R__CP0" title="Receive Compare Data 0">CP0</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_RC0R__CP0"><span class="field_name">CP0</span>: <span class="field_description">Receive Compare Data 0</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_RC1R">SSC Receive Compare 1 Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_RC1R</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000403C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RC1R__CP1" title="Receive Compare Data 1">CP1</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_RC1R__CP1" title="Receive Compare Data 1">CP1</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_RC1R__CP1"><span class="field_name">CP1</span>: <span class="field_description">Receive Compare Data 1</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_SR">SSC Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004040</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_SR__RXEN" title="Receive Enable">RXEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_SR__TXEN" title="Transmit Enable">TXEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_SR__RXSYN" title="Receive Sync">RXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_SR__TXSYN" title="Transmit Sync">TXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_SR__CP1" title="Compare 1">CP1</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_SR__CP0" title="Compare 0">CP0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_SR__OVRUN" title="Receive Overrun">OVRUN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_SR__RXRDY" title="Receive Ready">RXRDY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_SR__TXEMPTY" title="Transmit Empty">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_SR__TXRDY" title="Transmit Ready">TXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_SR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready</span></li>
+          <p>-</p>
+          <li id="SSC_SR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmit Empty</span></li>
+          <p>-</p>
+          <li id="SSC_SR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Ready</span></li>
+          <p>-</p>
+          <li id="SSC_SR__OVRUN"><span class="field_name">OVRUN</span>: <span class="field_description">Receive Overrun</span></li>
+          <p>-</p>
+          <li id="SSC_SR__CP0"><span class="field_name">CP0</span>: <span class="field_description">Compare 0</span></li>
+          <p>-</p>
+          <li id="SSC_SR__CP1"><span class="field_name">CP1</span>: <span class="field_description">Compare 1</span></li>
+          <p>-</p>
+          <li id="SSC_SR__TXSYN"><span class="field_name">TXSYN</span>: <span class="field_description">Transmit Sync</span></li>
+          <p>-</p>
+          <li id="SSC_SR__RXSYN"><span class="field_name">RXSYN</span>: <span class="field_description">Receive Sync</span></li>
+          <p>-</p>
+          <li id="SSC_SR__TXEN"><span class="field_name">TXEN</span>: <span class="field_description">Transmit Enable</span></li>
+          <p>-</p>
+          <li id="SSC_SR__RXEN"><span class="field_name">RXEN</span>: <span class="field_description">Receive Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_IER">SSC Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004044</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IER__RXSYN" title="Rx Sync Interrupt Enable">RXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IER__TXSYN" title="Tx Sync Interrupt Enable">TXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IER__CP1" title="Compare 1 Interrupt Enable">CP1</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IER__CP0" title="Compare 0 Interrupt Enable">CP0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IER__OVRUN" title="Receive Overrun Interrupt Enable">OVRUN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IER__RXRDY" title="Receive Ready Interrupt Enable">RXRDY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IER__TXEMPTY" title="Transmit Empty Interrupt Enable">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IER__TXRDY" title="Transmit Ready Interrupt Enable">TXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_IER__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmit Empty Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__OVRUN"><span class="field_name">OVRUN</span>: <span class="field_description">Receive Overrun Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__CP0"><span class="field_name">CP0</span>: <span class="field_description">Compare 0 Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__CP1"><span class="field_name">CP1</span>: <span class="field_description">Compare 1 Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__TXSYN"><span class="field_name">TXSYN</span>: <span class="field_description">Tx Sync Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IER__RXSYN"><span class="field_name">RXSYN</span>: <span class="field_description">Rx Sync Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_IDR">SSC Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40004048</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IDR__RXSYN" title="Rx Sync Interrupt Enable">RXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IDR__TXSYN" title="Tx Sync Interrupt Enable">TXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IDR__CP1" title="Compare 1 Interrupt Disable">CP1</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IDR__CP0" title="Compare 0 Interrupt Disable">CP0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IDR__OVRUN" title="Receive Overrun Interrupt Disable">OVRUN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IDR__RXRDY" title="Receive Ready Interrupt Disable">RXRDY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IDR__TXEMPTY" title="Transmit Empty Interrupt Disable">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IDR__TXRDY" title="Transmit Ready Interrupt Disable">TXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_IDR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmit Empty Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__OVRUN"><span class="field_name">OVRUN</span>: <span class="field_description">Receive Overrun Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__CP0"><span class="field_name">CP0</span>: <span class="field_description">Compare 0 Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__CP1"><span class="field_name">CP1</span>: <span class="field_description">Compare 1 Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__TXSYN"><span class="field_name">TXSYN</span>: <span class="field_description">Tx Sync Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SSC_IDR__RXSYN"><span class="field_name">RXSYN</span>: <span class="field_description">Rx Sync Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_IMR">SSC Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000404C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IMR__RXSYN" title="Rx Sync Interrupt Mask">RXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IMR__TXSYN" title="Tx Sync Interrupt Mask">TXSYN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IMR__CP1" title="Compare 1 Interrupt Mask">CP1</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IMR__CP0" title="Compare 0 Interrupt Mask">CP0</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IMR__OVRUN" title="Receive Overrun Interrupt Mask">OVRUN</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IMR__RXRDY" title="Receive Ready Interrupt Mask">RXRDY</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_IMR__TXEMPTY" title="Transmit Empty Interrupt Mask">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SSC_IMR__TXRDY" title="Transmit Ready Interrupt Mask">TXRDY</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_IMR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmit Empty Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__OVRUN"><span class="field_name">OVRUN</span>: <span class="field_description">Receive Overrun Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__CP0"><span class="field_name">CP0</span>: <span class="field_description">Compare 0 Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__CP1"><span class="field_name">CP1</span>: <span class="field_description">Compare 1 Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__TXSYN"><span class="field_name">TXSYN</span>: <span class="field_description">Tx Sync Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SSC_IMR__RXSYN"><span class="field_name">RXSYN</span>: <span class="field_description">Rx Sync Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SSC_WPMR">SSC Write Protect Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_WPMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400040E4</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_WPMR__WPKEY" title="Write Protect KEY">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_WPMR__WPKEY" title="Write Protect KEY">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SSC_WPMR__WPKEY" title="Write Protect KEY">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SSC_WPMR__WPEN" title="Write Protect Enable">WPEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SSC_WPMR__WPEN"><span class="field_name">WPEN</span>: <span class="field_description">Write Protect Enable</span></li>
+          <p>-</p>
+          <li id="SSC_WPMR__WPKEY"><span class="field_name">WPKEY</span>: <span class="field_description">Write Protect KEY</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x535343</td><td class="name">PASSWD</td><td class="description">Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="SSC_WPSR">SSC Write Protect Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SSC_WPSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400040E8</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values"></ul>
+        <h3 id="SSC__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>SSC Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x40004000</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_CR">SSC_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">SWRST</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXDIS</td>
+              <td class="field">TXEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXDIS</td>
+              <td class="field">RXEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004004</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_CMR">SSC_CMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">DIV</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">DIV</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40004008 .. 0x4000400C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004010</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_RCMR">SSC_RCMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">PERIOD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">STTDLY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">STOP</td>
+              <td class="field" colspan="4">START</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="2">CKG</td>
+              <td class="field">CKI</td>
+              <td class="field" colspan="3">CKO</td>
+              <td class="field" colspan="2">CKS</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004014</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_RFMR">SSC_RFMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="4">FSLEN_EXT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">FSEDGE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">FSOS</td>
+              <td class="field" colspan="4">FSLEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">DATNB</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">MSBF</td>
+              <td class="field reserved">-</td>
+              <td class="field">LOOP</td>
+              <td class="field" colspan="5">DATLEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004018</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_TCMR">SSC_TCMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">PERIOD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">STTDLY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">START</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="2">CKG</td>
+              <td class="field">CKI</td>
+              <td class="field" colspan="3">CKO</td>
+              <td class="field" colspan="2">CKS</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000401C</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_TFMR">SSC_TFMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="4">FSLEN_EXT</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">FSEDGE</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field">FSDEN</td>
+              <td class="field" colspan="3">FSOS</td>
+              <td class="field" colspan="4">FSLEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">DATNB</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">MSBF</td>
+              <td class="field reserved">-</td>
+              <td class="field">DATDEF</td>
+              <td class="field" colspan="5">DATLEN</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40004020</td>
+              <td rowspan="1" class="register">
+                <a href="#SSC_RHR">SSC_RHR</a>
+              </td>
+              <td rowspan="1" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RDAT</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x40004024</td>
+              <td rowspan="1" class="register">
+                <a href="#SSC_THR">SSC_THR</a>
+              </td>
+              <td rowspan="1" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TDAT</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40004028 .. 0x4000402C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004030</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_RSHR">SSC_RSHR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RSDAT</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RSDAT</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004034</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_TSHR">SSC_TSHR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TSDAT</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TSDAT</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004038</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_RC0R">SSC_RC0R</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">CP0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">CP0</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000403C</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_RC1R">SSC_RC1R</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">CP1</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">CP1</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004040</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_SR">SSC_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXEN</td>
+              <td class="field">TXEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXSYN</td>
+              <td class="field">TXSYN</td>
+              <td class="field">CP1</td>
+              <td class="field">CP0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRUN</td>
+              <td class="field">RXRDY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">TXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004044</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_IER">SSC_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXSYN</td>
+              <td class="field">TXSYN</td>
+              <td class="field">CP1</td>
+              <td class="field">CP0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRUN</td>
+              <td class="field">RXRDY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">TXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40004048</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_IDR">SSC_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXSYN</td>
+              <td class="field">TXSYN</td>
+              <td class="field">CP1</td>
+              <td class="field">CP0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRUN</td>
+              <td class="field">RXRDY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">TXRDY</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000404C</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_IMR">SSC_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXSYN</td>
+              <td class="field">TXSYN</td>
+              <td class="field">CP1</td>
+              <td class="field">CP0</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRUN</td>
+              <td class="field">RXRDY</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">TXRDY</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40004050 .. 0x400040E0</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400040E4</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_WPMR">SSC_WPMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400040E8</td>
+              <td rowspan="4" class="register">
+                <a href="#SSC_WPSR">SSC_WPSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

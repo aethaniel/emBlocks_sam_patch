@@ -1,0 +1,2665 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA TWI0</title>
+  <chapter id="TWI0">
+    <title id="TWI0__User_Interface">Two-wire Interface (TWI0) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="21">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C000</entry>
+              <entry align="center" valign="middle">Control Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_CR">TWI0_CR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C004</entry>
+              <entry align="center" valign="middle">Master Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_MMR">TWI0_MMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C008</entry>
+              <entry align="center" valign="middle">Slave Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_SMR">TWI0_SMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C00C</entry>
+              <entry align="center" valign="middle">Internal Address Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_IADR">TWI0_IADR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C010</entry>
+              <entry align="center" valign="middle">Clock Waveform Generator Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_CWGR">TWI0_CWGR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C020</entry>
+              <entry align="center" valign="middle">Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_SR">TWI0_SR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x0000F009</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C024</entry>
+              <entry align="center" valign="middle">Interrupt Enable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_IER">TWI0_IER</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C028</entry>
+              <entry align="center" valign="middle">Interrupt Disable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_IDR">TWI0_IDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C02C</entry>
+              <entry align="center" valign="middle">Interrupt Mask Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_IMR">TWI0_IMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C030</entry>
+              <entry align="center" valign="middle">Receive Holding Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_RHR">TWI0_RHR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C034</entry>
+              <entry align="center" valign="middle">Transmit Holding Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_THR">TWI0_THR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C100</entry>
+              <entry align="center" valign="middle">Receive Pointer Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_RPR">TWI0_RPR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C104</entry>
+              <entry align="center" valign="middle">Receive Counter Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_RCR">TWI0_RCR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C108</entry>
+              <entry align="center" valign="middle">Transmit Pointer Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_TPR">TWI0_TPR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C10C</entry>
+              <entry align="center" valign="middle">Transmit Counter Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_TCR">TWI0_TCR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C110</entry>
+              <entry align="center" valign="middle">Receive Next Pointer Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_RNPR">TWI0_RNPR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C114</entry>
+              <entry align="center" valign="middle">Receive Next Counter Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_RNCR">TWI0_RNCR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C118</entry>
+              <entry align="center" valign="middle">Transmit Next Pointer Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_TNPR">TWI0_TNPR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C11C</entry>
+              <entry align="center" valign="middle">Transmit Next Counter Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_TNCR">TWI0_TNCR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4008C120</entry>
+              <entry align="center" valign="middle">Transfer Control Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_PTCR">TWI0_PTCR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4008C124</entry>
+              <entry align="center" valign="middle">Transfer Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="TWI0_PTSR">TWI0_PTSR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="TWI0_CR">
+        <title>TWI0 Control Register</title>
+        <para>Name: TWI0_CR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4008C000</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__SWRST">SWRST</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__QUICK">QUICK</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__SVDIS">SVDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__SVEN">SVEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__MSDIS">MSDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__MSEN">MSEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__STOP">STOP</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_CR__START">START</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_CR__START">
+            <para>START: Send a START Condition</para>
+          </listitem>
+          <listitem id="TWI0_CR__STOP">
+            <para>STOP: Send a STOP Condition</para>
+          </listitem>
+          <listitem id="TWI0_CR__MSEN">
+            <para>MSEN: TWI Master Mode Enabled</para>
+          </listitem>
+          <listitem id="TWI0_CR__MSDIS">
+            <para>MSDIS: TWI Master Mode Disabled</para>
+          </listitem>
+          <listitem id="TWI0_CR__SVEN">
+            <para>SVEN: TWI Slave Mode Enabled</para>
+          </listitem>
+          <listitem id="TWI0_CR__SVDIS">
+            <para>SVDIS: TWI Slave Mode Disabled</para>
+          </listitem>
+          <listitem id="TWI0_CR__QUICK">
+            <para>QUICK: SMBUS Quick Command</para>
+          </listitem>
+          <listitem id="TWI0_CR__SWRST">
+            <para>SWRST: Software Reset</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_MMR">
+        <title>TWI0 Master Mode Register</title>
+        <para>Name: TWI0_MMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C004</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c8">
+                  <link linkend="TWI0_MMR__DADR">DADR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_MMR__MREAD">MREAD</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="TWI0_MMR__IADRSZ">IADRSZ</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_MMR__IADRSZ">
+            <para>IADRSZ: Internal Device Address Size</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">NONE</entry>
+                    <entry align="center" valign="middle">No internal device address</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">1_BYTE</entry>
+                    <entry align="center" valign="middle">One-byte internal device address</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">2_BYTE</entry>
+                    <entry align="center" valign="middle">Two-byte internal device address</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">3_BYTE</entry>
+                    <entry align="center" valign="middle">Three-byte internal device address</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="TWI0_MMR__MREAD">
+            <para>MREAD: Master Read Direction</para>
+          </listitem>
+          <listitem id="TWI0_MMR__DADR">
+            <para>DADR: Device Address</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_SMR">
+        <title>TWI0 Slave Mode Register</title>
+        <para>Name: TWI0_SMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C008</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c8">
+                  <link linkend="TWI0_SMR__SADR">SADR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_SMR__SADR">
+            <para>SADR: Slave Address</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_IADR">
+        <title>TWI0 Internal Address Register</title>
+        <para>Name: TWI0_IADR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C00C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_IADR__IADR">IADR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_IADR__IADR">IADR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_IADR__IADR">IADR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_IADR__IADR">
+            <para>IADR: Internal Address</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_CWGR">
+        <title>TWI0 Clock Waveform Generator Register</title>
+        <para>Name: TWI0_CWGR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C010</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c6" nameend="c8">
+                  <link linkend="TWI0_CWGR__CKDIV">CKDIV</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_CWGR__CHDIV">CHDIV</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_CWGR__CLDIV">CLDIV</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_CWGR__CLDIV">
+            <para>CLDIV: Clock Low Divider</para>
+          </listitem>
+          <listitem id="TWI0_CWGR__CHDIV">
+            <para>CHDIV: Clock High Divider</para>
+          </listitem>
+          <listitem id="TWI0_CWGR__CKDIV">
+            <para>CKDIV: Clock Divider</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_SR">
+        <title>TWI0 Status Register</title>
+        <para>Name: TWI0_SR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4008C020</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__TXBUFE">TXBUFE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__RXBUFF">RXBUFF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__ENDTX">ENDTX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__ENDRX">ENDRX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__EOSACC">EOSACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__SCLWS">SCLWS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__ARBLST">ARBLST</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__NACK">NACK</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__GACC">GACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__SVACC">SVACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__SVREAD">SVREAD</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_SR__TXCOMP">TXCOMP</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_SR__TXCOMP">
+            <para>TXCOMP: Transmission Completed (automatically set / reset)</para>
+          </listitem>
+          <listitem id="TWI0_SR__RXRDY">
+            <para>RXRDY: Receive Holding Register Ready (automatically set / reset)</para>
+          </listitem>
+          <listitem id="TWI0_SR__TXRDY">
+            <para>TXRDY: Transmit Holding Register Ready (automatically set / reset)</para>
+          </listitem>
+          <listitem id="TWI0_SR__SVREAD">
+            <para>SVREAD: Slave Read (automatically set / reset)</para>
+          </listitem>
+          <listitem id="TWI0_SR__SVACC">
+            <para>SVACC: Slave Access (automatically set / reset)</para>
+          </listitem>
+          <listitem id="TWI0_SR__GACC">
+            <para>GACC: General Call Access (clear on read)</para>
+          </listitem>
+          <listitem id="TWI0_SR__OVRE">
+            <para>OVRE: Overrun Error (clear on read)</para>
+          </listitem>
+          <listitem id="TWI0_SR__NACK">
+            <para>NACK: Not Acknowledged (clear on read)</para>
+          </listitem>
+          <listitem id="TWI0_SR__ARBLST">
+            <para>ARBLST: Arbitration Lost (clear on read)</para>
+          </listitem>
+          <listitem id="TWI0_SR__SCLWS">
+            <para>SCLWS: Clock Wait State (automatically set / reset)</para>
+          </listitem>
+          <listitem id="TWI0_SR__EOSACC">
+            <para>EOSACC: End Of Slave Access (clear on read)</para>
+          </listitem>
+          <listitem id="TWI0_SR__ENDRX">
+            <para>ENDRX: End of RX buffer</para>
+          </listitem>
+          <listitem id="TWI0_SR__ENDTX">
+            <para>ENDTX: End of TX buffer</para>
+          </listitem>
+          <listitem id="TWI0_SR__RXBUFF">
+            <para>RXBUFF: RX Buffer Full</para>
+          </listitem>
+          <listitem id="TWI0_SR__TXBUFE">
+            <para>TXBUFE: TX Buffer Empty</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_IER">
+        <title>TWI0 Interrupt Enable Register</title>
+        <para>Name: TWI0_IER</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4008C024</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__TXBUFE">TXBUFE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__RXBUFF">RXBUFF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__ENDTX">ENDTX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__ENDRX">ENDRX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__EOSACC">EOSACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__SCL_WS">SCL_WS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__ARBLST">ARBLST</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__NACK">NACK</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__GACC">GACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__SVACC">SVACC</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IER__TXCOMP">TXCOMP</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_IER__TXCOMP">
+            <para>TXCOMP: Transmission Completed Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__RXRDY">
+            <para>RXRDY: Receive Holding Register Ready Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__TXRDY">
+            <para>TXRDY: Transmit Holding Register Ready Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__SVACC">
+            <para>SVACC: Slave Access Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__GACC">
+            <para>GACC: General Call Access Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__OVRE">
+            <para>OVRE: Overrun Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__NACK">
+            <para>NACK: Not Acknowledge Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__ARBLST">
+            <para>ARBLST: Arbitration Lost Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__SCL_WS">
+            <para>SCL_WS: Clock Wait State Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__EOSACC">
+            <para>EOSACC: End Of Slave Access Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__ENDRX">
+            <para>ENDRX: End of Receive Buffer Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__ENDTX">
+            <para>ENDTX: End of Transmit Buffer Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__RXBUFF">
+            <para>RXBUFF: Receive Buffer Full Interrupt Enable</para>
+          </listitem>
+          <listitem id="TWI0_IER__TXBUFE">
+            <para>TXBUFE: Transmit Buffer Empty Interrupt Enable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_IDR">
+        <title>TWI0 Interrupt Disable Register</title>
+        <para>Name: TWI0_IDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4008C028</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__TXBUFE">TXBUFE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__RXBUFF">RXBUFF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__ENDTX">ENDTX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__ENDRX">ENDRX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__EOSACC">EOSACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__SCL_WS">SCL_WS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__ARBLST">ARBLST</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__NACK">NACK</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__GACC">GACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__SVACC">SVACC</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IDR__TXCOMP">TXCOMP</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_IDR__TXCOMP">
+            <para>TXCOMP: Transmission Completed Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__RXRDY">
+            <para>RXRDY: Receive Holding Register Ready Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__TXRDY">
+            <para>TXRDY: Transmit Holding Register Ready Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__SVACC">
+            <para>SVACC: Slave Access Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__GACC">
+            <para>GACC: General Call Access Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__OVRE">
+            <para>OVRE: Overrun Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__NACK">
+            <para>NACK: Not Acknowledge Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__ARBLST">
+            <para>ARBLST: Arbitration Lost Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__SCL_WS">
+            <para>SCL_WS: Clock Wait State Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__EOSACC">
+            <para>EOSACC: End Of Slave Access Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__ENDRX">
+            <para>ENDRX: End of Receive Buffer Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__ENDTX">
+            <para>ENDTX: End of Transmit Buffer Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__RXBUFF">
+            <para>RXBUFF: Receive Buffer Full Interrupt Disable</para>
+          </listitem>
+          <listitem id="TWI0_IDR__TXBUFE">
+            <para>TXBUFE: Transmit Buffer Empty Interrupt Disable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_IMR">
+        <title>TWI0 Interrupt Mask Register</title>
+        <para>Name: TWI0_IMR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4008C02C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__TXBUFE">TXBUFE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__RXBUFF">RXBUFF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__ENDTX">ENDTX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__ENDRX">ENDRX</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__EOSACC">EOSACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__SCL_WS">SCL_WS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__ARBLST">ARBLST</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__NACK">NACK</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__GACC">GACC</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__SVACC">SVACC</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_IMR__TXCOMP">TXCOMP</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_IMR__TXCOMP">
+            <para>TXCOMP: Transmission Completed Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__RXRDY">
+            <para>RXRDY: Receive Holding Register Ready Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__TXRDY">
+            <para>TXRDY: Transmit Holding Register Ready Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__SVACC">
+            <para>SVACC: Slave Access Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__GACC">
+            <para>GACC: General Call Access Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__OVRE">
+            <para>OVRE: Overrun Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__NACK">
+            <para>NACK: Not Acknowledge Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__ARBLST">
+            <para>ARBLST: Arbitration Lost Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__SCL_WS">
+            <para>SCL_WS: Clock Wait State Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__EOSACC">
+            <para>EOSACC: End Of Slave Access Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__ENDRX">
+            <para>ENDRX: End of Receive Buffer Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__ENDTX">
+            <para>ENDTX: End of Transmit Buffer Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__RXBUFF">
+            <para>RXBUFF: Receive Buffer Full Interrupt Mask</para>
+          </listitem>
+          <listitem id="TWI0_IMR__TXBUFE">
+            <para>TXBUFE: Transmit Buffer Empty Interrupt Mask</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_RHR">
+        <title>TWI0 Receive Holding Register</title>
+        <para>Name: TWI0_RHR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4008C030</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RHR__RXDATA">RXDATA</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_RHR__RXDATA">
+            <para>RXDATA: Master or Slave Receive Holding Data</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_THR">
+        <title>TWI0 Transmit Holding Register</title>
+        <para>Name: TWI0_THR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4008C034</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_THR__TXDATA">TXDATA</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_THR__TXDATA">
+            <para>TXDATA: Master or Slave Transmit Holding Data</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_RPR">
+        <title>TWI0 Receive Pointer Register</title>
+        <para>Name: TWI0_RPR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C100</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RPR__RXPTR">RXPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RPR__RXPTR">RXPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RPR__RXPTR">RXPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RPR__RXPTR">RXPTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_RPR__RXPTR">
+            <para>RXPTR: Receive Pointer Register</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_RCR">
+        <title>TWI0 Receive Counter Register</title>
+        <para>Name: TWI0_RCR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C104</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RCR__RXCTR">RXCTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RCR__RXCTR">RXCTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_RCR__RXCTR">
+            <para>RXCTR: Receive Counter Register</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_TPR">
+        <title>TWI0 Transmit Pointer Register</title>
+        <para>Name: TWI0_TPR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C108</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TPR__TXPTR">TXPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TPR__TXPTR">TXPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TPR__TXPTR">TXPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TPR__TXPTR">TXPTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_TPR__TXPTR">
+            <para>TXPTR: Transmit Counter Register</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_TCR">
+        <title>TWI0 Transmit Counter Register</title>
+        <para>Name: TWI0_TCR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C10C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TCR__TXCTR">TXCTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TCR__TXCTR">TXCTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_TCR__TXCTR">
+            <para>TXCTR: Transmit Counter Register</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_RNPR">
+        <title>TWI0 Receive Next Pointer Register</title>
+        <para>Name: TWI0_RNPR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C110</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RNPR__RXNPTR">RXNPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RNPR__RXNPTR">RXNPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RNPR__RXNPTR">RXNPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RNPR__RXNPTR">RXNPTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_RNPR__RXNPTR">
+            <para>RXNPTR: Receive Next Pointer</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_RNCR">
+        <title>TWI0 Receive Next Counter Register</title>
+        <para>Name: TWI0_RNCR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C114</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RNCR__RXNCTR">RXNCTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_RNCR__RXNCTR">RXNCTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_RNCR__RXNCTR">
+            <para>RXNCTR: Receive Next Counter</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_TNPR">
+        <title>TWI0 Transmit Next Pointer Register</title>
+        <para>Name: TWI0_TNPR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C118</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TNPR__TXNPTR">TXNPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TNPR__TXNPTR">TXNPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TNPR__TXNPTR">TXNPTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TNPR__TXNPTR">TXNPTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_TNPR__TXNPTR">
+            <para>TXNPTR: Transmit Next Pointer</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_TNCR">
+        <title>TWI0 Transmit Next Counter Register</title>
+        <para>Name: TWI0_TNCR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4008C11C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TNCR__TXNCTR">TXNCTR</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="TWI0_TNCR__TXNCTR">TXNCTR</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_TNCR__TXNCTR">
+            <para>TXNCTR: Transmit Counter Next</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_PTCR">
+        <title>TWI0 Transfer Control Register</title>
+        <para>Name: TWI0_PTCR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x4008C120</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_PTCR__TXTDIS">TXTDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_PTCR__TXTEN">TXTEN</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_PTCR__RXTDIS">RXTDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_PTCR__RXTEN">RXTEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_PTCR__RXTEN">
+            <para>RXTEN: Receiver Transfer Enable</para>
+          </listitem>
+          <listitem id="TWI0_PTCR__RXTDIS">
+            <para>RXTDIS: Receiver Transfer Disable</para>
+          </listitem>
+          <listitem id="TWI0_PTCR__TXTEN">
+            <para>TXTEN: Transmitter Transfer Enable</para>
+          </listitem>
+          <listitem id="TWI0_PTCR__TXTDIS">
+            <para>TXTDIS: Transmitter Transfer Disable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="TWI0_PTSR">
+        <title>TWI0 Transfer Status Register</title>
+        <para>Name: TWI0_PTSR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4008C124</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_PTSR__TXTEN">TXTEN</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="TWI0_PTSR__RXTEN">RXTEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="TWI0_PTSR__RXTEN">
+            <para>RXTEN: Receiver Transfer Enable</para>
+          </listitem>
+          <listitem id="TWI0_PTSR__TXTEN">
+            <para>TXTEN: Transmitter Transfer Enable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

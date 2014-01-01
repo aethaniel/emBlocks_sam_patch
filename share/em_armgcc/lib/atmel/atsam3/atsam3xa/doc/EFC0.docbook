@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA EFC0</title>
+  <chapter id="EFC0">
+    <title id="EFC0__User_Interface">Embedded Flash Controller (EFC0) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="4">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0A00</entry>
+              <entry align="center" valign="middle">EEFC Flash Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="EFC0_FMR">EFC0_FMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0A04</entry>
+              <entry align="center" valign="middle">EEFC Flash Command Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="EFC0_FCR">EFC0_FCR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0A08</entry>
+              <entry align="center" valign="middle">EEFC Flash Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="EFC0_FSR">EFC0_FSR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000001</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0A0C</entry>
+              <entry align="center" valign="middle">EEFC Flash Result Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="EFC0_FRR">EFC0_FRR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="EFC0_FMR">
+        <title>EFC0 EEFC Flash Mode Register</title>
+        <para>Name: EFC0_FMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400E0A00</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="EFC0_FMR__FAM">FAM</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="EFC0_FMR__SCOD">SCOD</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="EFC0_FMR__FWS">FWS</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="EFC0_FMR__FRDY">FRDY</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="EFC0_FMR__FRDY">
+            <para>FRDY: Ready Interrupt Enable</para>
+          </listitem>
+          <listitem id="EFC0_FMR__FWS">
+            <para>FWS: Flash Wait State</para>
+          </listitem>
+          <listitem id="EFC0_FMR__SCOD">
+            <para>SCOD: Sequential Code Optimization Disable</para>
+          </listitem>
+          <listitem id="EFC0_FMR__FAM">
+            <para>FAM: Flash Access Mode</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="EFC0_FCR">
+        <title>EFC0 EEFC Flash Command Register</title>
+        <para>Name: EFC0_FCR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x400E0A04</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FCR__FKEY">FKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FCR__FARG">FARG</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FCR__FARG">FARG</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FCR__FCMD">FCMD</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="EFC0_FCR__FCMD">
+            <para>FCMD: Flash Command</para>
+            <table>
+              <title/>
+              <tgroup cols="15">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x00</entry>
+                    <entry align="center" valign="middle">GETD</entry>
+                    <entry align="center" valign="middle">Get Flash Descriptor</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x01</entry>
+                    <entry align="center" valign="middle">WP</entry>
+                    <entry align="center" valign="middle">Write page</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x02</entry>
+                    <entry align="center" valign="middle">WPL</entry>
+                    <entry align="center" valign="middle">Write page and lock</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x03</entry>
+                    <entry align="center" valign="middle">EWP</entry>
+                    <entry align="center" valign="middle">Erase page and write page</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x04</entry>
+                    <entry align="center" valign="middle">EWPL</entry>
+                    <entry align="center" valign="middle">Erase page and write page then lock</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x05</entry>
+                    <entry align="center" valign="middle">EA</entry>
+                    <entry align="center" valign="middle">Erase all</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x08</entry>
+                    <entry align="center" valign="middle">SLB</entry>
+                    <entry align="center" valign="middle">Set Lock Bit</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x09</entry>
+                    <entry align="center" valign="middle">CLB</entry>
+                    <entry align="center" valign="middle">Clear Lock Bit</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0A</entry>
+                    <entry align="center" valign="middle">GLB</entry>
+                    <entry align="center" valign="middle">Get Lock Bit</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x0B</entry>
+                    <entry align="center" valign="middle">SGPB</entry>
+                    <entry align="center" valign="middle">Set GPNVM Bit</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0C</entry>
+                    <entry align="center" valign="middle">CGPB</entry>
+                    <entry align="center" valign="middle">Clear GPNVM Bit</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x0D</entry>
+                    <entry align="center" valign="middle">GGPB</entry>
+                    <entry align="center" valign="middle">Get GPNVM Bit</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0E</entry>
+                    <entry align="center" valign="middle">STUI</entry>
+                    <entry align="center" valign="middle">Start Read Unique Identifier</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x0F</entry>
+                    <entry align="center" valign="middle">SPUI</entry>
+                    <entry align="center" valign="middle">Stop Read Unique Identifier</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x10</entry>
+                    <entry align="center" valign="middle">GCALB</entry>
+                    <entry align="center" valign="middle">Get CALIB Bit</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="EFC0_FCR__FARG">
+            <para>FARG: Flash Command Argument</para>
+          </listitem>
+          <listitem id="EFC0_FCR__FKEY">
+            <para>FKEY: Flash Writing Protection Key</para>
+            <table>
+              <title/>
+              <tgroup cols="1">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x5A</entry>
+                    <entry align="center" valign="middle">PASSWD</entry>
+                    <entry align="center" valign="middle">The 0x5A value enables the command defined by the bits of the register. If the field is written with a different value, the write is not performed and no action is started.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="EFC0_FSR">
+        <title>EFC0 EEFC Flash Status Register</title>
+        <para>Name: EFC0_FSR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E0A08</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="EFC0_FSR__FLOCKE">FLOCKE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="EFC0_FSR__FCMDE">FCMDE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="EFC0_FSR__FRDY">FRDY</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="EFC0_FSR__FRDY">
+            <para>FRDY: Flash Ready Status</para>
+          </listitem>
+          <listitem id="EFC0_FSR__FCMDE">
+            <para>FCMDE: Flash Command Error Status</para>
+          </listitem>
+          <listitem id="EFC0_FSR__FLOCKE">
+            <para>FLOCKE: Flash Lock Error Status</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="EFC0_FRR">
+        <title>EFC0 EEFC Flash Result Register</title>
+        <para>Name: EFC0_FRR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E0A0C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FRR__FVALUE">FVALUE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FRR__FVALUE">FVALUE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FRR__FVALUE">FVALUE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="EFC0_FRR__FVALUE">FVALUE</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="EFC0_FRR__FVALUE">
+            <para>FVALUE: Flash Result Value</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

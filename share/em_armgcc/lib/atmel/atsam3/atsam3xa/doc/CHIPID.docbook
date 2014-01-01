@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA CHIPID</title>
+  <chapter id="CHIPID">
+    <title id="CHIPID__User_Interface">Chip Identifier (CHIPID) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="2">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400E0940</entry>
+              <entry align="center" valign="middle">Chip ID Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="CHIPID_CIDR">CHIPID_CIDR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400E0944</entry>
+              <entry align="center" valign="middle">Chip ID Extension Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="CHIPID_EXID">CHIPID_EXID</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="CHIPID_CIDR">
+        <title>CHIPID Chip ID Register</title>
+        <para>Name: CHIPID_CIDR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E0940</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="CHIPID_CIDR__EXT">EXT</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c4">
+                  <link linkend="CHIPID_CIDR__NVPTYP">NVPTYP</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="CHIPID_CIDR__ARCH">ARCH</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="CHIPID_CIDR__ARCH">ARCH</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="CHIPID_CIDR__SRAMSIZ">SRAMSIZ</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c4">
+                  <link linkend="CHIPID_CIDR__NVPSIZ2">NVPSIZ2</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="CHIPID_CIDR__NVPSIZ">NVPSIZ</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c3">
+                  <link linkend="CHIPID_CIDR__EPROC">EPROC</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c4" nameend="c8">
+                  <link linkend="CHIPID_CIDR__VERSION">VERSION</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="CHIPID_CIDR__VERSION">
+            <para>VERSION: Version of the Device</para>
+          </listitem>
+          <listitem id="CHIPID_CIDR__EPROC">
+            <para>EPROC: Embedded Processor</para>
+            <table>
+              <title/>
+              <tgroup cols="7">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">ARM946ES</entry>
+                    <entry align="center" valign="middle">ARM946ES</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">ARM7TDMI</entry>
+                    <entry align="center" valign="middle">ARM7TDMI</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">CM3</entry>
+                    <entry align="center" valign="middle">Cortex-M3</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">ARM920T</entry>
+                    <entry align="center" valign="middle">ARM920T</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">ARM926EJS</entry>
+                    <entry align="center" valign="middle">ARM926EJS</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">CA5</entry>
+                    <entry align="center" valign="middle">Cortex-A5</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">CM4</entry>
+                    <entry align="center" valign="middle">Cortex-M4</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="CHIPID_CIDR__NVPSIZ">
+            <para>NVPSIZ: Nonvolatile Program Memory Size</para>
+            <table>
+              <title/>
+              <tgroup cols="10">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">NONE</entry>
+                    <entry align="center" valign="middle">None</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">8K</entry>
+                    <entry align="center" valign="middle">8 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">16K</entry>
+                    <entry align="center" valign="middle">16 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">32K</entry>
+                    <entry align="center" valign="middle">32 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">64K</entry>
+                    <entry align="center" valign="middle">64 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">128K</entry>
+                    <entry align="center" valign="middle">128 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x9</entry>
+                    <entry align="center" valign="middle">256K</entry>
+                    <entry align="center" valign="middle">256 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xA</entry>
+                    <entry align="center" valign="middle">512K</entry>
+                    <entry align="center" valign="middle">512 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xC</entry>
+                    <entry align="center" valign="middle">1024K</entry>
+                    <entry align="center" valign="middle">1024 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xE</entry>
+                    <entry align="center" valign="middle">2048K</entry>
+                    <entry align="center" valign="middle">2048 Kbytes</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="CHIPID_CIDR__NVPSIZ2">
+            <para>NVPSIZ2: Second Nonvolatile Program Memory Size</para>
+            <table>
+              <title/>
+              <tgroup cols="10">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">NONE</entry>
+                    <entry align="center" valign="middle">None</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">8K</entry>
+                    <entry align="center" valign="middle">8 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">16K</entry>
+                    <entry align="center" valign="middle">16 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">32K</entry>
+                    <entry align="center" valign="middle">32 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">64K</entry>
+                    <entry align="center" valign="middle">64 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">128K</entry>
+                    <entry align="center" valign="middle">128 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x9</entry>
+                    <entry align="center" valign="middle">256K</entry>
+                    <entry align="center" valign="middle">256 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xA</entry>
+                    <entry align="center" valign="middle">512K</entry>
+                    <entry align="center" valign="middle">512 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xC</entry>
+                    <entry align="center" valign="middle">1024K</entry>
+                    <entry align="center" valign="middle">1024 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xE</entry>
+                    <entry align="center" valign="middle">2048K</entry>
+                    <entry align="center" valign="middle">2048 Kbytes</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="CHIPID_CIDR__SRAMSIZ">
+            <para>SRAMSIZ: Internal SRAM Size</para>
+            <table>
+              <title/>
+              <tgroup cols="16">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">48K</entry>
+                    <entry align="center" valign="middle">48 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">192K</entry>
+                    <entry align="center" valign="middle">192 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">2K</entry>
+                    <entry align="center" valign="middle">2 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">6K</entry>
+                    <entry align="center" valign="middle">6 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">24K</entry>
+                    <entry align="center" valign="middle">24 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">4K</entry>
+                    <entry align="center" valign="middle">4 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">80K</entry>
+                    <entry align="center" valign="middle">80 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">160K</entry>
+                    <entry align="center" valign="middle">160 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x8</entry>
+                    <entry align="center" valign="middle">8K</entry>
+                    <entry align="center" valign="middle">8 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x9</entry>
+                    <entry align="center" valign="middle">16K</entry>
+                    <entry align="center" valign="middle">16 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xA</entry>
+                    <entry align="center" valign="middle">32K</entry>
+                    <entry align="center" valign="middle">32 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xB</entry>
+                    <entry align="center" valign="middle">64K</entry>
+                    <entry align="center" valign="middle">64 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xC</entry>
+                    <entry align="center" valign="middle">128K</entry>
+                    <entry align="center" valign="middle">128 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xD</entry>
+                    <entry align="center" valign="middle">256K</entry>
+                    <entry align="center" valign="middle">256 Kbytes</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0xE</entry>
+                    <entry align="center" valign="middle">96K</entry>
+                    <entry align="center" valign="middle">96 Kbytes</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0xF</entry>
+                    <entry align="center" valign="middle">512K</entry>
+                    <entry align="center" valign="middle">512 Kbytes</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="CHIPID_CIDR__ARCH">
+            <para>ARCH: Architecture Identifier</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x83</entry>
+                    <entry align="center" valign="middle">SAM3AxC</entry>
+                    <entry align="center" valign="middle">SAM3AxC (100-pin version)</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x84</entry>
+                    <entry align="center" valign="middle">SAM3XxC</entry>
+                    <entry align="center" valign="middle">SAM3XxC (100-pin version)</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x85</entry>
+                    <entry align="center" valign="middle">SAM3XxE</entry>
+                    <entry align="center" valign="middle">SAM3XxE (144-pin version)</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x86</entry>
+                    <entry align="center" valign="middle">SAM3XxG</entry>
+                    <entry align="center" valign="middle">SAM3XxG (208/217-pin version)</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="CHIPID_CIDR__NVPTYP">
+            <para>NVPTYP: Nonvolatile Program Memory Type</para>
+            <table>
+              <title/>
+              <tgroup cols="5">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">ROM</entry>
+                    <entry align="center" valign="middle">ROM</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">ROMLESS</entry>
+                    <entry align="center" valign="middle">ROMless or on-chip Flash</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">FLASH</entry>
+                    <entry align="center" valign="middle">Embedded Flash Memory</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">ROM_FLASH</entry>
+                    <entry align="center" valign="middle">ROM and Embedded Flash Memory- NVPSIZ is ROM size- NVPSIZ2 is Flash size</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">SRAM</entry>
+                    <entry align="center" valign="middle">SRAM emulating ROM</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="CHIPID_CIDR__EXT">
+            <para>EXT: Extension Flag</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="CHIPID_EXID">
+        <title>CHIPID Chip ID Extension Register</title>
+        <para>Name: CHIPID_EXID</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400E0944</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="CHIPID_EXID__EXID">EXID</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="CHIPID_EXID__EXID">EXID</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="CHIPID_EXID__EXID">EXID</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="CHIPID_EXID__EXID">EXID</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="CHIPID_EXID__EXID">
+            <para>EXID: Chip ID Extension</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>

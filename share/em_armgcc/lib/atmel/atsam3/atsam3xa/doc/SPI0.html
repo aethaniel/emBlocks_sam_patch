@@ -1,0 +1,1854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3XA SPI0</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="SPI0">SAM3XA SPI0</h1>
+        <h2 id="SPI0__User_Interface">Serial Peripheral Interface (SPI0) User Interface</h2>
+<!--As per 6088W programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x40008000">0x40008000</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#SPI0_CR" title="Control Register" class="one_click_away">SPI0_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40008004">0x40008004</td>
+              <td class="description">Mode Register</td>
+              <td class="name">
+                <a href="#SPI0_MR" title="Mode Register" class="one_click_away">SPI0_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40008008">0x40008008</td>
+              <td class="description">Receive Data Register</td>
+              <td class="name">
+                <a href="#SPI0_RDR" title="Receive Data Register" class="one_click_away">SPI0_RDR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000800C">0x4000800C</td>
+              <td class="description">Transmit Data Register</td>
+              <td class="name">
+                <a href="#SPI0_TDR" title="Transmit Data Register" class="one_click_away">SPI0_TDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40008010">0x40008010</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#SPI0_SR" title="Status Register" class="one_click_away">SPI0_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x000000F0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x40008014">0x40008014</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#SPI0_IER" title="Interrupt Enable Register" class="one_click_away">SPI0_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40008018">0x40008018</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#SPI0_IDR" title="Interrupt Disable Register" class="one_click_away">SPI0_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4000801C">0x4000801C</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#SPI0_IMR" title="Interrupt Mask Register" class="one_click_away">SPI0_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x40008030">0x40008030</td>
+              <td class="description">Chip Select Register</td>
+              <td class="name">
+                <a href="#SPI0_CSR" title="Chip Select Register" class="one_click_away">SPI0_CSR[4]</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400080E4">0x400080E4</td>
+              <td class="description">Write Protection Control Register</td>
+              <td class="name">
+                <a href="#SPI0_WPMR" title="Write Protection Control Register" class="one_click_away">SPI0_WPMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400080E8">0x400080E8</td>
+              <td class="description">Write Protection Status Register</td>
+              <td class="name">
+                <a href="#SPI0_WPSR" title="Write Protection Status Register" class="one_click_away">SPI0_WPSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="SPI0_CR">SPI0 Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_CR__LASTXFER" title="Last Transfer">LASTXFER</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SPI0_CR__SWRST" title="SPI Software Reset">SWRST</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_CR__SPIDIS" title="SPI Disable">SPIDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_CR__SPIEN" title="SPI Enable">SPIEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_CR__SPIEN"><span class="field_name">SPIEN</span>: <span class="field_description">SPI Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_CR__SPIDIS"><span class="field_name">SPIDIS</span>: <span class="field_description">SPI Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_CR__SWRST"><span class="field_name">SWRST</span>: <span class="field_description">SPI Software Reset</span></li>
+          <p>-</p>
+          <li id="SPI0_CR__LASTXFER"><span class="field_name">LASTXFER</span>: <span class="field_description">Last Transfer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_MR">SPI0 Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_MR__DLYBCS" title="Delay Between Chip Selects">DLYBCS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SPI0_MR__PCS" title="Peripheral Chip Select">PCS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SPI0_MR__LLB" title="Local Loopback Enable">LLB</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_MR__WDRBT" title="Wait Data Read Before Transfer">WDRBT</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_MR__MODFDIS" title="Mode Fault Detection">MODFDIS</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_MR__PCSDEC" title="Chip Select Decode">PCSDEC</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_MR__PS" title="Peripheral Select">PS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_MR__MSTR" title="Master/Slave Mode">MSTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_MR__MSTR"><span class="field_name">MSTR</span>: <span class="field_description">Master/Slave Mode</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__PS"><span class="field_name">PS</span>: <span class="field_description">Peripheral Select</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__PCSDEC"><span class="field_name">PCSDEC</span>: <span class="field_description">Chip Select Decode</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__MODFDIS"><span class="field_name">MODFDIS</span>: <span class="field_description">Mode Fault Detection</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__WDRBT"><span class="field_name">WDRBT</span>: <span class="field_description">Wait Data Read Before Transfer</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__LLB"><span class="field_name">LLB</span>: <span class="field_description">Local Loopback Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__PCS"><span class="field_name">PCS</span>: <span class="field_description">Peripheral Chip Select</span></li>
+          <p>-</p>
+          <li id="SPI0_MR__DLYBCS"><span class="field_name">DLYBCS</span>: <span class="field_description">Delay Between Chip Selects</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_RDR">SPI0 Receive Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_RDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008008</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SPI0_RDR__PCS" title="Peripheral Chip Select">PCS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_RDR__RD" title="Receive Data">RD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_RDR__RD" title="Receive Data">RD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_RDR__RD"><span class="field_name">RD</span>: <span class="field_description">Receive Data</span></li>
+          <p>-</p>
+          <li id="SPI0_RDR__PCS"><span class="field_name">PCS</span>: <span class="field_description">Peripheral Chip Select</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_TDR">SPI0 Transmit Data Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_TDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000800C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_TDR__LASTXFER" title="Last Transfer">LASTXFER</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SPI0_TDR__PCS" title="Peripheral Chip Select">PCS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_TDR__TD" title="Transmit Data">TD</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_TDR__TD" title="Transmit Data">TD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_TDR__TD"><span class="field_name">TD</span>: <span class="field_description">Transmit Data</span></li>
+          <p>-</p>
+          <li id="SPI0_TDR__PCS"><span class="field_name">PCS</span>: <span class="field_description">Peripheral Chip Select</span></li>
+          <p>-</p>
+          <li id="SPI0_TDR__LASTXFER"><span class="field_name">LASTXFER</span>: <span class="field_description">Last Transfer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_SR">SPI0 Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_SR__SPIENS" title="SPI Enable Status">SPIENS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_SR__UNDES" title="Underrun Error Status (Slave Mode Only)">UNDES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_SR__TXEMPTY" title="Transmission Registers Empty">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_SR__NSSR" title="NSS Rising">NSSR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_SR__OVRES" title="Overrun Error Status">OVRES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_SR__MODF" title="Mode Fault Error">MODF</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_SR__TDRE" title="Transmit Data Register Empty">TDRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_SR__RDRF" title="Receive Data Register Full">RDRF</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_SR__RDRF"><span class="field_name">RDRF</span>: <span class="field_description">Receive Data Register Full</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__TDRE"><span class="field_name">TDRE</span>: <span class="field_description">Transmit Data Register Empty</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__MODF"><span class="field_name">MODF</span>: <span class="field_description">Mode Fault Error</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__OVRES"><span class="field_name">OVRES</span>: <span class="field_description">Overrun Error Status</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__NSSR"><span class="field_name">NSSR</span>: <span class="field_description">NSS Rising</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmission Registers Empty</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__UNDES"><span class="field_name">UNDES</span>: <span class="field_description">Underrun Error Status (Slave Mode Only)</span></li>
+          <p>-</p>
+          <li id="SPI0_SR__SPIENS"><span class="field_name">SPIENS</span>: <span class="field_description">SPI Enable Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_IER">SPI0 Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008014</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_IER__UNDES" title="Underrun Error Interrupt Enable">UNDES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IER__TXEMPTY" title="Transmission Registers Empty Enable">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IER__NSSR" title="NSS Rising Interrupt Enable">NSSR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_IER__OVRES" title="Overrun Error Interrupt Enable">OVRES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IER__MODF" title="Mode Fault Error Interrupt Enable">MODF</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IER__TDRE" title="SPI Transmit Data Register Empty Interrupt Enable">TDRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IER__RDRF" title="Receive Data Register Full Interrupt Enable">RDRF</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_IER__RDRF"><span class="field_name">RDRF</span>: <span class="field_description">Receive Data Register Full Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_IER__TDRE"><span class="field_name">TDRE</span>: <span class="field_description">SPI Transmit Data Register Empty Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_IER__MODF"><span class="field_name">MODF</span>: <span class="field_description">Mode Fault Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_IER__OVRES"><span class="field_name">OVRES</span>: <span class="field_description">Overrun Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_IER__NSSR"><span class="field_name">NSSR</span>: <span class="field_description">NSS Rising Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_IER__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmission Registers Empty Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_IER__UNDES"><span class="field_name">UNDES</span>: <span class="field_description">Underrun Error Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_IDR">SPI0 Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008018</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__UNDES" title="Underrun Error Interrupt Disable">UNDES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__TXEMPTY" title="Transmission Registers Empty Disable">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__NSSR" title="NSS Rising Interrupt Disable">NSSR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__OVRES" title="Overrun Error Interrupt Disable">OVRES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__MODF" title="Mode Fault Error Interrupt Disable">MODF</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__TDRE" title="SPI Transmit Data Register Empty Interrupt Disable">TDRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IDR__RDRF" title="Receive Data Register Full Interrupt Disable">RDRF</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_IDR__RDRF"><span class="field_name">RDRF</span>: <span class="field_description">Receive Data Register Full Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_IDR__TDRE"><span class="field_name">TDRE</span>: <span class="field_description">SPI Transmit Data Register Empty Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_IDR__MODF"><span class="field_name">MODF</span>: <span class="field_description">Mode Fault Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_IDR__OVRES"><span class="field_name">OVRES</span>: <span class="field_description">Overrun Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_IDR__NSSR"><span class="field_name">NSSR</span>: <span class="field_description">NSS Rising Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_IDR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmission Registers Empty Disable</span></li>
+          <p>-</p>
+          <li id="SPI0_IDR__UNDES"><span class="field_name">UNDES</span>: <span class="field_description">Underrun Error Interrupt Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_IMR">SPI0 Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4000801C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__UNDES" title="Underrun Error Interrupt Mask">UNDES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__TXEMPTY" title="Transmission Registers Empty Mask">TXEMPTY</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__NSSR" title="NSS Rising Interrupt Mask">NSSR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__OVRES" title="Overrun Error Interrupt Mask">OVRES</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__MODF" title="Mode Fault Error Interrupt Mask">MODF</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__TDRE" title="SPI Transmit Data Register Empty Interrupt Mask">TDRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_IMR__RDRF" title="Receive Data Register Full Interrupt Mask">RDRF</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_IMR__RDRF"><span class="field_name">RDRF</span>: <span class="field_description">Receive Data Register Full Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SPI0_IMR__TDRE"><span class="field_name">TDRE</span>: <span class="field_description">SPI Transmit Data Register Empty Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SPI0_IMR__MODF"><span class="field_name">MODF</span>: <span class="field_description">Mode Fault Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SPI0_IMR__OVRES"><span class="field_name">OVRES</span>: <span class="field_description">Overrun Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SPI0_IMR__NSSR"><span class="field_name">NSSR</span>: <span class="field_description">NSS Rising Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="SPI0_IMR__TXEMPTY"><span class="field_name">TXEMPTY</span>: <span class="field_description">Transmission Registers Empty Mask</span></li>
+          <p>-</p>
+          <li id="SPI0_IMR__UNDES"><span class="field_name">UNDES</span>: <span class="field_description">Underrun Error Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_CSR">SPI0 Chip Select Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_CSR[0:3]</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x40008030</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_CSR__DLYBCT" title="Delay Between Consecutive Transfers">DLYBCT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_CSR__DLYBS" title="Delay Before SPCK">DLYBS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_CSR__SCBR" title="Serial Clock Baud Rate">SCBR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SPI0_CSR__BITS" title="Bits Per Transfer">BITS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_CSR__CSAAT" title="Chip Select Active After Transfer">CSAAT</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_CSR__CSNAAT" title="Chip Select Not Active After Transfer (Ignored if CSAAT = 1)">CSNAAT</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_CSR__NCPHA" title="Clock Phase">NCPHA</a>
+              </td>
+              <td colspan="1">
+                <a href="#SPI0_CSR__CPOL" title="Clock Polarity">CPOL</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_CSR__CPOL"><span class="field_name">CPOL</span>: <span class="field_description">Clock Polarity</span></li>
+          <p>-</p>
+          <li id="SPI0_CSR__NCPHA"><span class="field_name">NCPHA</span>: <span class="field_description">Clock Phase</span></li>
+          <p>-</p>
+          <li id="SPI0_CSR__CSNAAT"><span class="field_name">CSNAAT</span>: <span class="field_description">Chip Select Not Active After Transfer (Ignored if CSAAT = 1)</span></li>
+          <p>-</p>
+          <li id="SPI0_CSR__CSAAT"><span class="field_name">CSAAT</span>: <span class="field_description">Chip Select Active After Transfer</span></li>
+          <p>-</p>
+          <li id="SPI0_CSR__BITS"><span class="field_name">BITS</span>: <span class="field_description">Bits Per Transfer</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">8_BIT</td><td class="description">8 bits for transfer</td></tr><tr class="even"><td class="value">0x1</td><td class="name">9_BIT</td><td class="description">9 bits for transfer</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">10_BIT</td><td class="description">10 bits for transfer</td></tr><tr class="even"><td class="value">0x3</td><td class="name">11_BIT</td><td class="description">11 bits for transfer</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">12_BIT</td><td class="description">12 bits for transfer</td></tr><tr class="even"><td class="value">0x5</td><td class="name">13_BIT</td><td class="description">13 bits for transfer</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">14_BIT</td><td class="description">14 bits for transfer</td></tr><tr class="even"><td class="value">0x7</td><td class="name">15_BIT</td><td class="description">15 bits for transfer</td></tr><tr class="odd"><td class="value">0x8</td><td class="name">16_BIT</td><td class="description">16 bits for transfer</td></tr></tbody></table></li>
+          <li id="SPI0_CSR__SCBR"><span class="field_name">SCBR</span>: <span class="field_description">Serial Clock Baud Rate</span></li>
+          <p>-</p>
+          <li id="SPI0_CSR__DLYBS"><span class="field_name">DLYBS</span>: <span class="field_description">Delay Before SPCK</span></li>
+          <p>-</p>
+          <li id="SPI0_CSR__DLYBCT"><span class="field_name">DLYBCT</span>: <span class="field_description">Delay Between Consecutive Transfers</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SPI0_WPMR">SPI0 Write Protection Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_WPMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400080E4</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_WPMR__WPKEY" title="Write Protect Key">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_WPMR__WPKEY" title="Write Protect Key">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_WPMR__WPKEY" title="Write Protect Key">WPKEY</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_WPMR__WPEN" title="Write Protect Enable">WPEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_WPMR__WPEN"><span class="field_name">WPEN</span>: <span class="field_description">Write Protect Enable</span></li>
+          <p>-</p>
+          <li id="SPI0_WPMR__WPKEY"><span class="field_name">WPKEY</span>: <span class="field_description">Write Protect Key</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x535049</td><td class="name">PASSWD</td><td class="description">Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="SPI0_WPSR">SPI0 Write Protection Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SPI0_WPSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400080E8</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SPI0_WPSR__WPVSRC" title="Write Protection Violation Source">WPVSRC</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SPI0_WPSR__WPVS" title="Write Protection Violation Status">WPVS</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SPI0_WPSR__WPVS"><span class="field_name">WPVS</span>: <span class="field_description">Write Protection Violation Status</span></li>
+          <p>-</p>
+          <li id="SPI0_WPSR__WPVSRC"><span class="field_name">WPVSRC</span>: <span class="field_description">Write Protection Violation Source</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="SPI0__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>SPI0 Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x40008000</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_CR">SPI0_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">LASTXFER</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">SWRST</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SPIDIS</td>
+              <td class="field">SPIEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40008004</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_MR">SPI0_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">DLYBCS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">PCS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">LLB</td>
+              <td class="field reserved">-</td>
+              <td class="field">WDRBT</td>
+              <td class="field">MODFDIS</td>
+              <td class="field reserved">-</td>
+              <td class="field">PCSDEC</td>
+              <td class="field">PS</td>
+              <td class="field">MSTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40008008</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_RDR">SPI0_RDR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">PCS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RD</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000800C</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_TDR">SPI0_TDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">LASTXFER</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">PCS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TD</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TD</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40008010</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_SR">SPI0_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SPIENS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">UNDES</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">NSSR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRES</td>
+              <td class="field">MODF</td>
+              <td class="field">TDRE</td>
+              <td class="field">RDRF</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40008014</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_IER">SPI0_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">UNDES</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">NSSR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRES</td>
+              <td class="field">MODF</td>
+              <td class="field">TDRE</td>
+              <td class="field">RDRF</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40008018</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_IDR">SPI0_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">UNDES</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">NSSR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRES</td>
+              <td class="field">MODF</td>
+              <td class="field">TDRE</td>
+              <td class="field">RDRF</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4000801C</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_IMR">SPI0_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">UNDES</td>
+              <td class="field">TXEMPTY</td>
+              <td class="field">NSSR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRES</td>
+              <td class="field">MODF</td>
+              <td class="field">TDRE</td>
+              <td class="field">RDRF</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40008020 .. 0x4000802C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x40008030</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_CSR">SPI0_CSR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">DLYBCT</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">DLYBS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">SCBR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="4">BITS</td>
+              <td class="field">CSAAT</td>
+              <td class="field">CSNAAT</td>
+              <td class="field">NCPHA</td>
+              <td class="field">CPOL</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x40008040 .. 0x400080E0</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400080E4</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_WPMR">SPI0_WPMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPKEY</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400080E8</td>
+              <td rowspan="4" class="register">
+                <a href="#SPI0_WPSR">SPI0_WPSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">WPVSRC</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">WPVS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

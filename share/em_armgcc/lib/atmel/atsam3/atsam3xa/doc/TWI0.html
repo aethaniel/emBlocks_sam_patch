@@ -1,0 +1,3243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3XA TWI0</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="TWI0">SAM3XA TWI0</h1>
+        <h2 id="TWI0__User_Interface">Two-wire Interface (TWI0) User Interface</h2>
+<!--As per 6212O programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C000">0x4008C000</td>
+              <td class="description">Control Register</td>
+              <td class="name">
+                <a href="#TWI0_CR" title="Control Register" class="one_click_away">TWI0_CR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C004">0x4008C004</td>
+              <td class="description">Master Mode Register</td>
+              <td class="name">
+                <a href="#TWI0_MMR" title="Master Mode Register" class="one_click_away">TWI0_MMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C008">0x4008C008</td>
+              <td class="description">Slave Mode Register</td>
+              <td class="name">
+                <a href="#TWI0_SMR" title="Slave Mode Register" class="one_click_away">TWI0_SMR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C00C">0x4008C00C</td>
+              <td class="description">Internal Address Register</td>
+              <td class="name">
+                <a href="#TWI0_IADR" title="Internal Address Register" class="one_click_away">TWI0_IADR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C010">0x4008C010</td>
+              <td class="description">Clock Waveform Generator Register</td>
+              <td class="name">
+                <a href="#TWI0_CWGR" title="Clock Waveform Generator Register" class="one_click_away">TWI0_CWGR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C020">0x4008C020</td>
+              <td class="description">Status Register</td>
+              <td class="name">
+                <a href="#TWI0_SR" title="Status Register" class="one_click_away">TWI0_SR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x0000F009</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C024">0x4008C024</td>
+              <td class="description">Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#TWI0_IER" title="Interrupt Enable Register" class="one_click_away">TWI0_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C028">0x4008C028</td>
+              <td class="description">Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#TWI0_IDR" title="Interrupt Disable Register" class="one_click_away">TWI0_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C02C">0x4008C02C</td>
+              <td class="description">Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#TWI0_IMR" title="Interrupt Mask Register" class="one_click_away">TWI0_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C030">0x4008C030</td>
+              <td class="description">Receive Holding Register</td>
+              <td class="name">
+                <a href="#TWI0_RHR" title="Receive Holding Register" class="one_click_away">TWI0_RHR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C034">0x4008C034</td>
+              <td class="description">Transmit Holding Register</td>
+              <td class="name">
+                <a href="#TWI0_THR" title="Transmit Holding Register" class="one_click_away">TWI0_THR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C100">0x4008C100</td>
+              <td class="description">Receive Pointer Register</td>
+              <td class="name">
+                <a href="#TWI0_RPR" title="Receive Pointer Register" class="one_click_away">TWI0_RPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C104">0x4008C104</td>
+              <td class="description">Receive Counter Register</td>
+              <td class="name">
+                <a href="#TWI0_RCR" title="Receive Counter Register" class="one_click_away">TWI0_RCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C108">0x4008C108</td>
+              <td class="description">Transmit Pointer Register</td>
+              <td class="name">
+                <a href="#TWI0_TPR" title="Transmit Pointer Register" class="one_click_away">TWI0_TPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C10C">0x4008C10C</td>
+              <td class="description">Transmit Counter Register</td>
+              <td class="name">
+                <a href="#TWI0_TCR" title="Transmit Counter Register" class="one_click_away">TWI0_TCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C110">0x4008C110</td>
+              <td class="description">Receive Next Pointer Register</td>
+              <td class="name">
+                <a href="#TWI0_RNPR" title="Receive Next Pointer Register" class="one_click_away">TWI0_RNPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C114">0x4008C114</td>
+              <td class="description">Receive Next Counter Register</td>
+              <td class="name">
+                <a href="#TWI0_RNCR" title="Receive Next Counter Register" class="one_click_away">TWI0_RNCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C118">0x4008C118</td>
+              <td class="description">Transmit Next Pointer Register</td>
+              <td class="name">
+                <a href="#TWI0_TNPR" title="Transmit Next Pointer Register" class="one_click_away">TWI0_TNPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C11C">0x4008C11C</td>
+              <td class="description">Transmit Next Counter Register</td>
+              <td class="name">
+                <a href="#TWI0_TNCR" title="Transmit Next Counter Register" class="one_click_away">TWI0_TNCR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x4008C120">0x4008C120</td>
+              <td class="description">Transfer Control Register</td>
+              <td class="name">
+                <a href="#TWI0_PTCR" title="Transfer Control Register" class="one_click_away">TWI0_PTCR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x4008C124">0x4008C124</td>
+              <td class="description">Transfer Status Register</td>
+              <td class="name">
+                <a href="#TWI0_PTSR" title="Transfer Status Register" class="one_click_away">TWI0_PTSR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="TWI0_CR">TWI0 Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C000</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#TWI0_CR__SWRST" title="Software Reset">SWRST</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__QUICK" title="SMBUS Quick Command">QUICK</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__SVDIS" title="TWI Slave Mode Disabled">SVDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__SVEN" title="TWI Slave Mode Enabled">SVEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__MSDIS" title="TWI Master Mode Disabled">MSDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__MSEN" title="TWI Master Mode Enabled">MSEN</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__STOP" title="Send a STOP Condition">STOP</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_CR__START" title="Send a START Condition">START</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_CR__START"><span class="field_name">START</span>: <span class="field_description">Send a START Condition</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__STOP"><span class="field_name">STOP</span>: <span class="field_description">Send a STOP Condition</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__MSEN"><span class="field_name">MSEN</span>: <span class="field_description">TWI Master Mode Enabled</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__MSDIS"><span class="field_name">MSDIS</span>: <span class="field_description">TWI Master Mode Disabled</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__SVEN"><span class="field_name">SVEN</span>: <span class="field_description">TWI Slave Mode Enabled</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__SVDIS"><span class="field_name">SVDIS</span>: <span class="field_description">TWI Slave Mode Disabled</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__QUICK"><span class="field_name">QUICK</span>: <span class="field_description">SMBUS Quick Command</span></li>
+          <p>-</p>
+          <li id="TWI0_CR__SWRST"><span class="field_name">SWRST</span>: <span class="field_description">Software Reset</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_MMR">TWI0 Master Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_MMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C004</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="7">
+                <a href="#TWI0_MMR__DADR" title="Device Address">DADR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_MMR__MREAD" title="Master Read Direction">MREAD</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#TWI0_MMR__IADRSZ" title="Internal Device Address Size">IADRSZ</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_MMR__IADRSZ"><span class="field_name">IADRSZ</span>: <span class="field_description">Internal Device Address Size</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NONE</td><td class="description">No internal device address</td></tr><tr class="even"><td class="value">0x1</td><td class="name">1_BYTE</td><td class="description">One-byte internal device address</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">2_BYTE</td><td class="description">Two-byte internal device address</td></tr><tr class="even"><td class="value">0x3</td><td class="name">3_BYTE</td><td class="description">Three-byte internal device address</td></tr></tbody></table></li>
+          <li id="TWI0_MMR__MREAD"><span class="field_name">MREAD</span>: <span class="field_description">Master Read Direction</span></li>
+          <p>-</p>
+          <li id="TWI0_MMR__DADR"><span class="field_name">DADR</span>: <span class="field_description">Device Address</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_SMR">TWI0 Slave Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_SMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C008</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="7">
+                <a href="#TWI0_SMR__SADR" title="Slave Address">SADR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_SMR__SADR"><span class="field_name">SADR</span>: <span class="field_description">Slave Address</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_IADR">TWI0 Internal Address Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_IADR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C00C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_IADR__IADR" title="Internal Address">IADR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_IADR__IADR" title="Internal Address">IADR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_IADR__IADR" title="Internal Address">IADR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_IADR__IADR"><span class="field_name">IADR</span>: <span class="field_description">Internal Address</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_CWGR">TWI0 Clock Waveform Generator Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_CWGR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C010</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#TWI0_CWGR__CKDIV" title="Clock Divider">CKDIV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_CWGR__CHDIV" title="Clock High Divider">CHDIV</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_CWGR__CLDIV" title="Clock Low Divider">CLDIV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_CWGR__CLDIV"><span class="field_name">CLDIV</span>: <span class="field_description">Clock Low Divider</span></li>
+          <p>-</p>
+          <li id="TWI0_CWGR__CHDIV"><span class="field_name">CHDIV</span>: <span class="field_description">Clock High Divider</span></li>
+          <p>-</p>
+          <li id="TWI0_CWGR__CKDIV"><span class="field_name">CKDIV</span>: <span class="field_description">Clock Divider</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_SR">TWI0 Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_SR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C020</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#TWI0_SR__TXBUFE" title="TX Buffer Empty">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__RXBUFF" title="RX Buffer Full">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__ENDTX" title="End of TX buffer">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__ENDRX" title="End of RX buffer">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__EOSACC" title="End Of Slave Access (clear on read)">EOSACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__SCLWS" title="Clock Wait State (automatically set / reset)">SCLWS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__ARBLST" title="Arbitration Lost (clear on read)">ARBLST</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__NACK" title="Not Acknowledged (clear on read)">NACK</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_SR__OVRE" title="Overrun Error (clear on read)">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__GACC" title="General Call Access (clear on read)">GACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__SVACC" title="Slave Access (automatically set / reset)">SVACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__SVREAD" title="Slave Read (automatically set / reset)">SVREAD</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__TXRDY" title="Transmit Holding Register Ready (automatically set / reset)">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__RXRDY" title="Receive Holding Register Ready (automatically set / reset)">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_SR__TXCOMP" title="Transmission Completed (automatically set / reset)">TXCOMP</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_SR__TXCOMP"><span class="field_name">TXCOMP</span>: <span class="field_description">Transmission Completed (automatically set / reset)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Holding Register Ready (automatically set / reset)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Holding Register Ready (automatically set / reset)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__SVREAD"><span class="field_name">SVREAD</span>: <span class="field_description">Slave Read (automatically set / reset)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__SVACC"><span class="field_name">SVACC</span>: <span class="field_description">Slave Access (automatically set / reset)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__GACC"><span class="field_name">GACC</span>: <span class="field_description">General Call Access (clear on read)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Error (clear on read)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__NACK"><span class="field_name">NACK</span>: <span class="field_description">Not Acknowledged (clear on read)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__ARBLST"><span class="field_name">ARBLST</span>: <span class="field_description">Arbitration Lost (clear on read)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__SCLWS"><span class="field_name">SCLWS</span>: <span class="field_description">Clock Wait State (automatically set / reset)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__EOSACC"><span class="field_name">EOSACC</span>: <span class="field_description">End Of Slave Access (clear on read)</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of RX buffer</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of TX buffer</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">RX Buffer Full</span></li>
+          <p>-</p>
+          <li id="TWI0_SR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">TX Buffer Empty</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_IER">TWI0 Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C024</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#TWI0_IER__TXBUFE" title="Transmit Buffer Empty Interrupt Enable">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__RXBUFF" title="Receive Buffer Full Interrupt Enable">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__ENDTX" title="End of Transmit Buffer Interrupt Enable">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__ENDRX" title="End of Receive Buffer Interrupt Enable">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__EOSACC" title="End Of Slave Access Interrupt Enable">EOSACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__SCL_WS" title="Clock Wait State Interrupt Enable">SCL_WS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__ARBLST" title="Arbitration Lost Interrupt Enable">ARBLST</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__NACK" title="Not Acknowledge Interrupt Enable">NACK</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_IER__OVRE" title="Overrun Error Interrupt Enable">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__GACC" title="General Call Access Interrupt Enable">GACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__SVACC" title="Slave Access Interrupt Enable">SVACC</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_IER__TXRDY" title="Transmit Holding Register Ready Interrupt Enable">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__RXRDY" title="Receive Holding Register Ready Interrupt Enable">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IER__TXCOMP" title="Transmission Completed Interrupt Enable">TXCOMP</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_IER__TXCOMP"><span class="field_name">TXCOMP</span>: <span class="field_description">Transmission Completed Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Holding Register Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Holding Register Ready Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__SVACC"><span class="field_name">SVACC</span>: <span class="field_description">Slave Access Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__GACC"><span class="field_name">GACC</span>: <span class="field_description">General Call Access Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Error Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__NACK"><span class="field_name">NACK</span>: <span class="field_description">Not Acknowledge Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__ARBLST"><span class="field_name">ARBLST</span>: <span class="field_description">Arbitration Lost Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__SCL_WS"><span class="field_name">SCL_WS</span>: <span class="field_description">Clock Wait State Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__EOSACC"><span class="field_name">EOSACC</span>: <span class="field_description">End Of Slave Access Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmit Buffer Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_IER__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmit Buffer Empty Interrupt Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_IDR">TWI0 Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C028</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#TWI0_IDR__TXBUFE" title="Transmit Buffer Empty Interrupt Disable">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__RXBUFF" title="Receive Buffer Full Interrupt Disable">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__ENDTX" title="End of Transmit Buffer Interrupt Disable">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__ENDRX" title="End of Receive Buffer Interrupt Disable">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__EOSACC" title="End Of Slave Access Interrupt Disable">EOSACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__SCL_WS" title="Clock Wait State Interrupt Disable">SCL_WS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__ARBLST" title="Arbitration Lost Interrupt Disable">ARBLST</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__NACK" title="Not Acknowledge Interrupt Disable">NACK</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__OVRE" title="Overrun Error Interrupt Disable">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__GACC" title="General Call Access Interrupt Disable">GACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__SVACC" title="Slave Access Interrupt Disable">SVACC</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__TXRDY" title="Transmit Holding Register Ready Interrupt Disable">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__RXRDY" title="Receive Holding Register Ready Interrupt Disable">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IDR__TXCOMP" title="Transmission Completed Interrupt Disable">TXCOMP</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_IDR__TXCOMP"><span class="field_name">TXCOMP</span>: <span class="field_description">Transmission Completed Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Holding Register Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Holding Register Ready Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__SVACC"><span class="field_name">SVACC</span>: <span class="field_description">Slave Access Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__GACC"><span class="field_name">GACC</span>: <span class="field_description">General Call Access Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Error Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__NACK"><span class="field_name">NACK</span>: <span class="field_description">Not Acknowledge Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__ARBLST"><span class="field_name">ARBLST</span>: <span class="field_description">Arbitration Lost Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__SCL_WS"><span class="field_name">SCL_WS</span>: <span class="field_description">Clock Wait State Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__EOSACC"><span class="field_name">EOSACC</span>: <span class="field_description">End Of Slave Access Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmit Buffer Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_IDR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmit Buffer Empty Interrupt Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_IMR">TWI0 Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C02C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#TWI0_IMR__TXBUFE" title="Transmit Buffer Empty Interrupt Mask">TXBUFE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__RXBUFF" title="Receive Buffer Full Interrupt Mask">RXBUFF</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__ENDTX" title="End of Transmit Buffer Interrupt Mask">ENDTX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__ENDRX" title="End of Receive Buffer Interrupt Mask">ENDRX</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__EOSACC" title="End Of Slave Access Interrupt Mask">EOSACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__SCL_WS" title="Clock Wait State Interrupt Mask">SCL_WS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__ARBLST" title="Arbitration Lost Interrupt Mask">ARBLST</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__NACK" title="Not Acknowledge Interrupt Mask">NACK</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__OVRE" title="Overrun Error Interrupt Mask">OVRE</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__GACC" title="General Call Access Interrupt Mask">GACC</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__SVACC" title="Slave Access Interrupt Mask">SVACC</a>
+              </td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__TXRDY" title="Transmit Holding Register Ready Interrupt Mask">TXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__RXRDY" title="Receive Holding Register Ready Interrupt Mask">RXRDY</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_IMR__TXCOMP" title="Transmission Completed Interrupt Mask">TXCOMP</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_IMR__TXCOMP"><span class="field_name">TXCOMP</span>: <span class="field_description">Transmission Completed Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__RXRDY"><span class="field_name">RXRDY</span>: <span class="field_description">Receive Holding Register Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__TXRDY"><span class="field_name">TXRDY</span>: <span class="field_description">Transmit Holding Register Ready Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__SVACC"><span class="field_name">SVACC</span>: <span class="field_description">Slave Access Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__GACC"><span class="field_name">GACC</span>: <span class="field_description">General Call Access Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__OVRE"><span class="field_name">OVRE</span>: <span class="field_description">Overrun Error Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__NACK"><span class="field_name">NACK</span>: <span class="field_description">Not Acknowledge Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__ARBLST"><span class="field_name">ARBLST</span>: <span class="field_description">Arbitration Lost Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__SCL_WS"><span class="field_name">SCL_WS</span>: <span class="field_description">Clock Wait State Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__EOSACC"><span class="field_name">EOSACC</span>: <span class="field_description">End Of Slave Access Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__ENDRX"><span class="field_name">ENDRX</span>: <span class="field_description">End of Receive Buffer Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__ENDTX"><span class="field_name">ENDTX</span>: <span class="field_description">End of Transmit Buffer Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__RXBUFF"><span class="field_name">RXBUFF</span>: <span class="field_description">Receive Buffer Full Interrupt Mask</span></li>
+          <p>-</p>
+          <li id="TWI0_IMR__TXBUFE"><span class="field_name">TXBUFE</span>: <span class="field_description">Transmit Buffer Empty Interrupt Mask</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_RHR">TWI0 Receive Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_RHR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C030</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RHR__RXDATA" title="Master or Slave Receive Holding Data">RXDATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_RHR__RXDATA"><span class="field_name">RXDATA</span>: <span class="field_description">Master or Slave Receive Holding Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_THR">TWI0 Transmit Holding Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_THR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C034</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_THR__TXDATA" title="Master or Slave Transmit Holding Data">TXDATA</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_THR__TXDATA"><span class="field_name">TXDATA</span>: <span class="field_description">Master or Slave Transmit Holding Data</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_RPR">TWI0 Receive Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_RPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C100</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RPR__RXPTR" title="Receive Pointer Register">RXPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_RPR__RXPTR"><span class="field_name">RXPTR</span>: <span class="field_description">Receive Pointer Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_RCR">TWI0 Receive Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_RCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C104</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RCR__RXCTR" title="Receive Counter Register">RXCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RCR__RXCTR" title="Receive Counter Register">RXCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_RCR__RXCTR"><span class="field_name">RXCTR</span>: <span class="field_description">Receive Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_TPR">TWI0 Transmit Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_TPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C108</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TPR__TXPTR" title="Transmit Counter Register">TXPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_TPR__TXPTR"><span class="field_name">TXPTR</span>: <span class="field_description">Transmit Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_TCR">TWI0 Transmit Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_TCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C10C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TCR__TXCTR" title="Transmit Counter Register">TXCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TCR__TXCTR" title="Transmit Counter Register">TXCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_TCR__TXCTR"><span class="field_name">TXCTR</span>: <span class="field_description">Transmit Counter Register</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_RNPR">TWI0 Receive Next Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_RNPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C110</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RNPR__RXNPTR" title="Receive Next Pointer">RXNPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_RNPR__RXNPTR"><span class="field_name">RXNPTR</span>: <span class="field_description">Receive Next Pointer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_RNCR">TWI0 Receive Next Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_RNCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C114</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RNCR__RXNCTR" title="Receive Next Counter">RXNCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_RNCR__RXNCTR" title="Receive Next Counter">RXNCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_RNCR__RXNCTR"><span class="field_name">RXNCTR</span>: <span class="field_description">Receive Next Counter</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_TNPR">TWI0 Transmit Next Pointer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_TNPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C118</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TNPR__TXNPTR" title="Transmit Next Pointer">TXNPTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_TNPR__TXNPTR"><span class="field_name">TXNPTR</span>: <span class="field_description">Transmit Next Pointer</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_TNCR">TWI0 Transmit Next Counter Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_TNCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C11C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TNCR__TXNCTR" title="Transmit Counter Next">TXNCTR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#TWI0_TNCR__TXNCTR" title="Transmit Counter Next">TXNCTR</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_TNCR__TXNCTR"><span class="field_name">TXNCTR</span>: <span class="field_description">Transmit Counter Next</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_PTCR">TWI0 Transfer Control Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_PTCR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C120</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_PTCR__TXTDIS" title="Transmitter Transfer Disable">TXTDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_PTCR__TXTEN" title="Transmitter Transfer Enable">TXTEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_PTCR__RXTDIS" title="Receiver Transfer Disable">RXTDIS</a>
+              </td>
+              <td colspan="1">
+                <a href="#TWI0_PTCR__RXTEN" title="Receiver Transfer Enable">RXTEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_PTCR__RXTEN"><span class="field_name">RXTEN</span>: <span class="field_description">Receiver Transfer Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_PTCR__RXTDIS"><span class="field_name">RXTDIS</span>: <span class="field_description">Receiver Transfer Disable</span></li>
+          <p>-</p>
+          <li id="TWI0_PTCR__TXTEN"><span class="field_name">TXTEN</span>: <span class="field_description">Transmitter Transfer Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_PTCR__TXTDIS"><span class="field_name">TXTDIS</span>: <span class="field_description">Transmitter Transfer Disable</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="TWI0_PTSR">TWI0 Transfer Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">TWI0_PTSR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x4008C124</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_PTSR__TXTEN" title="Transmitter Transfer Enable">TXTEN</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#TWI0_PTSR__RXTEN" title="Receiver Transfer Enable">RXTEN</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="TWI0_PTSR__RXTEN"><span class="field_name">RXTEN</span>: <span class="field_description">Receiver Transfer Enable</span></li>
+          <p>-</p>
+          <li id="TWI0_PTSR__TXTEN"><span class="field_name">TXTEN</span>: <span class="field_description">Transmitter Transfer Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="TWI0__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>TWI0 Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x4008C000</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_CR">TWI0_CR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">SWRST</td>
+              <td class="field">QUICK</td>
+              <td class="field">SVDIS</td>
+              <td class="field">SVEN</td>
+              <td class="field">MSDIS</td>
+              <td class="field">MSEN</td>
+              <td class="field">STOP</td>
+              <td class="field">START</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C004</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_MMR">TWI0_MMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="7">DADR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">MREAD</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">IADRSZ</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C008</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_SMR">TWI0_SMR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="7">SADR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C00C</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_IADR">TWI0_IADR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="8">IADR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">IADR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">IADR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C010</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_CWGR">TWI0_CWGR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">CKDIV</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">CHDIV</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">CLDIV</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x4008C014 .. 0x4008C01C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C020</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_SR">TWI0_SR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">EOSACC</td>
+              <td class="field">SCLWS</td>
+              <td class="field">ARBLST</td>
+              <td class="field">NACK</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRE</td>
+              <td class="field">GACC</td>
+              <td class="field">SVACC</td>
+              <td class="field">SVREAD</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">TXCOMP</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C024</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_IER">TWI0_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">EOSACC</td>
+              <td class="field">SCL_WS</td>
+              <td class="field">ARBLST</td>
+              <td class="field">NACK</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRE</td>
+              <td class="field">GACC</td>
+              <td class="field">SVACC</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">TXCOMP</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C028</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_IDR">TWI0_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">EOSACC</td>
+              <td class="field">SCL_WS</td>
+              <td class="field">ARBLST</td>
+              <td class="field">NACK</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRE</td>
+              <td class="field">GACC</td>
+              <td class="field">SVACC</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">TXCOMP</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C02C</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_IMR">TWI0_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field">TXBUFE</td>
+              <td class="field">RXBUFF</td>
+              <td class="field">ENDTX</td>
+              <td class="field">ENDRX</td>
+              <td class="field">EOSACC</td>
+              <td class="field">SCL_WS</td>
+              <td class="field">ARBLST</td>
+              <td class="field">NACK</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field">OVRE</td>
+              <td class="field">GACC</td>
+              <td class="field">SVACC</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXRDY</td>
+              <td class="field">RXRDY</td>
+              <td class="field">TXCOMP</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C030</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_RHR">TWI0_RHR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXDATA</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C034</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_THR">TWI0_THR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXDATA</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x4008C038 .. 0x4008C0FC</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x4008C100</td>
+              <td rowspan="1" class="register">
+                <a href="#TWI0_RPR">TWI0_RPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C104</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_RCR">TWI0_RCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x4008C108</td>
+              <td rowspan="1" class="register">
+                <a href="#TWI0_TPR">TWI0_TPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TXPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C10C</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_TCR">TWI0_TCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TXCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x4008C110</td>
+              <td rowspan="1" class="register">
+                <a href="#TWI0_RNPR">TWI0_RNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">RXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C114</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_RNCR">TWI0_RNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">RXNCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="1" class="address">0x4008C118</td>
+              <td rowspan="1" class="register">
+                <a href="#TWI0_TNPR">TWI0_TNPR</a>
+              </td>
+              <td rowspan="1" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:0 </pre>
+              </td>
+              <td class="field" colspan="32">TXNPTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C11C</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_TNCR">TWI0_TNCR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="8">TXNCTR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">TXNCTR</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C120</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_PTCR">TWI0_PTCR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTDIS</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTDIS</td>
+              <td class="field">RXTEN</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x4008C124</td>
+              <td rowspan="4" class="register">
+                <a href="#TWI0_PTSR">TWI0_PTSR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">TXTEN</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RXTEN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

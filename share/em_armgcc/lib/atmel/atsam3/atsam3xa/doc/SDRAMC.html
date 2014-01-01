@@ -1,0 +1,1809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SAM3XA SDRAMC</title>
+    <link rel="stylesheet" type="text/css" href="css/html.css" media="all" />
+  </head>
+  <body id="abstract">
+    <div id="container">
+      <div id="content">
+        <h1 id="SDRAMC">SAM3XA SDRAMC</h1>
+        <h2 id="SDRAMC__User_Interface">SDRAM Controller (SDRAMC) User Interface</h2>
+<!--As per 6100N programmer datasheet.-->
+        <h3>Registers</h3>
+        <table class="registers">
+          <caption>Register Mapping</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="description">Register</th>
+              <th class="name">Name</th>
+              <th class="access">Access</th>
+              <th class="reset">Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0200">0x400E0200</td>
+              <td class="description">SDRAMC Mode Register</td>
+              <td class="name">
+                <a href="#SDRAMC_MR" title="SDRAMC Mode Register" class="one_click_away">SDRAMC_MR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0204">0x400E0204</td>
+              <td class="description">SDRAMC Refresh Timer Register</td>
+              <td class="name">
+                <a href="#SDRAMC_TR" title="SDRAMC Refresh Timer Register" class="one_click_away">SDRAMC_TR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0208">0x400E0208</td>
+              <td class="description">SDRAMC Configuration Register</td>
+              <td class="name">
+                <a href="#SDRAMC_CR" title="SDRAMC Configuration Register" class="one_click_away">SDRAMC_CR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x852372C0</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0210">0x400E0210</td>
+              <td class="description">SDRAMC Low Power Register</td>
+              <td class="name">
+                <a href="#SDRAMC_LPR" title="SDRAMC Low Power Register" class="one_click_away">SDRAMC_LPR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0214">0x400E0214</td>
+              <td class="description">SDRAMC Interrupt Enable Register</td>
+              <td class="name">
+                <a href="#SDRAMC_IER" title="SDRAMC Interrupt Enable Register" class="one_click_away">SDRAMC_IER</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0218">0x400E0218</td>
+              <td class="description">SDRAMC Interrupt Disable Register</td>
+              <td class="name">
+                <a href="#SDRAMC_IDR" title="SDRAMC Interrupt Disable Register" class="one_click_away">SDRAMC_IDR</a>
+              </td>
+              <td class="access">write-only</td>
+              <td class="address">-</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E021C">0x400E021C</td>
+              <td class="description">SDRAMC Interrupt Mask Register</td>
+              <td class="name">
+                <a href="#SDRAMC_IMR" title="SDRAMC Interrupt Mask Register" class="one_click_away">SDRAMC_IMR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0220">0x400E0220</td>
+              <td class="description">SDRAMC Interrupt Status Register</td>
+              <td class="name">
+                <a href="#SDRAMC_ISR" title="SDRAMC Interrupt Status Register" class="one_click_away">SDRAMC_ISR</a>
+              </td>
+              <td class="access">read-only</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E0224">0x400E0224</td>
+              <td class="description">SDRAMC Memory Device Register</td>
+              <td class="name">
+                <a href="#SDRAMC_MDR" title="SDRAMC Memory Device Register" class="one_click_away">SDRAMC_MDR</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+            <tr class="even">
+              <td class="address" id="address_0x400E0228">0x400E0228</td>
+              <td class="description">SDRAMC Configuration Register 1</td>
+              <td class="name">
+                <a href="#SDRAMC_CR1" title="SDRAMC Configuration Register 1" class="one_click_away">SDRAMC_CR1</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000002</td>
+            </tr>
+            <tr class="odd">
+              <td class="address" id="address_0x400E022C">0x400E022C</td>
+              <td class="description">SDRAMC OCMS Register 1</td>
+              <td class="name">
+                <a href="#SDRAMC_OCMS" title="SDRAMC OCMS Register 1" class="one_click_away">SDRAMC_OCMS</a>
+              </td>
+              <td class="access">read-write</td>
+              <td class="address">0x00000000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Register Fields</h3>
+        <h4 id="SDRAMC_MR">SDRAMC SDRAMC Mode Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_MR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0200</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#SDRAMC_MR__MODE" title="SDRAMC Command Mode">MODE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_MR__MODE"><span class="field_name">MODE</span>: <span class="field_description">SDRAMC Command Mode</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">NORMAL</td><td class="description">Normal mode. Any access to the SDRAM is decoded normally. To activate this mode, command must be followed by a write to the SDRAM.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">NOP</td><td class="description">The SDRAM Controller issues a NOP command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM.</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">ALLBANKS_PRECHARGE</td><td class="description">The SDRAM Controller issues an "All Banks Precharge" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM.</td></tr><tr class="even"><td class="value">0x3</td><td class="name">LOAD_MODEREG</td><td class="description">The SDRAM Controller issues a "Load Mode Register" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM.</td></tr><tr class="odd"><td class="value">0x4</td><td class="name">AUTO_REFRESH</td><td class="description">The SDRAM Controller issues an "Auto-Refresh" Command when the SDRAM device is accessed regardless of the cycle. Previously, an "All Banks Precharge" command must be issued. To activate this mode, command must be followed by a write to the SDRAM.</td></tr><tr class="even"><td class="value">0x5</td><td class="name">EXT_LOAD_MODEREG</td><td class="description">The SDRAM Controller issues an "Extended Load Mode Register" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, the "Extended Load Mode Register" command must be followed by a write to the SDRAM. The write in the SDRAM must be done in the appropriate bank; most low-power SDRAM devices use the bank 1.</td></tr><tr class="odd"><td class="value">0x6</td><td class="name">DEEP_POWERDOWN</td><td class="description">Deep power-down mode. Enters deep power-down mode.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="SDRAMC_TR">SDRAMC SDRAMC Refresh Timer Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_TR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0204</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="4">
+                <a href="#SDRAMC_TR__COUNT" title="SDRAMC Refresh Timer Count">COUNT</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="8">
+                <a href="#SDRAMC_TR__COUNT" title="SDRAMC Refresh Timer Count">COUNT</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_TR__COUNT"><span class="field_name">COUNT</span>: <span class="field_description">SDRAMC Refresh Timer Count</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_CR">SDRAMC SDRAMC Configuration Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_CR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0208</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SDRAMC_CR__TXSR" title="Exit Self Refresh to Active Delay">TXSR</a>
+              </td>
+              <td colspan="4">
+                <a href="#SDRAMC_CR__TRAS" title="Active to Precharge Delay">TRAS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SDRAMC_CR__TRCD" title="Row to Column Delay">TRCD</a>
+              </td>
+              <td colspan="4">
+                <a href="#SDRAMC_CR__TRP" title="Row Precharge Delay">TRP</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SDRAMC_CR__TRC_TRFC" title="Row Cycle Delay and Row Refresh Cycle">TRC_TRFC</a>
+              </td>
+              <td colspan="4">
+                <a href="#SDRAMC_CR__TWR" title="Write Recovery Delay">TWR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SDRAMC_CR__DBW" title="Data Bus Width">DBW</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_CR__CAS" title="CAS Latency">CAS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SDRAMC_CR__NB" title="Number of Banks">NB</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_CR__NR" title="Number of Row Bits">NR</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_CR__NC" title="Number of Column Bits">NC</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_CR__NC"><span class="field_name">NC</span>: <span class="field_description">Number of Column Bits</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">COL8</td><td class="description">8 column bits</td></tr><tr class="even"><td class="value">0x1</td><td class="name">COL9</td><td class="description">9 column bits</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">COL10</td><td class="description">10 column bits</td></tr><tr class="even"><td class="value">0x3</td><td class="name">COL11</td><td class="description">11 column bits</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR__NR"><span class="field_name">NR</span>: <span class="field_description">Number of Row Bits</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">ROW11</td><td class="description">11 row bits</td></tr><tr class="even"><td class="value">0x1</td><td class="name">ROW12</td><td class="description">12 row bits</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">ROW13</td><td class="description">13 row bits</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR__NB"><span class="field_name">NB</span>: <span class="field_description">Number of Banks</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">BANK2</td><td class="description">2 banks</td></tr><tr class="even"><td class="value">1</td><td class="name">BANK4</td><td class="description">4 banks</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR__CAS"><span class="field_name">CAS</span>: <span class="field_description">CAS Latency</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x1</td><td class="name">LATENCY1</td><td class="description">1 cycle CAS latency</td></tr><tr class="even"><td class="value">0x2</td><td class="name">LATENCY2</td><td class="description">2 cycle CAS latency</td></tr><tr class="odd"><td class="value">0x3</td><td class="name">LATENCY3</td><td class="description">3 cycle CAS latency</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR__DBW"><span class="field_name">DBW</span>: <span class="field_description">Data Bus Width</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR__TWR"><span class="field_name">TWR</span>: <span class="field_description">Write Recovery Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR__TRC_TRFC"><span class="field_name">TRC_TRFC</span>: <span class="field_description">Row Cycle Delay and Row Refresh Cycle</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR__TRP"><span class="field_name">TRP</span>: <span class="field_description">Row Precharge Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR__TRCD"><span class="field_name">TRCD</span>: <span class="field_description">Row to Column Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR__TRAS"><span class="field_name">TRAS</span>: <span class="field_description">Active to Precharge Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR__TXSR"><span class="field_name">TXSR</span>: <span class="field_description">Exit Self Refresh to Active Delay</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_LPR">SDRAMC SDRAMC Low Power Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_LPR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0210</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#SDRAMC_LPR__TIMEOUT" title="Time to define when low-power mode is enable">TIMEOUT</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_LPR__DS" title="Drive Strength (only for low-power SDRAM)">DS</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_LPR__TCSR" title="Temperature Compensated Self-Refresh (only for low-power SDRAM)">TCSR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td colspan="3">
+                <a href="#SDRAMC_LPR__PASR" title="Partial Array Self-refresh (only for low-power SDRAM)">PASR</a>
+              </td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#SDRAMC_LPR__LPCB" title="Low-power Configuration Bits">LPCB</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_LPR__LPCB"><span class="field_name">LPCB</span>: <span class="field_description">Low-power Configuration Bits</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">DISABLED</td><td class="description">Low Power Feature is inhibited: no Power-down, Self-refresh or Deep Power-down command is issued to the SDRAM device.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">SELF_REFRESH</td><td class="description">The SDRAM Controller issues a Self-refresh command to the SDRAM device, the SDCK clock is deactivated and the SDCKE signal is set low. The SDRAM device leaves the Self Refresh Mode when accessed and enters it after the access.</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">POWER_DOWN</td><td class="description">The SDRAM Controller issues a Power-down Command to the SDRAM device after each access, the SDCKE signal is set to low. The SDRAM device leaves the Power-down Mode when accessed and enters it after the access.</td></tr><tr class="even"><td class="value">0x3</td><td class="name">DEEP_POWER_DOWN</td><td class="description">The SDRAM Controller issues a Deep Power-down command to the SDRAM device. This mode is unique to low-power SDRAM.</td></tr></tbody></table></li>
+          <li id="SDRAMC_LPR__PASR"><span class="field_name">PASR</span>: <span class="field_description">Partial Array Self-refresh (only for low-power SDRAM)</span></li>
+          <p>-</p>
+          <li id="SDRAMC_LPR__TCSR"><span class="field_name">TCSR</span>: <span class="field_description">Temperature Compensated Self-Refresh (only for low-power SDRAM)</span></li>
+          <p>-</p>
+          <li id="SDRAMC_LPR__DS"><span class="field_name">DS</span>: <span class="field_description">Drive Strength (only for low-power SDRAM)</span></li>
+          <p>-</p>
+          <li id="SDRAMC_LPR__TIMEOUT"><span class="field_name">TIMEOUT</span>: <span class="field_description">Time to define when low-power mode is enable</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">LP_LAST_XFER</td><td class="description">The SDRAM controller activates the SDRAM low-power mode immediately after the end of the last transfer.</td></tr><tr class="even"><td class="value">0x1</td><td class="name">LP_LAST_XFER_64</td><td class="description">The SDRAM controller activates the SDRAM low-power mode 64 clock cycles after the end of the last transfer.</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">LP_LAST_XFER_128</td><td class="description">The SDRAM controller activates the SDRAM low-power mode 128 clock cycles after the end of the last transfer.</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="SDRAMC_IER">SDRAMC SDRAMC Interrupt Enable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_IER</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0214</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SDRAMC_IER__RES" title="Refresh Error Status">RES</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_IER__RES"><span class="field_name">RES</span>: <span class="field_description">Refresh Error Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_IDR">SDRAMC SDRAMC Interrupt Disable Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_IDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">write-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0218</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SDRAMC_IDR__RES" title="Refresh Error Status">RES</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_IDR__RES"><span class="field_name">RES</span>: <span class="field_description">Refresh Error Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_IMR">SDRAMC SDRAMC Interrupt Mask Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_IMR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E021C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SDRAMC_IMR__RES" title="Refresh Error Status">RES</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_IMR__RES"><span class="field_name">RES</span>: <span class="field_description">Refresh Error Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_ISR">SDRAMC SDRAMC Interrupt Status Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_ISR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-only</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0220</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SDRAMC_ISR__RES" title="Refresh Error Status">RES</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_ISR__RES"><span class="field_name">RES</span>: <span class="field_description">Refresh Error Status</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_MDR">SDRAMC SDRAMC Memory Device Register</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_MDR</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0224</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="2">
+                <a href="#SDRAMC_MDR__MD" title="Memory Device Type">MD</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_MDR__MD"><span class="field_name">MD</span>: <span class="field_description">Memory Device Type</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">SDRAM</td><td class="description">SDRAM</td></tr><tr class="even"><td class="value">0x1</td><td class="name">LPSDRAM</td><td class="description">Low-power SDRAM</td></tr></tbody></table></li>
+        </ul>
+        <h4 id="SDRAMC_CR1">SDRAMC SDRAMC Configuration Register 1</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_CR1</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E0228</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SDRAMC_CR1__TXSR" title="Exit Self Refresh to Active Delay">TXSR</a>
+              </td>
+              <td colspan="4">
+                <a href="#SDRAMC_CR1__TRAS" title="Active to Precharge Delay">TRAS</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SDRAMC_CR1__TRCD" title="Row to Column Delay">TRCD</a>
+              </td>
+              <td colspan="4">
+                <a href="#SDRAMC_CR1__TRP" title="Row Precharge Delay">TRP</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="4">
+                <a href="#SDRAMC_CR1__TRC_TRFC" title="Row Cycle Delay and Row Refresh Cycle">TRC_TRFC</a>
+              </td>
+              <td colspan="4">
+                <a href="#SDRAMC_CR1__TWR" title="Write Recovery Delay">TWR</a>
+              </td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td colspan="1">
+                <a href="#SDRAMC_CR1__DBW" title="Data Bus Width">DBW</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_CR1__CAS" title="CAS Latency">CAS</a>
+              </td>
+              <td colspan="1">
+                <a href="#SDRAMC_CR1__NB" title="Number of Banks">NB</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_CR1__NR" title="Number of Row Bits">NR</a>
+              </td>
+              <td colspan="2">
+                <a href="#SDRAMC_CR1__NC" title="Number of Column Bits">NC</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_CR1__NC"><span class="field_name">NC</span>: <span class="field_description">Number of Column Bits</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">COL8</td><td class="description">8 column bits</td></tr><tr class="even"><td class="value">0x1</td><td class="name">COL9</td><td class="description">9 column bits</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">COL10</td><td class="description">10 column bits</td></tr><tr class="even"><td class="value">0x3</td><td class="name">COL11</td><td class="description">11 column bits</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR1__NR"><span class="field_name">NR</span>: <span class="field_description">Number of Row Bits</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x0</td><td class="name">ROW11</td><td class="description">11 row bits</td></tr><tr class="even"><td class="value">0x1</td><td class="name">ROW12</td><td class="description">12 row bits</td></tr><tr class="odd"><td class="value">0x2</td><td class="name">ROW13</td><td class="description">13 row bits</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR1__NB"><span class="field_name">NB</span>: <span class="field_description">Number of Banks</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0</td><td class="name">BANK2</td><td class="description">2 banks</td></tr><tr class="even"><td class="value">1</td><td class="name">BANK4</td><td class="description">4 banks</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR1__CAS"><span class="field_name">CAS</span>: <span class="field_description">CAS Latency</span><table class="values"><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td class="value">0x1</td><td class="name">LATENCY1</td><td class="description">1 cycle CAS latency</td></tr><tr class="even"><td class="value">0x2</td><td class="name">LATENCY2</td><td class="description">2 cycle CAS latency</td></tr><tr class="odd"><td class="value">0x3</td><td class="name">LATENCY3</td><td class="description">3 cycle CAS latency</td></tr></tbody></table></li>
+          <li id="SDRAMC_CR1__DBW"><span class="field_name">DBW</span>: <span class="field_description">Data Bus Width</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR1__TWR"><span class="field_name">TWR</span>: <span class="field_description">Write Recovery Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR1__TRC_TRFC"><span class="field_name">TRC_TRFC</span>: <span class="field_description">Row Cycle Delay and Row Refresh Cycle</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR1__TRP"><span class="field_name">TRP</span>: <span class="field_description">Row Precharge Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR1__TRCD"><span class="field_name">TRCD</span>: <span class="field_description">Row to Column Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR1__TRAS"><span class="field_name">TRAS</span>: <span class="field_description">Active to Precharge Delay</span></li>
+          <p>-</p>
+          <li id="SDRAMC_CR1__TXSR"><span class="field_name">TXSR</span>: <span class="field_description">Exit Self Refresh to Active Delay</span></li>
+          <p>-</p>
+        </ul>
+        <h4 id="SDRAMC_OCMS">SDRAMC SDRAMC OCMS Register 1</h4>
+        <div class="register_properties">
+          <p><span class="register_property">Name</span>: <span class="register_name">SDRAMC_OCMS</span></p>
+          <p><span class="register_property">Access</span>: <span class="register_access">read-write</span></p>
+          <p><span class="register_property">Address</span>: <span class="register_address">0x400E022C</span></p>
+        </div>
+        <table class="fields">
+          <tbody>
+            <tr class="offsets">
+              <td>31</td>
+              <td>30</td>
+              <td>29</td>
+              <td>28</td>
+              <td>27</td>
+              <td>26</td>
+              <td>25</td>
+              <td>24</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>23</td>
+              <td>22</td>
+              <td>21</td>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>15</td>
+              <td>14</td>
+              <td>13</td>
+              <td>12</td>
+              <td>11</td>
+              <td>10</td>
+              <td>9</td>
+              <td>8</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+            </tr>
+            <tr class="offsets">
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr class="fields">
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td class="reserved">-</td>
+              <td colspan="1">
+                <a href="#SDRAMC_OCMS__SDR_SE" title="SDRAM Memory Controller Scrambling Enable">SDR_SE</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="values">
+          <li id="SDRAMC_OCMS__SDR_SE"><span class="field_name">SDR_SE</span>: <span class="field_description">SDRAM Memory Controller Scrambling Enable</span></li>
+          <p>-</p>
+        </ul>
+        <h3 id="SDRAMC__Register_Summary">Register Summary</h3>
+        <table class="summary centered">
+          <caption>SDRAMC Register Summary</caption>
+          <thead>
+            <tr>
+              <th class="address">Address</th>
+              <th class="register">Name</th>
+              <th class="access">Access</th>
+              <th class="range">Bits</th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+              <th class="field"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="address">0x400E0200</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_MR">SDRAMC_MR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">MODE</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0204</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_TR">SDRAMC_TR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="4">COUNT</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field" colspan="8">COUNT</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0208</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_CR">SDRAMC_CR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="4">TXSR</td>
+              <td class="field" colspan="4">TRAS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="4">TRCD</td>
+              <td class="field" colspan="4">TRP</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="4">TRC_TRFC</td>
+              <td class="field" colspan="4">TWR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">DBW</td>
+              <td class="field" colspan="2">CAS</td>
+              <td class="field">NB</td>
+              <td class="field" colspan="2">NR</td>
+              <td class="field" colspan="2">NC</td>
+            </tr>
+            <tr class="reserved">
+              <td class="reserved address">0x400E020C</td>
+              <td class="reserved register">Reserved</td>
+              <td class="reserved access">-</td>
+              <td class="reserved range">31:0</td>
+              <td class="reserved field" colspan="8">-</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0210</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_LPR">SDRAMC_LPR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">TIMEOUT</td>
+              <td class="field" colspan="2">DS</td>
+              <td class="field" colspan="2">TCSR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="3">PASR</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">LPCB</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0214</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_IER">SDRAMC_IER</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RES</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0218</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_IDR">SDRAMC_IDR</a>
+              </td>
+              <td rowspan="4" class="access">WO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RES</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E021C</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_IMR">SDRAMC_IMR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RES</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0220</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_ISR">SDRAMC_ISR</a>
+              </td>
+              <td rowspan="4" class="access">RO</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">RES</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0224</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_MDR">SDRAMC_MDR</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field" colspan="2">MD</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E0228</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_CR1">SDRAMC_CR1</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field" colspan="4">TXSR</td>
+              <td class="field" colspan="4">TRAS</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field" colspan="4">TRCD</td>
+              <td class="field" colspan="4">TRP</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field" colspan="4">TRC_TRFC</td>
+              <td class="field" colspan="4">TWR</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field">DBW</td>
+              <td class="field" colspan="2">CAS</td>
+              <td class="field">NB</td>
+              <td class="field" colspan="2">NR</td>
+              <td class="field" colspan="2">NC</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="address">0x400E022C</td>
+              <td rowspan="4" class="register">
+                <a href="#SDRAMC_OCMS">SDRAMC_OCMS</a>
+              </td>
+              <td rowspan="4" class="access">RW</td>
+              <td class="range">
+                <pre class="range">31:24</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">23:16</pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range">15:8 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+            </tr>
+            <tr>
+              <td class="range">
+                <pre class="range"> 7:0 </pre>
+              </td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field reserved">-</td>
+              <td class="field">SDR_SE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

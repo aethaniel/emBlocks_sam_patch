@@ -1,0 +1,3323 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>SAM3XA HSMCI</title>
+  <chapter id="HSMCI">
+    <title id="HSMCI__User_Interface">High Speed MultiMedia Card Interface (HSMCI) User Interface</title>
+    <sect1>
+      <title>Registers</title>
+      <table>
+        <title>Register Mapping</title>
+        <tgroup cols="20">
+          <thead>
+            <row class="">
+              <entry align="center" valign="middle">Address</entry>
+              <entry align="center" valign="middle">Register</entry>
+              <entry align="center" valign="middle">Name</entry>
+              <entry align="center" valign="middle">Access</entry>
+              <entry align="center" valign="middle">Reset</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000000</entry>
+              <entry align="center" valign="middle">Control Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_CR">HSMCI_CR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000004</entry>
+              <entry align="center" valign="middle">Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_MR">HSMCI_MR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000008</entry>
+              <entry align="center" valign="middle">Data Timeout Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_DTOR">HSMCI_DTOR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000000C</entry>
+              <entry align="center" valign="middle">SD/SDIO Card Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_SDCR">HSMCI_SDCR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000010</entry>
+              <entry align="center" valign="middle">Argument Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_ARGR">HSMCI_ARGR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000014</entry>
+              <entry align="center" valign="middle">Command Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_CMDR">HSMCI_CMDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000018</entry>
+              <entry align="center" valign="middle">Block Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_BLKR">HSMCI_BLKR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x4000001C</entry>
+              <entry align="center" valign="middle">Completion Signal Timeout Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_CSTOR">HSMCI_CSTOR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000020</entry>
+              <entry align="center" valign="middle">Response Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_RSPR">HSMCI_RSPR[4]</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000030</entry>
+              <entry align="center" valign="middle">Receive Data Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_RDR">HSMCI_RDR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000034</entry>
+              <entry align="center" valign="middle">Transmit Data Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_TDR">HSMCI_TDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000040</entry>
+              <entry align="center" valign="middle">Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_SR">HSMCI_SR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x0000C0E5</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000044</entry>
+              <entry align="center" valign="middle">Interrupt Enable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_IER">HSMCI_IER</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000048</entry>
+              <entry align="center" valign="middle">Interrupt Disable Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_IDR">HSMCI_IDR</link>
+              </entry>
+              <entry align="center" valign="middle">write-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x4000004C</entry>
+              <entry align="center" valign="middle">Interrupt Mask Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_IMR">HSMCI_IMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000050</entry>
+              <entry align="center" valign="middle">DMA Configuration Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_DMA">HSMCI_DMA</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x40000054</entry>
+              <entry align="center" valign="middle">Configuration Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_CFG">HSMCI_CFG</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x00000000</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x400000E4</entry>
+              <entry align="center" valign="middle">Write Protection Mode Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_WPMR">HSMCI_WPMR</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="odd">
+              <entry align="center" valign="middle">0x400000E8</entry>
+              <entry align="center" valign="middle">Write Protection Status Register</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_WPSR">HSMCI_WPSR</link>
+              </entry>
+              <entry align="center" valign="middle">read-only</entry>
+              <entry align="center" valign="middle">-</entry>
+            </row>
+            <row class="even">
+              <entry align="center" valign="middle">0x40000200</entry>
+              <entry align="center" valign="middle">FIFO Memory Aperture0</entry>
+              <entry align="center" valign="middle">
+                <link linkend="HSMCI_FIFO">HSMCI_FIFO[256]</link>
+              </entry>
+              <entry align="center" valign="middle">read-write</entry>
+              <entry align="center" valign="middle">0x0</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    <sect1>
+      <title>Register Fields</title>
+      <sect2 id="HSMCI_CR">
+        <title>HSMCI Control Register</title>
+        <para>Name: HSMCI_CR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x40000000</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CR__SWRST">SWRST</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CR__PWSDIS">PWSDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CR__PWSEN">PWSEN</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CR__MCIDIS">MCIDIS</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CR__MCIEN">MCIEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_CR__MCIEN">
+            <para>MCIEN: Multi-Media Interface Enable</para>
+          </listitem>
+          <listitem id="HSMCI_CR__MCIDIS">
+            <para>MCIDIS: Multi-Media Interface Disable</para>
+          </listitem>
+          <listitem id="HSMCI_CR__PWSEN">
+            <para>PWSEN: Power Save Mode Enable</para>
+          </listitem>
+          <listitem id="HSMCI_CR__PWSDIS">
+            <para>PWSDIS: Power Save Mode Disable</para>
+          </listitem>
+          <listitem id="HSMCI_CR__SWRST">
+            <para>SWRST: Software Reset</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_MR">
+        <title>HSMCI Mode Register</title>
+        <para>Name: HSMCI_MR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000004</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_MR__PADV">PADV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_MR__FBYTE">FBYTE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_MR__WRPROOF">WRPROOF</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_MR__RDPROOF">RDPROOF</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c6" nameend="c8">
+                  <link linkend="HSMCI_MR__PWSDIV">PWSDIV</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_MR__CLKDIV">CLKDIV</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_MR__CLKDIV">
+            <para>CLKDIV: Clock Divider</para>
+          </listitem>
+          <listitem id="HSMCI_MR__PWSDIV">
+            <para>PWSDIV: Power Saving Divider</para>
+          </listitem>
+          <listitem id="HSMCI_MR__RDPROOF">
+            <para>RDPROOF: Read Proof Enable</para>
+          </listitem>
+          <listitem id="HSMCI_MR__WRPROOF">
+            <para>WRPROOF: Write Proof Enable</para>
+          </listitem>
+          <listitem id="HSMCI_MR__FBYTE">
+            <para>FBYTE: Force Byte Transfer</para>
+          </listitem>
+          <listitem id="HSMCI_MR__PADV">
+            <para>PADV: Padding Value</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_DTOR">
+        <title>HSMCI Data Timeout Register</title>
+        <para>Name: HSMCI_DTOR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000008</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c4">
+                  <link linkend="HSMCI_DTOR__DTOMUL">DTOMUL</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="HSMCI_DTOR__DTOCYC">DTOCYC</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_DTOR__DTOCYC">
+            <para>DTOCYC: Data Timeout Cycle Number</para>
+          </listitem>
+          <listitem id="HSMCI_DTOR__DTOMUL">
+            <para>DTOMUL: Data Timeout Multiplier</para>
+            <table>
+              <title/>
+              <tgroup cols="8">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">DTOCYC</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">16</entry>
+                    <entry align="center" valign="middle">DTOCYC x 16</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">128</entry>
+                    <entry align="center" valign="middle">DTOCYC x 128</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">256</entry>
+                    <entry align="center" valign="middle">DTOCYC x 256</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">1024</entry>
+                    <entry align="center" valign="middle">DTOCYC x 1024</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">4096</entry>
+                    <entry align="center" valign="middle">DTOCYC x 4096</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">65536</entry>
+                    <entry align="center" valign="middle">DTOCYC x 65536</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">1048576</entry>
+                    <entry align="center" valign="middle">DTOCYC x 1048576</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_SDCR">
+        <title>HSMCI SD/SDIO Card Register</title>
+        <para>Name: HSMCI_SDCR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4000000C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c2">
+                  <link linkend="HSMCI_SDCR__SDCBUS">SDCBUS</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="HSMCI_SDCR__SDCSEL">SDCSEL</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_SDCR__SDCSEL">
+            <para>SDCSEL: SDCard/SDIO Slot</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">SLOTA</entry>
+                    <entry align="center" valign="middle">Slot A is selected.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">SLOTB</entry>
+                    <entry align="center" valign="middle">SDCARD/SDIO Slot B selected</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">SLOTC</entry>
+                    <entry align="center" valign="middle">-</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">SLOTD</entry>
+                    <entry align="center" valign="middle">-</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_SDCR__SDCBUS">
+            <para>SDCBUS: SDCard/SDIO Bus Width</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">1 bit</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">4</entry>
+                    <entry align="center" valign="middle">4 bits</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">8</entry>
+                    <entry align="center" valign="middle">8 bits</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_ARGR">
+        <title>HSMCI Argument Register</title>
+        <para>Name: HSMCI_ARGR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000010</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_ARGR__ARG">ARG</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_ARGR__ARG">ARG</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_ARGR__ARG">ARG</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_ARGR__ARG">ARG</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_ARGR__ARG">
+            <para>ARG: Command Argument</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_CMDR">
+        <title>HSMCI Command Register</title>
+        <para>Name: HSMCI_CMDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x40000014</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CMDR__BOOT_ACK">BOOT_ACK</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CMDR__ATACS">ATACS</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="HSMCI_CMDR__IOSPCMD">IOSPCMD</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c3" nameend="c5">
+                  <link linkend="HSMCI_CMDR__TRTYP">TRTYP</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CMDR__TRDIR">TRDIR</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="HSMCI_CMDR__TRCMD">TRCMD</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CMDR__MAXLAT">MAXLAT</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CMDR__OPDCMD">OPDCMD</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c6" nameend="c8">
+                  <link linkend="HSMCI_CMDR__SPCMD">SPCMD</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c2">
+                  <link linkend="HSMCI_CMDR__RSPTYP">RSPTYP</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c3" nameend="c8">
+                  <link linkend="HSMCI_CMDR__CMDNB">CMDNB</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_CMDR__CMDNB">
+            <para>CMDNB: Command Number</para>
+          </listitem>
+          <listitem id="HSMCI_CMDR__RSPTYP">
+            <para>RSPTYP: Response Type</para>
+            <table>
+              <title/>
+              <tgroup cols="4">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">NORESP</entry>
+                    <entry align="center" valign="middle">No response</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">48_BIT</entry>
+                    <entry align="center" valign="middle">48-bit response</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">136_BIT</entry>
+                    <entry align="center" valign="middle">136-bit response</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">R1B</entry>
+                    <entry align="center" valign="middle">R1b response type</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__SPCMD">
+            <para>SPCMD: Special Command</para>
+            <table>
+              <title/>
+              <tgroup cols="8">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">STD</entry>
+                    <entry align="center" valign="middle">Not a special CMD.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">INIT</entry>
+                    <entry align="center" valign="middle">Initialization CMD: 74 clock cycles for initialization sequence.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">SYNC</entry>
+                    <entry align="center" valign="middle">Synchronized CMD: Wait for the end of the current data block transfer before sending the pending command.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">CE_ATA</entry>
+                    <entry align="center" valign="middle">CE-ATA Completion Signal disable Command. The host cancels the ability for the device to return a command completion signal on the command line.</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">IT_CMD</entry>
+                    <entry align="center" valign="middle">Interrupt command: Corresponds to the Interrupt Mode (CMD40).</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">IT_RESP</entry>
+                    <entry align="center" valign="middle">Interrupt response: Corresponds to the Interrupt Mode (CMD40).</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">BOR</entry>
+                    <entry align="center" valign="middle">Boot Operation Request. Start a boot operation mode, the host processor can read boot data from the MMC device directly.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">EBO</entry>
+                    <entry align="center" valign="middle">End Boot Operation. This command allows the host processor to terminate the boot operation mode.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__OPDCMD">
+            <para>OPDCMD: Open Drain Command</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">PUSHPULL</entry>
+                    <entry align="center" valign="middle">Push pull command.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">OPENDRAIN</entry>
+                    <entry align="center" valign="middle">Open drain command.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__MAXLAT">
+            <para>MAXLAT: Max Latency for Command to Response</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">5</entry>
+                    <entry align="center" valign="middle">5-cycle max latency.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">64</entry>
+                    <entry align="center" valign="middle">64-cycle max latency.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__TRCMD">
+            <para>TRCMD: Transfer Command</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">NO_DATA</entry>
+                    <entry align="center" valign="middle">No data transfer</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">START_DATA</entry>
+                    <entry align="center" valign="middle">Start data transfer</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">STOP_DATA</entry>
+                    <entry align="center" valign="middle">Stop data transfer</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__TRDIR">
+            <para>TRDIR: Transfer Direction</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">WRITE</entry>
+                    <entry align="center" valign="middle">Write.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">READ</entry>
+                    <entry align="center" valign="middle">Read.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__TRTYP">
+            <para>TRTYP: Transfer Type</para>
+            <table>
+              <title/>
+              <tgroup cols="5">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">SINGLE</entry>
+                    <entry align="center" valign="middle">MMC/SD Card Single Block</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">MULTIPLE</entry>
+                    <entry align="center" valign="middle">MMC/SD Card Multiple Block</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">STREAM</entry>
+                    <entry align="center" valign="middle">MMC Stream</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">BYTE</entry>
+                    <entry align="center" valign="middle">SDIO Byte</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">BLOCK</entry>
+                    <entry align="center" valign="middle">SDIO Block</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__IOSPCMD">
+            <para>IOSPCMD: SDIO Special Command</para>
+            <table>
+              <title/>
+              <tgroup cols="3">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">STD</entry>
+                    <entry align="center" valign="middle">Not an SDIO Special Command</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">SUSPEND</entry>
+                    <entry align="center" valign="middle">SDIO Suspend Command</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">RESUME</entry>
+                    <entry align="center" valign="middle">SDIO Resume Command</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__ATACS">
+            <para>ATACS: ATA with Command Completion Signal</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">NORMAL</entry>
+                    <entry align="center" valign="middle">Normal operation mode.</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">COMPLETION</entry>
+                    <entry align="center" valign="middle">This bit indicates that a completion signal is expected within a programmed amount of time (HSMCI_CSTOR).</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_CMDR__BOOT_ACK">
+            <para>BOOT_ACK: Boot Operation Acknowledge</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_BLKR">
+        <title>HSMCI Block Register</title>
+        <para>Name: HSMCI_BLKR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000018</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_BLKR__BLKLEN">BLKLEN</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_BLKR__BLKLEN">BLKLEN</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_BLKR__BCNT">BCNT</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_BLKR__BCNT">BCNT</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_BLKR__BCNT">
+            <para>BCNT: MMC/SDIO Block Count - SDIO Byte Count</para>
+          </listitem>
+          <listitem id="HSMCI_BLKR__BLKLEN">
+            <para>BLKLEN: Data Block Length</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_CSTOR">
+        <title>HSMCI Completion Signal Timeout Register</title>
+        <para>Name: HSMCI_CSTOR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x4000001C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c2" nameend="c4">
+                  <link linkend="HSMCI_CSTOR__CSTOMUL">CSTOMUL</link>
+                </entry>
+                <entry class="" align="center" valign="middle" namest="c5" nameend="c8">
+                  <link linkend="HSMCI_CSTOR__CSTOCYC">CSTOCYC</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_CSTOR__CSTOCYC">
+            <para>CSTOCYC: Completion Signal Timeout Cycle Number</para>
+          </listitem>
+          <listitem id="HSMCI_CSTOR__CSTOMUL">
+            <para>CSTOMUL: Completion Signal Timeout Multiplier</para>
+            <table>
+              <title/>
+              <tgroup cols="8">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x0</entry>
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 1</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x1</entry>
+                    <entry align="center" valign="middle">16</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 16</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x2</entry>
+                    <entry align="center" valign="middle">128</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 128</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x3</entry>
+                    <entry align="center" valign="middle">256</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 256</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4</entry>
+                    <entry align="center" valign="middle">1024</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 1024</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x5</entry>
+                    <entry align="center" valign="middle">4096</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 4096</entry>
+                  </row>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x6</entry>
+                    <entry align="center" valign="middle">65536</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 65536</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">0x7</entry>
+                    <entry align="center" valign="middle">1048576</entry>
+                    <entry align="center" valign="middle">CSTOCYC x 1048576</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_RSPR">
+        <title>HSMCI Response Register</title>
+        <para>Name: HSMCI_RSPR[0:3]</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x40000020</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RSPR__RSP">RSP</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RSPR__RSP">RSP</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RSPR__RSP">RSP</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RSPR__RSP">RSP</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_RSPR__RSP">
+            <para>RSP: Response</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_RDR">
+        <title>HSMCI Receive Data Register</title>
+        <para>Name: HSMCI_RDR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x40000030</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RDR__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RDR__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RDR__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_RDR__DATA">DATA</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_RDR__DATA">
+            <para>DATA: Data to Read</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_TDR">
+        <title>HSMCI Transmit Data Register</title>
+        <para>Name: HSMCI_TDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x40000034</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_TDR__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_TDR__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_TDR__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_TDR__DATA">DATA</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_TDR__DATA">
+            <para>DATA: Data to Write</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_SR">
+        <title>HSMCI Status Register</title>
+        <para>Name: HSMCI_SR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x40000040</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__UNRE">UNRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__ACKRCVE">ACKRCVE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__ACKRCV">ACKRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__XFRDONE">XFRDONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__FIFOEMPTY">FIFOEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__DMADONE">DMADONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__BLKOVRE">BLKOVRE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__CSTOE">CSTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__DTOE">DTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__DCRCE">DCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__RTOE">RTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__RENDE">RENDE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__RCRCE">RCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__RDIRE">RDIRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__RINDE">RINDE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__CSRCV">CSRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__SDIOWAIT">SDIOWAIT</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__SDIOIRQforSlotB">SDIOIRQforSlotB</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__SDIOIRQforSlotA">SDIOIRQforSlotA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__NOTBUSY">NOTBUSY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__DTIP">DTIP</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__BLKE">BLKE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_SR__CMDRDY">CMDRDY</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_SR__CMDRDY">
+            <para>CMDRDY: Command Ready</para>
+          </listitem>
+          <listitem id="HSMCI_SR__RXRDY">
+            <para>RXRDY: Receiver Ready</para>
+          </listitem>
+          <listitem id="HSMCI_SR__TXRDY">
+            <para>TXRDY: Transmit Ready</para>
+          </listitem>
+          <listitem id="HSMCI_SR__BLKE">
+            <para>BLKE: Data Block Ended</para>
+          </listitem>
+          <listitem id="HSMCI_SR__DTIP">
+            <para>DTIP: Data Transfer in Progress</para>
+          </listitem>
+          <listitem id="HSMCI_SR__NOTBUSY">
+            <para>NOTBUSY: HSMCI Not Busy</para>
+          </listitem>
+          <listitem id="HSMCI_SR__SDIOIRQforSlotA">
+            <para>SDIOIRQforSlotA: </para>
+          </listitem>
+          <listitem id="HSMCI_SR__SDIOIRQforSlotB">
+            <para>SDIOIRQforSlotB: </para>
+          </listitem>
+          <listitem id="HSMCI_SR__SDIOWAIT">
+            <para>SDIOWAIT: SDIO Read Wait Operation Status</para>
+          </listitem>
+          <listitem id="HSMCI_SR__CSRCV">
+            <para>CSRCV: CE-ATA Completion Signal Received</para>
+          </listitem>
+          <listitem id="HSMCI_SR__RINDE">
+            <para>RINDE: Response Index Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__RDIRE">
+            <para>RDIRE: Response Direction Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__RCRCE">
+            <para>RCRCE: Response CRC Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__RENDE">
+            <para>RENDE: Response End Bit Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__RTOE">
+            <para>RTOE: Response Time-out Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__DCRCE">
+            <para>DCRCE: Data CRC Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__DTOE">
+            <para>DTOE: Data Time-out Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__CSTOE">
+            <para>CSTOE: Completion Signal Time-out Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__BLKOVRE">
+            <para>BLKOVRE: DMA Block Overrun Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__DMADONE">
+            <para>DMADONE: DMA Transfer done</para>
+          </listitem>
+          <listitem id="HSMCI_SR__FIFOEMPTY">
+            <para>FIFOEMPTY: FIFO empty flag</para>
+          </listitem>
+          <listitem id="HSMCI_SR__XFRDONE">
+            <para>XFRDONE: Transfer Done flag</para>
+          </listitem>
+          <listitem id="HSMCI_SR__ACKRCV">
+            <para>ACKRCV: Boot Operation Acknowledge Received</para>
+          </listitem>
+          <listitem id="HSMCI_SR__ACKRCVE">
+            <para>ACKRCVE: Boot Operation Acknowledge Error</para>
+          </listitem>
+          <listitem id="HSMCI_SR__OVRE">
+            <para>OVRE: Overrun</para>
+          </listitem>
+          <listitem id="HSMCI_SR__UNRE">
+            <para>UNRE: Underrun</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_IER">
+        <title>HSMCI Interrupt Enable Register</title>
+        <para>Name: HSMCI_IER</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x40000044</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__UNRE">UNRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__ACKRCVE">ACKRCVE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__ACKRCV">ACKRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__XFRDONE">XFRDONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__FIFOEMPTY">FIFOEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__DMADONE">DMADONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__BLKOVRE">BLKOVRE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__CSTOE">CSTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__DTOE">DTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__DCRCE">DCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__RTOE">RTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__RENDE">RENDE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__RCRCE">RCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__RDIRE">RDIRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__RINDE">RINDE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__CSRCV">CSRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__SDIOWAIT">SDIOWAIT</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__SDIOIRQforSlotB">SDIOIRQforSlotB</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__SDIOIRQforSlotA">SDIOIRQforSlotA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__NOTBUSY">NOTBUSY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__DTIP">DTIP</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__BLKE">BLKE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IER__CMDRDY">CMDRDY</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_IER__CMDRDY">
+            <para>CMDRDY: Command Ready Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__RXRDY">
+            <para>RXRDY: Receiver Ready Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__TXRDY">
+            <para>TXRDY: Transmit Ready Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__BLKE">
+            <para>BLKE: Data Block Ended Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__DTIP">
+            <para>DTIP: Data Transfer in Progress Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__NOTBUSY">
+            <para>NOTBUSY: Data Not Busy Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__SDIOIRQforSlotA">
+            <para>SDIOIRQforSlotA: </para>
+          </listitem>
+          <listitem id="HSMCI_IER__SDIOIRQforSlotB">
+            <para>SDIOIRQforSlotB: </para>
+          </listitem>
+          <listitem id="HSMCI_IER__SDIOWAIT">
+            <para>SDIOWAIT: SDIO Read Wait Operation Status Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__CSRCV">
+            <para>CSRCV: Completion Signal Received Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__RINDE">
+            <para>RINDE: Response Index Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__RDIRE">
+            <para>RDIRE: Response Direction Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__RCRCE">
+            <para>RCRCE: Response CRC Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__RENDE">
+            <para>RENDE: Response End Bit Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__RTOE">
+            <para>RTOE: Response Time-out Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__DCRCE">
+            <para>DCRCE: Data CRC Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__DTOE">
+            <para>DTOE: Data Time-out Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__CSTOE">
+            <para>CSTOE: Completion Signal Timeout Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__BLKOVRE">
+            <para>BLKOVRE: DMA Block Overrun Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__DMADONE">
+            <para>DMADONE: DMA Transfer completed Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__FIFOEMPTY">
+            <para>FIFOEMPTY: FIFO empty Interrupt enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__XFRDONE">
+            <para>XFRDONE: Transfer Done Interrupt enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__ACKRCV">
+            <para>ACKRCV: Boot Acknowledge Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__ACKRCVE">
+            <para>ACKRCVE: Boot Acknowledge Error Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__OVRE">
+            <para>OVRE: Overrun Interrupt Enable</para>
+          </listitem>
+          <listitem id="HSMCI_IER__UNRE">
+            <para>UNRE: Underrun Interrupt Enable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_IDR">
+        <title>HSMCI Interrupt Disable Register</title>
+        <para>Name: HSMCI_IDR</para>
+        <para>Access: write-only</para>
+        <para>Address: 0x40000048</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__UNRE">UNRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__ACKRCVE">ACKRCVE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__ACKRCV">ACKRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__XFRDONE">XFRDONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__FIFOEMPTY">FIFOEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__DMADONE">DMADONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__BLKOVRE">BLKOVRE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__CSTOE">CSTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__DTOE">DTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__DCRCE">DCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__RTOE">RTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__RENDE">RENDE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__RCRCE">RCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__RDIRE">RDIRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__RINDE">RINDE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__CSRCV">CSRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__SDIOWAIT">SDIOWAIT</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__SDIOIRQforSlotB">SDIOIRQforSlotB</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__SDIOIRQforSlotA">SDIOIRQforSlotA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__NOTBUSY">NOTBUSY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__DTIP">DTIP</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__BLKE">BLKE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IDR__CMDRDY">CMDRDY</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_IDR__CMDRDY">
+            <para>CMDRDY: Command Ready Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__RXRDY">
+            <para>RXRDY: Receiver Ready Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__TXRDY">
+            <para>TXRDY: Transmit Ready Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__BLKE">
+            <para>BLKE: Data Block Ended Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__DTIP">
+            <para>DTIP: Data Transfer in Progress Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__NOTBUSY">
+            <para>NOTBUSY: Data Not Busy Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__SDIOIRQforSlotA">
+            <para>SDIOIRQforSlotA: </para>
+          </listitem>
+          <listitem id="HSMCI_IDR__SDIOIRQforSlotB">
+            <para>SDIOIRQforSlotB: </para>
+          </listitem>
+          <listitem id="HSMCI_IDR__SDIOWAIT">
+            <para>SDIOWAIT: SDIO Read Wait Operation Status Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__CSRCV">
+            <para>CSRCV: Completion Signal received interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__RINDE">
+            <para>RINDE: Response Index Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__RDIRE">
+            <para>RDIRE: Response Direction Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__RCRCE">
+            <para>RCRCE: Response CRC Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__RENDE">
+            <para>RENDE: Response End Bit Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__RTOE">
+            <para>RTOE: Response Time-out Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__DCRCE">
+            <para>DCRCE: Data CRC Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__DTOE">
+            <para>DTOE: Data Time-out Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__CSTOE">
+            <para>CSTOE: Completion Signal Time out Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__BLKOVRE">
+            <para>BLKOVRE: DMA Block Overrun Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__DMADONE">
+            <para>DMADONE: DMA Transfer completed Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__FIFOEMPTY">
+            <para>FIFOEMPTY: FIFO empty Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__XFRDONE">
+            <para>XFRDONE: Transfer Done Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__ACKRCV">
+            <para>ACKRCV: Boot Acknowledge Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__ACKRCVE">
+            <para>ACKRCVE: Boot Acknowledge Error Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__OVRE">
+            <para>OVRE: Overrun Interrupt Disable</para>
+          </listitem>
+          <listitem id="HSMCI_IDR__UNRE">
+            <para>UNRE: Underrun Interrupt Disable</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_IMR">
+        <title>HSMCI Interrupt Mask Register</title>
+        <para>Name: HSMCI_IMR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x4000004C</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__UNRE">UNRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__OVRE">OVRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__ACKRCVE">ACKRCVE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__ACKRCV">ACKRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__XFRDONE">XFRDONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__FIFOEMPTY">FIFOEMPTY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__DMADONE">DMADONE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__BLKOVRE">BLKOVRE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__CSTOE">CSTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__DTOE">DTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__DCRCE">DCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__RTOE">RTOE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__RENDE">RENDE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__RCRCE">RCRCE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__RDIRE">RDIRE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__RINDE">RINDE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__CSRCV">CSRCV</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__SDIOWAIT">SDIOWAIT</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__SDIOIRQforSlotB">SDIOIRQforSlotB</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__SDIOIRQforSlotA">SDIOIRQforSlotA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__NOTBUSY">NOTBUSY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__DTIP">DTIP</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__BLKE">BLKE</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__TXRDY">TXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__RXRDY">RXRDY</link>
+                </entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_IMR__CMDRDY">CMDRDY</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_IMR__CMDRDY">
+            <para>CMDRDY: Command Ready Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__RXRDY">
+            <para>RXRDY: Receiver Ready Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__TXRDY">
+            <para>TXRDY: Transmit Ready Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__BLKE">
+            <para>BLKE: Data Block Ended Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__DTIP">
+            <para>DTIP: Data Transfer in Progress Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__NOTBUSY">
+            <para>NOTBUSY: Data Not Busy Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__SDIOIRQforSlotA">
+            <para>SDIOIRQforSlotA: </para>
+          </listitem>
+          <listitem id="HSMCI_IMR__SDIOIRQforSlotB">
+            <para>SDIOIRQforSlotB: </para>
+          </listitem>
+          <listitem id="HSMCI_IMR__SDIOWAIT">
+            <para>SDIOWAIT: SDIO Read Wait Operation Status Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__CSRCV">
+            <para>CSRCV: Completion Signal Received Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__RINDE">
+            <para>RINDE: Response Index Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__RDIRE">
+            <para>RDIRE: Response Direction Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__RCRCE">
+            <para>RCRCE: Response CRC Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__RENDE">
+            <para>RENDE: Response End Bit Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__RTOE">
+            <para>RTOE: Response Time-out Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__DCRCE">
+            <para>DCRCE: Data CRC Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__DTOE">
+            <para>DTOE: Data Time-out Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__CSTOE">
+            <para>CSTOE: Completion Signal Time-out Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__BLKOVRE">
+            <para>BLKOVRE: DMA Block Overrun Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__DMADONE">
+            <para>DMADONE: DMA Transfer Completed Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__FIFOEMPTY">
+            <para>FIFOEMPTY: FIFO Empty Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__XFRDONE">
+            <para>XFRDONE: Transfer Done Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__ACKRCV">
+            <para>ACKRCV: Boot Operation Acknowledge Received Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__ACKRCVE">
+            <para>ACKRCVE: Boot Operation Acknowledge Error Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__OVRE">
+            <para>OVRE: Overrun Interrupt Mask</para>
+          </listitem>
+          <listitem id="HSMCI_IMR__UNRE">
+            <para>UNRE: Underrun Interrupt Mask</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_DMA">
+        <title>HSMCI DMA Configuration Register</title>
+        <para>Name: HSMCI_DMA</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000050</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_DMA__ROPT">ROPT</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_DMA__DMAEN">DMAEN</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_DMA__CHKSIZE">CHKSIZE</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry class="" align="center" valign="middle" namest="c7" nameend="c8">
+                  <link linkend="HSMCI_DMA__OFFSET">OFFSET</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_DMA__OFFSET">
+            <para>OFFSET: DMA Write Buffer Offset</para>
+          </listitem>
+          <listitem id="HSMCI_DMA__CHKSIZE">
+            <para>CHKSIZE: DMA Channel Read and Write Chunk Size</para>
+            <table>
+              <title/>
+              <tgroup cols="2">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0</entry>
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">1 data available</entry>
+                  </row>
+                  <row class="even">
+                    <entry align="center" valign="middle">1</entry>
+                    <entry align="center" valign="middle">4</entry>
+                    <entry align="center" valign="middle">4 data available</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+          <listitem id="HSMCI_DMA__DMAEN">
+            <para>DMAEN: DMA Hardware Handshaking Enable</para>
+          </listitem>
+          <listitem id="HSMCI_DMA__ROPT">
+            <para>ROPT: Read Optimization with padding</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_CFG">
+        <title>HSMCI Configuration Register</title>
+        <para>Name: HSMCI_CFG</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000054</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CFG__LSYNC">LSYNC</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CFG__HSMODE">HSMODE</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CFG__FERRCTRL">FERRCTRL</link>
+                </entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_CFG__FIFOMODE">FIFOMODE</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_CFG__FIFOMODE">
+            <para>FIFOMODE: HSMCI Internal FIFO control mode</para>
+          </listitem>
+          <listitem id="HSMCI_CFG__FERRCTRL">
+            <para>FERRCTRL: Flow Error flag reset control mode</para>
+          </listitem>
+          <listitem id="HSMCI_CFG__HSMODE">
+            <para>HSMODE: High Speed Mode</para>
+          </listitem>
+          <listitem id="HSMCI_CFG__LSYNC">
+            <para>LSYNC: Synchronize on the last block</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_WPMR">
+        <title>HSMCI Write Protection Mode Register</title>
+        <para>Name: HSMCI_WPMR</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x400000E4</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_WPMR__WPKEY">WPKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_WPMR__WPKEY">WPKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_WPMR__WPKEY">WPKEY</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_WPMR__WPEN">WPEN</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_WPMR__WPEN">
+            <para>WPEN: Write Protect Enable</para>
+          </listitem>
+          <listitem id="HSMCI_WPMR__WPKEY">
+            <para>WPKEY: Write Protect Key</para>
+            <table>
+              <title/>
+              <tgroup cols="1">
+                <thead>
+                  <row class="">
+                    <entry align="center" valign="middle">Value</entry>
+                    <entry align="center" valign="middle">Name</entry>
+                    <entry align="center" valign="middle">Description</entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row class="odd">
+                    <entry align="center" valign="middle">0x4D4349</entry>
+                    <entry align="center" valign="middle">PASSWD</entry>
+                    <entry align="center" valign="middle">Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_WPSR">
+        <title>HSMCI Write Protection Status Register</title>
+        <para>Name: HSMCI_WPSR</para>
+        <para>Access: read-only</para>
+        <para>Address: 0x400000E8</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_WPSR__WPVSRC">WPVSRC</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_WPSR__WPVSRC">WPVSRC</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">-</entry>
+                <entry align="center" valign="middle">
+                  <link linkend="HSMCI_WPSR__WPVS">WPVS</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_WPSR__WPVS">
+            <para>WPVS: Write Protection Violation Status</para>
+          </listitem>
+          <listitem id="HSMCI_WPSR__WPVSRC">
+            <para>WPVSRC: Write Protection Violation Source</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2 id="HSMCI_FIFO">
+        <title>HSMCI FIFO Memory Aperture0</title>
+        <para>Name: HSMCI_FIFO[0:255]</para>
+        <para>Access: read-write</para>
+        <para>Address: 0x40000200</para>
+        <table>
+          <title/>
+          <tgroup cols="8">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <colspec colname="c7"/>
+            <colspec colname="c8"/>
+            <tbody>
+              <row class="offsets">
+                <entry align="center" valign="middle">31</entry>
+                <entry align="center" valign="middle">30</entry>
+                <entry align="center" valign="middle">29</entry>
+                <entry align="center" valign="middle">28</entry>
+                <entry align="center" valign="middle">27</entry>
+                <entry align="center" valign="middle">26</entry>
+                <entry align="center" valign="middle">25</entry>
+                <entry align="center" valign="middle">24</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_FIFO__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">23</entry>
+                <entry align="center" valign="middle">22</entry>
+                <entry align="center" valign="middle">21</entry>
+                <entry align="center" valign="middle">20</entry>
+                <entry align="center" valign="middle">19</entry>
+                <entry align="center" valign="middle">18</entry>
+                <entry align="center" valign="middle">17</entry>
+                <entry align="center" valign="middle">16</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_FIFO__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">15</entry>
+                <entry align="center" valign="middle">14</entry>
+                <entry align="center" valign="middle">13</entry>
+                <entry align="center" valign="middle">12</entry>
+                <entry align="center" valign="middle">11</entry>
+                <entry align="center" valign="middle">10</entry>
+                <entry align="center" valign="middle">9</entry>
+                <entry align="center" valign="middle">8</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_FIFO__DATA">DATA</link>
+                </entry>
+              </row>
+              <row class="offsets">
+                <entry align="center" valign="middle">7</entry>
+                <entry align="center" valign="middle">6</entry>
+                <entry align="center" valign="middle">5</entry>
+                <entry align="center" valign="middle">4</entry>
+                <entry align="center" valign="middle">3</entry>
+                <entry align="center" valign="middle">2</entry>
+                <entry align="center" valign="middle">1</entry>
+                <entry align="center" valign="middle">0</entry>
+              </row>
+              <row class="fields">
+                <entry class="" align="center" valign="middle" namest="c1" nameend="c8">
+                  <link linkend="HSMCI_FIFO__DATA">DATA</link>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <itemizedlist>
+          <listitem id="HSMCI_FIFO__DATA">
+            <para>DATA: Data to Read or Data to Write</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+  </chapter>
+</book>
