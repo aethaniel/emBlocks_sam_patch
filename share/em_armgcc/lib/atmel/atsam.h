@@ -83,7 +83,7 @@
 #define ATSAM4E_SERIES (ATSAM4E8 || ATSAM4E16)
 
 /* Entire SAM4 family */
-#define ATSAM4_FAMILY ( ATSAM4S_SERIES )
+#define ATSAM4_FAMILY ( ATSAM4N_SERIES || ATSAM4S_SERIES || ATSAM4E_SERIES )
 
 // Test/QA purpose only
 //#define STR_HELPER(x) #x
