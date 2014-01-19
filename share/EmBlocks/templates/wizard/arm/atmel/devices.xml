@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Atmel>
+    <SAMD20 alt_title="SAMD20 (Cortex M0+)">
+        <SAMD20E>
+            <ATSAMD20E14 romAddr=0x00000000 romLen=0x00004000 ramAddr=0x20000000 ramLen=0x00000800 cpu_core=cortex-m0plus />
+            <ATSAMD20E15 romAddr=0x00000000 romLen=0x00008000 ramAddr=0x20000000 ramLen=0x00001000 cpu_core=cortex-m0plus />
+            <ATSAMD20E16 romAddr=0x00000000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m0plus />
+            <ATSAMD20E17 romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m0plus />
+        </SAMD20E>
+
+        <SAMD20G>
+            <ATSAMD20G14 romAddr=0x00000000 romLen=0x00004000 ramAddr=0x20000000 ramLen=0x00000800 cpu_core=cortex-m0plus />
+            <ATSAMD20G15 romAddr=0x00000000 romLen=0x00008000 ramAddr=0x20000000 ramLen=0x00001000 cpu_core=cortex-m0plus />
+            <ATSAMD20G16 romAddr=0x00000000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m0plus />
+            <ATSAMD20G17 romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m0plus />
+            <ATSAMD20G18 romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m0plus />
+        </SAMD20G>
+
+        <SAMD20J>
+            <ATSAMD20J14 romAddr=0x00000000 romLen=0x00004000 ramAddr=0x20000000 ramLen=0x00000800 cpu_core=cortex-m0plus />
+            <ATSAMD20J15 romAddr=0x00000000 romLen=0x00008000 ramAddr=0x20000000 ramLen=0x00001000 cpu_core=cortex-m0plus />
+            <ATSAMD20J16 romAddr=0x00000000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m0plus />
+            <ATSAMD20J17 romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m0plus />
+            <ATSAMD20J18 romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m0plus />
+        </SAMD20J>
+    </SAMD20>
+
+    <SAM3 alt_title="SAM3 (Cortex M3)">
+        <SAM3a>
+            <ATSAM3A4C romAddr=0x00080000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+            <ATSAM3A8C romAddr=0x00080000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00018000 cpu_core=cortex-m3 />
+        </SAM3a>
+
+        <SAM3n>
+            <ATSAM3N00A romAddr=0x00400000 romLen=0x00004000 ramAddr=0x20000000 ramLen=0x00001000 cpu_core=cortex-m3 />
+            <ATSAM3N00B romAddr=0x00400000 romLen=0x00004000 ramAddr=0x20000000 ramLen=0x00001000 cpu_core=cortex-m3 />
+            <ATSAM3N0A  romAddr=0x00400000 romLen=0x00008000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m3 />
+            <ATSAM3N0B  romAddr=0x00400000 romLen=0x00008000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m3 />
+            <ATSAM3N0C  romAddr=0x00400000 romLen=0x00008000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m3 />
+            <ATSAM3N1A  romAddr=0x00400000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m3 />
+            <ATSAM3N1B  romAddr=0x00400000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m3 />
+            <ATSAM3N1C  romAddr=0x00400000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00002000 cpu_core=cortex-m3 />
+            <ATSAM3N2A  romAddr=0x00400000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3N2B  romAddr=0x00400000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3N2C  romAddr=0x00400000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3N4A  romAddr=0x00400000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00006000 cpu_core=cortex-m3 />
+            <ATSAM3N4B  romAddr=0x00400000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00006000 cpu_core=cortex-m3 />
+            <ATSAM3N4C  romAddr=0x00400000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00006000 cpu_core=cortex-m3 />
+        </SAM3n>
+
+        <SAM3s>
+            <ATSAM3S1A romAddr=0x00400000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3S1B romAddr=0x00400000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3S1C romAddr=0x00400000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3S2A romAddr=0x00400000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m3 />
+            <ATSAM3S2B romAddr=0x00400000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m3 />
+            <ATSAM3S2C romAddr=0x00400000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m3 />
+            <ATSAM3S4A romAddr=0x00400000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x0000C000 cpu_core=cortex-m3 />
+            <ATSAM3S4B romAddr=0x00400000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x0000C000 cpu_core=cortex-m3 />
+            <ATSAM3S4C romAddr=0x00400000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x0000C000 cpu_core=cortex-m3 />
+            <ATSAM3S8B romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+            <ATSAM3S8C romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+        </SAM3s>
+
+        <SAM3sd8>
+            <ATSAM3SD8B romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+            <ATSAM3SD8C romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+        </SAM3sd8>
+
+        <SAM3u>
+            <ATSAM3U1C romAddr=0x00080000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3U1E romAddr=0x00080000 romLen=0x00010000 ramAddr=0x20000000 ramLen=0x00004000 cpu_core=cortex-m3 />
+            <ATSAM3U2C romAddr=0x00080000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m3 />
+            <ATSAM3U2E romAddr=0x00080000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m3 />
+            <ATSAM3U4C romAddr=0x00080000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x0000C000 cpu_core=cortex-m3 />
+            <ATSAM3U4E romAddr=0x00080000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x0000C000 cpu_core=cortex-m3 />
+        </SAM3u>
+
+        <SAM3x>
+            <ATSAM3X4C romAddr=0x00080000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+            <ATSAM3X4E romAddr=0x00080000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m3 />
+            <ATSAM3X8C romAddr=0x00080000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00018000 cpu_core=cortex-m3 />
+            <ATSAM3X8E romAddr=0x00080000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00018000 cpu_core=cortex-m3 />
+        </SAM3x>
+    </SAM3>
+
+    <SAM4 alt_title="SAM4 (Cortex M4)">
+        <SAM4e>
+            <ATSAM4E8C  romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4f />
+            <ATSAM4E8E  romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4f />
+            <ATSAM4E16C romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4f />
+            <ATSAM4E16E romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4f />
+        </SAM4e>
+
+        <SAM4n>
+            <ATSAM4N8A  romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m4 />
+            <ATSAM4N8B  romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m4 />
+            <ATSAM4N8C  romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00010000 cpu_core=cortex-m4 />
+            <ATSAM4N16B romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00014000 cpu_core=cortex-m4 />
+            <ATSAM4N16C romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00014000 cpu_core=cortex-m4 />
+        </SAM4n>
+
+        <SAM4l>
+            <ATSAM4LC2A romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LC2B romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LC2C romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LC4A romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LC4B romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LC4C romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LS2A romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LS2B romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LS2C romAddr=0x00000000 romLen=0x00020000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LS4A romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LS4B romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+            <ATSAM4LS4C romAddr=0x00000000 romLen=0x00040000 ramAddr=0x20000000 ramLen=0x00008000 cpu_core=cortex-m4 />
+        </SAM4l>
+
+        <SAM4s>
+            <ATSAM4S8B   romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4 />
+            <ATSAM4S8C   romAddr=0x00400000 romLen=0x00080000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4 />
+            <ATSAM4S16B  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4 />
+            <ATSAM4S16C  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00020000 cpu_core=cortex-m4 />
+            <ATSAM4SA16B romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=cortex-m4 />
+            <ATSAM4SA16C romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=cortex-m4 />
+            <ATSAM4SD16B romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=cortex-m4 />
+            <ATSAM4SD16C romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=cortex-m4 />
+            <ATSAM4SD32B romAddr=0x00400000 romLen=0x00200000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=cortex-m4 />
+            <ATSAM4SD32C romAddr=0x00400000 romLen=0x00200000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=cortex-m4 />
+        </SAM4s>
+    </SAM4>
+
+    <SAM7 alt_title="SAM7 (ARM7TDMI)">
+        <SAM7l>
+            <AT91SAM7L128  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7L64   romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+        </SAM7l>
+
+        <SAM7s>
+            <AT91SAM7S16   romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S161  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S32   romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S321  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S64   romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S128  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S256  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7S512  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7SE32  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7SE256 romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7SE512 romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+        </SAM7s>
+
+        <SAM7x>
+            <AT91SAM7X128  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7X256  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7X512  romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7XC128 romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7XC256 romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+            <AT91SAM7XC512 romAddr=0x00400000 romLen=0x00100000 ramAddr=0x20000000 ramLen=0x00028000 cpu_core=arm7tdmi />
+        </SAM7x>
+    </SAM7>
+</Atmel>

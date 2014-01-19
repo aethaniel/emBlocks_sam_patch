@@ -9,14 +9,15 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Global Vars
-Processor <- _T("");   // The chosen processor
-IsLib <- false;        // Library output
-IsHex <- false;        // produce Hex file from ELF output ?
+xDeviceFile <- xmlFile(); // The xml file object with the device information
+Device <- _T("");         // The chosen processor
+IsLib <- false;           // Library output
+IsHex <- false;           // produce Hex file from ELF output ?
 IsTargetLevelSettings<- false;   // Set device settings at project level
-nHeap <- _T("");       // The heap value
-nStack <- _T("");      // The stack value
+nHeap <- _T("");         // The heap value
+nStack <- _T("");        // The stack value
 UseSemihosting <- false; // Use semihosting for the debug target
-
+deviceSerie <- _T("");   // Device serie inside a family
 
 function BeginWizard()
 {
@@ -32,70 +33,133 @@ function BeginWizard()
         Wizard.AddInfoPage(_T("Atmel - ARM"), intro_msg);
         Wizard.AddProjectPathPage();
         Wizard.AddCompilerPage(_T(""), _T("armgcc_eb"), true, true);
-/* Commented as unusable without evolution of scripted wizard plugin (need AddElement and some filesystem folder content parsing)
-        Wizard.AddGenericSingleChoiceListPage(_T("familyChoice"), _T("Device Family"), _T("Legacy;SAM7;SAM3;SAM4;SAMD"), -1 );
+        Wizard.AddGenericSingleChoiceListPage(_T("familyChoice"), _T("Device Family"), _T(""), -1 );
         Wizard.AddGenericSingleChoiceListPage(_T("seriesChoice"), _T("Device Series"), _T(""), -1 );
-        Wizard.AddGenericSingleChoiceListPage(_T("deviceChoice"), _T("Device"), _T(""), -1 );
-*/
         Wizard.AddPage(_T("deviceChoice"));
     }
     else
         print(wiz_type);
+
+    // Open the device XML file in the resource file of this wizard (global space)
+    if( !xDeviceFile.Open(Wizard.GetWizBasePath(false) + _T("arm/atmel/atmel.zip#zip:devices.xml")))
+    {
+        // The XML device file couldn't be read
+    }
 }
 
-/*
+
 ////////////////////////////////////////////////////////////////////////////////
 // Device Family choice page
 ////////////////////////////////////////////////////////////////////////////////
+function OnEnter_familyChoice(fwd)
+{
+    local family = :: wxArrayString();
+
+    xDeviceFile.CWEtoRoot();            // Be sure that we are on the root level of the document
+    xDeviceFile.CWE(_T("Atmel"));       // One level deeper, beyond the Atmel
+    xDeviceFile.GetChildList(family);   // Get an wxArrayString  with all the child elements on this level
+    Wizard.SetListBoxSelections(_T("GenericChoiceList"), family, -1); // Set the choice list
+    return true;
+}
+
 function OnLeave_familyChoice(fwd)
 {
+    local select = :: wxString();
     if (fwd)
     {
+        // Forward we have to go one level deeper into the device XML
+        select = Wizard.GetListboxStringSelection(_T("GenericChoiceList"));
 
+        // We are using alternate title attributes on the family level,  we need
+        // only the first part seperated by a space as reference to the next level.
+        // e.g. "SAM3 (Cortex-M3)" has the "SAM3" as XML element reference.
+        if(xDeviceFile.CWE(select.BeforeFirst(' ')))
+            return true;
+        else
+            return false;
     }
     return true;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Device Series choice page
 ////////////////////////////////////////////////////////////////////////////////
+function OnEnter_seriesChoice(fwd)
+{
+    // On entry, the Current Working Element (CWE) of the device XML file is already
+    // set at our level. We just retrieve a list with child elements, the series
+    local series = :: wxArrayString();
+
+    xDeviceFile.GetChildList(series);
+    Wizard.SetListBoxSelections(_T("GenericChoiceList"), series, -1);
+
+    return true;
+}
+
 function OnLeave_seriesChoice(fwd)
 {
     if (fwd)
     {
+        // Forward we have to go one level deeper into the XML
+        deviceSerie = Wizard.GetListboxStringSelection(_T("GenericChoiceList"));
 
+        // If the deviceSerie exsist in the XML (one level deeper) then
+        // we accept the forward action.
+        if(xDeviceFile.CWE(deviceSerie))
+            return true;
+        else
+            return false;
+    }
+    else
+    {
+        // Backwards, we have to move one level up in the XML file
+        // also a valid command would be xDeviceFile.CWEtoParent();
+        xDeviceFile.CWE(_T(".."));
     }
     return true;
 }
-*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // Device choice page
 ////////////////////////////////////////////////////////////////////////////////
+
+function OnEnter_deviceChoice(fwd)
+{
+    local devices = :: wxArrayString();
+    xDeviceFile.GetChildList(devices);
+
+    Wizard.SetComboboxSelections(_T("comboboxDevice"), devices);
+    Wizard.SetComboboxSelection(_T("comboboxDevice"), 0);
+}
+
+
 function OnLeave_deviceChoice(fwd)
 {
-    Processor = Wizard.GetComboboxStringSelection(_T("comboboxDevice"));
-    // Forbids the selection of a family or a series
-    if( Processor.Matches(_T("  AT*")) )
-    {
-      if (fwd)
-      {
-          IsHex = Wizard.IsCheckboxChecked(_T("checkboxHex"));
-          IsLib = Wizard.IsCheckboxChecked(_T("checkboxLibrary"));
-          IsTargetLevelSettings = Wizard.IsCheckboxChecked(_T("checkboxTargetLvl"));
-          nHeap = Wizard.GetTextControlValue(_T("textctrlHeap"));
-          nStack = Wizard.GetTextControlValue(_T("textctrlStack"));
-          UseSemihosting = Wizard.IsCheckboxChecked(_T("checkboxSemihosting"));
-      }
+    Device = Wizard.GetComboboxStringSelection(_T("comboboxDevice"));
 
-      // We leave to project creation
-      return true;
+    if (fwd)
+    {
+        IsHex = Wizard.IsCheckboxChecked(_T("checkboxHex"));
+        IsLib = Wizard.IsCheckboxChecked(_T("checkboxLibrary"));
+        IsTargetLevelSettings = Wizard.IsCheckboxChecked(_T("checkboxTargetLvl"));
+        nHeap = Wizard.GetTextControlValue(_T("textctrlHeap"));
+        nStack = Wizard.GetTextControlValue(_T("textctrlStack"));
+        UseSemihosting = Wizard.IsCheckboxChecked(_T("checkboxSemihosting"));
+
+        // Set the current working element of the XML file to the device
+        if(xDeviceFile.CWE(Device))
+            return true;
+        else
+            return false;
     }
-  else
-  {
-    // User selected a family or a series and not a device, so we stay on the page
-    return false;
-  }
+    else
+    {
+        // Backwards, we have to move one level up in the XML file
+        xDeviceFile.CWE(_T(".."));
+    }
+
+    return true;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -104,78 +168,47 @@ function OnLeave_deviceChoice(fwd)
 //
 function SetupProject(project)
 {
+    local string = ::wxString();
     local cpu_core  = ::wxString();
     local extension = ::wxString();
     local dbgIntfStr = ::wxString();
     local dbgIntfStrTarget = ::wxString();
-    local targetType;
-    local deviceFamily = ::wxString();
-    local deviceSeries = ::wxString();
-    local deviceName = ::wxString();
     local jlinkDeviceName = ::wxString();
-/*
-    local templatePath = ::wxString();
-    local deviceFamilyLower = ::wxString();
-    local deviceSeriesLower = ::wxString();
-    local deviceNameLower = ::wxString();
-*/
+    local hasDebugConfig  = false;
+    local targetType;
 
-    // Obtain the device name by removing the two leading spaces from wizard.rc
-    deviceName=Processor.Mid(2,Processor.Length());
-    jlinkDeviceName=_T("AT91") + deviceName.Mid(2,deviceName.Length()); // We need to fit JLink names
+    // The Arm7tdmi devices already starts with AT91
+    if( !Device.Matches(_T("AT91*")) )
+        jlinkDeviceName=_T("AT91") + Device.Mid(2,Device.Length()); // We need to fit JLink names
 
-    // Obtain the device core type
-    if(      deviceName.Matches(_T("ATSAMD20*")) )
-    {
-        cpu_core = _T("cortex-m0");
-        deviceFamily = _T("SAMD20") ;
-        deviceSeries = _T("SAMD20") ;
-    }
-    else if( deviceName.Matches(_T("ATSAM3*")) )
-    {
-        cpu_core = _T("cortex-m3");
-        deviceFamily = _T("SAM3") ;
-        // Obtain the device name by removing the 'AT' and keeping 5 characters
-        deviceSeries = deviceName.Mid(2, 5) ;
-    }
-    else if( deviceName.Matches(_T("ATSAM4E*")) )
-    {
-        cpu_core = _T("cortex-m4f");
-        deviceFamily = _T("SAM4") ;
-        deviceSeries = deviceName.Mid(2, 5) ;
-    }
-    else if( deviceName.Matches(_T("ATSAM4*")) )
-    {
-        cpu_core = _T("cortex-m4");
-        deviceFamily = _T("SAM4") ;
-        // Obtain the device name by removing the 'AT' and keeping 5 characters
-        deviceSeries = deviceName.Mid(2, 5) ;
-    }
-    else
-    {
-        cpu_core = _T("arm7tdmi");
-        deviceFamily = _T("SAM7") ;
-        // Obtain the device name by removing the 'AT' and keeping 5 characters
-        deviceSeries = deviceName.Mid(2, 5) ;
-    }
+    // Get the core type from the device XML file.
+    cpu_core = xDeviceFile.GetAttribute(_T("cpu_core"));
 
-/* Not working
-    // Copy the template files to the project directories
-    deviceFamilyLower = deviceFamily.MakeLower();
-    deviceSeriesLower = deviceSeries.MakeLower();
-    deviceNameLower = deviceName.MakeLower();
+    // Coipy the generic flash linker script from the resource zip file and put it in the
+    // project root. Rename the file to processor name and add it in the project manager.
+    // Replace all the script variables with the data from the device XML file.
+    string = _T("./")+Device.MakeLower()+_T("_flash.ld");
+    Wizard.CopyFile( _T("arm/atmel/atmel.zip#zip:Linker/sam_flash.ld"), string, true );
+    Wizard.ReplaceToken(_T("%PROC%"), Device.MakeUpper(),  string );
+    Wizard.ReplaceToken(_T("%ROMADDR%"),   xDeviceFile.GetAttribute(_T("romAddr")), string );
+    Wizard.ReplaceToken(_T("%ROMLENGTH%"), xDeviceFile.GetAttribute(_T("romLen")),  string );
+    Wizard.ReplaceToken(_T("%RAMADDR%"),   xDeviceFile.GetAttribute(_T("ramAddr")), string );
+    Wizard.ReplaceToken(_T("%RAMLENGTH%"), xDeviceFile.GetAttribute(_T("ramLen")),  string );
 
-    templatePath = _T("arm/atmel/atmel.zip#zip:")+deviceFamilyLower+_T("/")+deviceSeriesLower+_T("/source/");
-    //   CMSIS files
-    Wizard.CopyFile( templatePath+_T("startup_")+deviceSeriesLower+_T(".c"), _T("./"), false );
-    Wizard.CopyFile( templatePath+_T("system_")+deviceSeriesLower+_T(".c"), _T("./"), false );
-    //   Linker script files
-    Wizard.CopyFile( templatePath+deviceSeriesLower+_T("_flash.ld"), _T("./"), false );
-    Wizard.CopyFile( templatePath+deviceNameLower+_T("_flash.ld"), _T("./"), false );
-*/
-    Wizard.CopyTemplate( _T("arm/atmel/atmel.zip#zip:")+deviceFamily.MakeLower()+_T("/")+deviceSeries.MakeLower()+_T("/"), _T("./") );
+    // The same as the generic flash script but for the SRAM target.
+    string = _T("./")+Device.MakeLower()+_T("_sram.ld");
+    Wizard.CopyFile( _T("arm/atmel/atmel.zip#zip:Linker/sam_sram.ld"),  string, true );
+    Wizard.ReplaceToken(_T("%PROC%"), Device.MakeUpper(),  string );
+    Wizard.ReplaceToken(_T("%ROMADDR%"),   xDeviceFile.GetAttribute(_T("romAddr")), string );
+    Wizard.ReplaceToken(_T("%ROMLENGTH%"), xDeviceFile.GetAttribute(_T("romLen")),  string );
+    Wizard.ReplaceToken(_T("%RAMADDR%"),   xDeviceFile.GetAttribute(_T("ramAddr")), string );
+    Wizard.ReplaceToken(_T("%RAMLENGTH%"), xDeviceFile.GetAttribute(_T("ramLen")),  string );
+
     //   Common files
     Wizard.CopyTemplate( _T("arm/atmel/atmel.zip#zip:Common/"),  _T("./") );
+
+    // Startup file
+    Wizard.CopyFile( _T("arm/atmel/atmel.zip#zip:Startup/startup_")+deviceSerie.MakeLower()+_T(".c"), _T("./src/"), true );
 
     if( IsLib )
     {
@@ -193,17 +226,9 @@ function SetupProject(project)
     dbgIntfStr += _T("ID_JTAG_SWD=swd;");
     dbgIntfStr += _T("ID_FAM=Atmel;");
     dbgIntfStr += _T("ID_DEVICE=") + jlinkDeviceName + _T(";");
-    dbgIntfStr += _T("ID_SVD=$(TARGET_COMPILER_DIR)/../lib/atmel/svd/") + deviceName.MakeUpper() + _T(".svd");
+    dbgIntfStr += _T("ID_SVD=") + Device.MakeUpper() + _T(".svd");
 
     //-----  The device project properties --------------
-/* script debug purpose only!!! */
-/*
-    project.AddIncludeDir( _T("arm/atmel/atmel.zip#zip:")+deviceFamily.MakeLower()+_T("/")+deviceSeries.MakeLower()+_T("/source/"));
-    project.AddIncludeDir( deviceFamily.MakeLower() );
-    project.AddIncludeDir( deviceSeries.MakeLower() );
-    project.AddIncludeDir( deviceName.MakeLower() );
-*/
-
     project.AddIncludeDir( _T("$(TARGET_COMPILER_DIR)/../lib/atmel"));
 
     if( !IsTargetLevelSettings )
@@ -223,29 +248,21 @@ function SetupProject(project)
 
         // Add stack size value to project if filled
         if( !nStack.IsEmpty() )
-        {
             project.AddDeviceOption(_T("$stack=") + nStack);
-        }
 
         // Add heap size value to project if filled
         if( !nHeap.IsEmpty() )
-        {
             project.AddDeviceOption(_T("$heap=") + nHeap);
-        }
 
         // Add project device options
-        project.AddDeviceOption(_T("$lscript=./linker/")+deviceName.MakeLower()+_T("_flash.ld"));
+        project.AddDeviceOption(_T("$lscript=./")+Device.MakeLower()+_T("_flash.ld"));
 
         // Add project compiler options
-        project.AddCompilerOption(_T("-D__")+deviceName.MakeUpper()+_T("__"));
+        project.AddCompilerOption(_T("-D__")+Device.MakeUpper()+_T("__"));
         project.AddCompilerOption(_T("-fno-strict-aliasing"));
 
         // Add project linker options
         project.AddLinkerOption(_T("-eb_start_files"));
-        project.AddLinkerOption(_T("-Wl,--entry=Reset_Handler"));
-        project.AddLinkerOption(_T("-Wl,--defsym,STACK_SIZE=") + nStack);
-        project.AddLinkerOption(_T("-Wl,--defsym,HEAP_SIZE=") + nHeap);
-//        project.AddLinkerOption(_T("-Wl,-Map=") + Wizard.GetProjectName() + _T(".map,--cref"));
     }
 
     //------------ Debug build target ----------------
@@ -282,29 +299,20 @@ function SetupProject(project)
             }
 
             if( !nStack.IsEmpty() )
-            {
                 target.AddDeviceOption(_T("$stack=") + nStack);
-            }
 
             if( !nHeap.IsEmpty() )
-            {
                 target.AddDeviceOption(_T("$heap=") + nHeap);
-            }
 
             // Add target device options
-            target.AddDeviceOption(_T("$lscript=./linker/") + deviceName.MakeLower() + _T("_flash.ld"));
+            target.AddDeviceOption(_T("$lscript=./") + Device.MakeLower() + _T("_flash.ld"));
 
             // Add target compiler options
-            target.AddCompilerOption(_T("-D__") + deviceName.MakeUpper() + _T("__"));
+            target.AddCompilerOption(_T("-D__") + Device.MakeUpper() + _T("__"));
             target.AddCompilerOption(_T("-fno-strict-aliasing"));
 
             // Add target linker options
             target.AddLinkerOption(_T("-eb_start_files"));
-            target.AddLinkerOption(_T("-Wl,--entry=Reset_Handler"));
-            target.AddLinkerOption(_T("-Wl,--defsym,STACK_SIZE=") + nStack);
-            target.AddLinkerOption(_T("-Wl,--defsym,HEAP_SIZE=") + nHeap);
-//            target.AddLinkerOption(_T("-Wl,-Map=") + target.GetTargetName() + _T(".map,--cref"));
-
             target.SetOptionRelation(ortDeviceOptions, orUseTargetOptionsOnly);
         }
         else
@@ -326,6 +334,7 @@ function SetupProject(project)
         // Launch the debug settings dialog
         if( !IsLib )
         {
+            hasDebugConfig  = true;
             Wizard.LaunchDebugConfig( Wizard.GetDebugName(), dbgIntfStrTarget);
         }
     }
@@ -362,29 +371,20 @@ function SetupProject(project)
             }
 
             if( !nStack.IsEmpty() )
-            {
                 target.AddDeviceOption(_T("$stack=") + nStack);
-            }
 
             if( !nHeap.IsEmpty() )
-            {
                 target.AddDeviceOption(_T("$heap=") + nHeap);
-            }
 
             // Add target device options
-            target.AddDeviceOption(_T("$lscript=./linker/") + deviceName.MakeLower() + _T("_flash.ld"));
+            target.AddDeviceOption(_T("$lscript=./") + Device.MakeLower() + _T("_flash.ld"));
 
             // Add target compiler options
-            target.AddCompilerOption(_T("-D__") + deviceName.MakeUpper() + _T("__"));
+            target.AddCompilerOption(_T("-D__") + Device.MakeUpper() + _T("__"));
             target.AddCompilerOption(_T("-fno-strict-aliasing"));
 
             // Add target linker options
             target.AddLinkerOption(_T("-eb_start_files"));
-            target.AddLinkerOption(_T("-Wl,--entry=Reset_Handler"));
-            target.AddLinkerOption(_T("-Wl,--defsym,STACK_SIZE=") + nStack);
-            target.AddLinkerOption(_T("-Wl,--defsym,HEAP_SIZE=") + nHeap);
-//            target.AddLinkerOption(_T("-Wl,-Map=") + target.GetTargetName() + _T(".map,--cref"));
-
             target.SetOptionRelation(ortDeviceOptions, orUseTargetOptionsOnly);
         }
         else
@@ -393,19 +393,21 @@ function SetupProject(project)
         }
 
         if( targetType == ttExecutable )
-        {
             target.SetCreateHex( IsHex );
-        }
 
         target.SetOutputFilename(Wizard.GetReleaseOutputDir() + Wizard.GetProjectName() + extension);
         dbgIntfStrTarget=dbgIntfStr;
 
-        //Launch the debug settings dialog
+        // Launch the debug settings dialog if we skipped the debug target, otherwise copy the
+        // debug target settings to the release settings.
         if( !IsLib )
         {
-            Wizard.LaunchDebugConfig( Wizard.GetReleaseName(), dbgIntfStrTarget);
+            if(hasDebugConfig)
+                Wizard.CopyDebugConfig(Wizard.GetDebugName(), Wizard.GetReleaseName());
+            else
+                Wizard.LaunchDebugConfig( Wizard.GetReleaseName(), dbgIntfStrTarget);
         }
     }
 
     return true;
-}
+}
